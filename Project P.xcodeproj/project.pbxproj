@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		C0B0291B2756BF5C0006751A /* CategoryItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0B0291A2756BF5C0006751A /* CategoryItem.swift */; };
+		C0B0291D2756C6070006751A /* PostCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0B0291C2756C6070006751A /* PostCard.swift */; };
 		C0E689032750FF9E00FBC7D8 /* Project_PApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0E689022750FF9E00FBC7D8 /* Project_PApp.swift */; };
 		C0E689052750FF9E00FBC7D8 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0E689042750FF9E00FBC7D8 /* ContentView.swift */; };
 		C0E689072750FF9F00FBC7D8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C0E689062750FF9F00FBC7D8 /* Assets.xcassets */; };
@@ -14,6 +16,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		C0B0291A2756BF5C0006751A /* CategoryItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryItem.swift; sourceTree = "<group>"; };
+		C0B0291C2756C6070006751A /* PostCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostCard.swift; sourceTree = "<group>"; };
 		C0E688FF2750FF9E00FBC7D8 /* Project P.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Project P.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		C0E689022750FF9E00FBC7D8 /* Project_PApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Project_PApp.swift; sourceTree = "<group>"; };
 		C0E689042750FF9E00FBC7D8 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -53,6 +57,8 @@
 			children = (
 				C0E689022750FF9E00FBC7D8 /* Project_PApp.swift */,
 				C0E689042750FF9E00FBC7D8 /* ContentView.swift */,
+				C0B0291C2756C6070006751A /* PostCard.swift */,
+				C0B0291A2756BF5C0006751A /* CategoryItem.swift */,
 				C0E689062750FF9F00FBC7D8 /* Assets.xcassets */,
 				C0E689082750FF9F00FBC7D8 /* Preview Content */,
 			);
@@ -138,6 +144,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				C0E689052750FF9E00FBC7D8 /* ContentView.swift in Sources */,
+				C0B0291D2756C6070006751A /* PostCard.swift in Sources */,
+				C0B0291B2756BF5C0006751A /* CategoryItem.swift in Sources */,
 				C0E689032750FF9E00FBC7D8 /* Project_PApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
