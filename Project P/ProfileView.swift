@@ -32,9 +32,9 @@ struct ProfileView: View {
                         Text("\(contact)")
                     }
                 } .padding(.bottom, 50).background(RoundedRectangle(cornerRadius: 20)
-                                                .fill(.red)).padding()
+                                                    .fill(.red)).padding()
                 List {
-                    NavigationLink(destination: PostDetailsView()){
+                    NavigationLink(destination: MyPostsView()){
                         Text ("Minhas Postagens")
                     }
                     
@@ -42,10 +42,12 @@ struct ProfileView: View {
                         print("Edit button was tapped")
                     } label: {
                         Text("Sair").foregroundColor(Color.red)
-                    }                }
+                    }
+                    
+                }
             }
             
-
+            
         }
     }
 }
