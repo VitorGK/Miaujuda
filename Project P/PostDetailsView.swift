@@ -13,20 +13,17 @@ struct PostDetailsView: View {
             ScrollView(.vertical) {
                 VStack(alignment:.leading){
                     Text("Ração para gatos")
-                        .font(.title)
-                        .bold()
+                        .font(.title.bold())
                     Text("20/04/2021 às 13h30")
                         .font(.subheadline)
-                        .foregroundColor(Color.gray)
+                        .foregroundColor(Color.secondary)
                         .padding(.bottom)
                     Text("Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras non sem a ex blandit rutrum a et mauris. Vivamus elementum, tellus vel tristique varius, felis urna pulvinar dui, non eleifend ante sem in neque.")
                     Text("Itens")
-                        .font(.title2)
-                        .bold()
+                        .font(.title2.bold())
                         .padding(.top)
                     Text("Contatos")
-                        .font(.title2)
-                        .bold()
+                        .font(.title2.bold())
                         .padding(.top)
                        
                     HStack{

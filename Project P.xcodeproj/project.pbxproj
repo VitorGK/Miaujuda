@@ -15,6 +15,8 @@
 		C0E689052750FF9E00FBC7D8 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0E689042750FF9E00FBC7D8 /* ContentView.swift */; };
 		C0E689072750FF9F00FBC7D8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C0E689062750FF9F00FBC7D8 /* Assets.xcassets */; };
 		C0E6890A2750FF9F00FBC7D8 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C0E689092750FF9F00FBC7D8 /* Preview Assets.xcassets */; };
+		E485A31E27580528002EE912 /* ProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E485A31D27580528002EE912 /* ProfileView.swift */; };
+		E485A3202758112C002EE912 /* MyPostsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E485A31F2758112C002EE912 /* MyPostsView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -27,6 +29,8 @@
 		C0E689042750FF9E00FBC7D8 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		C0E689062750FF9F00FBC7D8 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		C0E689092750FF9F00FBC7D8 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		E485A31D27580528002EE912 /* ProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileView.swift; sourceTree = "<group>"; };
+		E485A31F2758112C002EE912 /* MyPostsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPostsView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -59,6 +63,8 @@
 		C0E689012750FF9E00FBC7D8 /* Project P */ = {
 			isa = PBXGroup;
 			children = (
+				E485A31F2758112C002EE912 /* MyPostsView.swift */,
+				E485A31D27580528002EE912 /* ProfileView.swift */,
 				C0E689022750FF9E00FBC7D8 /* Project_PApp.swift */,
 				146B9CCF2757E31B004E7B28 /* PostDetailsView.swift */,
 				C0E689042750FF9E00FBC7D8 /* ContentView.swift */,
@@ -154,6 +160,8 @@
 				C0B0291D2756C6070006751A /* PostCard.swift in Sources */,
 				146B9CD02757E31B004E7B28 /* PostDetailsView.swift in Sources */,
 				C0B0291B2756BF5C0006751A /* CategoryItem.swift in Sources */,
+				E485A31E27580528002EE912 /* ProfileView.swift in Sources */,
+				E485A3202758112C002EE912 /* MyPostsView.swift in Sources */,
 				C0E689032750FF9E00FBC7D8 /* Project_PApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
