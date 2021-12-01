@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		146B9CD02757E31B004E7B28 /* PostDetailsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 146B9CCF2757E31B004E7B28 /* PostDetailsView.swift */; };
 		C0B0291B2756BF5C0006751A /* CategoryItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0B0291A2756BF5C0006751A /* CategoryItem.swift */; };
 		C0B0291D2756C6070006751A /* PostCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0B0291C2756C6070006751A /* PostCard.swift */; };
 		C0E689032750FF9E00FBC7D8 /* Project_PApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0E689022750FF9E00FBC7D8 /* Project_PApp.swift */; };
@@ -16,6 +17,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		146B9CCF2757E31B004E7B28 /* PostDetailsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostDetailsView.swift; sourceTree = "<group>"; };
 		C0B0291A2756BF5C0006751A /* CategoryItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryItem.swift; sourceTree = "<group>"; };
 		C0B0291C2756C6070006751A /* PostCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostCard.swift; sourceTree = "<group>"; };
 		C0E688FF2750FF9E00FBC7D8 /* Project P.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Project P.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -56,6 +58,7 @@
 			isa = PBXGroup;
 			children = (
 				C0E689022750FF9E00FBC7D8 /* Project_PApp.swift */,
+				146B9CCF2757E31B004E7B28 /* PostDetailsView.swift */,
 				C0E689042750FF9E00FBC7D8 /* ContentView.swift */,
 				C0B0291C2756C6070006751A /* PostCard.swift */,
 				C0B0291A2756BF5C0006751A /* CategoryItem.swift */,
@@ -145,6 +148,7 @@
 			files = (
 				C0E689052750FF9E00FBC7D8 /* ContentView.swift in Sources */,
 				C0B0291D2756C6070006751A /* PostCard.swift in Sources */,
+				146B9CD02757E31B004E7B28 /* PostDetailsView.swift in Sources */,
 				C0B0291B2756BF5C0006751A /* CategoryItem.swift in Sources */,
 				C0E689032750FF9E00FBC7D8 /* Project_PApp.swift in Sources */,
 			);
