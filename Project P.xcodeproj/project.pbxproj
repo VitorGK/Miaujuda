@@ -17,6 +17,7 @@
 		C0E6890A2750FF9F00FBC7D8 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C0E689092750FF9F00FBC7D8 /* Preview Assets.xcassets */; };
 		C88A705E27593341004D4D2F /* FormPostView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C88A705D27593341004D4D2F /* FormPostView.swift */; };
 		C88A706027594578004D4D2F /* AddItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C88A705F27594578004D4D2F /* AddItemView.swift */; };
+		C88A706227595243004D4D2F /* CategoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C88A706127595243004D4D2F /* CategoryView.swift */; };
 		E485A31E27580528002EE912 /* ProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E485A31D27580528002EE912 /* ProfileView.swift */; };
 		E485A3202758112C002EE912 /* MyPostsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E485A31F2758112C002EE912 /* MyPostsView.swift */; };
 /* End PBXBuildFile section */
@@ -33,6 +34,7 @@
 		C0E689092750FF9F00FBC7D8 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		C88A705D27593341004D4D2F /* FormPostView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FormPostView.swift; sourceTree = "<group>"; };
 		C88A705F27594578004D4D2F /* AddItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddItemView.swift; sourceTree = "<group>"; };
+		C88A706127595243004D4D2F /* CategoryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryView.swift; sourceTree = "<group>"; };
 		E485A31D27580528002EE912 /* ProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileView.swift; sourceTree = "<group>"; };
 		E485A31F2758112C002EE912 /* MyPostsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPostsView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -74,6 +76,7 @@
 				C88A705D27593341004D4D2F /* FormPostView.swift */,
 				C88A705F27594578004D4D2F /* AddItemView.swift */,
 				C0E689042750FF9E00FBC7D8 /* ContentView.swift */,
+				C88A706127595243004D4D2F /* CategoryView.swift */,
 				C0B0291C2756C6070006751A /* PostCard.swift */,
 				146B9CD12757EEFA004E7B28 /* SignInIView.swift */,
 				C0B0291A2756BF5C0006751A /* CategoryItem.swift */,
@@ -166,6 +169,7 @@
 				C0B0291D2756C6070006751A /* PostCard.swift in Sources */,
 				146B9CD02757E31B004E7B28 /* PostDetailsView.swift in Sources */,
 				C0B0291B2756BF5C0006751A /* CategoryItem.swift in Sources */,
+				C88A706227595243004D4D2F /* CategoryView.swift in Sources */,
 				E485A31E27580528002EE912 /* ProfileView.swift in Sources */,
 				E485A3202758112C002EE912 /* MyPostsView.swift in Sources */,
 				C88A705E27593341004D4D2F /* FormPostView.swift in Sources */,

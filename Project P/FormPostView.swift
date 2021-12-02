@@ -16,13 +16,13 @@ struct FormPostView: View {
         
         Form {
             Section(header: Text("Categoria da Postagem")) {
-                HStack {
-                    Picker("Status", selection: $pickerSelectedItemPost) {
-                        Text("Necessidade").tag(0)
-                        Text("Doação").tag(1)
-                    }
-                    .pickerStyle(.segmented)
+                
+                Picker("Categoria", selection: $pickerSelectedItemPost) {
+                    Text("Necessidade").tag(0)
+                    Text("Doação").tag(1)
                 }
+                .pickerStyle(.segmented)
+                
             }
             Section(header: Text("Título da Postagem")) {
                 TextField("", text: $postTitle)
@@ -43,7 +43,7 @@ struct FormPostView: View {
             }
         }
         .navigationTitle("Nova Postagem")
-            .navigationBarTitleDisplayMode(.inline)
+        .navigationBarTitleDisplayMode(.inline)
     }
     
 }
