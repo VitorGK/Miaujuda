@@ -34,8 +34,12 @@ struct ContentView: View {
                         .font(.title3)
                         .bold()
                         .frame(maxWidth: .infinity, alignment: .leading)
-                    Image(systemName: "plus")
-                        .foregroundColor(.accentColor)
+                    Button(action: {
+                    }) {
+                        NavigationLink(destination: FormPostView()) {
+                            Image(systemName:"plus")
+                        }
+                    }
                 }
                 .padding()
                 VStack {
