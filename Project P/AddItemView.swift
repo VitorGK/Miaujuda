@@ -8,8 +8,36 @@
 import SwiftUI
 
 struct AddItemView: View {
+    @State var itemName: String = ""
+    @State var itemQuantity: String = ""
+    @State var pickerSelectedDate: Date = Date()
+    
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        Form {
+            Section(){
+                TextField("Nome do item", text: $itemName)
+                TextField("Quantidade", text: $itemQuantity)
+                
+            }
+            
+            List {
+                NavigationLink(destination: CategoryView()){
+                    Text ("Categoria")
+                    
+                }
+            }
+            
+            Section() {
+                
+                DatePicker(
+                    "Validade",
+                    selection: $pickerSelectedDate,
+                    displayedComponents: [.date]
+                )
+            }
+        }
+        .navigationTitle("Novo item")
+        .navigationBarTitleDisplayMode(.inline)
     }
 }
 
