@@ -1,22 +1,37 @@
 //
-//  CategoryView.swift
+//  OrgCategoryView.swift
 //  Project P
 //
 //  Created by Caroline Taus on 02/12/21.
 //
 
 import SwiftUI
-
-
 struct CategoryView: View {
-
-    let categories = ["Alimento", "Remédio", "Higiene", "Outros"]
+    @Environment (\.dismiss) var dismiss
+    
+    var categories: [String]
     @State var selectedCategory: String? = nil
-
+    
     var body: some View {
         List {
-            ForEach(categories, id: \.self) { item in
-                SelectionCell(category: item, selectedCategory: self.$selectedCategory)
+            ForEach(0..<categories.count) { item in
+                
+                Button {
+                    self.selectedCategory = self.categories[item]
+                    dismiss()
+                } label: {
+                    HStack {
+                        Text(categories[item])
+                            .foregroundColor(Color.primary)
+                        Spacer()
+                        if categories[item] == selectedCategory {
+                            Image(systemName: "checkmark")
+                                .foregroundColor(.accentColor)
+                        }
+                    }
+                }
+                
+                
             }
         }
         .navigationTitle("Categoria")
@@ -24,29 +39,12 @@ struct CategoryView: View {
     }
 }
 
-struct SelectionCell: View {
 
-    let category: String
-    @Binding var selectedCategory: String?
 
-    var body: some View {
-        HStack {
-            Text(category)
-            Spacer()
-            if category == selectedCategory {
-                Image(systemName: "checkmark")
-                    .foregroundColor(.accentColor)
-            }
-        }
-        .background(Color.white)
-        .onTapGesture {
-                self.selectedCategory = self.category
-            }
-    }
-}
+
 
 struct CategoryView_Previews: PreviewProvider {
     static var previews: some View {
-        CategoryView()
+        CategoryView(categories: ["ONG", "Protetor Independente", "Loja", "Fornecedor"])
     }
 }

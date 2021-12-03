@@ -21,8 +21,9 @@ struct AddItemView: View {
             }
             
             List {
-                NavigationLink(destination: CategoryView()){
+                NavigationLink(destination: CategoryView(categories: ["Alimento", "Remédio", "Higiene", "Outros"])){
                     Text ("Categoria")
+                        .foregroundColor(.primary)
                     
                 }
             }
@@ -34,6 +35,9 @@ struct AddItemView: View {
                     selection: $pickerSelectedDate,
                     displayedComponents: [.date]
                 )
+                
+                    
+                
             }
         }
         .navigationTitle("Novo item")
