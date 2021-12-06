@@ -9,47 +9,54 @@ import SwiftUI
 
 struct ProfileView: View {
     var body: some View {
-        NavigationView {
-            VStack {
-                VStack {
-                    HStack{
-                        Spacer()
-                        Button{
-                            print("Edit button was tapped")
-                        } label: {
-                            Image(systemName: "pencil.circle")
-                        } .padding()
-                        
-                    }
-                    RoundedRectangle(cornerRadius: 30)
-                        .fill(.black)
-                        .frame(width: 60, height: 60)
-                    Text("Unidos da Taus")
-                        .font(.title.bold())
-                    Text("ONG")
-                        .foregroundColor(.secondary)
-                    ForEach([1,2,3], id: \.self ) { contact in
-                        Text("\(contact)")
-                    }
-                } .padding(.bottom, 50).background(RoundedRectangle(cornerRadius: 20)
-                    .fill(.red)).padding()
-                List {
-                    NavigationLink(destination: MyPostsView()){
-                        Text ("Minhas Postagens")
-                    }
-                    
-                    Button{
-                        print("Edit button was tapped")
-                    } label: {
-                        Text("Sair").foregroundColor(Color.red)
-                    }
-                    
-                }
+        
+        VStack {
+            HStack{
+                Spacer()
+                Button{
+                    print("Edit button was tapped")
+                } label: {
+                    Image(systemName: "pencil.circle")
+                } .padding()
+                
+            }
+        
+            Image("profileCat2")
+                .resizable()
+                .scaledToFit()
+                .frame(width: 150, height: 150)
+    
+            
+            Text("Unidos da Taus")
+                .font(.title.bold())
+            Text("ONG")
+                .foregroundColor(.secondary)
+                .padding(.bottom, 10)
+            ForEach([1,2,3], id: \.self ) { contact in
+                Text("\(contact)")
+            }
+        } .padding(.bottom, 50)
+            .background(Color .backgroundPost)
+            .cornerRadius(20)
+            .shadow(radius: 4)
+            .padding()
+            .navigationTitle("Perfil")
+        List {
+            NavigationLink(destination: MyPostsView()){
+                Text ("Minhas Postagens")
             }
             
+            Button{
+                print("Edit button was tapped")
+            } label: {
+                Text("Sair").foregroundColor(Color.red)
+            }
             
         }
     }
+    
+
+    
 }
 
 
