@@ -47,8 +47,15 @@ struct PostDetailsView: View {
             .padding()
         } .navigationTitle("Ração para gatos")
             .navigationBarTitleDisplayMode(.large)
-    }
+            .navigationBarItems(trailing:
+                                    Button(action: {
+                print("Oiii")
+            }) {
+                Image(systemName: "ellipsis.circle").imageScale(.large)
+            }
+    )
     //}
+}
 }
 
 struct PostDetailsView_Previews: PreviewProvider {
@@ -56,3 +63,4 @@ struct PostDetailsView_Previews: PreviewProvider {
         PostDetailsView()
     }
 }
+
