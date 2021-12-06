@@ -32,7 +32,7 @@ struct ProfileView: View {
                         Text("\(contact)")
                     }
                 } .padding(.bottom, 50).background(RoundedRectangle(cornerRadius: 20)
-                                                    .fill(.red)).padding()
+                    .fill(.red)).padding()
                 List {
                     NavigationLink(destination: MyPostsView()){
                         Text ("Minhas Postagens")
