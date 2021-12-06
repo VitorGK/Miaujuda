@@ -12,6 +12,14 @@ struct ContentView: View {
         "Outros"
     ]
     
+    let categoriesImage: [String] = [
+        "alimentos",
+        "remedio",
+        "higiene",
+        "outros"
+        
+    ]
+    
     var body: some View {
         NavigationView {
           
@@ -22,10 +30,11 @@ struct ContentView: View {
                     .frame(maxWidth: .infinity, alignment: .leading)
                     .padding(.top, 25)
                     .padding(.leading)
+                    
                 ScrollView(.horizontal, showsIndicators: false) {
                     LazyHGrid(rows: [GridItem(.fixed(0))], spacing: 20) {
                         ForEach(0...3, id: \.self) { item in
-                            CategoryItem(imageName: "heart.fill", text: categoriesTitle[item])
+                            CategoryItem(imageName: categoriesImage[item], text: categoriesTitle[item])
                         }
                     }
                     .frame(height: 86)
@@ -69,7 +78,10 @@ struct ContentView: View {
                                 Button(action: {
                showingSheet.toggle()
            }, label: {
-               Image(systemName: "ellipsis.circle").imageScale(.large)
+               Image("signOut") .resizable()
+                   .frame(width: 41, height: 41)
+                   .scaledToFill()
+               
            })  .sheet(isPresented: $showingSheet) {SignInIView()}
 
     )

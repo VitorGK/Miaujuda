@@ -43,6 +43,7 @@ struct SignInIView: View {
         }
         .padding(.trailing)
         .padding(.leading)
+    
     }
 }
 
