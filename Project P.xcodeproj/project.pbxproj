@@ -8,7 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		146B9CD02757E31B004E7B28 /* PostDetailsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 146B9CCF2757E31B004E7B28 /* PostDetailsView.swift */; };
-		146B9CD22757EEFA004E7B28 /* SignInIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 146B9CD12757EEFA004E7B28 /* SignInIView.swift */; };
+		146B9CD22757EEFA004E7B28 /* SignInWithAppleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 146B9CD12757EEFA004E7B28 /* SignInWithAppleView.swift */; };
+		C0082CA9275EA41D005CA798 /* DataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0082CA8275EA41D005CA798 /* DataManager.swift */; };
 		C0B0291B2756BF5C0006751A /* CategoryItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0B0291A2756BF5C0006751A /* CategoryItem.swift */; };
 		C0B0291D2756C6070006751A /* PostCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0B0291C2756C6070006751A /* PostCard.swift */; };
 		C0E689032750FF9E00FBC7D8 /* Project_PApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0E689022750FF9E00FBC7D8 /* Project_PApp.swift */; };
@@ -27,10 +28,12 @@
 
 /* Begin PBXFileReference section */
 		146B9CCF2757E31B004E7B28 /* PostDetailsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostDetailsView.swift; sourceTree = "<group>"; };
-		146B9CD12757EEFA004E7B28 /* SignInIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInIView.swift; sourceTree = "<group>"; };
+		146B9CD12757EEFA004E7B28 /* SignInWithAppleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInWithAppleView.swift; sourceTree = "<group>"; };
+		C0082CA7275E88D5005CA798 /* Project P.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "Project P.entitlements"; sourceTree = "<group>"; };
+		C0082CA8275EA41D005CA798 /* DataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataManager.swift; sourceTree = "<group>"; };
 		C0B0291A2756BF5C0006751A /* CategoryItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryItem.swift; sourceTree = "<group>"; };
 		C0B0291C2756C6070006751A /* PostCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostCard.swift; sourceTree = "<group>"; };
-		C0E688FF2750FF9E00FBC7D8 /* Project P.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Project P.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		C0E688FF2750FF9E00FBC7D8 /* Helpets.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Helpets.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C0E689022750FF9E00FBC7D8 /* Project_PApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Project_PApp.swift; sourceTree = "<group>"; };
 		C0E689042750FF9E00FBC7D8 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		C0E689062750FF9F00FBC7D8 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -67,7 +70,7 @@
 		C0E689002750FF9E00FBC7D8 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				C0E688FF2750FF9E00FBC7D8 /* Project P.app */,
+				C0E688FF2750FF9E00FBC7D8 /* Helpets.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -82,6 +85,22 @@
 				C0E689022750FF9E00FBC7D8 /* Project_PApp.swift */,
 				146B9CCF2757E31B004E7B28 /* PostDetailsView.swift */,
 				C0E689042750FF9E00FBC7D8 /* ContentView.swift */,
+				C0082CA7275E88D5005CA798 /* Project P.entitlements */,
+				C0E689022750FF9E00FBC7D8 /* Project_PApp.swift */,
+				E485A31F2758112C002EE912 /* MyPostsView.swift */,
+				E485A31D27580528002EE912 /* ProfileView.swift */,
+				146B9CCF2757E31B004E7B28 /* PostDetailsView.swift */,
+				C88A705D27593341004D4D2F /* FormPostView.swift */,
+				C88A705F27594578004D4D2F /* AddItemView.swift */,
+				C0B0291C2756C6070006751A /* PostCard.swift */,
+				C0B0291A2756BF5C0006751A /* CategoryItem.swift */,
+				C0E689042750FF9E00FBC7D8 /* ContentView.swift */,
+				C0082CA8275EA41D005CA798 /* DataManager.swift */,
+				146B9CD12757EEFA004E7B28 /* SignInWithAppleView.swift */,
+				C88A706327595C2B004D4D2F /* FormProfileRegView.swift */,
+				C88A706527595E19004D4D2F /* CategoryView.swift */,
+				C815C97F275E8680002060A3 /* ColorExtension.swift */,
+				C0B0291A2756BF5C0006751A /* CategoryItem.swift */,
 				C0E689062750FF9F00FBC7D8 /* Assets.xcassets */,
 				C0E689082750FF9F00FBC7D8 /* Preview Content */,
 			);
@@ -152,7 +171,7 @@
 			);
 			name = "Project P";
 			productName = "Project P";
-			productReference = C0E688FF2750FF9E00FBC7D8 /* Project P.app */;
+			productReference = C0E688FF2750FF9E00FBC7D8 /* Helpets.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -205,7 +224,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				146B9CD22757EEFA004E7B28 /* SignInIView.swift in Sources */,
+				146B9CD22757EEFA004E7B28 /* SignInWithAppleView.swift in Sources */,
 				C0E689052750FF9E00FBC7D8 /* ContentView.swift in Sources */,
 				C0B0291D2756C6070006751A /* PostCard.swift in Sources */,
 				C88A706627595E19004D4D2F /* CategoryView.swift in Sources */,
@@ -217,6 +236,7 @@
 				C88A705E27593341004D4D2F /* FormPostView.swift in Sources */,
 				C815C982275EA7EA002060A3 /* ItemCard.swift in Sources */,
 				C0E689032750FF9E00FBC7D8 /* Project_PApp.swift in Sources */,
+				C0082CA9275EA41D005CA798 /* DataManager.swift in Sources */,
 				C88A706027594578004D4D2F /* AddItemView.swift in Sources */,
 				C815C980275E8680002060A3 /* ColorExtension.swift in Sources */,
 			);
@@ -346,10 +366,11 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = "Project P/Project P.entitlements";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"Project P/Preview Content\"";
-				DEVELOPMENT_TEAM = 87UTUM347S;
+				DEVELOPMENT_TEAM = 337G99FP8D;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
@@ -363,8 +384,8 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 0.1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = "com.vitorgk.Project-P";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_BUNDLE_IDENTIFIER = com.projectpetsteam.ProjectPets;
+				PRODUCT_NAME = Helpets;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -376,10 +397,11 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = "Project P/Project P.entitlements";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"Project P/Preview Content\"";
-				DEVELOPMENT_TEAM = 87UTUM347S;
+				DEVELOPMENT_TEAM = 337G99FP8D;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
@@ -393,8 +415,8 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 0.1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = "com.vitorgk.Project-P";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_BUNDLE_IDENTIFIER = com.projectpetsteam.ProjectPets;
+				PRODUCT_NAME = Helpets;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
