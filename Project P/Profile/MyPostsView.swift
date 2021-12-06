@@ -1,42 +1,30 @@
-//
-//  MyPostsView.swift
-//  Project P
-//
-//  Created by João Victor Ferreira Pimenta on 01/12/21.
-//
-
 import SwiftUI
-
-
 
 struct MyPostsView: View {
     @State var pickerSelectedItemMyPosts: Int = 0
     
     var body: some View {
-            ScrollView (.vertical){
-                VStack {
-                    Picker ("Status", selection: $pickerSelectedItemMyPosts ){
-                        Text("Ativas").tag(0)
-                        Text("Inativas").tag(1)
-                        
-                    }.pickerStyle(.segmented)
-                    
-                    
-                    
-                    Group{
-                        Text("um texto")
-                        Text("um texto")
-                        Text("um texto")
-                        Text("um texto")
-                        Text("um texto")
-                        Text("um texto")
-                        Text("um texto")
-                    }
-                    
+        ScrollView(.vertical) {
+            VStack {
+                Picker("Status", selection: $pickerSelectedItemMyPosts) {
+                    Text("Ativas").tag(0)
+                    Text("Inativas").tag(1)
                 }
-            
-        } .navigationTitle("Minhas Postagens").navigationBarTitleDisplayMode(.inline)
-        
+                .pickerStyle(.segmented)
+                
+                Group{
+                    Text("um texto")
+                    Text("um texto")
+                    Text("um texto")
+                    Text("um texto")
+                    Text("um texto")
+                    Text("um texto")
+                    Text("um texto")
+                }
+            }
+        }
+        .navigationTitle("Minhas Postagens")
+        .navigationBarTitleDisplayMode(.inline)
     }
 }
 

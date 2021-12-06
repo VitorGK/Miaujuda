@@ -5,7 +5,7 @@ struct SignInWithAppleView: View {
     @Environment(\.colorScheme) var colorScheme
     @Environment(\.dismiss) private var dismiss
     
-    @Binding var isAuthComplete: Bool
+    @Binding var isButtonPressed: Bool
     
     var body: some View {
         VStack {
@@ -22,7 +22,7 @@ struct SignInWithAppleView: View {
                 switch result {
                     case .success(let authResults):
                         print("Authorization successful.")
-                        self.isAuthComplete = true
+                        self.isButtonPressed = true
                         self.dismiss()
                     case .failure(let error):
                         print("Authorization failure" + error.localizedDescription)
@@ -50,8 +50,8 @@ struct SignInWithAppleView: View {
 //    }
 }
 
-struct SignInWithAppleView_Previews: PreviewProvider {
-    static var previews: some View {
-        SignInWithAppleView(isAuthComplete: .constant(false))
-    }
-}
+//struct SignInWithAppleView_Previews: PreviewProvider {
+//    static var previews: some View {
+//        SignInWithAppleView()
+//    }
+//}

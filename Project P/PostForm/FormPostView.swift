@@ -1,10 +1,3 @@
-//
-//  FormPostView.swift
-//  Project P
-//
-//  Created by Caroline Taus on 02/12/21.
-//
-
 import SwiftUI
 
 struct FormPostView: View {

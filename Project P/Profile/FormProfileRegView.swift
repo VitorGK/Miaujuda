@@ -1,6 +1,7 @@
 import SwiftUI
 
 struct FormProfileRegView: View {
+    @Environment(\.dismiss) private var dismiss
     
     @State var avatar: Int = 0
     @State var organizationName: String = ""
@@ -68,7 +69,7 @@ struct FormProfileRegView: View {
                     .buttonStyle(BorderlessButtonStyle())
                 }
                 
-                Section(header: Text("Adicione informações da organização")){
+                Section(header: Text("Adicione informações da organização")) {
                     NavigationLink(destination: CategoryView(selectedCategory: $organizationCategory, categories: ["ONG", "Protetor Independente", "Loja", "Fornecedor"])) {
                         Text("Categoria")
                     }
@@ -106,6 +107,7 @@ struct FormProfileRegView: View {
                             }
                         }
                     }
+                    self.dismiss()
                 } label: {
                     Text("Concluir")
                 }

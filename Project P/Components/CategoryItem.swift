@@ -9,7 +9,7 @@ struct CategoryItem: View {
             ZStack {
 //                RoundedRectangle(cornerRadius: 10)
 //                    .fill(.red)
-//                    
+//
                 Image(imageName)
                     .resizable()
                     .scaledToFit()

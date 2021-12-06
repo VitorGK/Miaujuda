@@ -1,15 +1,7 @@
-//
-//  PostDetailsView.swift
-//  Project P
-//
-//  Created by Juliana Santana on 01/12/21.
-//
-
 import SwiftUI
 
 struct PostDetailsView: View {
     var body: some View {
-        // NavigationView{
         ScrollView(.vertical) {
             VStack(alignment:.leading){
                 Text("20/04/2021 às 13h30")
@@ -40,9 +32,6 @@ struct PostDetailsView: View {
                     Link("View Our Terms of Service",
                          destination: URL(string: "https://www.example.com/TOS.html")!)
                 }
-                
-                
-                
             }
             .padding()
         } .navigationTitle("Ração para gatos")
@@ -53,9 +42,8 @@ struct PostDetailsView: View {
             }) {
                 Image(systemName: "ellipsis.circle").imageScale(.large)
             }
-    )
-    //}
-}
+            )
+    }
 }
 
 struct PostDetailsView_Previews: PreviewProvider {
