@@ -13,7 +13,6 @@ struct MyPostsView: View {
     @State var pickerSelectedItemMyPosts: Int = 0
     
     var body: some View {
-        NavigationView{
             ScrollView (.vertical){
                 VStack {
                     Picker ("Status", selection: $pickerSelectedItemMyPosts ){
@@ -35,7 +34,7 @@ struct MyPostsView: View {
                     }
                     
                 }
-            }
+            
         } .navigationTitle("Minhas Postagens").navigationBarTitleDisplayMode(.inline)
         
     }
