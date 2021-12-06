@@ -1,24 +1,18 @@
-//
-//  OrgCategoryView.swift
-//  Project P
-//
-//  Created by Caroline Taus on 02/12/21.
-//
-
 import SwiftUI
+
 struct CategoryView: View {
-    @Environment (\.dismiss) var dismiss
+    @Environment(\.dismiss) private var dismiss
+    
+    @Binding var selectedCategory: String
     
     var categories: [String]
-    @State var selectedCategory: String? = nil
     
     var body: some View {
         List {
             ForEach(0..<categories.count) { item in
-                
                 Button {
                     self.selectedCategory = self.categories[item]
-                    dismiss()
+                    self.dismiss()
                 } label: {
                     HStack {
                         Text(categories[item])
@@ -30,8 +24,6 @@ struct CategoryView: View {
                         }
                     }
                 }
-                
-                
             }
         }
         .navigationTitle("Categoria")
@@ -39,12 +31,8 @@ struct CategoryView: View {
     }
 }
 
-
-
-
-
 struct CategoryView_Previews: PreviewProvider {
     static var previews: some View {
-        CategoryView(categories: ["ONG", "Protetor Independente", "Loja", "Fornecedor"])
+        CategoryView(selectedCategory: .constant(""), categories: ["ONG", "Protetor Independente", "Loja", "Fornecedor"])
     }
 }

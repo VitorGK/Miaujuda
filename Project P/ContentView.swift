@@ -3,7 +3,8 @@ import SwiftUI
 struct ContentView: View {
     @State var search: String = ""
     @State var pickerSelectedItem: Int = 0
-    @State var showingSheet = false
+    @State var isAuthPresented: Bool = false
+    @State var isAuthComplete: Bool = false
     
     let categoriesTitle: [String] = [
         "Alimentos",
@@ -22,7 +23,6 @@ struct ContentView: View {
     
     var body: some View {
         NavigationView {
-          
             ScrollView(.vertical) {
                 Text("Categorias")
                     .font(.title3)
@@ -45,11 +45,21 @@ struct ContentView: View {
                         .font(.title3)
                         .bold()
                         .frame(maxWidth: .infinity, alignment: .leading)
-                    Button(action: {
-                    }) {
-                        NavigationLink(destination: ProfileView()) {
-                            Image(systemName:"plus")
-                        }
+                    NavigationLink(isActive: $isAuthComplete) {
+                        FormProfileRegView()
+                    } label: {
+                        
+                    }
+                    Button {
+                        self.isAuthComplete = true
+                    } label: {
+                        Image(systemName: "plus")
+                            .imageScale(.large)
+                    }
+                    .sheet(isPresented: $isAuthPresented) {
+                        self.isAuthPresented = false
+                    } content: {
+                        SignInWithAppleView(isAuthComplete: $isAuthComplete)
                     }
                 }
                 .padding()
@@ -74,18 +84,28 @@ struct ContentView: View {
             .navigationTitle("Mantimentos")
             // TODO: Add profile button
             .navigationBarTitleDisplayMode(.large)
-           .navigationBarItems(trailing:
-                                Button(action: {
-               showingSheet.toggle()
-           }, label: {
-               Image("signOut") .resizable()
-                   .frame(width: 41, height: 41)
-                   .scaledToFill()
-               
-           })  .sheet(isPresented: $showingSheet) {SignInIView()}
-
-    )
- 
+            .toolbar {
+                ToolbarItem(placement: .navigationBarTrailing) {
+                    NavigationLink(isActive: $isAuthComplete) {
+                        FormProfileRegView()
+                    } label: {
+                        
+                    }.hidden()
+                    Button {
+                        self.isAuthComplete = true
+                    } label: {
+                        Image("signOut")
+                            .resizable()
+                            .scaledtoFit()
+                            .frame(width: 41, height: 41)
+                    }
+                    .sheet(isPresented: $isAuthPresented) {
+                        self.isAuthPresented = false
+                    } content: {
+                        SignInWithAppleView(isAuthComplete: $isAuthComplete)
+                    }
+                }
+            }
             .searchable(text: $search)
         }
     }
