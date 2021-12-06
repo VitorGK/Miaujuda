@@ -1,10 +1,3 @@
-//
-//  ProfileView.swift
-//  Project P
-//
-//  Created by João Victor Ferreira Pimenta on 01/12/21.
-//
-
 import SwiftUI
 
 struct ProfileView: View {
@@ -51,14 +44,9 @@ struct ProfileView: View {
             } label: {
                 Text("Sair").foregroundColor(Color.red)
             }
-            
         }
     }
-    
-
-    
 }
-
 
 struct ProfileView_Previews: PreviewProvider {
     static var previews: some View {

@@ -1,10 +1,3 @@
-//
-//  ItemCard.swift
-//  Project P
-//
-//  Created by Caroline Taus on 06/12/21.
-//
-
 import SwiftUI
 
 struct ItemCard: View {
@@ -12,6 +5,7 @@ struct ItemCard: View {
     var quantity: String
     var category: String
     var expDate: Date
+    
     @State var imgName: String = ""
     
     func categImage(category: String) {
@@ -32,9 +26,7 @@ struct ItemCard: View {
         imgName = imageName
     }
     
-    
     var body: some View {
-        
         VStack {
             Text("\(itemName)")
                 .bold()
@@ -56,11 +48,6 @@ struct ItemCard: View {
         }
     }
 }
-
-   
-
-
-
 
 struct ItemCard_Previews: PreviewProvider {
     static var previews: some View {
