@@ -47,7 +47,7 @@ struct ContentView: View {
                         .frame(maxWidth: .infinity, alignment: .leading)
                     Button(action: {
                     }) {
-                        NavigationLink(destination: SignInIView()) {
+                        NavigationLink(destination: FormPostView()) {
                             Image(systemName:"plus")
                         }
                     }

@@ -75,20 +75,13 @@
 		C0E689012750FF9E00FBC7D8 /* Project P */ = {
 			isa = PBXGroup;
 			children = (
-				E485A31F2758112C002EE912 /* MyPostsView.swift */,
-				E485A31D27580528002EE912 /* ProfileView.swift */,
+				C815C986275EBBA0002060A3 /* Profile */,
+				C815C985275EBB75002060A3 /* Components */,
+				C815C983275EBB0C002060A3 /* PostForm */,
+				C815C984275EBB53002060A3 /* Utils */,
 				C0E689022750FF9E00FBC7D8 /* Project_PApp.swift */,
 				146B9CCF2757E31B004E7B28 /* PostDetailsView.swift */,
-				C815C981275EA7EA002060A3 /* ItemCard.swift */,
-				C88A705D27593341004D4D2F /* FormPostView.swift */,
-				C88A705F27594578004D4D2F /* AddItemView.swift */,
 				C0E689042750FF9E00FBC7D8 /* ContentView.swift */,
-				C88A706327595C2B004D4D2F /* FormProfileRegView.swift */,
-				C0B0291C2756C6070006751A /* PostCard.swift */,
-				C88A706527595E19004D4D2F /* CategoryView.swift */,
-				C815C97F275E8680002060A3 /* ColorExtension.swift */,
-				146B9CD12757EEFA004E7B28 /* SignInIView.swift */,
-				C0B0291A2756BF5C0006751A /* CategoryItem.swift */,
 				C0E689062750FF9F00FBC7D8 /* Assets.xcassets */,
 				C0E689082750FF9F00FBC7D8 /* Preview Content */,
 			);
@@ -101,6 +94,45 @@
 				C0E689092750FF9F00FBC7D8 /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		C815C983275EBB0C002060A3 /* PostForm */ = {
+			isa = PBXGroup;
+			children = (
+				C88A705F27594578004D4D2F /* AddItemView.swift */,
+				C88A705D27593341004D4D2F /* FormPostView.swift */,
+			);
+			path = PostForm;
+			sourceTree = "<group>";
+		};
+		C815C984275EBB53002060A3 /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				C88A706527595E19004D4D2F /* CategoryView.swift */,
+				C815C97F275E8680002060A3 /* ColorExtension.swift */,
+			);
+			path = Utils;
+			sourceTree = "<group>";
+		};
+		C815C985275EBB75002060A3 /* Components */ = {
+			isa = PBXGroup;
+			children = (
+				C0B0291C2756C6070006751A /* PostCard.swift */,
+				C815C981275EA7EA002060A3 /* ItemCard.swift */,
+				C0B0291A2756BF5C0006751A /* CategoryItem.swift */,
+			);
+			path = Components;
+			sourceTree = "<group>";
+		};
+		C815C986275EBBA0002060A3 /* Profile */ = {
+			isa = PBXGroup;
+			children = (
+				146B9CD12757EEFA004E7B28 /* SignInIView.swift */,
+				C88A706327595C2B004D4D2F /* FormProfileRegView.swift */,
+				E485A31F2758112C002EE912 /* MyPostsView.swift */,
+				E485A31D27580528002EE912 /* ProfileView.swift */,
+			);
+			path = Profile;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */

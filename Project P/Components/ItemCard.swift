@@ -12,9 +12,29 @@ struct ItemCard: View {
     var quantity: String
     var category: String
     var expDate: Date
-    var imgName: String = ""
+    @State var imgName: String = ""
+    
+    func categImage(category: String) {
+        var imageName: String = ""
+        if category == "food" {
+            imageName = "alimentos"
+        }
+        else if category == "med" {
+            imageName = "remedio"
+        }
+        else if category == "hyg" {
+            imageName = "higiene"
+        }
+        else if category == "other" {
+            imageName = "outros"
+        }
+
+        imgName = imageName
+    }
+    
     
     var body: some View {
+        
         VStack {
             Text("\(itemName)")
                 .bold()
@@ -24,8 +44,11 @@ struct ItemCard: View {
                     Text(expDate,style: .date)
                     
                 }
-                //imgName = categImage(category: category)
-                Image(systemName: "heart.fill")
+                .onAppear {
+                    categImage(category: category)
+                }
+                
+                Image(imgName)
                     .resizable()
                     .frame(width: 40, height: 40)
                     .scaledToFit()
@@ -34,23 +57,9 @@ struct ItemCard: View {
     }
 }
 
-//func categImage(category: String) -> String {
-//    var imageName: String = ""
-//    if category == "food" {
-//        imageName = "alimentos"
-//    }
-//    else if category == "med" {
-//        imageName = "remedio"
-//    }
-//    else if category == "hyg" {
-//        imageName = "higiene"
-//    }
-//    else if category == "other" {
-//        imageName = "outros"
-//    }
-//
-//    return imageName
-//}
+   
+
+
 
 
 struct ItemCard_Previews: PreviewProvider {

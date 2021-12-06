@@ -11,6 +11,7 @@ struct AddItemView: View {
     @State var itemName: String = ""
     @State var itemQuantity: String = ""
     @State var pickerSelectedDate: Date = Date()
+  
     
     var body: some View {
         Form {
@@ -24,6 +25,7 @@ struct AddItemView: View {
                 NavigationLink(destination: CategoryView(categories: ["Alimento", "Remédio", "Higiene", "Outros"])){
                     Text ("Categoria")
                         .foregroundColor(.primary)
+       
                     
                 }
             }
