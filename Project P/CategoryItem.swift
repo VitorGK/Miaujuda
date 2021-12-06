@@ -7,11 +7,19 @@ struct CategoryItem: View {
     var body: some View {
         VStack {
             ZStack {
-                RoundedRectangle(cornerRadius: 10)
-                    .fill(.red)
+//                RoundedRectangle(cornerRadius: 10)
+//                    .fill(.red)
+//                    
+                Image(imageName)
+                    .resizable()
+                    .scaledToFit()
                     .frame(width: 60, height: 60)
-                Image(systemName: imageName)
-            }
+                    .cornerRadius(10)
+        
+                    
+                // Image(systemName: imageName)
+            }    .shadow(radius: 1)
+               
             Text(text)
                 .font(.caption)
         }
@@ -20,6 +28,6 @@ struct CategoryItem: View {
 
 struct CategoryItem_Previews: PreviewProvider {
     static var previews: some View {
-        CategoryItem(imageName: "heart.fill", text: "Alimentos")
+        CategoryItem(imageName: "remedio", text: "Alimentos")
     }
 }
