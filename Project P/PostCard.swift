@@ -9,9 +9,10 @@ struct PostCard: View {
     var title: String
     var organization: String
     var items: [PostItem]
-    var status: Int
+    var status: String
     var timeStamp: Date
-    var type: Int
+    var type: String
+    var localization: String
     
     var body: some View {
         
@@ -25,7 +26,7 @@ struct PostCard: View {
                         .foregroundColor(.secondary)
                 }
                 Spacer()
-                if status == 0 { // status = ativo
+                if status == "active" { // status = ativo
                     Image(systemName: "clock.fill")
                     
                 }
@@ -37,7 +38,7 @@ struct PostCard: View {
             }
             .padding()
             .background(RoundedRectangle(cornerRadius: 0)
-                            .fill((status == 0) ? Color.activePostYellow : Color.concludedPostGray))
+                            .fill((status == "active") ? Color.activePostYellow : Color.concludedPostGray))
             
             VStack (alignment: .leading) {
                 ForEach(0..<items.count) { item in
@@ -46,12 +47,19 @@ struct PostCard: View {
                 
                 HStack{
                     Spacer()
-                    //Text("postado em: \(timeStamp)")
-                    Text("postado em 20/02/2020")
-                        .font(.subheadline)
-                        .foregroundColor(.secondary)
-                        .padding(.trailing)
+                    Text("\(localization)")
                 }
+                .font(.subheadline)
+                .foregroundColor(.secondary)
+                .padding(.trailing)
+                
+                HStack{
+                    Spacer()
+                    Text(timeStamp, style: .date)
+                }
+                .font(.subheadline)
+                .foregroundColor(.secondary)
+                .padding(.trailing)
                 
                 
             }
@@ -69,6 +77,6 @@ struct PostCard: View {
 
 struct PostCard_Previews: PreviewProvider {
     static var previews: some View {
-        PostCard(title: "Preciso de ração", organization: "ong miau miau", items: [PostItem(name: "ração", quantity: "2 sacos"), PostItem(name: "ração gatitos", quantity: "4.8 Kg")], status: 0, timeStamp: Date(), type: 0)
+        PostCard(title: "Preciso de ração", organization: "ong miau miau", items: [PostItem(name: "ração", quantity: "2 sacos"), PostItem(name: "ração gatitos", quantity: "4.8 Kg")], status: "active", timeStamp: Date(), type: "donation", localization: "São Paulo - SP")
     }
 }

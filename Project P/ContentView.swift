@@ -61,9 +61,9 @@ struct ContentView: View {
                     .pickerStyle(.segmented)
                     
                     VStack {
-                        PostCard(title: "fdsgs", organization: "gdfg", items: [PostItem(name: "item", quantity: "2 sacos")], status: 1, timeStamp: Date(), type: 1)
+                        PostCard(title: "fdsgs", organization: "gdfg", items: [PostItem(name: "item", quantity: "2 sacos")], status: "active", timeStamp: Date(), type: "donation", localization: "São Paulo - SP")
                         
-                        PostCard(title: "fdsgs", organization: "gdfg", items: [PostItem(name: "item", quantity: "2 sacos")], status: 0, timeStamp: Date(), type: 1)
+                        PostCard(title: "fdsgs", organization: "gdfg", items: [PostItem(name: "item", quantity: "2 sacos")], status: "inactive", timeStamp: Date(), type: "necessity", localization: "Totilandia")
                     }
                 }
                 
