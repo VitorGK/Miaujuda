@@ -44,6 +44,13 @@ struct FormPostView: View {
         }
         .navigationTitle("Nova Postagem")
         .navigationBarTitleDisplayMode(.inline)
+        .navigationBarItems(trailing:
+                                Button(action: {
+            print("Ola")
+        }) {
+            Text("Adicionar")
+        }
+        )
     }
     
 }

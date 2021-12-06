@@ -89,6 +89,13 @@ struct FormProfileRegView: View {
         }
         .navigationTitle("Complete seu perfil")
         .navigationBarTitleDisplayMode(.large)
+        .navigationBarItems(trailing:
+                                Button(action: {
+            print("Ola")
+        }) {
+            Text("Concluir")
+        }
+        )
         
     }
 }

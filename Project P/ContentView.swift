@@ -3,6 +3,7 @@ import SwiftUI
 struct ContentView: View {
     @State var search: String = ""
     @State var pickerSelectedItem: Int = 0
+    @State var showingSheet = false
     
     let categoriesTitle: [String] = [
         "Alimentos",
@@ -13,6 +14,7 @@ struct ContentView: View {
     
     var body: some View {
         NavigationView {
+          
             ScrollView(.vertical) {
                 Text("Categorias")
                     .font(.title3)
@@ -36,7 +38,7 @@ struct ContentView: View {
                         .frame(maxWidth: .infinity, alignment: .leading)
                     Button(action: {
                     }) {
-                        NavigationLink(destination: FormPostView()) {
+                        NavigationLink(destination: SignInIView()) {
                             Image(systemName:"plus")
                         }
                     }
@@ -56,6 +58,15 @@ struct ContentView: View {
             .navigationTitle("Mantimentos")
             // TODO: Add profile button
             .navigationBarTitleDisplayMode(.large)
+           .navigationBarItems(trailing:
+                                Button(action: {
+               showingSheet.toggle()
+           }, label: {
+               Image(systemName: "ellipsis.circle").imageScale(.large)
+           })  .sheet(isPresented: $showingSheet) {SignInIView()}
+
+    )
+ 
             .searchable(text: $search)
         }
     }
