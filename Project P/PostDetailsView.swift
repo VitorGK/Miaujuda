@@ -1,6 +1,7 @@
 import SwiftUI
 
 struct PostDetailsView: View {
+    var postItems: [ItemCard]
     var body: some View {
         ScrollView(.vertical) {
             VStack(alignment:.leading){
@@ -12,6 +13,7 @@ struct PostDetailsView: View {
                 Text("Itens")
                     .font(.title2.bold())
                     .padding(.top)
+                ItemCard(itemName: "Ração", quantity: "2 sacos", category: "food", expDate: Date())
                 Text("Contatos")
                     .font(.title2.bold())
                     .padding(.top)
@@ -48,7 +50,7 @@ struct PostDetailsView: View {
 
 struct PostDetailsView_Previews: PreviewProvider {
     static var previews: some View {
-        PostDetailsView()
+        PostDetailsView(postItems: [ItemCard(itemName: "Ração", quantity: "2 sacos", category: "food", expDate: Date())])
     }
 }
 

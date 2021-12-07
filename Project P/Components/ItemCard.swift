@@ -27,25 +27,33 @@ struct ItemCard: View {
     }
     
     var body: some View {
-        VStack {
+        VStack (alignment: .leading){
             Text("\(itemName)")
+                .font(.title3)
                 .bold()
             HStack {
-                VStack {
+                VStack (alignment: .leading) {
                     Text("\(quantity)")
                     Text(expDate,style: .date)
+                        .font(.subheadline)
+                        .foregroundColor(.secondary)
                     
                 }
                 .onAppear {
                     categImage(category: category)
                 }
-                
+                Spacer()
                 Image(imgName)
                     .resizable()
-                    .frame(width: 40, height: 40)
+                    .frame(width: 40, height: 40, alignment: .trailing)
                     .scaledToFit()
+                    .cornerRadius(7)
             }
         }
+        .padding()
+        .background(Color.backgroundPost)
+        .cornerRadius(15)
+        .shadow(radius: 1)
     }
 }
 

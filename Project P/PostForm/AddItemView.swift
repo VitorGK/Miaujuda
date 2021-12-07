@@ -14,8 +14,13 @@ struct AddItemView: View {
             }
             List {
                 NavigationLink(destination: CategoryView(selectedCategory: $itemCategory, categories: ["Alimento", "Remédio", "Higiene", "Outros"])) {
-                    Text ("Categoria")
-                        .foregroundColor(.primary)
+                    HStack {
+                        Text ("Categoria")
+                            .foregroundColor(.primary)
+                        Spacer()
+                        Text("\(itemCategory)")
+                            .foregroundColor(.secondary)
+                    }
                 }
             }
             Section() {
