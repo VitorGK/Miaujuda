@@ -88,14 +88,21 @@ struct ContentView: View {
             .navigationBarTitleDisplayMode(.large)
             .toolbar {
                 ToolbarItem(placement: .navigationBarTrailing) {
-                    Button {
-                        
-                    } label: {
+                    NavigationLink(destination: FormProfileRegView()) {
                         Image("signOut")
                             .resizable()
                             .scaledToFit()
                             .frame(width: 41, height: 41)
                     }
+//                    Button {
+//
+//
+//                    } label: {
+//                        Image("signOut")
+//                            .resizable()
+//                            .scaledToFit()
+//                            .frame(width: 41, height: 41)
+//                    }
                 }
             }
             .searchable(text: $search)
