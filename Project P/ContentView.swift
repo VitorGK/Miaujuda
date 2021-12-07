@@ -6,6 +6,9 @@ struct ContentView: View {
     
     @State private var isPresented: Bool = false
     @State private var isButtonPressed: Bool = false
+    let columns = [
+            GridItem(.adaptive(minimum: 180))
+        ]
     
     let categoriesTitle: [String] = [
         "Alimentos",
@@ -20,6 +23,11 @@ struct ContentView: View {
         "higiene",
         "outros"
     ]
+    
+    let posts: [PostCard] = [PostCard(title: "Título", organization: "Org", items: [PostItem(name: "Nome do item", quantity: "Quantidade do item")], status: "active", timeStamp: Date(), type: "donation", localization: "Local"), PostCard(title: "Título2", organization: "Org2", items: [PostItem(name: "Nome do item2", quantity: "Quantidade do item2")], status: "inactive", timeStamp: Date(), type: "necessity", localization: "Local2")]
+    
+    let item: [ItemCard] = [ItemCard(itemName: "Nome do itemcard", quantity: "qtd", category: "food", expDate: Date()), ItemCard(itemName: "Nome do itemcard2", quantity: "qtd2", category: "rem", expDate: Date())]
+
     
     var body: some View {
         NavigationView {
@@ -72,11 +80,17 @@ struct ContentView: View {
                     }
                     .pickerStyle(.segmented)
                     
-                    VStack {
-                        PostCard(title: "fdsgs", organization: "gdfg", items: [PostItem(name: "item", quantity: "2 sacos")], status: "active", timeStamp: Date(), type: "donation", localization: "São Paulo - SP")
+                    LazyVGrid(columns: columns, spacing: 10) {
                         
-                        PostCard(title: "fdsgs", organization: "gdfg", items: [PostItem(name: "item", quantity: "2 sacos")], status: "inactive", timeStamp: Date(), type: "necessity", localization: "Totilandia")
+                        NavigationLink {
+                            PostDetailsView(postItems: [ItemCard(itemName: "Ração de gatos", quantity: "2 sacos", category: "food", expDate: Date())])
+                        } label: {
+                            PostCard(title: "fdsgs", organization: "gdfg", items: [PostItem(name: "item", quantity: "2 sacos")], status: "active", timeStamp: Date(), type: "donation", localization: "São Paulo - SP")
+
+                        }.buttonStyle(.plain)
+
                     }
+                    
                 }
                 
                 .padding(.leading)
