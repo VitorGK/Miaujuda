@@ -4,7 +4,7 @@ struct ItemCard: View {
     var itemName: String
     var quantity: String
     var category: String
-    var expDate: Date
+    var expDate: Date?
     
     @State var imgName: String = ""
     
@@ -34,9 +34,12 @@ struct ItemCard: View {
             HStack {
                 VStack (alignment: .leading) {
                     Text("\(quantity)")
-                    Text(expDate,style: .date)
-                        .font(.subheadline)
-                        .foregroundColor(.secondary)
+                    if let expDate = expDate {
+                        Text(expDate,style: .date)
+                            .font(.subheadline)
+                            .foregroundColor(.secondary)
+                    }
+                    
                     
                 }
                 .onAppear {

@@ -24,9 +24,7 @@ struct ContentView: View {
         "outros"
     ]
     
-    let posts: [PostCard] = [PostCard(title: "Título", organization: "Org", items: [PostItem(name: "Nome do item", quantity: "Quantidade do item")], status: "active", timeStamp: Date(), type: "donation", localization: "Local"), PostCard(title: "Título2", organization: "Org2", items: [PostItem(name: "Nome do item2", quantity: "Quantidade do item2")], status: "inactive", timeStamp: Date(), type: "necessity", localization: "Local2")]
-    
-    let item: [ItemCard] = [ItemCard(itemName: "Nome do itemcard", quantity: "qtd", category: "food", expDate: Date()), ItemCard(itemName: "Nome do itemcard2", quantity: "qtd2", category: "rem", expDate: Date())]
+    let posts: [PetPost]
 
     
     var body: some View {
@@ -82,12 +80,17 @@ struct ContentView: View {
                     
                     LazyVGrid(columns: columns, spacing: 10) {
                         
-                        NavigationLink {
-                            PostDetailsView(post: <#T##PetPost#>)
-                        } label: {
-                            PostCard(title: "fdsgs", organization: "gdfg", items: [PostItem(name: "item", quantity: "2 sacos")], status: "active", timeStamp: Date(), type: "donation", localization: "São Paulo - SP")
+                        ForEach(0..<posts.count, id: \.self) { p in
+                            
+                            NavigationLink {
+                                PostDetailsView(post: posts[p])
+                            } label: { //TODO: os atributos organizaçao, localizacao são do usuario
+                                PostCard(title: posts[p].title, organization: posts[p].userID, items: [PostItem(name: "item", quantity: "2 sacos")], status: posts[p].status, timeStamp: posts[p].createdAt, type: posts[p].type, localization: posts[p].userID)
 
-                        }.buttonStyle(.plain)
+                            }.buttonStyle(.plain)
+                            
+                        }
+                            
 
                     }
                     
