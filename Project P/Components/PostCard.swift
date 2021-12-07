@@ -28,8 +28,8 @@ struct PostCard: View {
                 Spacer()
                 if status == "active" { // status = ativo
                     Image(systemName: "clock.fill")
-                    
                 }
+                
                 else { // status = inativo
                     Image(systemName: "checkmark.circle.fill")
                 }
