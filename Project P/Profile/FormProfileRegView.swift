@@ -71,7 +71,13 @@ struct FormProfileRegView: View {
                 
                 Section(header: Text("Adicione informações da organização")) {
                     NavigationLink(destination: CategoryView(selectedCategory: $organizationCategory, categories: ["ONG", "Protetor Independente", "Loja", "Fornecedor"])) {
-                        Text("Categoria")
+                        
+                        HStack {
+                            Text("Categoria")
+                            Spacer()
+                            Text("\(organizationCategory)")
+                                .foregroundColor(.secondary)
+                        }
                     }
                     TextField("Nome da organização", text: $organizationName)
                     TextField("CEP da organização", text: $organizationZipCode)
@@ -89,8 +95,9 @@ struct FormProfileRegView: View {
         .toolbar {
             ToolbarItem(placement: .navigationBarTrailing) {
                 Button {
-                    let params: [String: String] = [
-                        "avatar":String(avatar),
+                    let params: [String: Any] = [
+                        "createdAt":Date(),
+                        "avatar":avatar,
                         "organizationName":organizationName,
                         "organizationCategory":organizationCategory,
                         "organizationZipCode":organizationZipCode,
@@ -99,6 +106,10 @@ struct FormProfileRegView: View {
                         "website":website
                     ]
                     DataManager.shared.postRequest(route: .user, params: params) { result, error in
+                        print("result")
+                        print(result)
+                        print("error")
+                        print(error)
                         if let res: Bool = (result?.values.first as? Bool) {
                             if (res) {
                                 print("User successfully created.")
