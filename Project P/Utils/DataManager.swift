@@ -10,8 +10,10 @@ class DataManager {
     public static var shared = DataManager()
     let baseUrl: String = "https://project-pets.herokuapp.com"
     
-    // MARK: --- CREATE USER
-    public func postRequest(route: UrlRoute, params: [String: String], completion: @escaping ([String: Any]?, Error?) -> Void) {
+//    var petPosts: [PetPost:[Item]]
+    
+    // MARK: --- CREATE USER / PETPOST / ITEMS
+    public func postRequest(route: UrlRoute, params: [String: Any], completion: @escaping ([String: Any]?, Error?) -> Void) {
         let session = URLSession.shared
         guard let url = URL(string: baseUrl + route.rawValue) else {
             completion(nil, nil)
@@ -26,8 +28,7 @@ class DataManager {
                 if let data = data {
                     let response = try JSONSerialization.jsonObject(with: data, options: [])
                     completion(response as? [String : Any], nil)
-                }
-                else {
+                } else {
                     completion(nil, nil)
                 }
             } catch let error {
@@ -38,33 +39,21 @@ class DataManager {
     }
     
     // MARK: --- LOAD DATA
-    //    public func loadData(_ completion: @escaping () -> Void) {
-    //        let session = URLSession.shared
-    //        let url = URL(string: baseUrl)
-    //        guard let url = url else { return }
-    //        let task = session.dataTask(with: url) { data, _, error in
-    //            guard let data = data else { return }
-    //            if error != nil {
-    //                preconditionFailure(String(describing: error?.localizedDescription))
-    //            }
-    //            do {
-    //                self.cohort = try JSONDecoder().decode(Cohort.self, from: data)
-    //
-    //                guard let cohort = self.cohort else { return }
-    //                for student in cohort.students {
-    //                    self.loadImage(student: student)
-    //                }
-    //
-    //                DispatchQueue.main.async {
-    //                    completion()
-    //                }
-    //            } catch {
-    //                // FIXME: tratar o erro do decoder
-    //                print("DEU RUIM NO PARSE")
-    //            }
-    //        }
-    //        task.resume()
-    //    }
+//    public func getRequest(route: UrlRoute) {
+//        let session = URLSession.shared
+//        guard let url = URL(string: baseUrl + route.rawValue) else { return }
+//        let task = session.dataTask(with: url) { data, response, error in
+//            do {
+//                if let data = data {
+//                    let string = String(data: data, encoding: .utf8)
+//
+//                }
+//            } catch let error {
+//                print(error)
+//            }
+//        }
+//        task.resume()
+//    }
     
     // MARK: --- LOAD IMAGE
     //    public func loadImage(student: Student) {

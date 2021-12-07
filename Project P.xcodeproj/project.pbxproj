@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		C014603F275FDE36003B8F36 /* PetPost.swift in Sources */ = {isa = PBXBuildFile; fileRef = C014603E275FDE36003B8F36 /* PetPost.swift */; };
+		C0146041275FDE7C003B8F36 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0146040275FDE7C003B8F36 /* User.swift */; };
 		C0282810275ECAB400AB080F /* HelpetsApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = C028280F275ECAB400AB080F /* HelpetsApp.swift */; };
 		C0282812275ECAB400AB080F /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0282811275ECAB400AB080F /* ContentView.swift */; };
 		C0282814275ECAB500AB080F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C0282813275ECAB500AB080F /* Assets.xcassets */; };
@@ -24,10 +26,12 @@
 		C0282836275ECBC600AB080F /* CategoryItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0282835275ECBC600AB080F /* CategoryItem.swift */; };
 		C0282838275ECBD200AB080F /* ItemCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0282837275ECBD200AB080F /* ItemCard.swift */; };
 		C028283A275ECBDF00AB080F /* PostCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0282839275ECBDF00AB080F /* PostCard.swift */; };
-		C0C8F6BB275ECEAD0055D0F6 /* TestView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0C8F6BA275ECEAD0055D0F6 /* TestView.swift */; };
+		C0EAB6D7275FE553001E869B /* Item.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0EAB6D6275FE553001E869B /* Item.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		C014603E275FDE36003B8F36 /* PetPost.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PetPost.swift; sourceTree = "<group>"; };
+		C0146040275FDE7C003B8F36 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		C028280C275ECAB400AB080F /* Helpets.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Helpets.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C028280F275ECAB400AB080F /* HelpetsApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HelpetsApp.swift; sourceTree = "<group>"; };
 		C0282811275ECAB400AB080F /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -46,8 +50,7 @@
 		C0282835275ECBC600AB080F /* CategoryItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryItem.swift; sourceTree = "<group>"; };
 		C0282837275ECBD200AB080F /* ItemCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemCard.swift; sourceTree = "<group>"; };
 		C0282839275ECBDF00AB080F /* PostCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostCard.swift; sourceTree = "<group>"; };
-		C0C8F6BA275ECEAD0055D0F6 /* TestView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestView.swift; sourceTree = "<group>"; };
-		C0C8F6BC275ED0790055D0F6 /* Helpets.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Helpets.entitlements; sourceTree = "<group>"; };
+		C0EAB6D6275FE553001E869B /* Item.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Item.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -64,7 +67,6 @@
 		C0282803275ECAB400AB080F = {
 			isa = PBXGroup;
 			children = (
-				C0C8F6BC275ED0790055D0F6 /* Helpets.entitlements */,
 				C028280E275ECAB400AB080F /* Project P */,
 				C028280D275ECAB400AB080F /* Products */,
 			);
@@ -81,6 +83,7 @@
 		C028280E275ECAB400AB080F /* Project P */ = {
 			isa = PBXGroup;
 			children = (
+				C0EAB6D8275FE5D5001E869B /* Structs */,
 				C0282834275ECBBD00AB080F /* Components */,
 				C028282F275ECBA000AB080F /* PostForm */,
 				C0282826275ECB5100AB080F /* Profile */,
@@ -119,7 +122,6 @@
 				C028282B275ECB7E00AB080F /* ProfileView.swift */,
 				C028282D275ECB8C00AB080F /* SignInWithAppleView.swift */,
 				C0282827275ECB6000AB080F /* FormProfileRegView.swift */,
-				C0C8F6BA275ECEAD0055D0F6 /* TestView.swift */,
 			);
 			path = Profile;
 			sourceTree = "<group>";
@@ -141,6 +143,16 @@
 				C0282839275ECBDF00AB080F /* PostCard.swift */,
 			);
 			path = Components;
+			sourceTree = "<group>";
+		};
+		C0EAB6D8275FE5D5001E869B /* Structs */ = {
+			isa = PBXGroup;
+			children = (
+				C0146040275FDE7C003B8F36 /* User.swift */,
+				C014603E275FDE36003B8F36 /* PetPost.swift */,
+				C0EAB6D6275FE553001E869B /* Item.swift */,
+			);
+			path = Structs;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -217,11 +229,13 @@
 				C028281E275ECB1000AB080F /* PostDetailsView.swift in Sources */,
 				C0282831275ECBAE00AB080F /* FormPostView.swift in Sources */,
 				C028282C275ECB7E00AB080F /* ProfileView.swift in Sources */,
-				C0C8F6BB275ECEAD0055D0F6 /* TestView.swift in Sources */,
 				C028283A275ECBDF00AB080F /* PostCard.swift in Sources */,
 				C0282825275ECB4600AB080F /* DataManager.swift in Sources */,
 				C0282812275ECAB400AB080F /* ContentView.swift in Sources */,
+				C0146041275FDE7C003B8F36 /* User.swift in Sources */,
+				C014603F275FDE36003B8F36 /* PetPost.swift in Sources */,
 				C0282821275ECB2C00AB080F /* CategoryView.swift in Sources */,
+				C0EAB6D7275FE553001E869B /* Item.swift in Sources */,
 				C0282833275ECBB900AB080F /* AddItemView.swift in Sources */,
 				C0282836275ECBC600AB080F /* CategoryItem.swift in Sources */,
 				C0282828275ECB6000AB080F /* FormProfileRegView.swift in Sources */,
@@ -373,7 +387,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 0.1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.projectpetsteam.Helpets;
+				PRODUCT_BUNDLE_IDENTIFIER = com.projectpets.Helpets;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
@@ -403,7 +417,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 0.1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.projectpetsteam.Helpets;
+				PRODUCT_BUNDLE_IDENTIFIER = com.projectpets.Helpets;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
