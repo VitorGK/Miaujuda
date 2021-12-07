@@ -18,7 +18,8 @@ struct AddItemView: View {
                         Text ("Categoria")
                             .foregroundColor(.primary)
                         Spacer()
-                        Text("toti taus")
+                        Text("\(itemCategory)")
+                            .foregroundColor(.secondary)
                     }
                 }
             }

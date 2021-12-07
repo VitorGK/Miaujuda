@@ -71,7 +71,13 @@ struct FormProfileRegView: View {
                 
                 Section(header: Text("Adicione informações da organização")) {
                     NavigationLink(destination: CategoryView(selectedCategory: $organizationCategory, categories: ["ONG", "Protetor Independente", "Loja", "Fornecedor"])) {
-                        Text("Categoria")
+                        
+                        HStack {
+                            Text("Categoria")
+                            Spacer()
+                            Text("\(organizationCategory)")
+                                .foregroundColor(.secondary)
+                        }
                     }
                     TextField("Nome da organização", text: $organizationName)
                     TextField("CEP da organização", text: $organizationZipCode)
