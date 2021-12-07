@@ -7,8 +7,8 @@ struct ContentView: View {
     @State private var isPresented: Bool = false
     @State private var isButtonPressed: Bool = false
     let columns = [
-            GridItem(.adaptive(minimum: 180))
-        ]
+        GridItem(.adaptive(minimum: 180))
+    ]
     
     let categoriesTitle: [String] = [
         "Alimentos",
@@ -24,8 +24,12 @@ struct ContentView: View {
         "outros"
     ]
     
-    let posts: [PetPost]
-
+    var posts: [PetPost] = [
+        PetPost(_id: "", createdAt: Date(), userID: "", status: "", type: "donation", title: "toti", description: "ljksdfklsd"),
+        PetPost(_id: "", createdAt: Date(), userID: "", status: "", type: "necessity", title: "gfdgdf", description: "ljksdfklsd")
+            ]
+    @State var postsFiltered: [PetPost]
+    
     
     var body: some View {
         NavigationView {
@@ -63,11 +67,11 @@ struct ContentView: View {
                                 .imageScale(.large)
                         })
                         
-                        .sheet(isPresented: $isPresented, onDismiss: {
-                            self.isPresented = false
-                        }) {
-                            SignInWithAppleView(isButtonPressed: self.$isButtonPressed)
-                        }
+                            .sheet(isPresented: $isPresented, onDismiss: {
+                                self.isPresented = false
+                            }) {
+                                SignInWithAppleView(isButtonPressed: self.$isButtonPressed)
+                            }
                     }
                 }
                 .padding()
@@ -75,24 +79,51 @@ struct ContentView: View {
                     Picker("Status", selection: $pickerSelectedItem) {
                         Text("Necessidades").tag(0)
                         Text("Doações").tag(1)
+                        
                     }
                     .pickerStyle(.segmented)
                     
-                    LazyVGrid(columns: columns, spacing: 10) {
+                    if pickerSelectedItem == 0 {
                         
-                        ForEach(0..<posts.count, id: \.self) { p in
-                            
-                            NavigationLink {
-                                PostDetailsView(post: posts[p])
-                            } label: { //TODO: os atributos organizaçao, localizacao são do usuario
-                                PostCard(title: posts[p].title, organization: posts[p].userID, items: [PostItem(name: "item", quantity: "2 sacos")], status: posts[p].status, timeStamp: posts[p].createdAt, type: posts[p].type, localization: posts[p].userID)
+                        Text("BBBBBB")
+                        LazyVGrid(columns: columns, spacing: 10) {
 
-                            }.buttonStyle(.plain)
-                            
+                            ForEach(0..<posts.filter {$0.type == "necessity"}.count, id: \.self) { p in
+
+                                NavigationLink {
+                                    PostDetailsView(post: posts.filter {$0.type == "necessity"}[p])
+                                } label: { //TODO: os atributos organizaçao, localizacao são do usuario
+                                    PostCard(title: posts.filter {$0.type == "necessity"}[p].title, organization: posts.filter {$0.type == "necessity"}[p].userID, items: [PostItem(name: "item", quantity: "2 sacos")], status: posts.filter {$0.type == "necessity"}[p].status, timeStamp: posts.filter {$0.type == "necessity"}[p].createdAt, type: posts.filter {$0.type == "necessity"}[p].type, localization: posts.filter {$0.type == "necessity"}[p].userID)
+
+                                }.buttonStyle(.plain)
+
+                            }
+
+
                         }
-                            
-
                     }
+                    else {
+
+                        Text("AAAAAAAAAAA")
+                        LazyVGrid(columns: columns, spacing: 10) {
+
+                            ForEach(0..<posts.filter {$0.type == "donation"}.count, id: \.self) { p in
+
+                                NavigationLink {
+                                    PostDetailsView(post: posts.filter {$0.type == "donation"}[p])
+                                } label: { //TODO: os atributos organizaçao, localizacao são do usuario
+                                    PostCard(title: posts.filter {$0.type == "donation"}[p].title, organization: posts.filter {$0.type == "donation"}[p].userID, items: [PostItem(name: "item", quantity: "2 sacos")], status: posts.filter {$0.type == "donation"}[p].status, timeStamp: posts.filter {$0.type == "donation"}[p].createdAt, type: posts.filter {$0.type == "donation"}[p].type, localization: posts.filter {$0.type == "donation"}[p].userID)
+
+                                }.buttonStyle(.plain)
+
+                            }
+
+
+                        }
+                        
+                    }
+                    
+                    
                     
                 }
                 
@@ -111,15 +142,15 @@ struct ContentView: View {
                             .scaledToFit()
                             .frame(width: 41, height: 41)
                     }
-//                    Button {
-//
-//
-//                    } label: {
-//                        Image("signOut")
-//                            .resizable()
-//                            .scaledToFit()
-//                            .frame(width: 41, height: 41)
-//                    }
+                    //                    Button {
+                    //
+                    //
+                    //                    } label: {
+                    //                        Image("signOut")
+                    //                            .resizable()
+                    //                            .scaledToFit()
+                    //                            .frame(width: 41, height: 41)
+                    //                    }
                 }
             }
             .searchable(text: $search)
