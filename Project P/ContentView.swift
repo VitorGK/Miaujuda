@@ -83,7 +83,7 @@ struct ContentView: View {
                     LazyVGrid(columns: columns, spacing: 10) {
                         
                         NavigationLink {
-                            PostDetailsView(postItems: [ItemCard(itemName: "Ração de gatos", quantity: "2 sacos", category: "food", expDate: Date())])
+                            PostDetailsView(post: <#T##PetPost#>)
                         } label: {
                             PostCard(title: "fdsgs", organization: "gdfg", items: [PostItem(name: "item", quantity: "2 sacos")], status: "active", timeStamp: Date(), type: "donation", localization: "São Paulo - SP")
 

@@ -2,7 +2,7 @@ import Foundation
 
 struct Item: Codable, Hashable {
     let _id: String
-    let postID: PetPost
+    let postID: String
     var name: String
     var quantity: String
     var category: String
