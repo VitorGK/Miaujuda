@@ -10,7 +10,7 @@ struct ContentView: View {
         GridItem(.adaptive(minimum: 180))
     ]
     
-    let categoriesTitle: [String] = [
+    @State var categoriesTitle: [String] = [
         "Alimentos",
         "Remédios",
         "Higiene",
@@ -44,7 +44,12 @@ struct ContentView: View {
                 ScrollView(.horizontal, showsIndicators: false) {
                     LazyHGrid(rows: [GridItem(.fixed(0))], spacing: 20) {
                         ForEach(0...3, id: \.self) { item in
-                            CategoryItem(imageName: categoriesImage[item], text: categoriesTitle[item])
+                            NavigationLink {
+                                CategorySearch(category: $categoriesTitle[item])
+                            } label: {
+                                CategoryItem(imageName: categoriesImage[item], text: categoriesTitle[item])
+                            }.buttonStyle(.plain)
+
                         }
                     }
                     .frame(height: 86)
