@@ -22,7 +22,6 @@
 		C028282C275ECB7E00AB080F /* ProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C028282B275ECB7E00AB080F /* ProfileView.swift */; };
 		C028282E275ECB8C00AB080F /* SignInWithAppleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C028282D275ECB8C00AB080F /* SignInWithAppleView.swift */; };
 		C0282831275ECBAE00AB080F /* FormPostView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0282830275ECBAE00AB080F /* FormPostView.swift */; };
-		C0282833275ECBB900AB080F /* AddItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0282832275ECBB900AB080F /* AddItemView.swift */; };
 		C0282836275ECBC600AB080F /* CategoryItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0282835275ECBC600AB080F /* CategoryItem.swift */; };
 		C0282838275ECBD200AB080F /* ItemCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0282837275ECBD200AB080F /* ItemCard.swift */; };
 		C028283A275ECBDF00AB080F /* PostCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0282839275ECBDF00AB080F /* PostCard.swift */; };
@@ -47,7 +46,6 @@
 		C028282B275ECB7E00AB080F /* ProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileView.swift; sourceTree = "<group>"; };
 		C028282D275ECB8C00AB080F /* SignInWithAppleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInWithAppleView.swift; sourceTree = "<group>"; };
 		C0282830275ECBAE00AB080F /* FormPostView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FormPostView.swift; sourceTree = "<group>"; };
-		C0282832275ECBB900AB080F /* AddItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddItemView.swift; sourceTree = "<group>"; };
 		C0282835275ECBC600AB080F /* CategoryItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryItem.swift; sourceTree = "<group>"; };
 		C0282837275ECBD200AB080F /* ItemCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemCard.swift; sourceTree = "<group>"; };
 		C0282839275ECBDF00AB080F /* PostCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostCard.swift; sourceTree = "<group>"; };
@@ -133,7 +131,6 @@
 			isa = PBXGroup;
 			children = (
 				C0282830275ECBAE00AB080F /* FormPostView.swift */,
-				C0282832275ECBB900AB080F /* AddItemView.swift */,
 			);
 			path = PostForm;
 			sourceTree = "<group>";
@@ -239,7 +236,6 @@
 				C014603F275FDE36003B8F36 /* PetPost.swift in Sources */,
 				C0282821275ECB2C00AB080F /* CategoryView.swift in Sources */,
 				C0EAB6D7275FE553001E869B /* Item.swift in Sources */,
-				C0282833275ECBB900AB080F /* AddItemView.swift in Sources */,
 				C0282836275ECBC600AB080F /* CategoryItem.swift in Sources */,
 				C0282828275ECB6000AB080F /* FormProfileRegView.swift in Sources */,
 				C0282838275ECBD200AB080F /* ItemCard.swift in Sources */,
@@ -378,7 +374,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"Project P/Preview Content\"";
-				DEVELOPMENT_TEAM = 87UTUM347S;
+				DEVELOPMENT_TEAM = 9U7NL4KM84;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
@@ -391,7 +387,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 0.1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.projectpets.Helpets;
+				PRODUCT_BUNDLE_IDENTIFIER = com.projectP.Helpets;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
@@ -408,7 +404,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"Project P/Preview Content\"";
-				DEVELOPMENT_TEAM = 87UTUM347S;
+				DEVELOPMENT_TEAM = 9U7NL4KM84;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
@@ -421,7 +417,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 0.1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.projectpets.Helpets;
+				PRODUCT_BUNDLE_IDENTIFIER = com.projectP.Helpets;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;

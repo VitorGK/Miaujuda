@@ -8,6 +8,7 @@ struct PetPost: Codable, Hashable {
     var type: String
     var title: String
     var description: String
+    let item: Item
     
     func hash(into hasher: inout Hasher) {
         hasher.combine(_id)
