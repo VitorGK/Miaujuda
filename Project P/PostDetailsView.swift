@@ -56,7 +56,7 @@ struct PostDetailsView: View {
 
 struct PostDetailsView_Previews: PreviewProvider {
     static var previews: some View {
-        PostDetailsView(postItems: [ItemCard(itemName: "Ração", quantity: "2 sacos", category: "food", expDate: Date())])
+        PostDetailsView(post: PetPost(_id: "id", createdAt: Date(), userID: "userID", status: "status", type: "type", title: "title", description: "descrp"))
     }
 }
 

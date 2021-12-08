@@ -28,7 +28,7 @@ struct ContentView: View {
         PetPost(_id: "", createdAt: Date(), userID: "", status: "", type: "donation", title: "toti", description: "ljksdfklsd"),
         PetPost(_id: "", createdAt: Date(), userID: "", status: "", type: "necessity", title: "gfdgdf", description: "ljksdfklsd")
             ]
-    @State var postsFiltered: [PetPost]
+    @State var postsFiltered: [PetPost] = []
     
     
     var body: some View {
