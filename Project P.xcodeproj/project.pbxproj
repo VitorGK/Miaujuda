@@ -27,6 +27,7 @@
 		C0282838275ECBD200AB080F /* ItemCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0282837275ECBD200AB080F /* ItemCard.swift */; };
 		C028283A275ECBDF00AB080F /* PostCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0282839275ECBDF00AB080F /* PostCard.swift */; };
 		C0EAB6D7275FE553001E869B /* Item.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0EAB6D6275FE553001E869B /* Item.swift */; };
+		C87D136F27612028008C1477 /* CategorySearch.swift in Sources */ = {isa = PBXBuildFile; fileRef = C87D136E27612028008C1477 /* CategorySearch.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -51,6 +52,7 @@
 		C0282837275ECBD200AB080F /* ItemCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemCard.swift; sourceTree = "<group>"; };
 		C0282839275ECBDF00AB080F /* PostCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostCard.swift; sourceTree = "<group>"; };
 		C0EAB6D6275FE553001E869B /* Item.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Item.swift; sourceTree = "<group>"; };
+		C87D136E27612028008C1477 /* CategorySearch.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategorySearch.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -91,6 +93,7 @@
 				C0282811275ECAB400AB080F /* ContentView.swift */,
 				C028281D275ECB1000AB080F /* PostDetailsView.swift */,
 				C028280F275ECAB400AB080F /* HelpetsApp.swift */,
+				C87D136E27612028008C1477 /* CategorySearch.swift */,
 				C0282813275ECAB500AB080F /* Assets.xcassets */,
 				C0282815275ECAB500AB080F /* Preview Content */,
 			);
@@ -242,6 +245,7 @@
 				C0282838275ECBD200AB080F /* ItemCard.swift in Sources */,
 				C0282810275ECAB400AB080F /* HelpetsApp.swift in Sources */,
 				C028282A275ECB6D00AB080F /* MyPostsView.swift in Sources */,
+				C87D136F27612028008C1477 /* CategorySearch.swift in Sources */,
 				C0282823275ECB3900AB080F /* ColorExtension.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
