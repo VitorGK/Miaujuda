@@ -5,6 +5,11 @@ struct FormPostView: View {
     @State var postTitle: String = ""
     @State var postDescription: String = ""
     @State private var showingSheet = false
+    @State var itemName: String = ""
+    @State var itemQuantity: String = ""
+    @State var itemCategory: String = ""
+    @State var pickerSelectedDate: Date = Date()
+    
     var body: some View {
         
         Form {
@@ -26,14 +31,29 @@ struct FormPostView: View {
                     .frame(height: 100)
             }
             
-            Section(header: Text("Itens")) {
+            Section(header: Text("Item")) {
+                TextField("Nome",text: $itemName)
+                TextField("Quantidade",text: $itemQuantity)
                 List{
-                    NavigationLink(destination: AddItemView()){
-                        Text ("Adicionar item...")
-                        
-                    }}
-                
+                    NavigationLink(destination: CategoryView(selectedCategory: $itemCategory, categories: ["Alimento", "Remédio", "Higiene", "Outros"])) {
+                        HStack{
+                            Text("Categoria")
+                                .foregroundColor(.primary)
+                            Spacer()
+                            Text("\(itemCategory)")
+                                .foregroundColor(.secondary)
+                        }
+                    }
+                    DatePicker(
+                                        "Validade",
+                                        selection: $pickerSelectedDate,
+                                        displayedComponents: [.date]
+                                    )
+                }
+                //TextField("Nome do item",text: $itemCategory)
+
             }
+            
         }
         .navigationTitle("Nova Postagem")
         .navigationBarTitleDisplayMode(.inline)

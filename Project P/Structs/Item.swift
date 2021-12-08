@@ -2,7 +2,7 @@ import Foundation
 
 struct Item: Codable, Hashable {
     let _id: String
-    let postID: PetPost
+    //let postID: PetPost
     var name: String
     var quantity: String
     var category: String
@@ -19,7 +19,7 @@ struct Item: Codable, Hashable {
     func print() {
         Swift.print("{")
         Swift.print("_id: \(_id)")
-        Swift.print("postID: \(postID)")
+        //Swift.print("postID: \(postID)")
         Swift.print("name: \(name)")
         Swift.print("quantity: \(quantity)")
         Swift.print("category: \(category)")
