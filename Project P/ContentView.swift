@@ -28,7 +28,13 @@ struct ContentView: View {
         PetPost(_id: "", createdAt: Date(), userID: "", status: "", type: "donation", title: "toti", description: "ljksdfklsd"),
         PetPost(_id: "", createdAt: Date(), userID: "", status: "", type: "necessity", title: "gfdgdf", description: "ljksdfklsd")
             ]
-    @State var postsFiltered: [PetPost] = []
+    
+    @State var filteredPosts: [PetPost] = []
+    
+    //MARK: para filtrar por categoria precisamos achar o itens que tem as categorias e os posts em que esses itens estão
+    func filterPosts(category: String, posts: [PetPost]) {
+        filteredPosts = posts.filter {$0.type == "\(category)"}
+    }
     
     
     var body: some View {
