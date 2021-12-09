@@ -1,7 +1,7 @@
 import SwiftUI
 
 struct ContentView: View {
-    @State var pickerSelectedItem: Int = 0
+    @State var pickerSelectedItem: Int = 1
     
     @State private var isPresented: Bool = false
     @State private var isButtonPressed: Bool = false
@@ -19,6 +19,18 @@ struct ContentView: View {
         "higiene",
         "outros"
     ]
+    var posts: [PetPost] = [
+        PetPost(_id: "fdsf", createdAt: Date(), userID: User(_id: "userid", createdAt: Date(), avatar: 1, organizationName: "orgname", organizationCategory: "orgCat", organizationZipCode: "orgLocal"), status: "active", type: "necessity", title: "titulo do post", description: "miaumiau", item: Item(_id: "itemid", name: "name item", quantity: "qtd item", category: "food")),
+                            PetPost(_id: "fdsf", createdAt: Date(), userID: User(_id: "userid", createdAt: Date(), avatar: 1, organizationName: "orgname", organizationCategory: "orgCat", organizationZipCode: "orgLocal"), status: "inactive", type: "donation", title: "titulo do post2", description: "miaumiau", item: Item(_id: "itemid", name: "outro item", quantity: "qtd item", category: "food"))
+    ]
+    
+   // @State var filteredPosts: [PetPost]
+    
+    func filterPosts(type: String, posts: [PetPost]) -> [PetPost] {
+            var filteredPosts: [PetPost]
+            filteredPosts = posts.filter {$0.type == "\(type)"}
+            return filteredPosts
+        }
     
     
     var body: some View {
@@ -71,16 +83,18 @@ struct ContentView: View {
                 }
                 .padding()
                 VStack {
-                    Picker("Status", selection: $pickerSelectedItem) {
-                        Text("Necessidades").tag(0)
-                        Text("Doações").tag(1)
-                    }
-                    .pickerStyle(.segmented)
+                    Picker(selection: $pickerSelectedItem, label: Text("Picker"), content: {
+                        Text("Necessidades").tag(1)
+                        Text("Doações").tag(2)
+                    })
+                    .pickerStyle(SegmentedPickerStyle())
                     
-                    VStack {
-                        PostCard(title: "fdsgs", organization: "gdfg", item: PostItem(name: "item", quantity: "2 sacos"), status: "active", timeStamp: Date(), type: "donation", localization: "São Paulo - SP")
+                    if pickerSelectedItem == 1 {
                         
-                        PostCard(title: "fdsgs", organization: "gdfg", item: PostItem(name: "item", quantity: "2 sacos"), status: "inactive", timeStamp: Date(), type: "necessity", localization: "Totilandia")
+                        PostsGrid(posts: filterPosts(type: "necessity", posts: posts))
+                    }
+                    else {
+                        PostsGrid(posts: filterPosts(type: "donation", posts: posts))
                     }
                 }
                 
@@ -99,15 +113,7 @@ struct ContentView: View {
                             .scaledToFit()
                             .frame(width: 41, height: 41)
                     }
-//                    Button {
-//
-//
-//                    } label: {
-//                        Image("signOut")
-//                            .resizable()
-//                            .scaledToFit()
-//                            .frame(width: 41, height: 41)
-//                    }
+
                 }
             }
         }
