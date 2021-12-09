@@ -1,19 +1,23 @@
 import SwiftUI
 
+
+
 struct PostDetailsView: View {
-    var postItems: [ItemCard]
+    var post: PetPost
+    var item: Item = Item(_id: "1", name: "itemnome", quantity: "qtd", category: "food", expirationDate: Date())
+    
     var body: some View {
         ScrollView(.vertical) {
             VStack(alignment:.leading){
-                Text("20/04/2021 às 13h30")
+                Text(post.createdAt,style: .date)
                     .font(.subheadline)
                     .foregroundColor(Color.secondary)
                     .padding(.bottom)
-                Text("Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras non sem a ex blandit rutrum a et mauris. Vivamus elementum, tellus vel tristique varius, felis urna pulvinar dui, non eleifend ante sem in neque.")
+                Text(post.description)
                 Text("Itens")
                     .font(.title2.bold())
                     .padding(.top)
-                ItemCard(itemName: "Ração", quantity: "2 sacos", category: "food", expDate: Date())
+                ItemCard(itemName: item.name, quantity: item.quantity, category: item.category, expDate: item.expirationDate!)
                 Text("Contatos")
                     .font(.title2.bold())
                     .padding(.top)
@@ -23,20 +27,21 @@ struct PostDetailsView: View {
                         .fill(.black)
                         .frame(width: 60, height: 60)
                     VStack(alignment: .leading){
-                        Text("Unidos da Taus")
-                        Text("ONG")
+                        Text(post.userID.organizationName) // pegar nome do userID referente
+                        Text(post.userID.organizationCategory) // pegar categoria do userID referente
                     }
                     
                 }
                 .padding(.bottom)
                 HStack{
+                    // TODO: for each de 0 a 2 para cada tipo de contato
                     Image(systemName:"envelope.fill")
                     Link("View Our Terms of Service",
                          destination: URL(string: "https://www.example.com/TOS.html")!)
                 }
             }
             .padding()
-        } .navigationTitle("Ração para gatos")
+        } .navigationTitle(post.title)
             .navigationBarTitleDisplayMode(.large)
             .navigationBarItems(trailing:
                                     Button(action: {
@@ -48,9 +53,9 @@ struct PostDetailsView: View {
     }
 }
 
-struct PostDetailsView_Previews: PreviewProvider {
-    static var previews: some View {
-        PostDetailsView(postItems: [ItemCard(itemName: "Ração", quantity: "2 sacos", category: "food", expDate: Date())])
-    }
-}
+//struct PostDetailsView_Previews: PreviewProvider {
+//    static var previews: some View {
+//        PostDetailsView(post: PetPost(_id: "id", createdAt: Date(), userID: "userID", status: "status", type: "type", title: "title", description: "descrp", item: Item(_id: "1", name: "itemnome", quantity: "qtd", category: "food", expirationDate: Date())))
+//    }
+//}
 
