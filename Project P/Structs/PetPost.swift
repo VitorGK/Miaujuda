@@ -15,7 +15,7 @@ struct PetPost: Codable, Hashable {
     }
     
     static func == (lhs: PetPost, rhs: PetPost) -> Bool {
-        return lhs._id == lhs._id
+        return lhs._id == rhs._id
     }
     
     func print() {

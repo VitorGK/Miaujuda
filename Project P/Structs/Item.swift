@@ -13,7 +13,7 @@ struct Item: Codable, Hashable {
     }
     
     static func == (lhs: Item, rhs: Item) -> Bool {
-        return lhs._id == lhs._id
+        return lhs._id == rhs._id
     }
     
     func print() {

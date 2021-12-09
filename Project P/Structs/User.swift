@@ -1,7 +1,6 @@
 import Foundation
 
 struct User: Codable, Hashable {
-    let _id: String
     let createdAt: Date
     let appleID: String
     var avatar: Int
@@ -13,16 +12,15 @@ struct User: Codable, Hashable {
     var website: String?
     
     func hash(into hasher: inout Hasher) {
-        hasher.combine(_id)
+        hasher.combine(appleID)
     }
     
     static func == (lhs: User, rhs: User) -> Bool {
-        return lhs._id == lhs._id
+        return lhs.appleID == rhs.appleID
     }
     
     func print() {
         Swift.print("{")
-        Swift.print("_id: \(_id)")
         Swift.print("createdAt: \(createdAt)")
         Swift.print("avatar: \(avatar)")
         Swift.print("organizationName: \(organizationName)")
