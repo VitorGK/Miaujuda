@@ -33,7 +33,7 @@
 /* Begin PBXFileReference section */
 		C014603E275FDE36003B8F36 /* PetPost.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PetPost.swift; sourceTree = "<group>"; };
 		C0146040275FDE7C003B8F36 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
-		C028280C275ECAB400AB080F /* Helpets.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Helpets.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		C028280C275ECAB400AB080F /* ProjectP.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ProjectP.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C028280F275ECAB400AB080F /* HelpetsApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HelpetsApp.swift; sourceTree = "<group>"; };
 		C0282811275ECAB400AB080F /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		C0282813275ECAB500AB080F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -51,6 +51,7 @@
 		C0282837275ECBD200AB080F /* ItemCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemCard.swift; sourceTree = "<group>"; };
 		C0282839275ECBDF00AB080F /* PostCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostCard.swift; sourceTree = "<group>"; };
 		C0EAB6D6275FE553001E869B /* Item.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Item.swift; sourceTree = "<group>"; };
+		C0FD0A6027626ECD00E0E2F1 /* Project P.entitlements */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.entitlements; path = "Project P.entitlements"; sourceTree = "<group>"; };
 		C87D136E27612028008C1477 /* CategorySearch.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategorySearch.swift; sourceTree = "<group>"; };
 		C87D137027627854008C1477 /* PostsGrid.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostsGrid.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -77,7 +78,7 @@
 		C028280D275ECAB400AB080F /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				C028280C275ECAB400AB080F /* Helpets.app */,
+				C028280C275ECAB400AB080F /* ProjectP.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -85,6 +86,7 @@
 		C028280E275ECAB400AB080F /* Project P */ = {
 			isa = PBXGroup;
 			children = (
+				C0FD0A6027626ECD00E0E2F1 /* Project P.entitlements */,
 				C0EAB6D8275FE5D5001E869B /* Structs */,
 				C0282834275ECBBD00AB080F /* Components */,
 				C028282F275ECBA000AB080F /* PostForm */,
@@ -175,7 +177,7 @@
 			);
 			name = Helpets;
 			productName = Helpets;
-			productReference = C028280C275ECAB400AB080F /* Helpets.app */;
+			productReference = C028280C275ECAB400AB080F /* ProjectP.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -374,11 +376,15 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				CODE_SIGN_ENTITLEMENTS = Helpets.entitlements;
+				CODE_SIGN_ENTITLEMENTS = "Project P/Project P.entitlements";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"Project P/Preview Content\"";
+<<<<<<< Updated upstream
 				DEVELOPMENT_TEAM = 87UTUM347S;
+=======
+				DEVELOPMENT_TEAM = 337G99FP8D;
+>>>>>>> Stashed changes
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
@@ -391,8 +397,13 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 0.1.0;
+<<<<<<< Updated upstream
 				PRODUCT_BUNDLE_IDENTIFIER = com.projectPaaa.Helpets;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+=======
+				PRODUCT_BUNDLE_IDENTIFIER = com.vitorgk.ProjectP;
+				PRODUCT_NAME = ProjectP;
+>>>>>>> Stashed changes
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -404,11 +415,15 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				CODE_SIGN_ENTITLEMENTS = Helpets.entitlements;
+				CODE_SIGN_ENTITLEMENTS = "Project P/Project P.entitlements";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"Project P/Preview Content\"";
+<<<<<<< Updated upstream
 				DEVELOPMENT_TEAM = 87UTUM347S;
+=======
+				DEVELOPMENT_TEAM = 337G99FP8D;
+>>>>>>> Stashed changes
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
@@ -421,8 +436,13 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 0.1.0;
+<<<<<<< Updated upstream
 				PRODUCT_BUNDLE_IDENTIFIER = com.projectPaaa.Helpets;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+=======
+				PRODUCT_BUNDLE_IDENTIFIER = com.vitorgk.ProjectP;
+				PRODUCT_NAME = ProjectP;
+>>>>>>> Stashed changes
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
