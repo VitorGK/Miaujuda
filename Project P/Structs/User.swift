@@ -3,6 +3,7 @@ import Foundation
 struct User: Codable, Hashable {
     let _id: String
     let createdAt: Date
+    let appleID: String
     var avatar: Int
     var organizationName: String
     var organizationCategory: String
