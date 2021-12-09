@@ -12,16 +12,19 @@ struct CategorySearch: View {
     let columns = [
         GridItem(.adaptive(minimum: 180))
     ]
+    @State var pickerSelectedItem: Int = 1
     
-    var posts: [PetPost] = [
-        PetPost(_id: "", createdAt: Date(), userID: "", status: "", type: "donation", title: "toti", description: "ljksdfklsd", item: Item(_id: "iditem", name: "itemName", quantity: "qtdItem", category: "Alimentos")),
-        PetPost(_id: "", createdAt: Date(), userID: "", status: "", type: "necessity", title: "gfdgdf", description: "ljksdfklsd", item: Item(_id: "iditem2", name: "itemName2", quantity: "qtdItem2", category: "Food"))
-    ]
-    @State var filteredPosts: [PetPost] = []
+    var posts1: [PetPost] = [
+            PetPost(_id: "fdsf", createdAt: Date(), userID: User(_id: "userid", createdAt: Date(), avatar: 1, organizationName: "orgname", organizationCategory: "orgCat", organizationZipCode: "orgLocal"), status: "active", type: "Necessidade", title: "titulo do post", description: "miaumiau", item: Item(_id: "itemid", name: "name item", quantity: "qtd item", category: "Remédios")),
+                                PetPost(_id: "fdsf", createdAt: Date(), userID: User(_id: "userid", createdAt: Date(), avatar: 1, organizationName: "orgname", organizationCategory: "orgCat", organizationZipCode: "orgLocal"), status: "inactive", type: "Doação", title: "titulo do post2", description: "miaumiau", item: Item(_id: "itemid", name: "outro item", quantity: "qtd item", category: "Alimentos"))
+        ]
     
     
-    func filterPosts(category: String, posts: [PetPost]) {
-        filteredPosts = posts.filter {$0.item.category == "\(category)"}
+    
+    func filterPosts(category: String, posts: [PetPost], type: String) -> [PetPost] {
+        var filteredPosts: [PetPost] = []
+        filteredPosts = posts.filter {$0.item.category == "\(category)" && $0.type == "\(type)"}
+        return filteredPosts
     }
     
     //TODO: Exibir os posts filtrados para cada categoria
@@ -32,31 +35,24 @@ struct CategorySearch: View {
             VStack{
                 
                 
-                LazyVGrid(columns: columns, spacing: 10) {
+                Picker(selection: $pickerSelectedItem, label: Text("Picker"), content: {
+                    Text("Necessidades").tag(1)
+                    Text("Doações").tag(2)
+                })
+                .pickerStyle(SegmentedPickerStyle())
+                
+                if pickerSelectedItem == 1 {
                     
-                    
-                    ForEach(0..<filteredPosts.count, id: \.self) { p in
-                        
-                        
-                        
-                        NavigationLink {
-                            PostDetailsView(post: filteredPosts[p])
-                        } label: { //TODO: os atributos organizaçao, localizacao são do usuario
-                            PostCard(title: filteredPosts[p].title, organization: filteredPosts[p].userID, items: [PostItem(name: "item", quantity: "2 sacos")], status: filteredPosts[p].status, timeStamp: filteredPosts[p].createdAt, type: filteredPosts[p].type, localization: filteredPosts[p].userID)
-                            
-                        }.buttonStyle(.plain)
-                        
-                    }
-                    
-                    
-                    
-                } .navigationTitle("\(category)")
+                    PostsGrid(posts: filterPosts(category: "\(category)", posts: posts1, type: "Necessidade"))
+                }
+                else {
+                    PostsGrid(posts: filterPosts(category: "\(category)", posts: posts1, type: "Doação"))
+                }
                 
                 
             }
-            .onAppear {
-                filterPosts(category: category, posts: posts)
-            }
+            .navigationTitle("\(category)")
+            .padding()
         }
     }
 }

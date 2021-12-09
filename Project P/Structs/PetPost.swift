@@ -3,7 +3,7 @@ import Foundation
 struct PetPost: Codable, Hashable {
     let _id: String
     let createdAt: Date
-    let userID: String
+    let userID: User
     var status: String
     var type: String
     var title: String

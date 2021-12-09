@@ -22,12 +22,7 @@ struct ContentView: View {
         "higiene",
         "outros"
     ]
-    var posts: [PetPost] = [
-        PetPost(_id: "fdsf", createdAt: Date(), userID: User(_id: "userid", createdAt: Date(), avatar: 1, organizationName: "orgname", organizationCategory: "orgCat", organizationZipCode: "orgLocal"), status: "active", type: "necessity", title: "titulo do post", description: "miaumiau", item: Item(_id: "itemid", name: "name item", quantity: "qtd item", category: "food")),
-                            PetPost(_id: "fdsf", createdAt: Date(), userID: User(_id: "userid", createdAt: Date(), avatar: 1, organizationName: "orgname", organizationCategory: "orgCat", organizationZipCode: "orgLocal"), status: "inactive", type: "donation", title: "titulo do post2", description: "miaumiau", item: Item(_id: "itemid", name: "outro item", quantity: "qtd item", category: "food"))
-    ]
-    
-   // @State var filteredPosts: [PetPost]
+
     
     func filterPosts(type: String, posts: [PetPost]) -> [PetPost] {
             var filteredPosts: [PetPost]
@@ -36,19 +31,19 @@ struct ContentView: View {
         }
     
     var posts: [PetPost] = [
-        PetPost(_id: "", createdAt: Date(), userID: "", status: "", type: "donation", title: "toti", description: "ljksdfklsd", item: Item(_id: "1", name: "itemnome", quantity: "qtd", category: "food", expirationDate: Date())),
-        PetPost(_id: "", createdAt: Date(), userID: "", status: "", type: "necessity", title: "gfdgdf", description: "ljksdfklsd", item: Item(_id: "1", name: "itemnome", quantity: "qtd", category: "food", expirationDate: Date()))
-    ]
+            PetPost(_id: "fdsf", createdAt: Date(), userID: User(_id: "userid", createdAt: Date(), avatar: 1, organizationName: "orgname", organizationCategory: "orgCat", organizationZipCode: "orgLocal"), status: "active", type: "Necessidade", title: "titulo do post", description: "miaumiau", item: Item(_id: "itemid", name: "name item", quantity: "qtd item", category: "food")),
+                                PetPost(_id: "fdsf", createdAt: Date(), userID: User(_id: "userid", createdAt: Date(), avatar: 1, organizationName: "orgname", organizationCategory: "orgCat", organizationZipCode: "orgLocal"), status: "inactive", type: "Doação", title: "titulo do post2", description: "miaumiau", item: Item(_id: "itemid", name: "outro item", quantity: "qtd item", category: "food"))
+        ]
     
     @State var filteredPostsNec: [PetPost] = []
     @State var filteredPostsDon: [PetPost] = []
     
     //MARK: para filtrar por categoria precisamos achar o itens que tem as categorias e os posts em que esses itens estão
     func filterPostsNecessity(category: String, posts: [PetPost]) {
-        filteredPostsNec = posts.filter {$0.type == "Necessity"}
+        filteredPostsNec = posts.filter {$0.type == "Necessidade"}
     }
     func filterPostsDonation(category: String, posts: [PetPost]) {
-        filteredPostsDon = posts.filter {$0.type == "Donation"}
+        filteredPostsDon = posts.filter {$0.type == "Doação"}
     }
     
     @ViewBuilder
@@ -110,10 +105,10 @@ struct ContentView: View {
                     
                     if pickerSelectedItem == 1 {
                         
-                        PostsGrid(posts: filterPosts(type: "necessity", posts: posts))
+                        PostsGrid(posts: filterPosts(type: "Necessidade", posts: posts))
                     }
                     else {
-                        PostsGrid(posts: filterPosts(type: "donation", posts: posts))
+                        PostsGrid(posts: filterPosts(type: "Doação", posts: posts))
                     }
                 }
                 

@@ -36,7 +36,7 @@ struct FormPostView: View {
                 TextField("Nome",text: $itemName)
                 TextField("Quantidade",text: $itemQuantity)
                 List{
-                    NavigationLink(destination: CategoryView(selectedCategory: $itemCategory, categories: ["Alimento", "Remédio", "Higiene", "Outros"])) {
+                    NavigationLink(destination: CategoryView(selectedCategory: $itemCategory, categories: ["Alimentos", "Remédios", "Higiene", "Outros"])) {
                         HStack{
                             Text("Categoria")
                                 .foregroundColor(.primary)

@@ -4,9 +4,8 @@ import SwiftUI
 
 struct PostDetailsView: View {
     var post: PetPost
-    var items: [Item] = [
-        Item(_id: "1", name: "itemnome", quantity: "qtd", category: "food", expirationDate: Date())
-    ]
+    var item: Item = Item(_id: "1", name: "itemnome", quantity: "qtd", category: "food", expirationDate: Date())
+    
     var body: some View {
         ScrollView(.vertical) {
             VStack(alignment:.leading){
@@ -18,7 +17,7 @@ struct PostDetailsView: View {
                 Text("Itens")
                     .font(.title2.bold())
                     .padding(.top)
-                ItemCard(itemName: items[0].name, quantity: items[0].quantity, category: items[0].category, expDate: items[0].expirationDate!)
+                ItemCard(itemName: item.name, quantity: item.quantity, category: item.category, expDate: item.expirationDate!)
                 Text("Contatos")
                     .font(.title2.bold())
                     .padding(.top)
@@ -28,8 +27,8 @@ struct PostDetailsView: View {
                         .fill(.black)
                         .frame(width: 60, height: 60)
                     VStack(alignment: .leading){
-                        Text(post.userID) // pegar nome do userID referente
-                        Text(post.userID) // pegar categoria do userID referente
+                        Text(post.userID.organizationName) // pegar nome do userID referente
+                        Text(post.userID.organizationCategory) // pegar categoria do userID referente
                     }
                     
                 }
@@ -54,9 +53,9 @@ struct PostDetailsView: View {
     }
 }
 
-struct PostDetailsView_Previews: PreviewProvider {
-    static var previews: some View {
-        PostDetailsView(post: PetPost(_id: "id", createdAt: Date(), userID: "userID", status: "status", type: "type", title: "title", description: "descrp", item: Item(_id: "1", name: "itemnome", quantity: "qtd", category: "food", expirationDate: Date())))
-    }
-}
+//struct PostDetailsView_Previews: PreviewProvider {
+//    static var previews: some View {
+//        PostDetailsView(post: PetPost(_id: "id", createdAt: Date(), userID: "userID", status: "status", type: "type", title: "title", description: "descrp", item: Item(_id: "1", name: "itemnome", quantity: "qtd", category: "food", expirationDate: Date())))
+//    }
+//}
 

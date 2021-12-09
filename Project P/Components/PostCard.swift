@@ -77,6 +77,6 @@ struct PostCard: View {
 
 //struct PostCard_Previews: PreviewProvider {
 //    static var previews: some View {
-//        PostCard(title: "Preciso de ração", organization: "ong miau miau", items: [PostItem(name: "ração", quantity: "2 sacos"), PostItem(name: "ração gatitos", quantity: "4.8 Kg")], status: "active", timeStamp: Date(), type: "donation", localization: "São Paulo - SP")
+//        PostCard(title: "Preciso de ração", organization: "ong miau miau", items: [PostItem(name: "ração", quantity: "2 sacos"), PostItem(name: "ração gatitos", quantity: "4.8 Kg")], status: "active", timeStamp: Date(), type: "Doação", localization: "São Paulo - SP")
 //    }
 //}
