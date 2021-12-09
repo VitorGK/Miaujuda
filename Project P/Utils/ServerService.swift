@@ -5,6 +5,7 @@ enum UrlRoute: String {
     case user = "/user"
     case petpost = "/petpost"
     case item = "/item"
+    case authUser = "/user/auth"
 }
 
 class ServerService {
@@ -70,50 +71,56 @@ class ServerService {
     //        }
     //    }
     
-//    func createUser(with credentials: ASAuthorizationAppleIDCredential, completion: @escaping (Result<User, Error>) -> Void) {
-//        let appleID = credentials.user
-//        let httpBody = ["appleID": appleID]
-//        guard let jsonData = try? JSONEncoder().encode(httpBody) else { return }
-//        let session = URLSession.shared
-//        guard let url = URL(string: baseUrl + UrlRoute.user.rawValue) else { return }
-//        var request = URLRequest(url: url)
-//        request.httpMethod = "POST"
-//        request.httpBody = jsonData
-//        session.dataTask(with: request) { data, _, error in
-//            if let data = data {
-//                do {
-//                    let res = try JSONDecoder().decode(User.self, from: data)
-//                    DispatchQueue.main.async {
-//                        completion(.success(res))
-//                    }
-//                } catch let error {
-//                    print(error.localizedDescription)
-//                }
-//            }
-//        }
-//        .resume()
-//    }
+    func create(user: User/*, completion: @escaping (Result<User, Error>) -> Void*/) {
+        let session = URLSession.shared
+        guard let url = URL(string: baseUrl + UrlRoute.user.rawValue) else { return }
+        var request = URLRequest(url: url)
+        request.httpMethod = "POST"
+        
+        guard let httpBody = try? JSONEncoder().encode(user) else { return }
+        print("httpBody:\n\(String(data: httpBody, encoding: String.Encoding.utf8)!)")
+        request.httpBody = httpBody
+        
+        session.dataTask(with: request) { data, response, error in
+            if let data = data {
+                do {
+                    let response = try JSONSerialization.jsonObject(with: data, options: [])
+                    print(response)
+                } catch let error {
+                    print(error)
+                }
+            }
+        }
+        .resume()
+    }
 
-//    func authenticate(appleID: String, completion: @escaping (Result<User, Error>) -> Void) {
-//        let session = URLSession.shared
-//        guard let url = URL(string: baseUrl + UrlRoute.user.rawValue) else { return }
-//        var request = URLRequest(url: url)
-//        request.httpMethod = "POST"
-//        do {
-//            let httpBody = ["appleID": appleID]
-//            request.httpBody = try JSONSerialization.data(withJSONObject: httpBody, options: .prettyPrinted)
-//            if let json = try JSONSerialization.jsonObject(with: request.httpBody!, options: .mutableContainers) as? [String: Any] {
-//                print(json)
-//            }
-//        } catch let error {
-//            print(error.localizedDescription)
-//        }
+    func authenticate(appleID: String/*, completion: @escaping (Result<User, Error>) -> Void*/) {
+        let session = URLSession.shared
+        guard let url = URL(string: baseUrl + UrlRoute.authUser.rawValue) else { return }
+        var request = URLRequest(url: url)
+        request.httpMethod = "POST"
+        
+        let appleIdData = ["appleID": appleID]
+        guard let httpBody = try? JSONEncoder().encode(appleIdData) else { return }
+        print(httpBody)
+        request.httpBody = httpBody
+        
+        session.dataTask(with: request) { data, response, error in
+            print("Data:")
+            print(data)
+            print("\nResponse:")
+            print(response)
+            print("\nError:")
+            print(error)
+        }
+        .resume()
+        
 //        session.dataTask(with: request) { data, _, error in
 //            if let data = data {
 //                do {
 //                    let res = try JSONDecoder().decode(User.self, from: data)
 //                    DispatchQueue.main.async {
-//                        completion(.success(res))
+////                        completion(.success(res))
 //                    }
 //                } catch let error {
 //                    print(error.localizedDescription)
@@ -121,5 +128,5 @@ class ServerService {
 //            }
 //        }
 //        .resume()
-//    }
+    }
 }

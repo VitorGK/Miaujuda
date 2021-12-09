@@ -24,10 +24,20 @@ struct SignInWithAppleView: View {
                         print("Authorization successful.")
                         guard let credential = authResults.credential as? ASAuthorizationAppleIDCredential else { return }
                         print(credential.user)
-                        authenticate(appleID: credential.user) {
-                            self.isButtonPressed = true
-                            self.dismiss()
-                        }
+                        ServerService.shared.create(user: User(
+                            createdAt: Date(),
+                            appleID: credential.user,
+                            avatar: 0,
+                            organizationName: "Unidos da Taus",
+                            organizationCategory: "ONG",
+                            organizationZipCode: "02537-010",
+                            email: "unidosdataus@toti.com",
+                            phone: nil,
+                            website: nil
+                        ))// {
+//                            self.isButtonPressed = true
+//                            self.dismiss()
+//                        }
                     case .failure(let error):
                         print("Authorization failure" + error.localizedDescription)
                 }
@@ -46,34 +56,34 @@ struct SignInWithAppleView: View {
         .padding(.leading)
     }
     
-    func authenticate(appleID: String, completion: @escaping () -> Void) {
-        ServerService.shared.authenticate(appleID: appleID) { response in
-            switch response {
-                case .success(let user):
-                    let userAppleID = user.appleID
-                    let userAvatar = user.avatar
-                    let userOrganizationName = user.organizationName
-                    let userOrganizationCategory = user.organizationCategory
-                    let userOrganizationZipCode = user.organizationZipCode
-                    let userEmail = user.email
-                    let userPhone = user.phone
-                    let userWebsite = user.website
-                    UserDefaults.standard.set(userAppleID, forKey: "userAppleID")
-                    UserDefaults.standard.set(userAvatar, forKey: "userAvatar")
-                    UserDefaults.standard.set(userOrganizationName, forKey: "userOrganizationName")
-                    UserDefaults.standard.set(userOrganizationCategory, forKey: "userOrganizationCategory")
-                    UserDefaults.standard.set(userOrganizationZipCode, forKey: "userOrganizationZipCode")
-                    UserDefaults.standard.set(userEmail, forKey: "userEmail")
-                    UserDefaults.standard.set(userPhone, forKey: "userPhone")
-                    UserDefaults.standard.set(userWebsite, forKey: "userWebsite")
-                    print("Authentication successful.")
-                    completion()
-                case .failure(let error):
-                    print("Error Authenticate")
-                    print(error.localizedDescription)
-            }
-        }
-    }
+//    func authenticate(appleID: String, completion: @escaping () -> Void) {
+//        ServerService.shared.authenticate(appleID: appleID) { response in
+//            switch response {
+//                case .success(let user):
+//                    let userAppleID = user.appleID
+//                    let userAvatar = user.avatar
+//                    let userOrganizationName = user.organizationName
+//                    let userOrganizationCategory = user.organizationCategory
+//                    let userOrganizationZipCode = user.organizationZipCode
+//                    let userEmail = user.email
+//                    let userPhone = user.phone
+//                    let userWebsite = user.website
+//                    UserDefaults.standard.set(userAppleID, forKey: "userAppleID")
+//                    UserDefaults.standard.set(userAvatar, forKey: "userAvatar")
+//                    UserDefaults.standard.set(userOrganizationName, forKey: "userOrganizationName")
+//                    UserDefaults.standard.set(userOrganizationCategory, forKey: "userOrganizationCategory")
+//                    UserDefaults.standard.set(userOrganizationZipCode, forKey: "userOrganizationZipCode")
+//                    UserDefaults.standard.set(userEmail, forKey: "userEmail")
+//                    UserDefaults.standard.set(userPhone, forKey: "userPhone")
+//                    UserDefaults.standard.set(userWebsite, forKey: "userWebsite")
+//                    print("Authentication successful.")
+//                    completion()
+//                case .failure(let error):
+//                    print("Error Authenticate")
+//                    print(error.localizedDescription)
+//            }
+//        }
+//    }
 }
 
 struct SignInWithAppleView_Previews: PreviewProvider {
