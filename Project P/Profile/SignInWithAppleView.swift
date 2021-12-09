@@ -22,8 +22,12 @@ struct SignInWithAppleView: View {
                 switch result {
                     case .success(let authResults):
                         print("Authorization successful.")
-                        self.isButtonPressed = true
-                        self.dismiss()
+                        guard let credential = authResults.credential as? ASAuthorizationAppleIDCredential else { return }
+                        print(credential.user)
+                        authenticate(appleID: credential.user) {
+                            self.isButtonPressed = true
+                            self.dismiss()
+                        }
                     case .failure(let error):
                         print("Authorization failure" + error.localizedDescription)
                 }
@@ -42,16 +46,38 @@ struct SignInWithAppleView: View {
         .padding(.leading)
     }
     
-//    func authorize(authResults: ASAuthorization) {
-//        guard let credentials = authResults.credential as? ASAuthorizationAppleIDCredential, let identityToken = credentials.identityToken, let identityTokenString = String(data: identityToken, encoding: .utf8) else { return }
-//        let body = ["appleIdentityToken": identityTokenString]
-//        guard let jsonData = try? JSONEncoder().encode(body) else { return }
-//        // This is where you'd fire an API request to your server to authenticate with the identity token attached in the request headers.
-//    }
+    func authenticate(appleID: String, completion: @escaping () -> Void) {
+        ServerService.shared.authenticate(appleID: appleID) { response in
+            switch response {
+                case .success(let user):
+                    let userAppleID = user.appleID
+                    let userAvatar = user.avatar
+                    let userOrganizationName = user.organizationName
+                    let userOrganizationCategory = user.organizationCategory
+                    let userOrganizationZipCode = user.organizationZipCode
+                    let userEmail = user.email
+                    let userPhone = user.phone
+                    let userWebsite = user.website
+                    UserDefaults.standard.set(userAppleID, forKey: "userAppleID")
+                    UserDefaults.standard.set(userAvatar, forKey: "userAvatar")
+                    UserDefaults.standard.set(userOrganizationName, forKey: "userOrganizationName")
+                    UserDefaults.standard.set(userOrganizationCategory, forKey: "userOrganizationCategory")
+                    UserDefaults.standard.set(userOrganizationZipCode, forKey: "userOrganizationZipCode")
+                    UserDefaults.standard.set(userEmail, forKey: "userEmail")
+                    UserDefaults.standard.set(userPhone, forKey: "userPhone")
+                    UserDefaults.standard.set(userWebsite, forKey: "userWebsite")
+                    print("Authentication successful.")
+                    completion()
+                case .failure(let error):
+                    print("Error Authenticate")
+                    print(error.localizedDescription)
+            }
+        }
+    }
 }
 
-//struct SignInWithAppleView_Previews: PreviewProvider {
-//    static var previews: some View {
-//        SignInWithAppleView()
-//    }
-//}
+struct SignInWithAppleView_Previews: PreviewProvider {
+    static var previews: some View {
+        SignInWithAppleView(isButtonPressed: .constant(false))
+    }
+}
