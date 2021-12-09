@@ -6,27 +6,28 @@ struct PostItem {
 }
 
 struct PostCard: View {
-    var title: String
-    var organization: String
-    var item: PostItem
-    var status: String
-    var timeStamp: Date
-    var type: String
-    var localization: String
+    var post: PetPost
+//    var title: String
+//    var organization: String
+//    var item: PostItem
+//    var status: String
+//    var timeStamp: Date
+//    var type: String
+//    var localization: String
     
     var body: some View {
         
         VStack (alignment: .leading) {
             HStack {
                 VStack {
-                    Text("\(title)")
+                    Text(post.title)
                         .bold()
-                    Text("\(organization)")
+                    Text(post.userID.organizationName)
                         .font(.subheadline)
                         .foregroundColor(.secondary)
                 }
                 Spacer()
-                if status == "active" { // status = ativo
+                if post.status == "active" { // status = ativo
                     Image(systemName: "clock.fill")
                 }
                 
@@ -38,16 +39,16 @@ struct PostCard: View {
             }
             .padding()
             .background(RoundedRectangle(cornerRadius: 0)
-                            .fill((status == "active") ? Color.activePostYellow : Color.concludedPostGray))
+                            .fill((post.status == "active") ? Color.activePostYellow : Color.concludedPostGray))
             
             VStack (alignment: .leading) {
                 
-                Text("\(item.name) - \(item.quantity)" )
+                Text("\(post.item.name) - \(post.item.quantity)" )
                 .padding(.leading)
                 
                 HStack{
                     Spacer()
-                    Text("\(localization)")
+                    Text("\(post.userID.organizationZipCode)")
                 }
                 .font(.subheadline)
                 .foregroundColor(.secondary)
@@ -55,7 +56,7 @@ struct PostCard: View {
                 
                 HStack{
                     Spacer()
-                    Text(timeStamp, style: .date)
+                    Text(post.createdAt, style: .date)
                 }
                 .font(.subheadline)
                 .foregroundColor(.secondary)
