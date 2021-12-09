@@ -107,9 +107,9 @@ struct FormProfileRegView: View {
                     ]
                     ServerService.shared.postRequest(route: .user, params: params) { result, error in
                         print("result")
-                        print(result)
+                        print(result!)
                         print("error")
-                        print(error)
+                        print(error!)
                         if let res: Bool = (result?.values.first as? Bool) {
                             if (res) {
                                 print("User successfully created.")
