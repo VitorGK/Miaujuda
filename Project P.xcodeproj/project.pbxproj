@@ -87,13 +87,11 @@
 			children = (
 				C0EAB6D8275FE5D5001E869B /* Structs */,
 				C0282834275ECBBD00AB080F /* Components */,
-				C028282F275ECBA000AB080F /* PostForm */,
+				C028282F275ECBA000AB080F /* Post */,
 				C0282826275ECB5100AB080F /* Profile */,
 				C028281F275ECB1A00AB080F /* Utils */,
 				C0282811275ECAB400AB080F /* ContentView.swift */,
-				C028281D275ECB1000AB080F /* PostDetailsView.swift */,
 				C028280F275ECAB400AB080F /* HelpetsApp.swift */,
-				C87D137027627854008C1477 /* PostsGrid.swift */,
 				C87D136E27612028008C1477 /* CategorySearch.swift */,
 				C0282813275ECAB500AB080F /* Assets.xcassets */,
 				C0282815275ECAB500AB080F /* Preview Content */,
@@ -130,12 +128,14 @@
 			path = Profile;
 			sourceTree = "<group>";
 		};
-		C028282F275ECBA000AB080F /* PostForm */ = {
+		C028282F275ECBA000AB080F /* Post */ = {
 			isa = PBXGroup;
 			children = (
+				C028281D275ECB1000AB080F /* PostDetailsView.swift */,
+				C87D137027627854008C1477 /* PostsGrid.swift */,
 				C0282830275ECBAE00AB080F /* FormPostView.swift */,
 			);
-			path = PostForm;
+			path = Post;
 			sourceTree = "<group>";
 		};
 		C0282834275ECBBD00AB080F /* Components */ = {

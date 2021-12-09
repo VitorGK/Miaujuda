@@ -1,10 +1,8 @@
 import SwiftUI
 
-
-
 struct PostDetailsView: View {
     var post: PetPost
-    var item: Item = Item(_id: "1", name: "itemnome", quantity: "qtd", category: "food", expirationDate: Date())
+    
     
     var body: some View {
         ScrollView(.vertical) {
@@ -17,7 +15,7 @@ struct PostDetailsView: View {
                 Text("Itens")
                     .font(.title2.bold())
                     .padding(.top)
-                ItemCard(itemName: item.name, quantity: item.quantity, category: item.category, expDate: item.expirationDate!)
+                ItemCard(itemName: post.item.name, quantity: post.item.quantity, category: post.item.category, expDate: post.item.expirationDate ?? Date())
                 Text("Contatos")
                     .font(.title2.bold())
                     .padding(.top)
