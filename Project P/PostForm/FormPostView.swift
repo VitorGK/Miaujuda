@@ -53,7 +53,6 @@ struct FormPostView: View {
                                         )
                     }
                 }
-                //TextField("Nome do item",text: $itemCategory)
 
             }
             

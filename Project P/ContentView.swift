@@ -1,7 +1,6 @@
 import SwiftUI
 
 struct ContentView: View {
-    @State var search: String = ""
     @State var pickerSelectedItem: Int = 0
     
     @State private var isPresented: Bool = false
@@ -111,7 +110,6 @@ struct ContentView: View {
 //                    }
                 }
             }
-            .searchable(text: $search)
         }
     }
 }
