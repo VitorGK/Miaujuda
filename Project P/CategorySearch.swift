@@ -14,7 +14,7 @@ struct CategorySearch: View {
     var body: some View {
         ScrollView {
             VStack {
-                PostCard(title: "titulo", organization: "org", items: [PostItem(name: "nomeitem", quantity: "qtditem")], status: "active", timeStamp: Date(), type: "donation", localization: "local")
+                PostCard(title: "titulo", organization: "org", item: PostItem(name: "nomeitem", quantity: "qtditem"), status: "active", timeStamp: Date(), type: "donation", localization: "local")
             } .padding()
         } .navigationTitle("\(category)")
     }
