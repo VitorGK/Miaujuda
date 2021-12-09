@@ -16,7 +16,7 @@
 		C028281E275ECB1000AB080F /* PostDetailsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C028281D275ECB1000AB080F /* PostDetailsView.swift */; };
 		C0282821275ECB2C00AB080F /* CategoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0282820275ECB2C00AB080F /* CategoryView.swift */; };
 		C0282823275ECB3900AB080F /* ColorExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0282822275ECB3900AB080F /* ColorExtension.swift */; };
-		C0282825275ECB4600AB080F /* DataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0282824275ECB4600AB080F /* DataManager.swift */; };
+		C0282825275ECB4600AB080F /* ServerService.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0282824275ECB4600AB080F /* ServerService.swift */; };
 		C0282828275ECB6000AB080F /* FormProfileRegView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0282827275ECB6000AB080F /* FormProfileRegView.swift */; };
 		C028282A275ECB6D00AB080F /* MyPostsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0282829275ECB6D00AB080F /* MyPostsView.swift */; };
 		C028282C275ECB7E00AB080F /* ProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C028282B275ECB7E00AB080F /* ProfileView.swift */; };
@@ -40,7 +40,7 @@
 		C028281D275ECB1000AB080F /* PostDetailsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostDetailsView.swift; sourceTree = "<group>"; };
 		C0282820275ECB2C00AB080F /* CategoryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryView.swift; sourceTree = "<group>"; };
 		C0282822275ECB3900AB080F /* ColorExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorExtension.swift; sourceTree = "<group>"; };
-		C0282824275ECB4600AB080F /* DataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataManager.swift; sourceTree = "<group>"; };
+		C0282824275ECB4600AB080F /* ServerService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServerService.swift; sourceTree = "<group>"; };
 		C0282827275ECB6000AB080F /* FormProfileRegView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FormProfileRegView.swift; sourceTree = "<group>"; };
 		C0282829275ECB6D00AB080F /* MyPostsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPostsView.swift; sourceTree = "<group>"; };
 		C028282B275ECB7E00AB080F /* ProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileView.swift; sourceTree = "<group>"; };
@@ -111,7 +111,7 @@
 			children = (
 				C0282820275ECB2C00AB080F /* CategoryView.swift */,
 				C0282822275ECB3900AB080F /* ColorExtension.swift */,
-				C0282824275ECB4600AB080F /* DataManager.swift */,
+				C0282824275ECB4600AB080F /* ServerService.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -230,7 +230,7 @@
 				C0282831275ECBAE00AB080F /* FormPostView.swift in Sources */,
 				C028282C275ECB7E00AB080F /* ProfileView.swift in Sources */,
 				C028283A275ECBDF00AB080F /* PostCard.swift in Sources */,
-				C0282825275ECB4600AB080F /* DataManager.swift in Sources */,
+				C0282825275ECB4600AB080F /* ServerService.swift in Sources */,
 				C0282812275ECAB400AB080F /* ContentView.swift in Sources */,
 				C0146041275FDE7C003B8F36 /* User.swift in Sources */,
 				C014603F275FDE36003B8F36 /* PetPost.swift in Sources */,
