@@ -5,7 +5,7 @@ import SwiftUI
 struct PostDetailsView: View {
     var post: PetPost
     var items: [Item] = [
-        Item(_id: "1", postID: "1", name: "itemnome", quantity: "qtd", category: "food", expirationDate: Date())
+        Item(_id: "1", name: "itemnome", quantity: "qtd", category: "food", expirationDate: Date())
     ]
     var body: some View {
         ScrollView(.vertical) {
@@ -56,7 +56,7 @@ struct PostDetailsView: View {
 
 struct PostDetailsView_Previews: PreviewProvider {
     static var previews: some View {
-        PostDetailsView(post: PetPost(_id: "id", createdAt: Date(), userID: "userID", status: "status", type: "type", title: "title", description: "descrp"))
+        PostDetailsView(post: PetPost(_id: "id", createdAt: Date(), userID: "userID", status: "status", type: "type", title: "title", description: "descrp", item: Item(_id: "1", name: "itemnome", quantity: "qtd", category: "food", expirationDate: Date())))
     }
 }
 

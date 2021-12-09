@@ -14,14 +14,14 @@ struct CategorySearch: View {
     ]
     
     var posts: [PetPost] = [
-        PetPost(_id: "", createdAt: Date(), userID: "", status: "", type: "donation", title: "toti", description: "ljksdfklsd"),
-        PetPost(_id: "", createdAt: Date(), userID: "", status: "", type: "necessity", title: "gfdgdf", description: "ljksdfklsd")
+        PetPost(_id: "", createdAt: Date(), userID: "", status: "", type: "donation", title: "toti", description: "ljksdfklsd", item: Item(_id: "iditem", name: "itemName", quantity: "qtdItem", category: "Alimentos")),
+        PetPost(_id: "", createdAt: Date(), userID: "", status: "", type: "necessity", title: "gfdgdf", description: "ljksdfklsd", item: Item(_id: "iditem2", name: "itemName2", quantity: "qtdItem2", category: "Food"))
     ]
     @State var filteredPosts: [PetPost] = []
     
-    //MARK: para filtrar por categoria precisamos achar o itens que tem as categorias e os posts em que esses itens estão
+    
     func filterPosts(category: String, posts: [PetPost]) {
-        filteredPosts = posts.filter {$0.type == "\(category)"}
+        filteredPosts = posts.filter {$0.item.category == "\(category)"}
     }
     
     //TODO: Exibir os posts filtrados para cada categoria
