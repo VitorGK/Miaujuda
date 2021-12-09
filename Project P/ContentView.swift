@@ -1,7 +1,7 @@
 import SwiftUI
 
 struct ContentView: View {
-    @State var pickerSelectedItem: Int = 0
+    @State var pickerSelectedItem: Int = 1
     
     @State private var isPresented: Bool = false
     @State private var isButtonPressed: Bool = false
@@ -22,6 +22,18 @@ struct ContentView: View {
         "higiene",
         "outros"
     ]
+    var posts: [PetPost] = [
+        PetPost(_id: "fdsf", createdAt: Date(), userID: User(_id: "userid", createdAt: Date(), avatar: 1, organizationName: "orgname", organizationCategory: "orgCat", organizationZipCode: "orgLocal"), status: "active", type: "necessity", title: "titulo do post", description: "miaumiau", item: Item(_id: "itemid", name: "name item", quantity: "qtd item", category: "food")),
+                            PetPost(_id: "fdsf", createdAt: Date(), userID: User(_id: "userid", createdAt: Date(), avatar: 1, organizationName: "orgname", organizationCategory: "orgCat", organizationZipCode: "orgLocal"), status: "inactive", type: "donation", title: "titulo do post2", description: "miaumiau", item: Item(_id: "itemid", name: "outro item", quantity: "qtd item", category: "food"))
+    ]
+    
+   // @State var filteredPosts: [PetPost]
+    
+    func filterPosts(type: String, posts: [PetPost]) -> [PetPost] {
+            var filteredPosts: [PetPost]
+            filteredPosts = posts.filter {$0.type == "\(type)"}
+            return filteredPosts
+        }
     
     var posts: [PetPost] = [
         PetPost(_id: "", createdAt: Date(), userID: "", status: "", type: "donation", title: "toti", description: "ljksdfklsd", item: Item(_id: "1", name: "itemnome", quantity: "qtd", category: "food", expirationDate: Date())),
@@ -90,90 +102,45 @@ struct ContentView: View {
                 }
                 .padding()
                 VStack {
-                    Picker("Status", selection: $pickerSelectedItem) {
-                        Text("Necessidades").tag(0)
-                        Text("Doações").tag(1)
-                        
-                    }
-                    .pickerStyle(.segmented)
+                    Picker(selection: $pickerSelectedItem, label: Text("Picker"), content: {
+                        Text("Necessidades").tag(1)
+                        Text("Doações").tag(2)
+                    })
+                    .pickerStyle(SegmentedPickerStyle())
                     
-                    if pickerSelectedItem == 0 {
+                    if pickerSelectedItem == 1 {
                         
-                        filteredPostsNec()
-                        LazyVGrid(columns: columns, spacing: 10) {
-                            
-                            ForEach(0..<filteredPostsNec.count, id: \.self) { p in
-                                
-                                NavigationLink {
-                                    PostDetailsView(post: posts.filter {filteredPostsNec[p])
-                                    } label: { //TODO: os atributos organizaçao, localizacao são do usuario
-                                        PostCard(title: filteredPostsNec[p].title, organization: filteredPostsNec[p].userID, items: [PostItem(name: "item", quantity: "2 sacos")], status: filteredPostsNec[p].status, timeStamp: filteredPostsNec[p].createdAt, type: filteredPostsNec[p].type, localization: filteredPostsNec[p].userID)
-                                        
-                                    }.buttonStyle(.plain)
-                                                    
-                                                    }
-                                                    
-                                                    
-                                                    }
-                                                    }
-                                                    else {
-                                        
-                                        filteredPostsDon()
-                                        LazyVGrid(columns: columns, spacing: 10) {
-                                            
-                                            ForEach(0..<filteredPostsDon.count, id: \.self) { p in
-                                                
-                                                NavigationLink {
-                                                    PostDetailsView(post: filteredPostsDon[p])
-                                                } label: { //TODO: os atributos organizaçao, localizacao são do usuario
-                                                    PostCard(title: filteredPostsDon[p].title, organization: filteredPostsDon[p].userID, items: [PostItem(name: "item", quantity: "2 sacos")], status: filteredPostsDon.status, timeStamp: filteredPostsDon[p].createdAt, type: filteredPostsDon.type, localization: filteredPostsDon[p].userID)
-                                                    
-                                                }.buttonStyle(.plain)
-                                                
-                                            }
-                                            
-                                            
-                                        }
-                                        
-                                    }
-                                                    
-                                                    
-                                                    
-                                                    }
-                                                    
-                                                        .padding(.leading)
-                                                        .padding(.trailing)
-                                                    Spacer()
-                                                    }
-                                                        .navigationTitle("Mantimentos")
-                                                    // TODO: Add profile button
-                                                        .navigationBarTitleDisplayMode(.large)
-                                                        .toolbar {
-                                        ToolbarItem(placement: .navigationBarTrailing) {
-                                            NavigationLink(destination: FormPostView()) {
-                                                Image("signOut")
-                                                    .resizable()
-                                                    .scaledToFit()
-                                                    .frame(width: 41, height: 41)
-                                            }
-                                            //                    Button {
-                                            //
-                                            //
-                                            //                    } label: {
-                                            //                        Image("signOut")
-                                            //                            .resizable()
-                                            //                            .scaledToFit()
-                                            //                            .frame(width: 41, height: 41)
-                                            //                    }
-                                        }
-                                    }
-                                                    }
-                                                    }
-                                                    }
-                                                    
-                                                    struct ContentView_Previews: PreviewProvider {
-                                        static var previews: some View {
-                                            ContentView()
-                                        }
-                                    }
-                                                    
+                        PostsGrid(posts: filterPosts(type: "necessity", posts: posts))
+                    }
+                    else {
+                        PostsGrid(posts: filterPosts(type: "donation", posts: posts))
+                    }
+                }
+                
+                .padding(.leading)
+                .padding(.trailing)
+                Spacer()
+            }
+            .navigationTitle("Mantimentos")
+            // TODO: Add profile button
+            .navigationBarTitleDisplayMode(.large)
+            .toolbar {
+                ToolbarItem(placement: .navigationBarTrailing) {
+                    NavigationLink(destination: FormPostView()) {
+                        Image("signOut")
+                            .resizable()
+                            .scaledToFit()
+                            .frame(width: 41, height: 41)
+                    }
+
+                }
+            }
+        }
+    }
+}
+
+struct ContentView_Previews: PreviewProvider {
+    static var previews: some View {
+        ContentView()
+    }
+}
