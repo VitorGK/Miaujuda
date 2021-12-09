@@ -10,6 +10,7 @@ struct FormPostView: View {
     @State var itemCategory: String = ""
     @State var pickerSelectedDate: Date = Date()
     
+    @ViewBuilder
     var body: some View {
         
         Form {
@@ -44,11 +45,13 @@ struct FormPostView: View {
                                 .foregroundColor(.secondary)
                         }
                     }
-                    DatePicker(
-                                        "Validade",
-                                        selection: $pickerSelectedDate,
-                                        displayedComponents: [.date]
-                                    )
+                    if (itemCategory != "Outros" && itemCategory != "") {
+                        DatePicker(
+                                            "Validade",
+                                            selection: $pickerSelectedDate,
+                                            displayedComponents: [.date]
+                                        )
+                    }
                 }
                 //TextField("Nome do item",text: $itemCategory)
 
