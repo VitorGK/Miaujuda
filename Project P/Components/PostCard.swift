@@ -8,7 +8,7 @@ struct PostItem {
 struct PostCard: View {
     var title: String
     var organization: String
-    var items: [PostItem]
+    var item: PostItem
     var status: String
     var timeStamp: Date
     var type: String
