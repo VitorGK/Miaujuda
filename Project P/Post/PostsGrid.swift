@@ -16,9 +16,9 @@ struct PostsGrid: View {
         LazyVGrid(columns: columns, spacing: 10) {
             ForEach(0..<posts.count, id: \.self) { p in
                 NavigationLink {
-                    PostDetailsView(postItems: [ItemCard(itemName: posts[p].item.name, quantity: posts[p].item.quantity, category: posts[p].item.category, expDate: Date())])
+                    PostDetailsView(post: posts[p])
                 } label: {
-                    PostCard(title: posts[p].title, organization: posts[p].userID.organizationName, item: PostItem(name: posts[p].item.name, quantity: posts[p].item.quantity), status: posts[p].status, timeStamp: posts[p].createdAt, type: posts[p].type, localization: posts[p].userID.organizationZipCode)
+                    PostCard(post: posts[p])
                 }
 
             }

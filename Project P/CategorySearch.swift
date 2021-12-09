@@ -9,14 +9,51 @@ import SwiftUI
 
 struct CategorySearch: View {
     @Binding var category: String
+    let columns = [
+        GridItem(.adaptive(minimum: 180))
+    ]
+    @State var pickerSelectedItem: Int = 1
     
-  //TODO: Exibir os posts filtrados para cada categoria
+    var posts1: [PetPost] = [
+            PetPost(_id: "fdsf", createdAt: Date(), userID: User(_id: "userid", createdAt: Date(), avatar: 1, organizationName: "orgname", organizationCategory: "orgCat", organizationZipCode: "orgLocal"), status: "active", type: "Necessidade", title: "titulo do post", description: "miaumiau", item: Item(_id: "itemid", name: "name item", quantity: "qtd item", category: "Remédios")),
+                                PetPost(_id: "fdsf", createdAt: Date(), userID: User(_id: "userid", createdAt: Date(), avatar: 1, organizationName: "orgname", organizationCategory: "orgCat", organizationZipCode: "orgLocal"), status: "inactive", type: "Doação", title: "titulo do post2", description: "miaumiau", item: Item(_id: "itemid", name: "outro item", quantity: "qtd item", category: "Alimentos"))
+        ]
+    
+    
+    
+    func filterPosts(category: String, posts: [PetPost], type: String) -> [PetPost] {
+        var filteredPosts: [PetPost] = []
+        filteredPosts = posts.filter {$0.item.category == "\(category)" && $0.type == "\(type)"}
+        return filteredPosts
+    }
+    
+    //TODO: Exibir os posts filtrados para cada categoria
     var body: some View {
+        
+        
         ScrollView {
-            VStack {
-                PostCard(title: "titulo", organization: "org", item: PostItem(name: "nomeitem", quantity: "qtditem"), status: "active", timeStamp: Date(), type: "donation", localization: "local")
-            } .padding()
-        } .navigationTitle("\(category)")
+            VStack{
+                
+                
+                Picker(selection: $pickerSelectedItem, label: Text("Picker"), content: {
+                    Text("Necessidades").tag(1)
+                    Text("Doações").tag(2)
+                })
+                .pickerStyle(SegmentedPickerStyle())
+                
+                if pickerSelectedItem == 1 {
+                    
+                    PostsGrid(posts: filterPosts(category: "\(category)", posts: posts1, type: "Necessidade"))
+                }
+                else {
+                    PostsGrid(posts: filterPosts(category: "\(category)", posts: posts1, type: "Doação"))
+                }
+                
+                
+            }
+            .navigationTitle("\(category)")
+            .padding()
+        }
     }
 }
 

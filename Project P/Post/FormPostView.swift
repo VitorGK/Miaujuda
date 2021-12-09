@@ -1,7 +1,7 @@
 import SwiftUI
 
 struct FormPostView: View {
-    @State var pickerSelectedItemPost: Int = 0
+    @State var postCatSelected: String = "Necessidade"
     @State var postTitle: String = ""
     @State var postDescription: String = ""
     @State private var showingSheet = false
@@ -16,12 +16,12 @@ struct FormPostView: View {
         Form {
             Section(header: Text("Categoria da Postagem")) {
                 
-                Picker("Categoria", selection: $pickerSelectedItemPost) {
-                    Text("Necessidade").tag(0)
-                    Text("Doação").tag(1)
-                }
-                .pickerStyle(.segmented)
-                
+                Picker(selection: $postCatSelected, label: Text("Picker"), content: {
+                    Text("Necessidade").tag("Necessidade")
+                    Text("Doação").tag("Doação")
+                })
+                .pickerStyle(SegmentedPickerStyle())
+               
             }
             Section(header: Text("Título da Postagem")) {
                 TextField("", text: $postTitle)
@@ -36,7 +36,7 @@ struct FormPostView: View {
                 TextField("Nome",text: $itemName)
                 TextField("Quantidade",text: $itemQuantity)
                 List{
-                    NavigationLink(destination: CategoryView(selectedCategory: $itemCategory, categories: ["Alimento", "Remédio", "Higiene", "Outros"])) {
+                    NavigationLink(destination: CategoryView(selectedCategory: $itemCategory, categories: ["Alimentos", "Remédios", "Higiene", "Outros"])) {
                         HStack{
                             Text("Categoria")
                                 .foregroundColor(.primary)
