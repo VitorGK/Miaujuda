@@ -105,7 +105,7 @@ struct FormProfileRegView: View {
                         "phone":phone,
                         "website":website
                     ]
-                    DataManager.shared.postRequest(route: .user, params: params) { result, error in
+                    ServerService.shared.postRequest(route: .user, params: params) { result, error in
                         print("result")
                         print(result)
                         print("error")
