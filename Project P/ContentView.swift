@@ -1,7 +1,6 @@
 import SwiftUI
 
 struct ContentView: View {
-    @State var search: String = ""
     @State var pickerSelectedItem: Int = 0
     
     @State private var isPresented: Bool = false
@@ -147,7 +146,7 @@ struct ContentView: View {
             .navigationBarTitleDisplayMode(.large)
             .toolbar {
                 ToolbarItem(placement: .navigationBarTrailing) {
-                    NavigationLink(destination: FormProfileRegView()) {
+                    NavigationLink(destination: FormPostView()) {
                         Image("signOut")
                             .resizable()
                             .scaledToFit()
@@ -164,7 +163,6 @@ struct ContentView: View {
                     //                    }
                 }
             }
-            .searchable(text: $search)
         }
     }
 }
