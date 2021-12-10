@@ -28,6 +28,7 @@
 		C0EAB6D7275FE553001E869B /* Item.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0EAB6D6275FE553001E869B /* Item.swift */; };
 		C87D136F27612028008C1477 /* CategorySearch.swift in Sources */ = {isa = PBXBuildFile; fileRef = C87D136E27612028008C1477 /* CategorySearch.swift */; };
 		C87D137127627854008C1477 /* PostsGrid.swift in Sources */ = {isa = PBXBuildFile; fileRef = C87D137027627854008C1477 /* PostsGrid.swift */; };
+		C8EECD352763E488009C60A0 /* Localization.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8EECD342763E488009C60A0 /* Localization.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -53,6 +54,7 @@
 		C0EAB6D6275FE553001E869B /* Item.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Item.swift; sourceTree = "<group>"; };
 		C87D136E27612028008C1477 /* CategorySearch.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategorySearch.swift; sourceTree = "<group>"; };
 		C87D137027627854008C1477 /* PostsGrid.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostsGrid.swift; sourceTree = "<group>"; };
+		C8EECD342763E488009C60A0 /* Localization.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Localization.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -92,6 +94,7 @@
 				C028281F275ECB1A00AB080F /* Utils */,
 				C0282811275ECAB400AB080F /* ContentView.swift */,
 				C028280F275ECAB400AB080F /* HelpetsApp.swift */,
+				C8EECD342763E488009C60A0 /* Localization.swift */,
 				C87D136E27612028008C1477 /* CategorySearch.swift */,
 				C0282813275ECAB500AB080F /* Assets.xcassets */,
 				C0282815275ECAB500AB080F /* Preview Content */,
@@ -234,6 +237,7 @@
 				C028282C275ECB7E00AB080F /* ProfileView.swift in Sources */,
 				C028283A275ECBDF00AB080F /* PostCard.swift in Sources */,
 				C0282825275ECB4600AB080F /* DataManager.swift in Sources */,
+				C8EECD352763E488009C60A0 /* Localization.swift in Sources */,
 				C0282812275ECAB400AB080F /* ContentView.swift in Sources */,
 				C0146041275FDE7C003B8F36 /* User.swift in Sources */,
 				C014603F275FDE36003B8F36 /* PetPost.swift in Sources */,

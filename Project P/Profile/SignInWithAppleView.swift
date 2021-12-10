@@ -1,5 +1,6 @@
 import SwiftUI
 import AuthenticationServices
+import CoreLocation
 
 struct SignInWithAppleView: View {
     @Environment(\.colorScheme) var colorScheme
@@ -21,6 +22,37 @@ struct SignInWithAppleView: View {
             } onCompletion: { result in
                 switch result {
                     case .success(let authResults):
+                    let location = CLLocation(latitude: -22.963451, longitude: -43.198242)
+                    location.geocode { placemark, error in
+                        if let error = error as? CLError {
+                            print("CLError:", error)
+                            return
+                        } else if let placemark = placemark?.first {
+                            // you should always update your UI in the main thread
+                            DispatchQueue.main.async {
+                                //  update UI here
+                                print("name:", placemark.name ?? "unknown")
+                                
+                                print("address1:", placemark.thoroughfare ?? "unknown")
+                                print("address2:", placemark.subThoroughfare ?? "unknown")
+                                print("neighborhood:", placemark.subLocality ?? "unknown")
+                                print("city:", placemark.locality ?? "unknown")
+                                
+                                print("state:", placemark.administrativeArea ?? "unknown")
+                                print("subAdministrativeArea:", placemark.subAdministrativeArea ?? "unknown")
+                                print("zip code:", placemark.postalCode ?? "unknown")
+                                print("country:", placemark.country ?? "unknown", terminator: "\n\n")
+                                
+                                print("isoCountryCode:", placemark.isoCountryCode ?? "unknown")
+                                print("region identifier:", placemark.region?.identifier ?? "unknown")
+                        
+                                print("timezone:", placemark.timeZone ?? "unknown", terminator:"\n\n")
+
+                                // Mailind Address
+                                print(placemark.mailingAddress ?? "unknown")
+                            }
+                        }
+                    }
                         print("Authorization successful.")
                         self.isButtonPressed = true
                         self.dismiss()
