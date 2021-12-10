@@ -380,11 +380,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"Project P/Preview Content\"";
-<<<<<<< Updated upstream
-				DEVELOPMENT_TEAM = 87UTUM347S;
-=======
 				DEVELOPMENT_TEAM = 337G99FP8D;
->>>>>>> Stashed changes
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
@@ -397,13 +393,8 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 0.1.0;
-<<<<<<< Updated upstream
-				PRODUCT_BUNDLE_IDENTIFIER = com.projectPaaa.Helpets;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-=======
 				PRODUCT_BUNDLE_IDENTIFIER = com.vitorgk.ProjectP;
 				PRODUCT_NAME = ProjectP;
->>>>>>> Stashed changes
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -419,11 +410,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"Project P/Preview Content\"";
-<<<<<<< Updated upstream
-				DEVELOPMENT_TEAM = 87UTUM347S;
-=======
 				DEVELOPMENT_TEAM = 337G99FP8D;
->>>>>>> Stashed changes
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
@@ -436,13 +423,8 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 0.1.0;
-<<<<<<< Updated upstream
-				PRODUCT_BUNDLE_IDENTIFIER = com.projectPaaa.Helpets;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-=======
 				PRODUCT_BUNDLE_IDENTIFIER = com.vitorgk.ProjectP;
 				PRODUCT_NAME = ProjectP;
->>>>>>> Stashed changes
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
