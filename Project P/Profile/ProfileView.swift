@@ -18,6 +18,7 @@ struct ProfileView: View {
                 .resizable()
                 .scaledToFit()
                 .frame(width: 150, height: 150)
+                .padding(.top, 20)
     
             
             Text("\(user.organizationName)")
@@ -25,6 +26,7 @@ struct ProfileView: View {
             Text("\(user.organizationCategory)")
                 .foregroundColor(.secondary)
                 .padding(.bottom, 10)
+                
             
             VStack (alignment: .leading){
                 if let email = user.email {
@@ -42,7 +44,7 @@ struct ProfileView: View {
             
  
             
-        } .padding(.bottom, 50)
+        } .padding(.bottom, 20)
             .background(Color .backgroundPost)
             .cornerRadius(20)
             .shadow(radius: 4)

@@ -10,6 +10,10 @@ struct FormProfileRegView: View {
     @State var email: String = ""
     @State var phone: String = ""
     @State var website: String = ""
+    @State var selected0 = true
+    @State var selected1 = false
+    @State var selected2 = false
+    @State var selected3 = false
     
     let avatarImages: [String] = [
         "profileCat1",
@@ -25,8 +29,12 @@ struct FormProfileRegView: View {
                     HStack {
                         Button {
                             avatar = 0
+                            self.selected0 = true
+                            self.selected1 = false
+                            self.selected2 = false
+                            self.selected3 = false
                         } label: {
-                            Image("profileCat1")
+                            Image(self.selected0 == true ? "selected" : "profileCat1")
                                 .resizable()
                                 .frame(width: 65, height: 65)
                                 .scaledToFill()
@@ -36,8 +44,12 @@ struct FormProfileRegView: View {
                         
                         Button {
                             avatar = 1
+                            self.selected0 = false
+                            self.selected1 = true
+                            self.selected2 = false
+                            self.selected3 = false
                         } label: {
-                            Image("profilePug")
+                            Image(self.selected1 == true ? "selected" : "profilePug")
                                 .resizable()
                                 .frame(width: 65, height: 65)
                                 .scaledToFill()
@@ -47,8 +59,12 @@ struct FormProfileRegView: View {
                         
                         Button {
                             avatar = 2
+                            self.selected0 = false
+                            self.selected1 = false
+                            self.selected2 = true
+                            self.selected3 = false
                         } label: {
-                            Image("profileDog")
+                            Image(self.selected2 == true ? "selected" : "profileDog")
                                 .resizable()
                                 .frame(width: 65, height: 65)
                                 .scaledToFill()
@@ -57,9 +73,13 @@ struct FormProfileRegView: View {
                         Spacer()
                         
                         Button {
+                            self.selected0 = false
+                            self.selected1 = false
+                            self.selected2 = false
+                            self.selected3 = true
                             avatar = 3
                         } label: {
-                            Image("profileCat2")
+                            Image(self.selected3 == true ? "selected" : "profileCat2")
                                 .resizable()
                                 .frame(width: 65, height: 65)
                                 .scaledToFill()
