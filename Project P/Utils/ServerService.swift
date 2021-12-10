@@ -5,7 +5,7 @@ enum UrlRoute: String {
     case user = "/user"
     case petpost = "/petpost"
     case item = "/item"
-    case authUser = "/user/auth"
+    case authUser = "/user/auth/login"
 }
 
 class ServerService {
@@ -104,7 +104,6 @@ class ServerService {
         
         let appleIdData = ["appleID": appleID]
         guard let httpBody = try? JSONEncoder().encode(appleIdData) else { return }
-        print("httpBody:\n\(String(data: httpBody, encoding: String.Encoding.utf8)!)")
         request.httpBody = httpBody
         request.addValue("application/json", forHTTPHeaderField: "Content-Type")
         request.addValue("application/json", forHTTPHeaderField: "Accept")
