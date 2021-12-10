@@ -22,7 +22,6 @@ struct ContentView: View {
         "higiene",
         "outros"
     ]
-
     
     func filterPosts(type: String, posts: [PetPost]) -> [PetPost] {
             var filteredPosts: [PetPost]
