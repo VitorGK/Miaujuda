@@ -41,15 +41,59 @@ struct PostDetailsView: View {
             .padding()
         } .navigationTitle(post.title)
             .navigationBarTitleDisplayMode(.large)
+        //            .navigationBarItems(trailing:
+        //                                    Button(action: {
+        //                print("aaa")
+        //            }) {
+        //                Image(systemName: "ellipsis.circle").imageScale(.large)
+        //            }
+        //            )
             .navigationBarItems(trailing:
-                                    Button(action: {
-                print("Oiii")
-            }) {
-                Image(systemName: "ellipsis.circle").imageScale(.large)
-            }
+                                    editMenu()
             )
     }
 }
+
+struct editMenu: View {
+    var body: some View {
+        
+        Menu {
+            Button {
+                concluir()
+            } label: {
+                Label("Concluir post", systemImage: "checkmark")
+            }
+            
+            Button {
+                deletar()
+            } label: {
+                Label("Deletar post", systemImage: "trash")
+                
+            }
+            Button(action: concluir) {
+                                    Label("Concluir post", systemImage: "checkmark")
+            }
+            Button(role: .destructive, action: deletar) {
+                                    Label("Deletar post", systemImage: "trash.fill")
+                                }
+            
+            
+        } label: {
+            Label("", systemImage: "ellipsis.circle")
+        }
+        
+    }
+
+    
+    func concluir(){
+        print("post concluido")
+    }
+    
+    func deletar(){
+        print("deletado")
+    }
+}
+
 
 //struct PostDetailsView_Previews: PreviewProvider {
 //    static var previews: some View {
