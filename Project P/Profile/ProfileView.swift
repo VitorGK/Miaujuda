@@ -1,17 +1,17 @@
 import SwiftUI
 
 struct ProfileView: View {
+    var user: User = User(_id: "idUSER", createdAt: Date(), avatar: 1, organizationName: "organization name", organizationCategory: "categoria", organizationZipCode: "zip code", email: "email@gmail.com", website: "tito.com")
     var body: some View {
-        
         VStack {
             HStack{
                 Spacer()
-                Button{
-                    print("Edit button was tapped")
-                } label: {
-                    Image(systemName: "pencil.circle")
-                } .padding()
-                
+//                Button{
+//                    print("Edit button was tapped")
+//                } label: {
+//                    Image(systemName: "pencil.circle")
+//                } .padding()
+//                
             }
         
             Image("profileCat2")
@@ -20,14 +20,28 @@ struct ProfileView: View {
                 .frame(width: 150, height: 150)
     
             
-            Text("Unidos da Taus")
+            Text("\(user.organizationName)")
                 .font(.title.bold())
-            Text("ONG")
+            Text("\(user.organizationCategory)")
                 .foregroundColor(.secondary)
                 .padding(.bottom, 10)
-            ForEach([1,2,3], id: \.self ) { contact in
-                Text("\(contact)")
+            
+            VStack (alignment: .leading){
+                if let email = user.email {
+                    Label("\(email)", systemImage: "envelope.fill")
+                }
+                
+                if let phone = user.phone {
+                    Label("\(phone)", systemImage: "phone.fill")
+                }
+                
+                if let website = user.website {
+                    Label("\(website)", systemImage: "link")
+                }
             }
+            
+ 
+            
         } .padding(.bottom, 50)
             .background(Color .backgroundPost)
             .cornerRadius(20)
