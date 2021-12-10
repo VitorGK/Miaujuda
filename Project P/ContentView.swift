@@ -121,7 +121,7 @@ struct ContentView: View {
             .navigationBarTitleDisplayMode(.large)
             .toolbar {
                 ToolbarItem(placement: .navigationBarTrailing) {
-                    NavigationLink(destination: FormPostView()) {
+                    NavigationLink(destination: ProfileView()) {
                         Image("signOut")
                             .resizable()
                             .scaledToFit()
