@@ -11,10 +11,25 @@ struct PostDetailsView: View {
                     .font(.subheadline)
                     .foregroundColor(Color.secondary)
                     .padding(.bottom)
+                
                 Text(post.description)
-                Text("Itens")
+                    .padding(.bottom)
+                
+                HStack{
+                    Text("Tipo:")
+                        .font(.title2.bold())
+                        .padding(.trailing)
+                    
+                    Text(post.type)
+                        .font(.title3)
+                }
+                
+                    
+                
+                Text("Item")
                     .font(.title2.bold())
                     .padding(.top)
+                
                 ItemCard(itemName: post.item.name, quantity: post.item.quantity, category: post.item.category, expDate: post.item.expirationDate ?? Date())
                 Text("Contatos")
                     .font(.title2.bold())
@@ -25,17 +40,31 @@ struct PostDetailsView: View {
                         .fill(.black)
                         .frame(width: 60, height: 60)
                     VStack(alignment: .leading){
-                        Text(post.userID.organizationName) // pegar nome do userID referente
-                        Text(post.userID.organizationCategory) // pegar categoria do userID referente
+                        Text(post.userID.organizationName)
+                        Text(post.userID.organizationCategory)
                     }
                     
                 }
                 .padding(.bottom)
-                HStack{
-                    // TODO: for each de 0 a 2 para cada tipo de contato
-                    Image(systemName:"envelope.fill")
-                    Link("View Our Terms of Service",
-                         destination: URL(string: "https://www.example.com/TOS.html")!)
+                
+//                HStack{
+//                    // TODO: for each de 0 a 2 para cada tipo de contato
+//                    Image(systemName:"envelope.fill")
+//                    Link("View Our Terms of Service",
+//                         destination: URL(string: "https://www.example.com/TOS.html")!)
+//                }
+                VStack (alignment: .leading){
+                    if let email = post.userID.email {
+                        Label("\(email)", systemImage: "envelope.fill")
+                    }
+                    
+                    if let phone = post.userID.phone {
+                        Label("\(phone)", systemImage: "phone.fill")
+                    }
+                    
+                    if let website = post.userID.website {
+                        Label("\(website)", systemImage: "link")
+                    }
                 }
             }
             .padding()
@@ -58,18 +87,7 @@ struct editMenu: View {
     var body: some View {
         
         Menu {
-            Button {
-                concluir()
-            } label: {
-                Label("Concluir post", systemImage: "checkmark")
-            }
             
-            Button {
-                deletar()
-            } label: {
-                Label("Deletar post", systemImage: "trash")
-                
-            }
             Button(action: concluir) {
                                     Label("Concluir post", systemImage: "checkmark")
             }

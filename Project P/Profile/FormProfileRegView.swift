@@ -10,6 +10,10 @@ struct FormProfileRegView: View {
     @State var email: String = ""
     @State var phone: String = ""
     @State var website: String = ""
+    @State var selected0 = true
+    @State var selected1 = false
+    @State var selected2 = false
+    @State var selected3 = false
     
     let avatarImages: [String] = [
         "profileCat1",
@@ -23,46 +27,22 @@ struct FormProfileRegView: View {
             Form {
                 Section(header: Text("Escolha seu avatar")) {
                     HStack {
-                        Button {
-                            avatar = 0
-                        } label: {
-                            Image("profileCat1")
-                                .resizable()
-                                .frame(width: 65, height: 65)
-                                .scaledToFill()
-                        }
-                        
-                        Spacer()
-                        
-                        Button {
-                            avatar = 1
-                        } label: {
-                            Image("profilePug")
-                                .resizable()
-                                .frame(width: 65, height: 65)
-                                .scaledToFill()
-                        }
-                        
-                        Spacer()
-                        
-                        Button {
-                            avatar = 2
-                        } label: {
-                            Image("profileDog")
-                                .resizable()
-                                .frame(width: 65, height: 65)
-                                .scaledToFill()
-                        }
-                        
-                        Spacer()
-                        
-                        Button {
-                            avatar = 3
-                        } label: {
-                            Image("profileCat2")
-                                .resizable()
-                                .frame(width: 65, height: 65)
-                                .scaledToFill()
+                        ForEach(avatarImages.indices, id: \.self) { index in
+                            Button {
+                                avatar = index
+                            } label: {
+                                Image(avatarImages[index])
+                                    .resizable()
+                                    .frame(width: 65, height: 65)
+                                    .scaledToFill()
+                            }
+                            .overlay {
+                                if avatar == index {
+                                    Circle().stroke(Color.green, lineWidth: 4)
+                                }
+                            }.opacity(avatar == index ? 1 : 0.5)
+                            
+                            Spacer()
                         }
                         
                     }
@@ -132,3 +112,63 @@ struct FormProfileRegView_Previews: PreviewProvider {
         FormProfileRegView()
     }
 }
+
+/**
+ Button {
+     avatar = 0
+     self.selected0 = true
+     self.selected1 = false
+     self.selected2 = false
+     self.selected3 = false
+ } label: {
+     Image(avatar == 0 ? "selected" : "profileCat1")
+         .resizable()
+         .frame(width: 65, height: 65)
+         .scaledToFill()
+ }
+ 
+ Spacer()
+ 
+ Button {
+     avatar = 1
+     self.selected0 = false
+     self.selected1 = true
+     self.selected2 = false
+     self.selected3 = false
+ } label: {
+     Image(self.selected1 == true ? "selected" : "profilePug")
+         .resizable()
+         .frame(width: 65, height: 65)
+         .scaledToFill()
+ }
+ 
+ Spacer()
+ 
+ Button {
+     avatar = 2
+     self.selected0 = false
+     self.selected1 = false
+     self.selected2 = true
+     self.selected3 = false
+ } label: {
+     Image(self.selected2 == true ? "selected" : "profileDog")
+         .resizable()
+         .frame(width: 65, height: 65)
+         .scaledToFill()
+ }
+ 
+ Spacer()
+ 
+ Button {
+     self.selected0 = false
+     self.selected1 = false
+     self.selected2 = false
+     self.selected3 = true
+     avatar = 3
+ } label: {
+     Image(self.selected3 == true ? "selected" : "profileCat2")
+         .resizable()
+         .frame(width: 65, height: 65)
+         .scaledToFill()
+ }
+ */
