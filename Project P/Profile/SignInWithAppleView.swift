@@ -24,17 +24,18 @@ struct SignInWithAppleView: View {
                         print("Authorization successful.")
                         guard let credential = authResults.credential as? ASAuthorizationAppleIDCredential else { return }
                         print(credential.user)
-                        ServerService.shared.create(user: User(
-                            createdAt: Date(),
-                            appleID: credential.user,
-                            avatar: 0,
-                            organizationName: "Unidos da Taus",
-                            organizationCategory: "ONG",
-                            organizationZipCode: "02537-010",
-                            email: "unidosdataus@toti.com",
-                            phone: nil,
-                            website: nil
-                        ))// {
+                        ServerService.shared.authenticate(appleID: credential.user)
+//                        ServerService.shared.create(user: User(
+//                            createdAt: Date(),
+//                            appleID: credential.user,
+//                            avatar: 0,
+//                            organizationName: "Unidos da Taus",
+//                            organizationCategory: "ONG",
+//                            organizationZipCode: "02537-010",
+//                            email: "unidosdataus@toti.com",
+//                            phone: nil,
+//                            website: nil
+//                        ))// {
 //                            self.isButtonPressed = true
 //                            self.dismiss()
 //                        }

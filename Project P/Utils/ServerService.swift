@@ -80,12 +80,14 @@ class ServerService {
         guard let httpBody = try? JSONEncoder().encode(user) else { return }
         print("httpBody:\n\(String(data: httpBody, encoding: String.Encoding.utf8)!)")
         request.httpBody = httpBody
+        request.addValue("application/json", forHTTPHeaderField: "Content-Type")
+        request.addValue("application/json", forHTTPHeaderField: "Accept")
         
         session.dataTask(with: request) { data, response, error in
             if let data = data {
                 do {
-                    let response = try JSONSerialization.jsonObject(with: data, options: [])
-                    print(response)
+                    let res = try JSONSerialization.jsonObject(with: data, options: [])
+                    print(res)
                 } catch let error {
                     print(error)
                 }
@@ -102,16 +104,20 @@ class ServerService {
         
         let appleIdData = ["appleID": appleID]
         guard let httpBody = try? JSONEncoder().encode(appleIdData) else { return }
-        print(httpBody)
+        print("httpBody:\n\(String(data: httpBody, encoding: String.Encoding.utf8)!)")
         request.httpBody = httpBody
+        request.addValue("application/json", forHTTPHeaderField: "Content-Type")
+        request.addValue("application/json", forHTTPHeaderField: "Accept")
         
         session.dataTask(with: request) { data, response, error in
-            print("Data:")
-            print(data)
-            print("\nResponse:")
-            print(response)
-            print("\nError:")
-            print(error)
+            if let data = data {
+                do {
+                    let res = try JSONSerialization.jsonObject(with: data, options: [])
+                    print(res)
+                } catch let error {
+                    print(error)
+                }
+            }
         }
         .resume()
         
