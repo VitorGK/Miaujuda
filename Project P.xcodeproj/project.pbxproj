@@ -28,7 +28,37 @@
 		C0EAB6D7275FE553001E869B /* Item.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0EAB6D6275FE553001E869B /* Item.swift */; };
 		C87D136F27612028008C1477 /* CategorySearch.swift in Sources */ = {isa = PBXBuildFile; fileRef = C87D136E27612028008C1477 /* CategorySearch.swift */; };
 		C87D137127627854008C1477 /* PostsGrid.swift in Sources */ = {isa = PBXBuildFile; fileRef = C87D137027627854008C1477 /* PostsGrid.swift */; };
+		E47B449C2767BE8B0044BDFA /* HelpetsACApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = E47B449B2767BE8B0044BDFA /* HelpetsACApp.swift */; };
+		E47B449E2767BE8B0044BDFA /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E47B449D2767BE8B0044BDFA /* ContentView.swift */; };
+		E47B44A02767BE8D0044BDFA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E47B449F2767BE8D0044BDFA /* Assets.xcassets */; };
+		E47B44A32767BE8D0044BDFA /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E47B44A22767BE8D0044BDFA /* Preview Assets.xcassets */; };
+		E47B44A82767BE8D0044BDFA /* HelpetsAC.app in Embed App Clips */ = {isa = PBXBuildFile; fileRef = E47B44992767BE8B0044BDFA /* HelpetsAC.app */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		E47B44B12767C3120044BDFA /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0282811275ECAB400AB080F /* ContentView.swift */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		E47B44A62767BE8D0044BDFA /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = C0282804275ECAB400AB080F /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = E47B44982767BE8B0044BDFA;
+			remoteInfo = HelpetsAC;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		E47B44AC2767BE8D0044BDFA /* Embed App Clips */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "$(CONTENTS_FOLDER_PATH)/AppClips";
+			dstSubfolderSpec = 16;
+			files = (
+				E47B44A82767BE8D0044BDFA /* HelpetsAC.app in Embed App Clips */,
+			);
+			name = "Embed App Clips";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		C014603E275FDE36003B8F36 /* PetPost.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PetPost.swift; sourceTree = "<group>"; };
@@ -53,10 +83,24 @@
 		C0EAB6D6275FE553001E869B /* Item.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Item.swift; sourceTree = "<group>"; };
 		C87D136E27612028008C1477 /* CategorySearch.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategorySearch.swift; sourceTree = "<group>"; };
 		C87D137027627854008C1477 /* PostsGrid.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostsGrid.swift; sourceTree = "<group>"; };
+		E47B44992767BE8B0044BDFA /* HelpetsAC.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HelpetsAC.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		E47B449B2767BE8B0044BDFA /* HelpetsACApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HelpetsACApp.swift; sourceTree = "<group>"; };
+		E47B449D2767BE8B0044BDFA /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		E47B449F2767BE8D0044BDFA /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		E47B44A22767BE8D0044BDFA /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		E47B44A42767BE8D0044BDFA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		E47B44A52767BE8D0044BDFA /* HelpetsAC.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = HelpetsAC.entitlements; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
 		C0282809275ECAB400AB080F /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		E47B44962767BE8B0044BDFA /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -69,7 +113,9 @@
 		C0282803275ECAB400AB080F = {
 			isa = PBXGroup;
 			children = (
+				E47B44AE2767C18A0044BDFA /* Shared */,
 				C028280E275ECAB400AB080F /* Project P */,
+				E47B449A2767BE8B0044BDFA /* HelpetsAC */,
 				C028280D275ECAB400AB080F /* Products */,
 			);
 			sourceTree = "<group>";
@@ -78,6 +124,7 @@
 			isa = PBXGroup;
 			children = (
 				C028280C275ECAB400AB080F /* Helpets.app */,
+				E47B44992767BE8B0044BDFA /* HelpetsAC.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -90,7 +137,6 @@
 				C028282F275ECBA000AB080F /* Post */,
 				C0282826275ECB5100AB080F /* Profile */,
 				C028281F275ECB1A00AB080F /* Utils */,
-				C0282811275ECAB400AB080F /* ContentView.swift */,
 				C028280F275ECAB400AB080F /* HelpetsApp.swift */,
 				C87D136E27612028008C1477 /* CategorySearch.swift */,
 				C0282813275ECAB500AB080F /* Assets.xcassets */,
@@ -158,6 +204,35 @@
 			path = Structs;
 			sourceTree = "<group>";
 		};
+		E47B449A2767BE8B0044BDFA /* HelpetsAC */ = {
+			isa = PBXGroup;
+			children = (
+				E47B449B2767BE8B0044BDFA /* HelpetsACApp.swift */,
+				E47B449D2767BE8B0044BDFA /* ContentView.swift */,
+				E47B449F2767BE8D0044BDFA /* Assets.xcassets */,
+				E47B44A42767BE8D0044BDFA /* Info.plist */,
+				E47B44A52767BE8D0044BDFA /* HelpetsAC.entitlements */,
+				E47B44A12767BE8D0044BDFA /* Preview Content */,
+			);
+			path = HelpetsAC;
+			sourceTree = "<group>";
+		};
+		E47B44A12767BE8D0044BDFA /* Preview Content */ = {
+			isa = PBXGroup;
+			children = (
+				E47B44A22767BE8D0044BDFA /* Preview Assets.xcassets */,
+			);
+			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		E47B44AE2767C18A0044BDFA /* Shared */ = {
+			isa = PBXGroup;
+			children = (
+				C0282811275ECAB400AB080F /* ContentView.swift */,
+			);
+			path = Shared;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -168,15 +243,34 @@
 				C0282808275ECAB400AB080F /* Sources */,
 				C0282809275ECAB400AB080F /* Frameworks */,
 				C028280A275ECAB400AB080F /* Resources */,
+				E47B44AC2767BE8D0044BDFA /* Embed App Clips */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				E47B44A72767BE8D0044BDFA /* PBXTargetDependency */,
 			);
 			name = Helpets;
 			productName = Helpets;
 			productReference = C028280C275ECAB400AB080F /* Helpets.app */;
 			productType = "com.apple.product-type.application";
+		};
+		E47B44982767BE8B0044BDFA /* HelpetsAC */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = E47B44A92767BE8D0044BDFA /* Build configuration list for PBXNativeTarget "HelpetsAC" */;
+			buildPhases = (
+				E47B44952767BE8B0044BDFA /* Sources */,
+				E47B44962767BE8B0044BDFA /* Frameworks */,
+				E47B44972767BE8B0044BDFA /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = HelpetsAC;
+			productName = HelpetsAC;
+			productReference = E47B44992767BE8B0044BDFA /* HelpetsAC.app */;
+			productType = "com.apple.product-type.application.on-demand-install-capable";
 		};
 /* End PBXNativeTarget section */
 
@@ -189,6 +283,9 @@
 				LastUpgradeCheck = 1310;
 				TargetAttributes = {
 					C028280B275ECAB400AB080F = {
+						CreatedOnToolsVersion = 13.1;
+					};
+					E47B44982767BE8B0044BDFA = {
 						CreatedOnToolsVersion = 13.1;
 					};
 				};
@@ -207,6 +304,7 @@
 			projectRoot = "";
 			targets = (
 				C028280B275ECAB400AB080F /* Helpets */,
+				E47B44982767BE8B0044BDFA /* HelpetsAC */,
 			);
 		};
 /* End PBXProject section */
@@ -218,6 +316,15 @@
 			files = (
 				C0282817275ECAB500AB080F /* Preview Assets.xcassets in Resources */,
 				C0282814275ECAB500AB080F /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		E47B44972767BE8B0044BDFA /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E47B44A32767BE8D0044BDFA /* Preview Assets.xcassets in Resources */,
+				E47B44A02767BE8D0044BDFA /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -250,7 +357,25 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		E47B44952767BE8B0044BDFA /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E47B449E2767BE8B0044BDFA /* ContentView.swift in Sources */,
+				E47B449C2767BE8B0044BDFA /* HelpetsACApp.swift in Sources */,
+				E47B44B12767C3120044BDFA /* ContentView.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		E47B44A72767BE8D0044BDFA /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = E47B44982767BE8B0044BDFA /* HelpetsAC */;
+			targetProxy = E47B44A62767BE8D0044BDFA /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
 		C0282818275ECAB500AB080F /* Debug */ = {
@@ -372,13 +497,14 @@
 		C028281B275ECAB500AB080F /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = Helpets.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"Project P/Preview Content\"";
-				DEVELOPMENT_TEAM = 87UTUM347S;
+				DEVELOPMENT_TEAM = 9U7NL4KM84;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
@@ -391,7 +517,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 0.1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.projectPaaa.Helpets;
+				PRODUCT_BUNDLE_IDENTIFIER = com.projectPetsPimenta.Helpets;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
@@ -402,13 +528,14 @@
 		C028281C275ECAB500AB080F /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = Helpets.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"Project P/Preview Content\"";
-				DEVELOPMENT_TEAM = 87UTUM347S;
+				DEVELOPMENT_TEAM = 9U7NL4KM84;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
@@ -421,7 +548,71 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 0.1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.projectPaaa.Helpets;
+				PRODUCT_BUNDLE_IDENTIFIER = com.projectPetsPimenta.Helpets;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		E47B44AA2767BE8D0044BDFA /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = HelpetsAC/HelpetsAC.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"HelpetsAC/Preview Content\"";
+				DEVELOPMENT_TEAM = 9U7NL4KM84;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = HelpetsAC/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = Helpets;
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.projectPetsPimenta.Helpets.Clip;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		E47B44AB2767BE8D0044BDFA /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = HelpetsAC/HelpetsAC.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"HelpetsAC/Preview Content\"";
+				DEVELOPMENT_TEAM = 9U7NL4KM84;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = HelpetsAC/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = Helpets;
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.projectPetsPimenta.Helpets.Clip;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
@@ -446,6 +637,15 @@
 			buildConfigurations = (
 				C028281B275ECAB500AB080F /* Debug */,
 				C028281C275ECAB500AB080F /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		E47B44A92767BE8D0044BDFA /* Build configuration list for PBXNativeTarget "HelpetsAC" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				E47B44AA2767BE8D0044BDFA /* Debug */,
+				E47B44AB2767BE8D0044BDFA /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
