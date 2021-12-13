@@ -1,23 +1,22 @@
 import SwiftUI
 
 struct MyPostsView: View {
+    @ObservedObject var postViewModel: PostViewModel
+    
     @State var pickerSelectedItemMyPosts: Int = 0
+    @State var pickerSelectedItem: Int = 1
     
     let columns = [
         GridItem(.adaptive(minimum: 180))
     ]
-    @State var pickerSelectedItem: Int = 1
     
-    var posts2: [PetPost] = [
-        PetPost(_id: "fdsf", createdAt: Date(), userID: User(createdAt: Date(), appleID: "", avatar: 1, organizationName: "orgname", organizationCategory: "orgCat", organizationZipCode: "orgLocal"), status: "active", type: "Necessidade", title: "titulo do post", description: "miaumiau", item: Item(name: "name item", quantity: "qtd item", category: "Remédios")),
-        PetPost(_id: "fdsf", createdAt: Date(), userID: User(createdAt: Date(), appleID: "", avatar: 1, organizationName: "orgname", organizationCategory: "orgCat", organizationZipCode: "orgLocal"), status: "inactive", type: "Doação", title: "titulo do post2", description: "miaumiau", item: Item(name: "outro item", quantity: "qtd item", category: "Alimentos"))
-        ]
+//    var posts2: [PetPost] = [
+//        PetPost(_id: "fdsf", createdAt: Date(), userID: User(createdAt: Date(), appleID: "", avatar: 1, organizationName: "orgname", organizationCategory: "orgCat", organizationZipCode: "orgLocal"), status: "active", type: "Necessidade", title: "titulo do post", description: "miaumiau", item: Item(name: "name item", quantity: "qtd item", category: "Remédios")),
+//        PetPost(_id: "fdsf", createdAt: Date(), userID: User(createdAt: Date(), appleID: "", avatar: 1, organizationName: "orgname", organizationCategory: "orgCat", organizationZipCode: "orgLocal"), status: "inactive", type: "Doação", title: "titulo do post2", description: "miaumiau", item: Item(name: "outro item", quantity: "qtd item", category: "Alimentos"))
+//        ]
     
-    
-    func filterPosts(userID: String, posts: [PetPost], status: String) -> [PetPost] {
-        var filteredPosts: [PetPost] = []
-        filteredPosts = posts.filter {$0.userID.appleID == "\(userID)" && $0.status == "\(status)"}
-        return filteredPosts
+    init() {
+        postViewModel = PostViewModel()
     }
     
     var body: some View {
@@ -32,11 +31,10 @@ struct MyPostsView: View {
                 //TODO: deve verificar qual é o user no back pra ocmparar com o user id dos posts
                 
                 if pickerSelectedItem == 1 {
-                    
-                    PostsGrid(posts: filterPosts(userID: "5454", posts: posts2, status: "active"))
+                    PostsGrid(posts: filterPosts(userID: "5454", posts: postViewModel.posts, status: "active"))
                 }
                 else {
-                    PostsGrid(posts: filterPosts(userID: "5454", posts: posts2, status: "inactive"))
+                    PostsGrid(posts: filterPosts(userID: "5454", posts: postViewModel.posts, status: "inactive"))
                 }
                 
                 
@@ -44,6 +42,24 @@ struct MyPostsView: View {
         }
         .navigationTitle("Minhas Postagens")
         .navigationBarTitleDisplayMode(.inline)
+    }
+    
+    func filterPosts(userID: String, posts: [PetPost], status: String) -> [PetPost] {
+        var filteredPosts: [PetPost] = []
+        var user: User?
+        ServerService.shared.getUser(by: userID) { result in
+            switch result {
+                case .success(let user2):
+                    user = user2
+                case .failure(let error):
+                    print(error.localizedDescription)
+            }
+        }
+        guard let user = user else { return [] }
+        filteredPosts = posts.filter {
+            user.appleID == "\(userID)" && $0.status == "\(status)"
+        }
+        return filteredPosts
     }
 }
 

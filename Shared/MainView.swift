@@ -1,29 +1,26 @@
 import SwiftUI
 
-struct ContentView: View {
+struct MainView: View {
     @AppStorage("isUserLoggedIn") var isUserLoggedIn: Bool = false
-    @AppStorage("avatar") var avatar: Int = 2
+    @AppStorage("avatar") var avatar: Int = 0
     
     @State var pickerSelectedItem: Int = 1
     
     @State private var isPresented: Bool = false
     @State private var isButtonPressed: Bool = false
+    
+    @State var filteredPostsNec: [PetPost] = []
+    @State var filteredPostsDon: [PetPost] = []
+    
     let columns = [
         GridItem(.adaptive(minimum: 180))
     ]
     
-    @State var categoriesTitle: [String] = [
+    var categoriesTitle: [String] = [
         "Alimentos",
         "Remédios",
         "Higiene",
         "Outros"
-    ]
-    
-    let categoriesImage: [String] = [
-        "alimentos",
-        "remedio",
-        "higiene",
-        "outros"
     ]
     
     let profileImages: [String] = [
@@ -33,26 +30,10 @@ struct ContentView: View {
         "profileCat2",
     ]
     
-    func filterPosts(type: String, posts: [PetPost]) -> [PetPost] {
-            var filteredPosts: [PetPost]
-            filteredPosts = posts.filter {$0.type == "\(type)"}
-            return filteredPosts
-        }
+    @ObservedObject var postViewModel: PostViewModel
     
-    var posts: [PetPost] = [
-        PetPost(_id: "fdsf", createdAt: Date(), userID: User(createdAt: Date(), appleID: "", avatar: 1, organizationName: "orgname", organizationCategory: "orgCat", organizationZipCode: "orgLocal"), status: "active", type: "Necessidade", title: "titulo do post", description: "miaumiau", item: Item(name: "name item", quantity: "qtd item", category: "food")),
-        PetPost(_id: "fdsf", createdAt: Date(), userID: User(createdAt: Date(), appleID: "", avatar: 1, organizationName: "orgname", organizationCategory: "orgCat", organizationZipCode: "orgLocal"), status: "inactive", type: "Doação", title: "titulo do post2", description: "miaumiau", item: Item(name: "outro item", quantity: "qtd item", category: "food"))
-    ]
-    
-    @State var filteredPostsNec: [PetPost] = []
-    @State var filteredPostsDon: [PetPost] = []
-    
-    //MARK: para filtrar por categoria precisamos achar o itens que tem as categorias e os posts em que esses itens estão
-    func filterPostsNecessity(category: String, posts: [PetPost]) {
-        filteredPostsNec = posts.filter {$0.type == "Necessidade"}
-    }
-    func filterPostsDonation(category: String, posts: [PetPost]) {
-        filteredPostsDon = posts.filter {$0.type == "Doação"}
+    init() {
+        postViewModel = PostViewModel()
     }
     
     @ViewBuilder
@@ -70,25 +51,27 @@ struct ContentView: View {
                     LazyHGrid(rows: [GridItem(.fixed(0))], spacing: 20) {
                         ForEach(0...3, id: \.self) { item in
                             NavigationLink {
-                                CategorySearch(category: $categoriesTitle[item])
+                                CategorySearch(category: categoriesTitle[item])
                             } label: {
-                                CategoryItem(imageName: categoriesImage[item], text: categoriesTitle[item])
+                                CategoryItem(imageName: categoriesTitle[item], text: categoriesTitle[item])
                             }.buttonStyle(.plain)
-                            
                         }
                     }
                     .frame(height: 86)
                     .padding(.leading)
                 }
+                
                 HStack {
                     Text("Postagens")
                         .font(.title3)
                         .bold()
                         .frame(maxWidth: .infinity, alignment: .leading)
+                    
                     ZStack {
                         NavigationLink(destination: FormProfileRegView(), isActive: $isButtonPressed) {
                             EmptyView()
-                        }.hidden()
+                        }
+                        .hidden()
                         
                         Button(action: {
                             self.isPresented = true
@@ -96,14 +79,15 @@ struct ContentView: View {
                             Image(systemName: "plus")
                                 .imageScale(.large)
                         })
-                            .sheet(isPresented: $isPresented, onDismiss: {
-                                self.isPresented = false
-                            }) {
-                                SignInWithAppleView(isButtonPressed: self.$isButtonPressed)
-                            }
+                        .sheet(isPresented: $isPresented, onDismiss: {
+                            self.isPresented = false
+                        }) {
+                            SignInWithAppleView(isButtonPressed: self.$isButtonPressed)
+                        }
                     }
                 }
                 .padding()
+                
                 VStack {
                     Picker(selection: $pickerSelectedItem, label: Text("Picker"), content: {
                         Text("Necessidades").tag(1)
@@ -112,16 +96,14 @@ struct ContentView: View {
                     .pickerStyle(SegmentedPickerStyle())
                     
                     if pickerSelectedItem == 1 {
-                        
-                        PostsGrid(posts: filterPosts(type: "Necessidade", posts: posts))
-                    }
-                    else {
-                        PostsGrid(posts: filterPosts(type: "Doação", posts: posts))
+                        PostsGrid(posts: filterPosts(type: "Necessidade", posts: postViewModel.posts))
+                    } else {
+                        PostsGrid(posts: filterPosts(type: "Doação", posts: postViewModel.posts))
                     }
                 }
-                
                 .padding(.leading)
                 .padding(.trailing)
+                
                 Spacer()
             }
             .navigationTitle("Mantimentos")
@@ -135,15 +117,20 @@ struct ContentView: View {
                             .scaledToFit()
                             .frame(width: 41, height: 41)
                     }
-
                 }
             }
         }
     }
+    
+    func filterPosts(type: String, posts: [PetPost]) -> [PetPost] {
+        var filteredPosts: [PetPost]
+        filteredPosts = posts.filter {$0.type == "\(type)"}
+        return filteredPosts
+    }
 }
 
-struct ContentView_Previews: PreviewProvider {
+struct MainView_Previews: PreviewProvider {
     static var previews: some View {
-        ContentView()
+        MainView()
     }
 }

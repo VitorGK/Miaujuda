@@ -4,7 +4,7 @@ struct ItemCard: View {
     var itemName: String
     var quantity: String
     var category: String
-    var expDate: Date?
+    var expDate: String?
     
     @State var imgName: String = ""
     
@@ -35,12 +35,10 @@ struct ItemCard: View {
                 VStack (alignment: .leading) {
                     Text("\(quantity)")
                     if let expDate = expDate {
-                        Text(expDate,style: .date)
+                        Text(String(expDate))
                             .font(.subheadline)
                             .foregroundColor(.secondary)
                     }
-                    
-                    
                 }
                 .onAppear {
                     categImage(category: category)
@@ -60,8 +58,8 @@ struct ItemCard: View {
     }
 }
 
-struct ItemCard_Previews: PreviewProvider {
-    static var previews: some View {
-        ItemCard(itemName: "Ração de gato", quantity: "2 Sacos", category: "food", expDate: Date())
-    }
-}
+//struct ItemCard_Previews: PreviewProvider {
+//    static var previews: some View {
+//        ItemCard(itemName: "Ração de gato", quantity: "2 Sacos", category: "food", expDate: Date())
+//    }
+//}

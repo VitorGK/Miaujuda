@@ -14,6 +14,67 @@ class ServerService {
     let baseUrl: String = "https://project-pets.herokuapp.com"
     private let jwtToken = UserDefaults.standard.string(forKey: "jwtToken")
     
+    // MARK: --- GET REQUEST
+    func getRequest(route: UrlRoute, id: String = "", completion: @escaping (Result<[String: Any], Error>) -> Void) {
+        let session = URLSession.shared
+        guard let url = URL(string: baseUrl + route.rawValue + (id != "" ? "/" + id : "")) else { return }
+        var request = URLRequest(url: url)
+        guard let jwtToken = self.jwtToken else { return }
+        request.setValue("Bearer \(jwtToken)", forHTTPHeaderField: "Authorization")
+        
+        session.dataTask(with: request) { data, _, error in
+            if let data = data {
+                do {
+                    guard let responseJson = try JSONSerialization.jsonObject(with: data) as? [String: Any] else { return }
+                    completion(.success(responseJson))
+                } catch let error {
+                    completion(.failure(error))
+                }
+            }
+        }
+        .resume()
+    }
+    
+    // MARK: --- GET ALL POSTS
+    func getAllPosts(completion: @escaping (Result<[PetPost], Error>) -> Void) {
+        let session = URLSession.shared
+        guard let url = URL(string: baseUrl + UrlRoute.petpost.rawValue) else { return }
+        let request = URLRequest(url: url)
+        
+        session.dataTask(with: request) { data, _, error in
+            if let data = data {
+                do {
+                    let responseJson = try JSONDecoder().decode([PetPost].self, from: data)
+                    completion(.success(responseJson))
+                } catch let error {
+                    completion(.failure(error))
+                }
+            }
+        }
+        .resume()
+    }
+    
+    // MARK: --- GET USER BY ID
+    func getUser(by id: String, completion: @escaping (Result<User, Error>) -> Void) {
+        let session = URLSession.shared
+        guard let url = URL(string: baseUrl + UrlRoute.user.rawValue + id.slashed()) else { return }
+        var request = URLRequest(url: url)
+        guard let jwtToken = self.jwtToken else { return }
+        request.setValue("Bearer \(jwtToken)", forHTTPHeaderField: "Authorization")
+        
+        session.dataTask(with: request) { data, _, error in
+            if let data = data {
+                do {
+                    let responseJson = try JSONDecoder().decode(User.self, from: data)
+                    completion(.success(responseJson))
+                } catch let error {
+                    completion(.failure(error))
+                }
+            }
+        }
+        .resume()
+    }
+    
     // MARK: --- POST REQUEST
     public func postRequest(route: UrlRoute, body: [String: Any], completion: @escaping (Result<[String: Any], Error>) -> Void) {
         let session = URLSession.shared
@@ -63,25 +124,10 @@ class ServerService {
         }
         .resume()
     }
-    
-    // MARK: --- GET REQUEST
-    func getRequest(route: UrlRoute, id: String = "", completion: @escaping (Result<[String: Any], Error>) -> Void) {
-        let session = URLSession.shared
-        guard let url = URL(string: baseUrl + route.rawValue + (id != "" ? "/" + id : "")) else { return }
-        var request = URLRequest(url: url)
-        guard let jwtToken = self.jwtToken else { return }
-        request.setValue("Bearer \(jwtToken)", forHTTPHeaderField: "Authorization")
-        
-        session.dataTask(with: request) { data, _, error in
-            if let data = data {
-                do {
-                    guard let responseJson = try JSONSerialization.jsonObject(with: data) as? [String: Any] else { return }
-                    completion(.success(responseJson))
-                } catch let error {
-                    completion(.failure(error))
-                }
-            }
-        }
-        .resume()
+}
+
+extension String {
+    func slashed() -> String {
+        return "/" + self
     }
 }

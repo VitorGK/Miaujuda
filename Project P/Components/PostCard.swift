@@ -7,13 +7,13 @@ struct PostItem {
 
 struct PostCard: View {
     var post: PetPost
-//    var title: String
-//    var organization: String
-//    var item: PostItem
-//    var status: String
-//    var timeStamp: Date
-//    var type: String
-//    var localization: String
+    //    var title: String
+    //    var organization: String
+    //    var item: PostItem
+    //    var status: String
+    //    var timeStamp: Date
+    //    var type: String
+    //    var localization: String
     
     var body: some View {
         
@@ -22,33 +22,29 @@ struct PostCard: View {
                 VStack {
                     Text(post.title)
                         .bold()
-                    Text(post.userID.organizationName)
+                    Text("post.userID.organizationName")
                         .font(.subheadline)
                         .foregroundColor(.secondary)
                 }
-                Spacer()
-                if post.status == "active" { // status = ativo
-                    Image(systemName: "clock.fill")
-                }
                 
-                else { // status = inativo
+                Spacer()
+                if post.status == "Active" { // status = ativo
+                    Image(systemName: "clock.fill")
+                } else { // status = inativo
                     Image(systemName: "checkmark.circle.fill")
                 }
-                
-                
             }
             .padding()
             .background(RoundedRectangle(cornerRadius: 0)
-                            .fill((post.status == "active") ? Color.activePostYellow : Color.concludedPostGray))
+                            .fill((post.status == "Active") ? Color.activePostYellow : Color.concludedPostGray))
             
             VStack (alignment: .leading) {
-                
-                Text("\(post.item.name) - \(post.item.quantity)" )
-                .padding(.leading)
+                Text("\(post.itemName) - \(post.itemQuantity)")
+                    .padding(.leading)
                 
                 HStack{
                     Spacer()
-                    Text("\(post.userID.organizationZipCode)")
+                    Text("post.userID.organizationZipCode")
                 }
                 .font(.subheadline)
                 .foregroundColor(.secondary)
@@ -56,25 +52,21 @@ struct PostCard: View {
                 
                 HStack{
                     Spacer()
-                    Text(post.createdAt, style: .date)
+                    Text(String(post.createdAt))
                 }
                 .font(.subheadline)
                 .foregroundColor(.secondary)
                 .padding(.trailing)
-                
-                
             }
             
         }
         .padding(.bottom)
-        
         .background(Color.backgroundPost)
         .cornerRadius(15)
         .shadow(radius: 4)
         
     }
 }
-//
 
 //struct PostCard_Previews: PreviewProvider {
 //    static var previews: some View {
