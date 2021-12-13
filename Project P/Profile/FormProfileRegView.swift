@@ -6,7 +6,7 @@ struct FormProfileRegView: View {
     @State var avatar: Int = 0
     @State var organizationName: String = ""
     @State var organizationCategory: String = ""
-    @State var organizationZipCode: String = ""
+    @State var organizationState: String = ""
     @State var email: String = ""
     @State var phone: String = ""
     @State var website: String = ""
@@ -60,7 +60,15 @@ struct FormProfileRegView: View {
                         }
                     }
                     TextField("Nome da organização", text: $organizationName)
-                    TextField("CEP da organização", text: $organizationZipCode)
+                    NavigationLink(destination: CategoryView(selectedCategory: $organizationState, categories: ["AC", "AL", "AP", "AM", "BA", "CE", "ES", "GO", "MA", "MT", "MS", "MG", "PA", "PB", "PR", "PE", "PI", "RJ", "RN", "RS", "RO", "RR", "SC", "SP", "SE", "TO", "DF"])) {
+                        
+                        HStack {
+                            Text("Estado da organização")
+                            Spacer()
+                            Text("\(organizationState)")
+                                .foregroundColor(.secondary)
+                        }
+                    }
                 }
                 
                 Section(header: Text("Adicione pelo menos um contato")) {
@@ -80,7 +88,7 @@ struct FormProfileRegView: View {
                         "avatar":avatar,
                         "organizationName":organizationName,
                         "organizationCategory":organizationCategory,
-                        "organizationZipCode":organizationZipCode,
+                        "organizationState":organizationState,
                         "email":email,
                         "phone":phone,
                         "website":website
@@ -112,63 +120,3 @@ struct FormProfileRegView_Previews: PreviewProvider {
         FormProfileRegView()
     }
 }
-
-/**
- Button {
-     avatar = 0
-     self.selected0 = true
-     self.selected1 = false
-     self.selected2 = false
-     self.selected3 = false
- } label: {
-     Image(avatar == 0 ? "selected" : "profileCat1")
-         .resizable()
-         .frame(width: 65, height: 65)
-         .scaledToFill()
- }
- 
- Spacer()
- 
- Button {
-     avatar = 1
-     self.selected0 = false
-     self.selected1 = true
-     self.selected2 = false
-     self.selected3 = false
- } label: {
-     Image(self.selected1 == true ? "selected" : "profilePug")
-         .resizable()
-         .frame(width: 65, height: 65)
-         .scaledToFill()
- }
- 
- Spacer()
- 
- Button {
-     avatar = 2
-     self.selected0 = false
-     self.selected1 = false
-     self.selected2 = true
-     self.selected3 = false
- } label: {
-     Image(self.selected2 == true ? "selected" : "profileDog")
-         .resizable()
-         .frame(width: 65, height: 65)
-         .scaledToFill()
- }
- 
- Spacer()
- 
- Button {
-     self.selected0 = false
-     self.selected1 = false
-     self.selected2 = false
-     self.selected3 = true
-     avatar = 3
- } label: {
-     Image(self.selected3 == true ? "selected" : "profileCat2")
-         .resizable()
-         .frame(width: 65, height: 65)
-         .scaledToFill()
- }
- */

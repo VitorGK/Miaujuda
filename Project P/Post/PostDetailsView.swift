@@ -42,6 +42,7 @@ struct PostDetailsView: View {
                     VStack(alignment: .leading){
                         Text(post.userID.organizationName)
                         Text(post.userID.organizationCategory)
+                        Text(post.userID.organizationZipCode)
                     }
                     
                 }
