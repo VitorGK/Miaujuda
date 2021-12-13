@@ -1,7 +1,7 @@
 import SwiftUI
 
 struct ProfileView: View {
-    var user: User = User(_id: "idUSER", createdAt: Date(), avatar: 1, organizationName: "organization name", organizationCategory: "categoria", organizationZipCode: "zip code", email: "email@gmail.com", website: "tito.com")
+    var user: User = User(createdAt: Date(), appleID: "", avatar: 1, organizationName: "organization name", organizationCategory: "categoria", organizationZipCode: "zip code", email: "email@gmail.com", website: "tito.com")
     var body: some View {
         VStack {
             HStack{

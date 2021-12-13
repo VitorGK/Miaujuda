@@ -2,6 +2,8 @@ import SwiftUI
 import AuthenticationServices
 
 struct SignInWithAppleView: View {
+    @AppStorage("JWT_TOKEN") var jwtToken = ""
+    
     @Environment(\.colorScheme) var colorScheme
     @Environment(\.dismiss) private var dismiss
     
@@ -21,10 +23,24 @@ struct SignInWithAppleView: View {
             } onCompletion: { result in
                 switch result {
                     case .success(let authResults):
-                        print("Authorization successful.")
+                        print("Sign in with Apple successful.")
                         guard let credential = authResults.credential as? ASAuthorizationAppleIDCredential else { return }
                         print(credential.user)
-                        ServerService.shared.authenticate(appleID: credential.user)
+                        ServerService.shared.authenticate(appleID: credential.user) { response in
+                            switch response {
+                                // USUÁRIO JÁ EXISTENTE
+                                case .success(let data):
+                                    print(data)
+                                    guard let token = data["access_token"] as? String else { return }
+                                    jwtToken = token
+                                    
+                                    
+                                    self.isButtonPressed = true
+                                    self.dismiss()
+                                case .failure(let error):
+                                    print(error.localizedDescription)
+                            }
+                        }
 //                        ServerService.shared.create(user: User(
 //                            createdAt: Date(),
 //                            appleID: credential.user,
@@ -40,7 +56,7 @@ struct SignInWithAppleView: View {
 //                            self.dismiss()
 //                        }
                     case .failure(let error):
-                        print("Authorization failure" + error.localizedDescription)
+                        print("Sign in with Apple failure" + error.localizedDescription)
                 }
             }
             .signInWithAppleButtonStyle(colorScheme == .light ? .black : .white)
