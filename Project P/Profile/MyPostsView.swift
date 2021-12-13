@@ -9,8 +9,8 @@ struct MyPostsView: View {
     @State var pickerSelectedItem: Int = 1
     
     var posts2: [PetPost] = [
-        PetPost(_id: "fdsf", createdAt: Date(), userID: User(createdAt: Date(), appleID: "", avatar: 1, organizationName: "orgname", organizationCategory: "orgCat", organizationZipCode: "orgLocal"), status: "active", type: "Necessidade", title: "titulo do post", description: "miaumiau", item: Item(_id: "itemid", name: "name item", quantity: "qtd item", category: "Remédios")),
-        PetPost(_id: "fdsf", createdAt: Date(), userID: User(createdAt: Date(), appleID: "", avatar: 1, organizationName: "orgname", organizationCategory: "orgCat", organizationZipCode: "orgLocal"), status: "inactive", type: "Doação", title: "titulo do post2", description: "miaumiau", item: Item(_id: "itemid", name: "outro item", quantity: "qtd item", category: "Alimentos"))
+        PetPost(_id: "fdsf", createdAt: Date(), userID: User(createdAt: Date(), appleID: "", avatar: 1, organizationName: "orgname", organizationCategory: "orgCat", organizationZipCode: "orgLocal"), status: "active", type: "Necessidade", title: "titulo do post", description: "miaumiau", item: Item(name: "name item", quantity: "qtd item", category: "Remédios")),
+        PetPost(_id: "fdsf", createdAt: Date(), userID: User(createdAt: Date(), appleID: "", avatar: 1, organizationName: "orgname", organizationCategory: "orgCat", organizationZipCode: "orgLocal"), status: "inactive", type: "Doação", title: "titulo do post2", description: "miaumiau", item: Item(name: "outro item", quantity: "qtd item", category: "Alimentos"))
         ]
     
     

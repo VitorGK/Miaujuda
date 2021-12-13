@@ -1,6 +1,9 @@
 import SwiftUI
 
 struct ContentView: View {
+    @AppStorage("isUserLoggedIn") var isUserLoggedIn: Bool = false
+    @AppStorage("avatar") var avatar: Int = 2
+    
     @State var pickerSelectedItem: Int = 1
     
     @State private var isPresented: Bool = false
@@ -23,6 +26,13 @@ struct ContentView: View {
         "outros"
     ]
     
+    let profileImages: [String] = [
+        "profileCat1",
+        "profilePug",
+        "profileDog",
+        "profileCat2",
+    ]
+    
     func filterPosts(type: String, posts: [PetPost]) -> [PetPost] {
             var filteredPosts: [PetPost]
             filteredPosts = posts.filter {$0.type == "\(type)"}
@@ -30,8 +40,8 @@ struct ContentView: View {
         }
     
     var posts: [PetPost] = [
-        PetPost(_id: "fdsf", createdAt: Date(), userID: User(createdAt: Date(), appleID: "", avatar: 1, organizationName: "orgname", organizationCategory: "orgCat", organizationZipCode: "orgLocal"), status: "active", type: "Necessidade", title: "titulo do post", description: "miaumiau", item: Item(_id: "itemid", name: "name item", quantity: "qtd item", category: "food")),
-        PetPost(_id: "fdsf", createdAt: Date(), userID: User(createdAt: Date(), appleID: "", avatar: 1, organizationName: "orgname", organizationCategory: "orgCat", organizationZipCode: "orgLocal"), status: "inactive", type: "Doação", title: "titulo do post2", description: "miaumiau", item: Item(_id: "itemid", name: "outro item", quantity: "qtd item", category: "food"))
+        PetPost(_id: "fdsf", createdAt: Date(), userID: User(createdAt: Date(), appleID: "", avatar: 1, organizationName: "orgname", organizationCategory: "orgCat", organizationZipCode: "orgLocal"), status: "active", type: "Necessidade", title: "titulo do post", description: "miaumiau", item: Item(name: "name item", quantity: "qtd item", category: "food")),
+        PetPost(_id: "fdsf", createdAt: Date(), userID: User(createdAt: Date(), appleID: "", avatar: 1, organizationName: "orgname", organizationCategory: "orgCat", organizationZipCode: "orgLocal"), status: "inactive", type: "Doação", title: "titulo do post2", description: "miaumiau", item: Item(name: "outro item", quantity: "qtd item", category: "food"))
     ]
     
     @State var filteredPostsNec: [PetPost] = []
@@ -86,7 +96,6 @@ struct ContentView: View {
                             Image(systemName: "plus")
                                 .imageScale(.large)
                         })
-                        
                             .sheet(isPresented: $isPresented, onDismiss: {
                                 self.isPresented = false
                             }) {
@@ -121,7 +130,7 @@ struct ContentView: View {
             .toolbar {
                 ToolbarItem(placement: .navigationBarTrailing) {
                     NavigationLink(destination: FormProfileRegView()) {
-                        Image("signOut")
+                        Image(isUserLoggedIn ? profileImages[avatar] : "signOut")
                             .resizable()
                             .scaledToFit()
                             .frame(width: 41, height: 41)

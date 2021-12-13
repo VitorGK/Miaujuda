@@ -1,25 +1,25 @@
 import Foundation
 
 struct Item: Codable, Hashable {
-    let _id: String
-    //let postID: PetPost
+//    let _id: String
+//    let postID: PetPost
     var name: String
     var quantity: String
     var category: String
     var expirationDate: Date?
     
     func hash(into hasher: inout Hasher) {
-        hasher.combine(_id)
+        hasher.combine(name)
     }
     
     static func == (lhs: Item, rhs: Item) -> Bool {
-        return lhs._id == rhs._id
+        return lhs.name == rhs.name
     }
     
     func print() {
         Swift.print("{")
-        Swift.print("_id: \(_id)")
-        //Swift.print("postID: \(postID)")
+//        Swift.print("_id: \(_id)")
+//        Swift.print("postID: \(postID)")
         Swift.print("name: \(name)")
         Swift.print("quantity: \(quantity)")
         Swift.print("category: \(category)")

@@ -1,6 +1,8 @@
 import SwiftUI
 
 struct FormProfileRegView: View {
+    @AppStorage("appleID") var appleID: String = ""
+    
     @Environment(\.dismiss) private var dismiss
     
     @State var avatar: Int = 0
@@ -75,27 +77,25 @@ struct FormProfileRegView: View {
         .toolbar {
             ToolbarItem(placement: .navigationBarTrailing) {
                 Button {
-                    let params: [String: Any] = [
-                        "createdAt":Date(),
-                        "avatar":avatar,
-                        "organizationName":organizationName,
-                        "organizationCategory":organizationCategory,
-                        "organizationZipCode":organizationZipCode,
-                        "email":email,
-                        "phone":phone,
-                        "website":website
+                    let userData: [String: Any] = [
+                        "createdAt": Date().timeIntervalSince1970,
+                        "appleID": appleID,
+                        "avatar": avatar,
+                        "organizationName": organizationName,
+                        "organizationCategory": organizationCategory,
+                        "organizationZipCode": organizationZipCode,
+                        "email": email,
+                        "phone": phone,
+                        "website": website
                     ]
-                    ServerService.shared.postRequest(route: .user, params: params) { result, error in
-                        print("result")
-                        print(result!)
-                        print("error")
-                        print(error!)
-                        if let res: Bool = (result?.values.first as? Bool) {
-                            if (res) {
-                                print("User successfully created.")
-                            } else {
-                                print("Error.")
-                            }
+                    ServerService.shared.postRequest(route: .user, body: userData) { result in
+                        switch result {
+                            case .success(let response):
+                                print("User created!")
+                                print(response)
+                            case .failure(let error):
+                                print("ERRORERRORERRORERRORERRORERROR")
+                                print(error.localizedDescription)
                         }
                     }
                     self.dismiss()
@@ -112,63 +112,3 @@ struct FormProfileRegView_Previews: PreviewProvider {
         FormProfileRegView()
     }
 }
-
-/**
- Button {
-     avatar = 0
-     self.selected0 = true
-     self.selected1 = false
-     self.selected2 = false
-     self.selected3 = false
- } label: {
-     Image(avatar == 0 ? "selected" : "profileCat1")
-         .resizable()
-         .frame(width: 65, height: 65)
-         .scaledToFill()
- }
- 
- Spacer()
- 
- Button {
-     avatar = 1
-     self.selected0 = false
-     self.selected1 = true
-     self.selected2 = false
-     self.selected3 = false
- } label: {
-     Image(self.selected1 == true ? "selected" : "profilePug")
-         .resizable()
-         .frame(width: 65, height: 65)
-         .scaledToFill()
- }
- 
- Spacer()
- 
- Button {
-     avatar = 2
-     self.selected0 = false
-     self.selected1 = false
-     self.selected2 = true
-     self.selected3 = false
- } label: {
-     Image(self.selected2 == true ? "selected" : "profileDog")
-         .resizable()
-         .frame(width: 65, height: 65)
-         .scaledToFill()
- }
- 
- Spacer()
- 
- Button {
-     self.selected0 = false
-     self.selected1 = false
-     self.selected2 = false
-     self.selected3 = true
-     avatar = 3
- } label: {
-     Image(self.selected3 == true ? "selected" : "profileCat2")
-         .resizable()
-         .frame(width: 65, height: 65)
-         .scaledToFill()
- }
- */
