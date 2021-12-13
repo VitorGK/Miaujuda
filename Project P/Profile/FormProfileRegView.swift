@@ -6,7 +6,7 @@ struct FormProfileRegView: View {
     @State var avatar: Int = 0
     @State var organizationName: String = ""
     @State var organizationCategory: String = ""
-    @State var organizationState: String = ""
+    @State var organizationZipCode: String = ""
     @State var email: String = ""
     @State var phone: String = ""
     @State var website: String = ""
@@ -60,12 +60,12 @@ struct FormProfileRegView: View {
                         }
                     }
                     TextField("Nome da organização", text: $organizationName)
-                    NavigationLink(destination: CategoryView(selectedCategory: $organizationState, categories: ["AC", "AL", "AP", "AM", "BA", "CE", "ES", "GO", "MA", "MT", "MS", "MG", "PA", "PB", "PR", "PE", "PI", "RJ", "RN", "RS", "RO", "RR", "SC", "SP", "SE", "TO", "DF"])) {
+                    NavigationLink(destination: CategoryView(selectedCategory: $organizationZipCode, categories: ["AC", "AL", "AP", "AM", "BA", "CE", "ES", "GO", "MA", "MT", "MS", "MG", "PA", "PB", "PR", "PE", "PI", "RJ", "RN", "RS", "RO", "RR", "SC", "SP", "SE", "TO", "DF"])) {
                         
                         HStack {
                             Text("Estado da organização")
                             Spacer()
-                            Text("\(organizationState)")
+                            Text("\(organizationZipCode)")
                                 .foregroundColor(.secondary)
                         }
                     }
@@ -88,7 +88,7 @@ struct FormProfileRegView: View {
                         "avatar":avatar,
                         "organizationName":organizationName,
                         "organizationCategory":organizationCategory,
-                        "organizationState":organizationState,
+                        "organizationZipCode":organizationZipCode,
                         "email":email,
                         "phone":phone,
                         "website":website
