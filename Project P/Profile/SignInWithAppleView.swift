@@ -2,7 +2,17 @@ import SwiftUI
 import AuthenticationServices
 
 struct SignInWithAppleView: View {
-    @AppStorage("JWT_TOKEN") var jwtToken = ""
+    @AppStorage("jwtToken") var jwtToken: String = ""
+    @AppStorage("userID") var userID: String = ""
+    @AppStorage("appleID") var appleID: String = ""
+    @AppStorage("avatar") var avatar: Int = 0
+    @AppStorage("organizationName") var organizationName: String = ""
+    @AppStorage("organizationCategory") var organizationCategory: String = ""
+    @AppStorage("organizationZipCode") var organizationZipCode: String = ""
+    @AppStorage("email") var email: String?
+    @AppStorage("phone") var phone: String?
+    @AppStorage("website") var website: String?
+    @AppStorage("isUserLoggedIn") var isUserLoggedIn: Bool = false
     
     @Environment(\.colorScheme) var colorScheme
     @Environment(\.dismiss) private var dismiss
@@ -25,36 +35,50 @@ struct SignInWithAppleView: View {
                     case .success(let authResults):
                         print("Sign in with Apple successful.")
                         guard let credential = authResults.credential as? ASAuthorizationAppleIDCredential else { return }
-                        print(credential.user)
-                        ServerService.shared.authenticate(appleID: credential.user) { response in
+                        self.appleID = credential.user
+                        ServerService.shared.authenticate(appleID: appleID) { response in
                             switch response {
-                                // USUÁRIO JÁ EXISTENTE
                                 case .success(let data):
-                                    print(data)
-                                    guard let token = data["access_token"] as? String else { return }
-                                    jwtToken = token
-                                    
-                                    
-                                    self.isButtonPressed = true
+                                    switch data["statusCode"] as? Int {
+                                        case 401:
+                                            print("User not found.")
+                                            self.isButtonPressed = true
+                                        default:
+                                            // USUÁRIO JÁ EXISTENTE
+                                            print("User found.")
+                                            guard let userID = data["_id"] as? String else { return }
+                                            guard let jwtToken = data["access_token"] as? String else { return }
+                                            self.userID = userID
+                                            self.jwtToken = jwtToken
+                                            ServerService.shared.getRequest(route: .user, id: userID) { result in
+                                                switch result {
+                                                    case .success(let response):
+                                                        guard let avatar = response["avatar"] as? Int else { return }
+                                                        guard let organizationName = response["organizationName"] as? String else { return }
+                                                        guard let organizationCategory = response["organizationCategory"] as? String else { return }
+                                                        guard let organizationZipCode = response["organizationZipCode"] as? String else { return }
+                                                        let email = response["email"] as? String
+                                                        let phone = response["phone"] as? String
+                                                        let website = response["website"] as? String
+                                                        self.avatar = avatar
+                                                        self.organizationName = organizationName
+                                                        self.organizationCategory = organizationCategory
+                                                        self.organizationZipCode = organizationZipCode
+                                                        self.email = email
+                                                        self.phone = phone
+                                                        self.website = website
+                                                        print("User logged in.")
+                                                        self.isUserLoggedIn = true
+                                                    case .failure(let error):
+                                                        print(error.localizedDescription)
+                                                }
+                                            }
+                                    }
                                     self.dismiss()
                                 case .failure(let error):
                                     print(error.localizedDescription)
                             }
                         }
-//                        ServerService.shared.create(user: User(
-//                            createdAt: Date(),
-//                            appleID: credential.user,
-//                            avatar: 0,
-//                            organizationName: "Unidos da Taus",
-//                            organizationCategory: "ONG",
-//                            organizationZipCode: "02537-010",
-//                            email: "unidosdataus@toti.com",
-//                            phone: nil,
-//                            website: nil
-//                        ))// {
-//                            self.isButtonPressed = true
-//                            self.dismiss()
-//                        }
                     case .failure(let error):
                         print("Sign in with Apple failure" + error.localizedDescription)
                 }
@@ -72,35 +96,6 @@ struct SignInWithAppleView: View {
         .padding(.trailing)
         .padding(.leading)
     }
-    
-//    func authenticate(appleID: String, completion: @escaping () -> Void) {
-//        ServerService.shared.authenticate(appleID: appleID) { response in
-//            switch response {
-//                case .success(let user):
-//                    let userAppleID = user.appleID
-//                    let userAvatar = user.avatar
-//                    let userOrganizationName = user.organizationName
-//                    let userOrganizationCategory = user.organizationCategory
-//                    let userOrganizationZipCode = user.organizationZipCode
-//                    let userEmail = user.email
-//                    let userPhone = user.phone
-//                    let userWebsite = user.website
-//                    UserDefaults.standard.set(userAppleID, forKey: "userAppleID")
-//                    UserDefaults.standard.set(userAvatar, forKey: "userAvatar")
-//                    UserDefaults.standard.set(userOrganizationName, forKey: "userOrganizationName")
-//                    UserDefaults.standard.set(userOrganizationCategory, forKey: "userOrganizationCategory")
-//                    UserDefaults.standard.set(userOrganizationZipCode, forKey: "userOrganizationZipCode")
-//                    UserDefaults.standard.set(userEmail, forKey: "userEmail")
-//                    UserDefaults.standard.set(userPhone, forKey: "userPhone")
-//                    UserDefaults.standard.set(userWebsite, forKey: "userWebsite")
-//                    print("Authentication successful.")
-//                    completion()
-//                case .failure(let error):
-//                    print("Error Authenticate")
-//                    print(error.localizedDescription)
-//            }
-//        }
-//    }
 }
 
 struct SignInWithAppleView_Previews: PreviewProvider {
