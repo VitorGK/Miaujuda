@@ -62,7 +62,15 @@ struct FormProfileRegView: View {
                         }
                     }
                     TextField("Nome da organização", text: $organizationName)
-                    TextField("CEP da organização", text: $organizationZipCode)
+                    NavigationLink(destination: CategoryView(selectedCategory: $organizationZipCode, categories: ["AC", "AL", "AP", "AM", "BA", "CE", "ES", "GO", "MA", "MT", "MS", "MG", "PA", "PB", "PR", "PE", "PI", "RJ", "RN", "RS", "RO", "RR", "SC", "SP", "SE", "TO", "DF"])) {
+                        
+                        HStack {
+                            Text("Estado da organização")
+                            Spacer()
+                            Text("\(organizationZipCode)")
+                                .foregroundColor(.secondary)
+                        }
+                    }
                 }
                 
                 Section(header: Text("Adicione pelo menos um contato")) {

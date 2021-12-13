@@ -19,7 +19,7 @@ struct PostsGrid: View {
                     PostDetailsView(post: posts[p])
                 } label: {
                     PostCard(post: posts[p])
-                }
+                }.buttonStyle(.plain)
 
             }
         }
