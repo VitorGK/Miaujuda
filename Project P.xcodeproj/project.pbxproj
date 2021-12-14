@@ -29,6 +29,7 @@
 		C08456D92767F45600E9F1FA /* CategorySearch.swift in Sources */ = {isa = PBXBuildFile; fileRef = C87D136E27612028008C1477 /* CategorySearch.swift */; };
 		C08456DA2767F45800E9F1FA /* HelpetsApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = C028280F275ECAB400AB080F /* HelpetsApp.swift */; };
 		C08456DD2767F5EE00E9F1FA /* PostViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C08456DC2767F5EE00E9F1FA /* PostViewModel.swift */; };
+		C8EECD3727690CC6009C60A0 /* UserFetcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8EECD3627690CC6009C60A0 /* UserFetcher.swift */; };
 		E47B44A02767BE8D0044BDFA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E47B449F2767BE8D0044BDFA /* Assets.xcassets */; };
 		E47B44A32767BE8D0044BDFA /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E47B44A22767BE8D0044BDFA /* Preview Assets.xcassets */; };
 		E47B44A82767BE8D0044BDFA /* HelpetsAC.app in Embed App Clips */ = {isa = PBXBuildFile; fileRef = E47B44992767BE8B0044BDFA /* HelpetsAC.app */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
@@ -83,6 +84,7 @@
 		C0FD0A6027626ECD00E0E2F1 /* Project P.entitlements */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.entitlements; path = "Project P.entitlements"; sourceTree = "<group>"; };
 		C87D136E27612028008C1477 /* CategorySearch.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategorySearch.swift; sourceTree = "<group>"; };
 		C87D137027627854008C1477 /* PostsGrid.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostsGrid.swift; sourceTree = "<group>"; };
+		C8EECD3627690CC6009C60A0 /* UserFetcher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserFetcher.swift; sourceTree = "<group>"; };
 		E47B44992767BE8B0044BDFA /* HelpetsAC.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HelpetsAC.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E47B449B2767BE8B0044BDFA /* HelpetsACApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HelpetsACApp.swift; sourceTree = "<group>"; };
 		E47B449D2767BE8B0044BDFA /* AppClipMainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppClipMainView.swift; sourceTree = "<group>"; };
@@ -209,6 +211,7 @@
 			isa = PBXGroup;
 			children = (
 				C08456DC2767F5EE00E9F1FA /* PostViewModel.swift */,
+				C8EECD3627690CC6009C60A0 /* UserFetcher.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -362,6 +365,7 @@
 				C08456C92767F43300E9F1FA /* User.swift in Sources */,
 				C08456D42767F44A00E9F1FA /* SignInWithAppleView.swift in Sources */,
 				C08456CA2767F43500E9F1FA /* PetPost.swift in Sources */,
+				C8EECD3727690CC6009C60A0 /* UserFetcher.swift in Sources */,
 				C08456C82767F43000E9F1FA /* MainView.swift in Sources */,
 				C08456DA2767F45800E9F1FA /* HelpetsApp.swift in Sources */,
 				C08456CD2767F43B00E9F1FA /* CategoryItem.swift in Sources */,
