@@ -1,10 +1,10 @@
 import SwiftUI
 
-//@main
-struct HelpetsACApp: App {
+@main
+struct MiaujudaApp: App {
     var body: some Scene {
         WindowGroup {
-            AppClipMainView()
+            MainView()
         }
     }
 }

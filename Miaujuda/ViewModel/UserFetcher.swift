@@ -17,7 +17,7 @@ class UserFetcher: ObservableObject {
         self.isLoading = false
         if UserDefaults.standard.string(forKey: "userID") != "" {
             let userID = UserDefaults.standard.string(forKey: "userID")
-            self.getUserByID(user: userID!)
+            self.getUserByID(user: userID ?? "")
         }
         
     }
