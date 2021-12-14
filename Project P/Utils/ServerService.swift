@@ -2,16 +2,16 @@ import Foundation
 import AuthenticationServices
 
 enum UrlRoute: String {
-    case user = "/user"
-    case petpost = "/petpost"
-    case item = "/item"
-    case auth = "/auth/login"
+    case user = "/user/"
+    case petpost = "/petpost/"
+    case item = "/item/"
+    case auth = "/auth/login/"
 //    case validate = "/auth/profile"
 }
 
 class ServerService {
     public static var shared = ServerService()
-    let baseUrl: String = "https://project-pets.herokuapp.com"
+    private let baseUrl: String = "https://project-pets.herokuapp.com"
     private let jwtToken = UserDefaults.standard.string(forKey: "jwtToken")
     
     // MARK: --- GET REQUEST
@@ -57,7 +57,7 @@ class ServerService {
     // MARK: --- GET USER BY ID
     func getUser(by id: String, completion: @escaping (Result<User, Error>) -> Void) {
         let session = URLSession.shared
-        guard let url = URL(string: baseUrl + UrlRoute.user.rawValue + id.slashed()) else { return }
+        guard let url = URL(string: baseUrl + UrlRoute.user.rawValue + id) else { return }
         var request = URLRequest(url: url)
         guard let jwtToken = self.jwtToken else { return }
         request.setValue("Bearer \(jwtToken)", forHTTPHeaderField: "Authorization")
@@ -123,11 +123,5 @@ class ServerService {
             }
         }
         .resume()
-    }
-}
-
-extension String {
-    func slashed() -> String {
-        return "/" + self
     }
 }
