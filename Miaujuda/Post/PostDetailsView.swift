@@ -2,8 +2,17 @@ import SwiftUI
 
 struct PostDetailsView: View {
     var post: PetPost
+    @ObservedObject var userViewModel = UserInfos()
+    
+    init(post: PetPost) {
+        self.post = post
+        userViewModel.getUserFromPost(post: post)
+        
+    }
+    
     
     var body: some View {
+        if (userViewModel.errorMessage == nil){
         ScrollView(.vertical) {
             VStack(alignment:.leading){
                 Text(String(post.createdAt))
@@ -39,9 +48,9 @@ struct PostDetailsView: View {
                         .frame(width: 60, height: 60)
                     
                     VStack(alignment: .leading){
-                        Text("post.userID.organizationName")
-                        Text("post.userID.organizationCategory")
-                        Text("post.userID.organizationZipCode")
+                        Text(userViewModel.user?.organizationName ?? "hghfg")
+                        Text(userViewModel.user?.organizationCategory ?? "")
+                        Text(userViewModel.user?.organizationZipCode ?? "")
                     }
                 }
                 .padding(.bottom)
@@ -63,7 +72,11 @@ struct PostDetailsView: View {
         .navigationTitle(post.title)
         .navigationBarTitleDisplayMode(.large)
         .navigationBarItems(trailing: editMenu())
-    }
+        }
+        else {
+            Text(userViewModel.errorMessage!)
+        }
+        }
 }
 
 struct editMenu: View {
