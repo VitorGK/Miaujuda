@@ -1,6 +1,6 @@
 import SwiftUI
 
-struct ContentView: View {
+struct MainView: View {
     @State var pickerSelectedItem: Int = 1
     
     @State private var isPresented: Bool = false
