@@ -34,7 +34,7 @@ struct PetPost: Codable, Hashable {
         Swift.print("\titemName: \(itemName)")
         Swift.print("\titemQuantity: \(itemQuantity)")
         Swift.print("\titemCategory: \(itemCategory)")
-        Swift.print("\titemExpirationDate: \(itemExpirationDate)")
+        Swift.print("\titemExpirationDate: \(itemExpirationDate ?? "")")
         Swift.print("}")
     }
 }

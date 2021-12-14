@@ -6,6 +6,8 @@ struct MainView: View {
     
     @ObservedObject var postViewModel: PostViewModel
     
+    @StateObject var userFetcher = UserFetcher()
+    
     @State var pickerSelectedItem: Int = 1
     
     @State private var isPresented: Bool = false
@@ -51,7 +53,8 @@ struct MainView: View {
                                 CategorySearch(category: categoriesTitle[item])
                             } label: {
                                 CategoryItem(imageName: categoriesTitle[item], text: categoriesTitle[item])
-                            }.buttonStyle(.plain)
+                            }
+                            .buttonStyle(.plain)
                         }
                     }
                     .frame(height: 86)
@@ -63,30 +66,37 @@ struct MainView: View {
                         .font(.title3)
                         .bold()
                         .frame(maxWidth: .infinity, alignment: .leading)
-                    
-                    ZStack {
-                        if isUserLoggedIn {
-                            NavigationLink(destination: FormPostView(), isActive: $isButtonPressed) {
-                                EmptyView()
+                    if userFetcher.user != nil {
+                        ZStack {
+                            NavigationLink {
+                                FormPostView()
+                            } label: {
+                                Button {
+                                    
+                                } label: {
+                                    Image(systemName: "plus")
+                                        .imageScale(.large)
+                                }
                             }
-                            .hidden()
-                        } else {
+                        }
+                    } else {
+                        ZStack {
                             NavigationLink(destination: FormProfileRegView(), isActive: $isButtonPressed) {
                                 EmptyView()
                             }
                             .hidden()
-                        }
-                        
-                        Button(action: {
-                            self.isPresented = true
-                        }, label: {
-                            Image(systemName: "plus")
-                                .imageScale(.large)
-                        })
-                        .sheet(isPresented: $isPresented, onDismiss: {
-                            self.isPresented = false
-                        }) {
-                            SignInWithAppleView(isButtonPressed: self.$isButtonPressed)
+                            
+                            Button(action: {
+                                self.isPresented = true
+                            }, label: {
+                                Image(systemName: "plus")
+                                    .imageScale(.large)
+                            })
+                            .sheet(isPresented: $isPresented, onDismiss: {
+                                self.isPresented = false
+                            }) {
+                                SignInWithAppleView(isButtonPressed: self.$isButtonPressed)
+                            }
                         }
                     }
                 }
@@ -116,17 +126,10 @@ struct MainView: View {
             .toolbar {
                 ToolbarItem(placement: .navigationBarTrailing) {
                     ZStack {
-                        if isUserLoggedIn {
-                            NavigationLink(destination: ProfileView(), isActive: $isButtonPressed) {
-                                EmptyView()
-                            }
-                            .hidden()
-                        } else {
-                            NavigationLink(destination: FormProfileRegView(), isActive: .constant(isUserLoggedIn)) {
-                                EmptyView()
-                            }
-                            .hidden()
+                        NavigationLink(destination: FormProfileRegView(), isActive: .constant(isUserLoggedIn)) {
+                            EmptyView()
                         }
+                        .hidden()
                         
                         Button(
                             action: {
