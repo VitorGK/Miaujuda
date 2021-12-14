@@ -2,6 +2,18 @@ import SwiftUI
 import AuthenticationServices
 
 struct SignInWithAppleView: View {
+    @AppStorage("jwtToken") var jwtToken: String = ""
+    @AppStorage("userID") var userID: String = ""
+    @AppStorage("appleID") var appleID: String = ""
+    @AppStorage("avatar") var avatar: Int = 0
+    @AppStorage("organizationName") var organizationName: String = ""
+    @AppStorage("organizationCategory") var organizationCategory: String = ""
+    @AppStorage("organizationZipCode") var organizationZipCode: String = ""
+    @AppStorage("email") var email: String?
+    @AppStorage("phone") var phone: String?
+    @AppStorage("website") var website: String?
+    @AppStorage("isUserLoggedIn") var isUserLoggedIn: Bool = false
+    
     @Environment(\.colorScheme) var colorScheme
     @Environment(\.dismiss) private var dismiss
     
@@ -21,11 +33,49 @@ struct SignInWithAppleView: View {
             } onCompletion: { result in
                 switch result {
                     case .success(let authResults):
-                        print("Authorization successful.")
-                        self.isButtonPressed = true
-                        self.dismiss()
+                        print("Sign in with Apple successful.")
+                        guard let credential = authResults.credential as? ASAuthorizationAppleIDCredential else { return }
+                        self.appleID = credential.user
+                        ServerService.shared.authenticate(appleID: appleID) { response in
+                            switch response {
+                                case .success(let data):
+                                    switch data["statusCode"] as? Int {
+                                        case 401:
+                                            print("User not found.")
+                                            self.isButtonPressed = true
+                                        default:
+                                            // USUÁRIO JÁ EXISTENTE
+                                            print("User found.")
+                                            guard let userID = data["_id"] as? String else { return }
+                                            self.userID = userID
+                                            print(self.userID)
+                                            guard let jwtToken = data["access_token"] as? String else { return }
+                                            self.jwtToken = jwtToken
+                                            print(self.jwtToken)
+                                            ServerService.shared.getUser(by: userID) { result in
+                                                switch result {
+                                                    case .success(let response):
+                                                        self.avatar = response.avatar
+                                                        self.organizationName = response.organizationName
+                                                        self.organizationCategory = response.organizationCategory
+                                                        self.organizationZipCode = response.organizationZipCode
+                                                        self.email = response.email
+                                                        self.phone = response.phone
+                                                        self.website = response.website
+                                                        print("User logged in.")
+                                                        self.isUserLoggedIn = true
+                                                    case .failure(let error):
+                                                        print(error.localizedDescription)
+                                                }
+                                            }
+                                    }
+                                    self.dismiss()
+                                case .failure(let error):
+                                    print(error.localizedDescription)
+                            }
+                        }
                     case .failure(let error):
-                        print("Authorization failure" + error.localizedDescription)
+                        print("Sign in with Apple failure" + error.localizedDescription)
                 }
             }
             .signInWithAppleButtonStyle(colorScheme == .light ? .black : .white)
@@ -41,17 +91,10 @@ struct SignInWithAppleView: View {
         .padding(.trailing)
         .padding(.leading)
     }
-    
-//    func authorize(authResults: ASAuthorization) {
-//        guard let credentials = authResults.credential as? ASAuthorizationAppleIDCredential, let identityToken = credentials.identityToken, let identityTokenString = String(data: identityToken, encoding: .utf8) else { return }
-//        let body = ["appleIdentityToken": identityTokenString]
-//        guard let jsonData = try? JSONEncoder().encode(body) else { return }
-//        // This is where you'd fire an API request to your server to authenticate with the identity token attached in the request headers.
-//    }
 }
 
-//struct SignInWithAppleView_Previews: PreviewProvider {
-//    static var previews: some View {
-//        SignInWithAppleView()
-//    }
-//}
+struct SignInWithAppleView_Previews: PreviewProvider {
+    static var previews: some View {
+        SignInWithAppleView(isButtonPressed: .constant(false))
+    }
+}

@@ -2,51 +2,30 @@ import SwiftUI
 
 struct ItemCard: View {
     var itemName: String
-    var quantity: String
-    var category: String
-    var expDate: Date?
-    
-    @State var imgName: String = ""
-    
-    func categImage(category: String) {
-        var imageName: String = ""
-        if category == "food" {
-            imageName = "alimentos"
-        }
-        else if category == "med" {
-            imageName = "remedio"
-        }
-        else if category == "hyg" {
-            imageName = "higiene"
-        }
-        else if category == "other" {
-            imageName = "outros"
-        }
-
-        imgName = imageName
-    }
+    var itemQuantity: String
+    var itemCategory: String
+    var itemExpirationDate: String?
     
     var body: some View {
         VStack (alignment: .leading){
             Text("\(itemName)")
                 .font(.title3)
                 .bold()
+            
             HStack {
                 VStack (alignment: .leading) {
-                    Text("\(quantity)")
-                    if let expDate = expDate {
-                        Text(expDate,style: .date)
+                    Text("\(itemQuantity)")
+                    
+                    if let itemExpirationDate = self.itemExpirationDate {
+                        Text(String(itemExpirationDate))
                             .font(.subheadline)
                             .foregroundColor(.secondary)
                     }
-                    
-                    
                 }
-                .onAppear {
-                    categImage(category: category)
-                }
+                
                 Spacer()
-                Image(imgName)
+                
+                Image(itemCategory)
                     .resizable()
                     .frame(width: 40, height: 40, alignment: .trailing)
                     .scaledToFit()
@@ -62,6 +41,6 @@ struct ItemCard: View {
 
 struct ItemCard_Previews: PreviewProvider {
     static var previews: some View {
-        ItemCard(itemName: "Ração de gato", quantity: "2 Sacos", category: "food", expDate: Date())
+        ItemCard(itemName: "Ração de gato", itemQuantity: "2 Sacos", itemCategory: ItemCategory.food.rawValue)
     }
 }

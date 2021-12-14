@@ -1,49 +1,38 @@
 import SwiftUI
 
 struct MainView: View {
+    @AppStorage("isUserLoggedIn") var isUserLoggedIn: Bool = false
+    @AppStorage("avatar") var avatar: Int = 0
+    
+    @ObservedObject var postViewModel: PostViewModel
+    
+    @StateObject var userFetcher = UserFetcher()
+    
     @State var pickerSelectedItem: Int = 1
     
     @State private var isPresented: Bool = false
     @State private var isButtonPressed: Bool = false
+    
     let columns = [
         GridItem(.adaptive(minimum: 180))
     ]
     
-    @State var categoriesTitle: [String] = [
+    let categoriesTitle: [String] = [
         "Alimentos",
         "Remédios",
         "Higiene",
         "Outros"
     ]
     
-    let categoriesImage: [String] = [
-        "alimentos",
-        "remedio",
-        "higiene",
-        "outros"
+    let profileImages: [String] = [
+        "profileCat1",
+        "profilePug",
+        "profileDog",
+        "profileCat2"
     ]
-
     
-    func filterPosts(type: String, posts: [PetPost]) -> [PetPost] {
-            var filteredPosts: [PetPost]
-            filteredPosts = posts.filter {$0.type == "\(type)"}
-            return filteredPosts
-        }
-    
-    var posts: [PetPost] = [
-            PetPost(_id: "fdsf", createdAt: Date(), userID: User(_id: "userid", createdAt: Date(), avatar: 1, organizationName: "orgname", organizationCategory: "orgCat", organizationZipCode: "orgLocal"), status: "active", type: "Necessidade", title: "titulo do post", description: "miaumiau", item: Item(_id: "itemid", name: "name item", quantity: "qtd item", category: "food")),
-            PetPost(_id: "fdsf", createdAt: Date(), userID: User(_id: "userid", createdAt: Date(), avatar: 1, organizationName: "orgname", organizationCategory: "orgCat", organizationZipCode: "orgLocal", email: "jdshfjk"), status: "inactive", type: "Doação", title: "titulo do post2", description: "miaumiau", item: Item(_id: "itemid", name: "outro item", quantity: "qtd item", category: "food"))
-        ]
-    
-    @State var filteredPostsNec: [PetPost] = []
-    @State var filteredPostsDon: [PetPost] = []
-    
-    //MARK: para filtrar por categoria precisamos achar o itens que tem as categorias e os posts em que esses itens estão
-    func filterPostsNecessity(category: String, posts: [PetPost]) {
-        filteredPostsNec = posts.filter {$0.type == "Necessidade"}
-    }
-    func filterPostsDonation(category: String, posts: [PetPost]) {
-        filteredPostsDon = posts.filter {$0.type == "Doação"}
+    init() {
+        postViewModel = PostViewModel()
     }
     
     @ViewBuilder
@@ -61,41 +50,58 @@ struct MainView: View {
                     LazyHGrid(rows: [GridItem(.fixed(0))], spacing: 20) {
                         ForEach(0...3, id: \.self) { item in
                             NavigationLink {
-                                CategorySearch(category: $categoriesTitle[item])
+                                CategorySearch(category: categoriesTitle[item])
                             } label: {
-                                CategoryItem(imageName: categoriesImage[item], text: categoriesTitle[item])
-                            }.buttonStyle(.plain)
-                            
+                                CategoryItem(imageName: categoriesTitle[item], text: categoriesTitle[item])
+                            }
+                            .buttonStyle(.plain)
                         }
                     }
                     .frame(height: 86)
                     .padding(.leading)
                 }
+                
                 HStack {
                     Text("Postagens")
                         .font(.title3)
                         .bold()
                         .frame(maxWidth: .infinity, alignment: .leading)
-                    ZStack {
-                        NavigationLink(destination: FormProfileRegView(), isActive: $isButtonPressed) {
-                            EmptyView()
-                        }.hidden()
-                        
-                        Button(action: {
-                            self.isPresented = true
-                        }, label: {
-                            Image(systemName: "plus")
-                                .imageScale(.large)
-                        })
-                        
+                    if userFetcher.user != nil {
+                        ZStack {
+                            NavigationLink {
+                                FormPostView()
+                            } label: {
+                                Button {
+                                    
+                                } label: {
+                                    Image(systemName: "plus")
+                                        .imageScale(.large)
+                                }
+                            }
+                        }
+                    } else {
+                        ZStack {
+                            NavigationLink(destination: FormProfileRegView(), isActive: $isButtonPressed) {
+                                EmptyView()
+                            }
+                            .hidden()
+                            
+                            Button(action: {
+                                self.isPresented = true
+                            }, label: {
+                                Image(systemName: "plus")
+                                    .imageScale(.large)
+                            })
                             .sheet(isPresented: $isPresented, onDismiss: {
                                 self.isPresented = false
                             }) {
                                 SignInWithAppleView(isButtonPressed: self.$isButtonPressed)
                             }
+                        }
                     }
                 }
                 .padding()
+                
                 VStack {
                     Picker(selection: $pickerSelectedItem, label: Text("Picker"), content: {
                         Text("Necessidades").tag(1)
@@ -104,16 +110,14 @@ struct MainView: View {
                     .pickerStyle(SegmentedPickerStyle())
                     
                     if pickerSelectedItem == 1 {
-                        
-                        PostsGrid(posts: filterPosts(type: "Necessidade", posts: posts))
-                    }
-                    else {
-                        PostsGrid(posts: filterPosts(type: "Doação", posts: posts))
+                        PostsGrid(posts: filterPosts(type: "Necessidade", posts: postViewModel.posts))
+                    } else {
+                        PostsGrid(posts: filterPosts(type: "Doação", posts: postViewModel.posts))
                     }
                 }
-                
                 .padding(.leading)
                 .padding(.trailing)
+                
                 Spacer()
             }
             .navigationTitle("Mantimentos")
@@ -121,16 +125,39 @@ struct MainView: View {
             .navigationBarTitleDisplayMode(.large)
             .toolbar {
                 ToolbarItem(placement: .navigationBarTrailing) {
-                    NavigationLink(destination: FormProfileRegView()) {
-                        Image("signOut")
-                            .resizable()
-                            .scaledToFit()
-                            .frame(width: 41, height: 41)
+                    ZStack {
+                        NavigationLink(destination: FormProfileRegView(), isActive: .constant(isUserLoggedIn)) {
+                            EmptyView()
+                        }
+                        .hidden()
+                        
+                        Button(
+                            action: {
+                                self.isPresented = true
+                                print(isUserLoggedIn)
+                            },
+                            label: {
+                                Image(isUserLoggedIn ? profileImages[avatar] : "signOut")
+                                    .resizable()
+                                    .scaledToFit()
+                                    .frame(width: 41, height: 41)
+                            }
+                        )
+                            .sheet(isPresented: $isPresented, onDismiss: {
+                                self.isPresented = false
+                            }) {
+                                SignInWithAppleView(isButtonPressed: self.$isButtonPressed)
+                            }
                     }
-
                 }
             }
         }
+    }
+    
+    func filterPosts(type: String, posts: [PetPost]) -> [PetPost] {
+        var filteredPosts: [PetPost]
+        filteredPosts = posts.filter {$0.type == "\(type)"}
+        return filteredPosts
     }
 }
 

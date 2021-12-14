@@ -21,18 +21,17 @@ struct PetPost: Codable, Hashable {
     }
     
     func print() {
-            Swift.print("{")
-            Swift.print("\t_id: \(_id)")
-            Swift.print("\tcreatedAt: \(createdAt)")
-            Swift.print("\tuserID: \(userID)")
-            Swift.print("\tstatus: \(status)")
-            Swift.print("\ttype: \(type)")
-            Swift.print("\ttitle: \(title)")
-            Swift.print("\tdescription: \(description)")
-            Swift.print("\titemName: \(itemName)")
-            Swift.print("\titemQuantity: \(itemQuantity)")
-            Swift.print("\titemCategory: \(itemCategory)")
-            Swift.print("\titemExpirationDate: \(itemExpirationDate)")
-            Swift.print("}")
-        }
+        Swift.print("{")
+        Swift.print("\t_id: \(_id)")
+        Swift.print("\tcreatedAt: \(createdAt)")
+        Swift.print("\tuserID: \(userID)")
+        Swift.print("\tstatus: \(status)")
+        Swift.print("\ttype: \(type)")
+        Swift.print("\ttitle: \(title)")
+        Swift.print("\tdescription: \(description)")
+        Swift.print("\titemName: \(itemName)")
+        Swift.print("\titemQuantity: \(itemQuantity)")
+        Swift.print("\titemCategory: \(itemCategory)")
+        Swift.print("\titemExpirationDate: \(itemExpirationDate ?? "")")
+        Swift.print("}")
     }

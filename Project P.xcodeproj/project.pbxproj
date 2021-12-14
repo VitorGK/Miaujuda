@@ -10,55 +10,35 @@
 		A64CA54427690F7A0018057A /* Item.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0EAB6D6275FE553001E869B /* Item.swift */; };
 		A65835DB2769037200C6A64E /* WidgetKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A65835DA2769037200C6A64E /* WidgetKit.framework */; };
 		A65835DD2769037200C6A64E /* SwiftUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A65835DC2769037200C6A64E /* SwiftUI.framework */; };
-		A65835E02769037200C6A64E /* Widget.swift in Sources */ = {isa = PBXBuildFile; fileRef = A65835DF2769037200C6A64E /* Widget.swift */; };
 		A65835E22769037400C6A64E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A65835E12769037400C6A64E /* Assets.xcassets */; };
 		A65835E62769037400C6A64E /* WidgetExtension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = A65835D82769037200C6A64E /* WidgetExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
-		A65835EB276903D300C6A64E /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0146040275FDE7C003B8F36 /* User.swift */; };
-		A65835EC276903D900C6A64E /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0146040275FDE7C003B8F36 /* User.swift */; };
-		A65835ED276903E300C6A64E /* CategoryItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0282835275ECBC600AB080F /* CategoryItem.swift */; };
-		A65835EE276903E600C6A64E /* ItemCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0282837275ECBD200AB080F /* ItemCard.swift */; };
-		A65835EF276903EA00C6A64E /* PostCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0282839275ECBDF00AB080F /* PostCard.swift */; };
-		A65835F0276903FB00C6A64E /* PostCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0282839275ECBDF00AB080F /* PostCard.swift */; };
-		A65835F12769040300C6A64E /* PostDetailsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C028281D275ECB1000AB080F /* PostDetailsView.swift */; };
-		A65835F32769040700C6A64E /* PostsGrid.swift in Sources */ = {isa = PBXBuildFile; fileRef = C87D137027627854008C1477 /* PostsGrid.swift */; };
-		A65835F52769040C00C6A64E /* FormPostView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0282830275ECBAE00AB080F /* FormPostView.swift */; };
-		A65835F72769042500C6A64E /* MyPostsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0282829275ECB6D00AB080F /* MyPostsView.swift */; };
-		A65835F82769042900C6A64E /* ProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C028282B275ECB7E00AB080F /* ProfileView.swift */; };
-		A65835F92769042D00C6A64E /* SignInWithAppleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C028282D275ECB8C00AB080F /* SignInWithAppleView.swift */; };
-		A65835FA2769043200C6A64E /* FormProfileRegView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0282827275ECB6000AB080F /* FormProfileRegView.swift */; };
-		A65835FB2769043C00C6A64E /* CategoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0282820275ECB2C00AB080F /* CategoryView.swift */; };
-		A65835FC2769044000C6A64E /* ColorExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0282822275ECB3900AB080F /* ColorExtension.swift */; };
-		A65835FD2769044100C6A64E /* ColorExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0282822275ECB3900AB080F /* ColorExtension.swift */; };
-		A65835FE2769044500C6A64E /* DataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0282824275ECB4600AB080F /* DataManager.swift */; };
-		A65835FF2769045800C6A64E /* HelpetsApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = C028280F275ECAB400AB080F /* HelpetsApp.swift */; };
-		A65836002769045C00C6A64E /* CategorySearch.swift in Sources */ = {isa = PBXBuildFile; fileRef = C87D136E27612028008C1477 /* CategorySearch.swift */; };
-		C014603F275FDE36003B8F36 /* PetPost.swift in Sources */ = {isa = PBXBuildFile; fileRef = C014603E275FDE36003B8F36 /* PetPost.swift */; };
-		C0146041275FDE7C003B8F36 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0146040275FDE7C003B8F36 /* User.swift */; };
-		C0282810275ECAB400AB080F /* HelpetsApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = C028280F275ECAB400AB080F /* HelpetsApp.swift */; };
-		C0282812275ECAB400AB080F /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0282811275ECAB400AB080F /* MainView.swift */; };
 		C0282814275ECAB500AB080F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C0282813275ECAB500AB080F /* Assets.xcassets */; };
 		C0282817275ECAB500AB080F /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C0282816275ECAB500AB080F /* Preview Assets.xcassets */; };
-		C028281E275ECB1000AB080F /* PostDetailsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C028281D275ECB1000AB080F /* PostDetailsView.swift */; };
-		C0282821275ECB2C00AB080F /* CategoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0282820275ECB2C00AB080F /* CategoryView.swift */; };
-		C0282823275ECB3900AB080F /* ColorExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0282822275ECB3900AB080F /* ColorExtension.swift */; };
-		C0282825275ECB4600AB080F /* DataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0282824275ECB4600AB080F /* DataManager.swift */; };
-		C0282828275ECB6000AB080F /* FormProfileRegView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0282827275ECB6000AB080F /* FormProfileRegView.swift */; };
-		C028282A275ECB6D00AB080F /* MyPostsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0282829275ECB6D00AB080F /* MyPostsView.swift */; };
-		C028282C275ECB7E00AB080F /* ProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C028282B275ECB7E00AB080F /* ProfileView.swift */; };
-		C028282E275ECB8C00AB080F /* SignInWithAppleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C028282D275ECB8C00AB080F /* SignInWithAppleView.swift */; };
-		C0282831275ECBAE00AB080F /* FormPostView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0282830275ECBAE00AB080F /* FormPostView.swift */; };
-		C0282836275ECBC600AB080F /* CategoryItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0282835275ECBC600AB080F /* CategoryItem.swift */; };
-		C0282838275ECBD200AB080F /* ItemCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0282837275ECBD200AB080F /* ItemCard.swift */; };
-		C028283A275ECBDF00AB080F /* PostCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0282839275ECBDF00AB080F /* PostCard.swift */; };
-		C0EAB6D7275FE553001E869B /* Item.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0EAB6D6275FE553001E869B /* Item.swift */; };
-		C87D136F27612028008C1477 /* CategorySearch.swift in Sources */ = {isa = PBXBuildFile; fileRef = C87D136E27612028008C1477 /* CategorySearch.swift */; };
-		C87D137127627854008C1477 /* PostsGrid.swift in Sources */ = {isa = PBXBuildFile; fileRef = C87D137027627854008C1477 /* PostsGrid.swift */; };
-		E47B449C2767BE8B0044BDFA /* HelpetsACApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = E47B449B2767BE8B0044BDFA /* HelpetsACApp.swift */; };
-		E47B449E2767BE8B0044BDFA /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E47B449D2767BE8B0044BDFA /* ContentView.swift */; };
+		C07D34D02768F6A70040BF71 /* ItemCategory.swift in Sources */ = {isa = PBXBuildFile; fileRef = C07D34CF2768F6A70040BF71 /* ItemCategory.swift */; };
+		C08456C82767F43000E9F1FA /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0282811275ECAB400AB080F /* MainView.swift */; };
+		C08456C92767F43300E9F1FA /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0146040275FDE7C003B8F36 /* User.swift */; };
+		C08456CA2767F43500E9F1FA /* PetPost.swift in Sources */ = {isa = PBXBuildFile; fileRef = C014603E275FDE36003B8F36 /* PetPost.swift */; };
+		C08456CC2767F43A00E9F1FA /* ItemCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0282837275ECBD200AB080F /* ItemCard.swift */; };
+		C08456CD2767F43B00E9F1FA /* CategoryItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0282835275ECBC600AB080F /* CategoryItem.swift */; };
+		C08456CF2767F43F00E9F1FA /* PostDetailsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C028281D275ECB1000AB080F /* PostDetailsView.swift */; };
+		C08456D02767F44200E9F1FA /* PostsGrid.swift in Sources */ = {isa = PBXBuildFile; fileRef = C87D137027627854008C1477 /* PostsGrid.swift */; };
+		C08456D12767F44400E9F1FA /* FormPostView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0282830275ECBAE00AB080F /* FormPostView.swift */; };
+		C08456D22767F44600E9F1FA /* MyPostsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0282829275ECB6D00AB080F /* MyPostsView.swift */; };
+		C08456D32767F44800E9F1FA /* ProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C028282B275ECB7E00AB080F /* ProfileView.swift */; };
+		C08456D42767F44A00E9F1FA /* SignInWithAppleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C028282D275ECB8C00AB080F /* SignInWithAppleView.swift */; };
+		C08456D52767F44D00E9F1FA /* FormProfileRegView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0282827275ECB6000AB080F /* FormProfileRegView.swift */; };
+		C08456D62767F44F00E9F1FA /* CategoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0282820275ECB2C00AB080F /* CategoryView.swift */; };
+		C08456D72767F45100E9F1FA /* ColorExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0282822275ECB3900AB080F /* ColorExtension.swift */; };
+		C08456D82767F45300E9F1FA /* ServerService.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0282824275ECB4600AB080F /* ServerService.swift */; };
+		C08456D92767F45600E9F1FA /* CategorySearch.swift in Sources */ = {isa = PBXBuildFile; fileRef = C87D136E27612028008C1477 /* CategorySearch.swift */; };
+		C08456DA2767F45800E9F1FA /* HelpetsApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = C028280F275ECAB400AB080F /* HelpetsApp.swift */; };
+		C08456DD2767F5EE00E9F1FA /* PostViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C08456DC2767F5EE00E9F1FA /* PostViewModel.swift */; };
+		C0F645CB2769171D0098EDEB /* PostCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0282839275ECBDF00AB080F /* PostCard.swift */; };
+		C0F645CC276917380098EDEB /* UrlRoute.swift in Sources */ = {isa = PBXBuildFile; fileRef = C07D34D327690F9B0040BF71 /* UrlRoute.swift */; };
+		C8EECD3727690CC6009C60A0 /* UserFetcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8EECD3627690CC6009C60A0 /* UserFetcher.swift */; };
 		E47B44A02767BE8D0044BDFA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E47B449F2767BE8D0044BDFA /* Assets.xcassets */; };
 		E47B44A32767BE8D0044BDFA /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E47B44A22767BE8D0044BDFA /* Preview Assets.xcassets */; };
 		E47B44A82767BE8D0044BDFA /* HelpetsAC.app in Embed App Clips */ = {isa = PBXBuildFile; fileRef = E47B44992767BE8B0044BDFA /* HelpetsAC.app */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
-		E47B44B12767C3120044BDFA /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0282811275ECAB400AB080F /* MainView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -120,7 +100,7 @@
 		C028281D275ECB1000AB080F /* PostDetailsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostDetailsView.swift; sourceTree = "<group>"; };
 		C0282820275ECB2C00AB080F /* CategoryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryView.swift; sourceTree = "<group>"; };
 		C0282822275ECB3900AB080F /* ColorExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorExtension.swift; sourceTree = "<group>"; };
-		C0282824275ECB4600AB080F /* DataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataManager.swift; sourceTree = "<group>"; };
+		C0282824275ECB4600AB080F /* ServerService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServerService.swift; sourceTree = "<group>"; };
 		C0282827275ECB6000AB080F /* FormProfileRegView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FormProfileRegView.swift; sourceTree = "<group>"; };
 		C0282829275ECB6D00AB080F /* MyPostsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPostsView.swift; sourceTree = "<group>"; };
 		C028282B275ECB7E00AB080F /* ProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileView.swift; sourceTree = "<group>"; };
@@ -129,12 +109,16 @@
 		C0282835275ECBC600AB080F /* CategoryItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryItem.swift; sourceTree = "<group>"; };
 		C0282837275ECBD200AB080F /* ItemCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemCard.swift; sourceTree = "<group>"; };
 		C0282839275ECBDF00AB080F /* PostCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostCard.swift; sourceTree = "<group>"; };
-		C0EAB6D6275FE553001E869B /* Item.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Item.swift; sourceTree = "<group>"; };
+		C07D34CF2768F6A70040BF71 /* ItemCategory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemCategory.swift; sourceTree = "<group>"; };
+		C07D34D327690F9B0040BF71 /* UrlRoute.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UrlRoute.swift; sourceTree = "<group>"; };
+		C08456DC2767F5EE00E9F1FA /* PostViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostViewModel.swift; sourceTree = "<group>"; };
+		C0FD0A6027626ECD00E0E2F1 /* Project P.entitlements */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.entitlements; path = "Project P.entitlements"; sourceTree = "<group>"; };
 		C87D136E27612028008C1477 /* CategorySearch.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategorySearch.swift; sourceTree = "<group>"; };
 		C87D137027627854008C1477 /* PostsGrid.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostsGrid.swift; sourceTree = "<group>"; };
+		C8EECD3627690CC6009C60A0 /* UserFetcher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserFetcher.swift; sourceTree = "<group>"; };
 		E47B44992767BE8B0044BDFA /* HelpetsAC.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HelpetsAC.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E47B449B2767BE8B0044BDFA /* HelpetsACApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HelpetsACApp.swift; sourceTree = "<group>"; };
-		E47B449D2767BE8B0044BDFA /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		E47B449D2767BE8B0044BDFA /* AppClipMainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppClipMainView.swift; sourceTree = "<group>"; };
 		E47B449F2767BE8D0044BDFA /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		E47B44A22767BE8D0044BDFA /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		E47B44A42767BE8D0044BDFA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -190,6 +174,7 @@
 		C0282803275ECAB400AB080F = {
 			isa = PBXGroup;
 			children = (
+				C08456DB2767F5DC00E9F1FA /* ViewModel */,
 				E47B44AE2767C18A0044BDFA /* Shared */,
 				C028280E275ECAB400AB080F /* Project P */,
 				E47B449A2767BE8B0044BDFA /* HelpetsAC */,
@@ -212,13 +197,13 @@
 		C028280E275ECAB400AB080F /* Project P */ = {
 			isa = PBXGroup;
 			children = (
+				C0FD0A6027626ECD00E0E2F1 /* Project P.entitlements */,
 				C0EAB6D8275FE5D5001E869B /* Structs */,
 				C0282834275ECBBD00AB080F /* Components */,
 				C028282F275ECBA000AB080F /* Post */,
 				C0282826275ECB5100AB080F /* Profile */,
 				C028281F275ECB1A00AB080F /* Utils */,
 				C028280F275ECAB400AB080F /* HelpetsApp.swift */,
-				C87D136E27612028008C1477 /* CategorySearch.swift */,
 				C0282813275ECAB500AB080F /* Assets.xcassets */,
 				C0282815275ECAB500AB080F /* Preview Content */,
 			);
@@ -236,9 +221,11 @@
 		C028281F275ECB1A00AB080F /* Utils */ = {
 			isa = PBXGroup;
 			children = (
+				C07D34D6276910000040BF71 /* API */,
+				C07D34D527690FBF0040BF71 /* Extensions */,
+				C07D34CE2768F6990040BF71 /* Enums */,
 				C0282820275ECB2C00AB080F /* CategoryView.swift */,
-				C0282822275ECB3900AB080F /* ColorExtension.swift */,
-				C0282824275ECB4600AB080F /* DataManager.swift */,
+				C87D136E27612028008C1477 /* CategorySearch.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -274,12 +261,45 @@
 			path = Components;
 			sourceTree = "<group>";
 		};
+		C07D34CE2768F6990040BF71 /* Enums */ = {
+			isa = PBXGroup;
+			children = (
+				C07D34CF2768F6A70040BF71 /* ItemCategory.swift */,
+				C07D34D327690F9B0040BF71 /* UrlRoute.swift */,
+			);
+			path = Enums;
+			sourceTree = "<group>";
+		};
+		C07D34D527690FBF0040BF71 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				C0282822275ECB3900AB080F /* ColorExtension.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		C07D34D6276910000040BF71 /* API */ = {
+			isa = PBXGroup;
+			children = (
+				C0282824275ECB4600AB080F /* ServerService.swift */,
+			);
+			path = API;
+			sourceTree = "<group>";
+		};
+		C08456DB2767F5DC00E9F1FA /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				C08456DC2767F5EE00E9F1FA /* PostViewModel.swift */,
+				C8EECD3627690CC6009C60A0 /* UserFetcher.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
 		C0EAB6D8275FE5D5001E869B /* Structs */ = {
 			isa = PBXGroup;
 			children = (
 				C0146040275FDE7C003B8F36 /* User.swift */,
 				C014603E275FDE36003B8F36 /* PetPost.swift */,
-				C0EAB6D6275FE553001E869B /* Item.swift */,
 			);
 			path = Structs;
 			sourceTree = "<group>";
@@ -288,7 +308,7 @@
 			isa = PBXGroup;
 			children = (
 				E47B449B2767BE8B0044BDFA /* HelpetsACApp.swift */,
-				E47B449D2767BE8B0044BDFA /* ContentView.swift */,
+				E47B449D2767BE8B0044BDFA /* AppClipMainView.swift */,
 				E47B449F2767BE8D0044BDFA /* Assets.xcassets */,
 				E47B44A42767BE8D0044BDFA /* Info.plist */,
 				E47B44A52767BE8D0044BDFA /* HelpetsAC.entitlements */,
@@ -459,25 +479,28 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C028282E275ECB8C00AB080F /* SignInWithAppleView.swift in Sources */,
-				C028281E275ECB1000AB080F /* PostDetailsView.swift in Sources */,
-				C0282831275ECBAE00AB080F /* FormPostView.swift in Sources */,
-				C028282C275ECB7E00AB080F /* ProfileView.swift in Sources */,
-				C028283A275ECBDF00AB080F /* PostCard.swift in Sources */,
-				C0282825275ECB4600AB080F /* DataManager.swift in Sources */,
-				C0282812275ECAB400AB080F /* MainView.swift in Sources */,
-				C0146041275FDE7C003B8F36 /* User.swift in Sources */,
-				C014603F275FDE36003B8F36 /* PetPost.swift in Sources */,
-				C0282821275ECB2C00AB080F /* CategoryView.swift in Sources */,
-				C0EAB6D7275FE553001E869B /* Item.swift in Sources */,
-				C0282836275ECBC600AB080F /* CategoryItem.swift in Sources */,
-				C87D137127627854008C1477 /* PostsGrid.swift in Sources */,
-				C0282828275ECB6000AB080F /* FormProfileRegView.swift in Sources */,
-				C0282838275ECBD200AB080F /* ItemCard.swift in Sources */,
-				C0282810275ECAB400AB080F /* HelpetsApp.swift in Sources */,
-				C028282A275ECB6D00AB080F /* MyPostsView.swift in Sources */,
-				C87D136F27612028008C1477 /* CategorySearch.swift in Sources */,
-				C0282823275ECB3900AB080F /* ColorExtension.swift in Sources */,
+				C08456DD2767F5EE00E9F1FA /* PostViewModel.swift in Sources */,
+				C08456D22767F44600E9F1FA /* MyPostsView.swift in Sources */,
+				C08456D02767F44200E9F1FA /* PostsGrid.swift in Sources */,
+				C08456D12767F44400E9F1FA /* FormPostView.swift in Sources */,
+				C08456D32767F44800E9F1FA /* ProfileView.swift in Sources */,
+				C0F645CC276917380098EDEB /* UrlRoute.swift in Sources */,
+				C08456D82767F45300E9F1FA /* ServerService.swift in Sources */,
+				C08456C92767F43300E9F1FA /* User.swift in Sources */,
+				C08456D42767F44A00E9F1FA /* SignInWithAppleView.swift in Sources */,
+				C08456CA2767F43500E9F1FA /* PetPost.swift in Sources */,
+				C8EECD3727690CC6009C60A0 /* UserFetcher.swift in Sources */,
+				C08456C82767F43000E9F1FA /* MainView.swift in Sources */,
+				C08456DA2767F45800E9F1FA /* HelpetsApp.swift in Sources */,
+				C08456CD2767F43B00E9F1FA /* CategoryItem.swift in Sources */,
+				C0F645CB2769171D0098EDEB /* PostCard.swift in Sources */,
+				C08456CC2767F43A00E9F1FA /* ItemCard.swift in Sources */,
+				C08456D72767F45100E9F1FA /* ColorExtension.swift in Sources */,
+				C08456D92767F45600E9F1FA /* CategorySearch.swift in Sources */,
+				C08456D52767F44D00E9F1FA /* FormProfileRegView.swift in Sources */,
+				C08456CF2767F43F00E9F1FA /* PostDetailsView.swift in Sources */,
+				C07D34D02768F6A70040BF71 /* ItemCategory.swift in Sources */,
+				C08456D62767F44F00E9F1FA /* CategoryView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -485,25 +508,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A65835F72769042500C6A64E /* MyPostsView.swift in Sources */,
-				A65835EB276903D300C6A64E /* User.swift in Sources */,
-				A65835F32769040700C6A64E /* PostsGrid.swift in Sources */,
-				A65835F52769040C00C6A64E /* FormPostView.swift in Sources */,
-				A65835F82769042900C6A64E /* ProfileView.swift in Sources */,
-				E47B449E2767BE8B0044BDFA /* ContentView.swift in Sources */,
-				A65835F92769042D00C6A64E /* SignInWithAppleView.swift in Sources */,
-				E47B449C2767BE8B0044BDFA /* HelpetsACApp.swift in Sources */,
-				A65835ED276903E300C6A64E /* CategoryItem.swift in Sources */,
-				A65835FE2769044500C6A64E /* DataManager.swift in Sources */,
-				A65835EE276903E600C6A64E /* ItemCard.swift in Sources */,
-				A65835FF2769045800C6A64E /* HelpetsApp.swift in Sources */,
-				E47B44B12767C3120044BDFA /* MainView.swift in Sources */,
-				A65835FC2769044000C6A64E /* ColorExtension.swift in Sources */,
-				A65835FA2769043200C6A64E /* FormProfileRegView.swift in Sources */,
-				A65835EF276903EA00C6A64E /* PostCard.swift in Sources */,
-				A65835F12769040300C6A64E /* PostDetailsView.swift in Sources */,
-				A65836002769045C00C6A64E /* CategorySearch.swift in Sources */,
-				A65835FB2769043C00C6A64E /* CategoryView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -530,7 +534,7 @@
 				ASSETCATALOG_COMPILER_WIDGET_BACKGROUND_COLOR_NAME = WidgetBackground;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = JJ7A9ZQ7BD;
+				DEVELOPMENT_TEAM = 337G99FP8D;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Widget/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = Widget;
@@ -540,8 +544,8 @@
 					"@executable_path/Frameworks",
 					"@executable_path/../../Frameworks",
 				);
-				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.bianca.maciel.Helpets.Widget;
+				MARKETING_VERSION = 0.1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.vitorgk.ProjectP.Widget;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
 				SWIFT_EMIT_LOC_STRINGS = YES;
@@ -557,7 +561,7 @@
 				ASSETCATALOG_COMPILER_WIDGET_BACKGROUND_COLOR_NAME = WidgetBackground;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = JJ7A9ZQ7BD;
+				DEVELOPMENT_TEAM = 337G99FP8D;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Widget/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = Widget;
@@ -567,8 +571,8 @@
 					"@executable_path/Frameworks",
 					"@executable_path/../../Frameworks",
 				);
-				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.bianca.maciel.Helpets.Widget;
+				MARKETING_VERSION = 0.1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.vitorgk.ProjectP.Widget;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
 				SWIFT_EMIT_LOC_STRINGS = YES;
@@ -696,14 +700,13 @@
 		C028281B275ECAB500AB080F /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				CODE_SIGN_ENTITLEMENTS = Helpets.entitlements;
+				CODE_SIGN_ENTITLEMENTS = "Project P/Project P.entitlements";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"Project P/Preview Content\"";
-				DEVELOPMENT_TEAM = JJ7A9ZQ7BD;
+				DEVELOPMENT_TEAM = 337G99FP8D;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
@@ -716,7 +719,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 0.1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.bianca.maciel.Helpets;
+				PRODUCT_BUNDLE_IDENTIFIER = com.vitorgk.ProjectP;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
@@ -727,14 +730,13 @@
 		C028281C275ECAB500AB080F /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				CODE_SIGN_ENTITLEMENTS = Helpets.entitlements;
+				CODE_SIGN_ENTITLEMENTS = "Project P/Project P.entitlements";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"Project P/Preview Content\"";
-				DEVELOPMENT_TEAM = JJ7A9ZQ7BD;
+				DEVELOPMENT_TEAM = 337G99FP8D;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
@@ -747,7 +749,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 0.1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.bianca.maciel.Helpets;
+				PRODUCT_BUNDLE_IDENTIFIER = com.vitorgk.ProjectP;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
@@ -764,7 +766,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"HelpetsAC/Preview Content\"";
-				DEVELOPMENT_TEAM = JJ7A9ZQ7BD;
+				DEVELOPMENT_TEAM = 337G99FP8D;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = HelpetsAC/Info.plist;
@@ -778,8 +780,8 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.bianca.maciel.Helpets.Clip;
+				MARKETING_VERSION = 0.1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.vitorgk.ProjectP.Clip;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "DEBUG APPCLIP";
 				SWIFT_EMIT_LOC_STRINGS = YES;
@@ -797,7 +799,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"HelpetsAC/Preview Content\"";
-				DEVELOPMENT_TEAM = JJ7A9ZQ7BD;
+				DEVELOPMENT_TEAM = 337G99FP8D;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = HelpetsAC/Info.plist;
@@ -811,8 +813,8 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.bianca.maciel.Helpets.Clip;
+				MARKETING_VERSION = 0.1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.vitorgk.ProjectP.Clip;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = APPCLIP;
 				SWIFT_EMIT_LOC_STRINGS = YES;

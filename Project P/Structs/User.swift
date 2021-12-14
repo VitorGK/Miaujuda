@@ -1,8 +1,10 @@
 import Foundation
 
 struct User: Codable, Hashable {
+    let __v: Int
     let _id: String
-    let createdAt: Date
+    let createdAt: String
+    let appleID: String
     var avatar: Int
     var organizationName: String
     var organizationCategory: String
@@ -12,24 +14,24 @@ struct User: Codable, Hashable {
     var website: String?
     
     func hash(into hasher: inout Hasher) {
-        hasher.combine(_id)
+        hasher.combine(appleID)
     }
     
     static func == (lhs: User, rhs: User) -> Bool {
-        return lhs._id == lhs._id
+        return lhs.appleID == rhs.appleID
     }
     
     func print() {
         Swift.print("{")
-        Swift.print("_id: \(_id)")
-        Swift.print("createdAt: \(createdAt)")
-        Swift.print("avatar: \(avatar)")
-        Swift.print("organizationName: \(organizationName)")
-        Swift.print("organizationCategory: \(organizationCategory)")
-        Swift.print("organizationZipCode: \(organizationZipCode)")
-        Swift.print("email: \(email ?? "null")")
-        Swift.print("phone: \(phone ?? "null")")
-        Swift.print("website: \(website ?? "null")")
+        Swift.print("\t_id: \(_id)")
+        Swift.print("\tcreatedAt: \(createdAt)")
+        Swift.print("\tavatar: \(avatar)")
+        Swift.print("\torganizationName: \(organizationName)")
+        Swift.print("\torganizationCategory: \(organizationCategory)")
+        Swift.print("\torganizationZipCode: \(organizationZipCode)")
+        Swift.print("\temail: \(email ?? "null")")
+        Swift.print("\tphone: \(phone ?? "null")")
+        Swift.print("\twebsite: \(website ?? "null")")
         Swift.print("}")
     }
 }

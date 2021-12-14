@@ -1,6 +1,8 @@
 import SwiftUI
 
 struct FormProfileRegView: View {
+    @AppStorage("appleID") var appleID: String = ""
+    
     @Environment(\.dismiss) private var dismiss
     
     @State var avatar: Int = 0
@@ -83,27 +85,25 @@ struct FormProfileRegView: View {
         .toolbar {
             ToolbarItem(placement: .navigationBarTrailing) {
                 Button {
-                    let params: [String: Any] = [
-                        "createdAt":Date(),
-                        "avatar":avatar,
-                        "organizationName":organizationName,
-                        "organizationCategory":organizationCategory,
-                        "organizationZipCode":organizationZipCode,
-                        "email":email,
-                        "phone":phone,
-                        "website":website
+                    let userData: [String: Any] = [
+                        "createdAt": Date().timeIntervalSince1970,
+                        "appleID": appleID,
+                        "avatar": avatar,
+                        "organizationName": organizationName,
+                        "organizationCategory": organizationCategory,
+                        "organizationZipCode": organizationZipCode,
+                        "email": email,
+                        "phone": phone,
+                        "website": website
                     ]
-                    DataManager.shared.postRequest(route: .user, params: params) { result, error in
-                        print("result")
-                        print(result)
-                        print("error")
-                        print(error)
-                        if let res: Bool = (result?.values.first as? Bool) {
-                            if (res) {
-                                print("User successfully created.")
-                            } else {
-                                print("Error.")
-                            }
+                    ServerService.shared.postRequest(route: .user, body: userData) { result in
+                        switch result {
+                            case .success(let response):
+                                print("User created!")
+                                print(response)
+                            case .failure(let error):
+                                print("ERRORERRORERRORERRORERRORERROR")
+                                print(error.localizedDescription)
                         }
                     }
                     self.dismiss()
