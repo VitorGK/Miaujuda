@@ -4,19 +4,18 @@ struct MainView: View {
     @AppStorage("isUserLoggedIn") var isUserLoggedIn: Bool = false
     @AppStorage("avatar") var avatar: Int = 0
     
+    @ObservedObject var postViewModel: PostViewModel
+    
     @State var pickerSelectedItem: Int = 1
     
     @State private var isPresented: Bool = false
     @State private var isButtonPressed: Bool = false
     
-    @State var filteredPostsNec: [PetPost] = []
-    @State var filteredPostsDon: [PetPost] = []
-    
     let columns = [
         GridItem(.adaptive(minimum: 180))
     ]
     
-    var categoriesTitle: [String] = [
+    let categoriesTitle: [String] = [
         "Alimentos",
         "Remédios",
         "Higiene",
@@ -27,10 +26,8 @@ struct MainView: View {
         "profileCat1",
         "profilePug",
         "profileDog",
-        "profileCat2",
+        "profileCat2"
     ]
-    
-    @ObservedObject var postViewModel: PostViewModel
     
     init() {
         postViewModel = PostViewModel()
