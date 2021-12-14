@@ -8,60 +8,91 @@
 import WidgetKit
 import SwiftUI
 
-struct Provider: TimelineProvider {
-    func placeholder(in context: Context) -> SimpleEntry {
-        SimpleEntry(date: Date())
+struct Model : TimelineEntry {
+    var date: Date
+    var widgetData: [JSONModel]
+}
+    
+struct JSONModel : Decodable, Hashable {
+    var date = Date()
+    var item : Item
+}
+
+struct Provider : TimelineProvider {
+//    func placeholder(in context: Context) -> Model {
+//        <#code#>
+//    }
+    
+    typealias Entry = Model
+    
+    
+    func getSnapshot(in context: Context, completion: @escaping (Model) -> ()) {
+        let loadingData = Model(date: Date(), widgetData:Array(repeating: JSONModel(date: Date(), item: .init(_id: "1", name: "a", quantity: "2", category: "c", expirationDate: Date())), count: 6))
+        
+        completion(loadingData)
     }
-
-    func getSnapshot(in context: Context, completion: @escaping (SimpleEntry) -> ()) {
-        let entry = SimpleEntry(date: Date())
-        completion(entry)
-    }
-
-    func getTimeline(in context: Context, completion: @escaping (Timeline<Entry>) -> ()) {
-        var entries: [SimpleEntry] = []
-
-        // Generate a timeline consisting of five entries an hour apart, starting from the current date.
-        let currentDate = Date()
-        for hourOffset in 0 ..< 5 {
-            let entryDate = Calendar.current.date(byAdding: .hour, value: hourOffset, to: currentDate)!
-            let entry = SimpleEntry(date: entryDate)
-            entries.append(entry)
+    
+    func getTimeline(in context: Context, completion: @escaping (Timeline<Model>) -> ()) {
+        
+        getData{ (modelData) in
+            let date = Date()
+            let data = Model(date: date, widgetData: modelData)
+            
+            let nextUpdate = Calendar.current.date(byAdding: .minute,value: 15 ,to: date)
+            let timeline = Timeline(entries: [data], policy: .after(nextUpdate!))
+            
+            completion(timeline)
         }
-
-        let timeline = Timeline(entries: entries, policy: .atEnd)
-        completion(timeline)
     }
 }
 
-struct SimpleEntry: TimelineEntry {
-    let date: Date
-}
-
-struct WidgetEntryView : View {
-    var entry: Provider.Entry
-
+struct WidgetView: View {
+    var data : Model
     var body: some View {
-        Text(entry.date, style: .time)
+        VStack{
+            Text("Post Card")
+                .foregroundColor(.red)
+            
+            HStack{
+                
+            }
+        }
     }
 }
 
 @main
-struct Widget: Widget {
-    let kind: String = "Widget"
-
+struct MainWidget : Widget {
     var body: some WidgetConfiguration {
-        StaticConfiguration(kind: kind, provider: Provider()) { entry in
-            WidgetEntryView(entry: entry)
+        StaticConfiguration(kind: "aaaaa", provider: Provider()) { data in
+            WidgetView(data: data)
         }
-        .configurationDisplayName("My Widget")
-        .description("This is an example widget.")
+        .description(Text("Daily Status"))
+        .configurationDisplayName(Text("Daily Updates"))
+        .supportedFamilies([.systemLarge])
     }
 }
 
-struct Widget_Previews: PreviewProvider {
-    static var previews: some View {
-        WidgetEntryView(entry: SimpleEntry(date: Date()))
-            .previewContext(WidgetPreviewContext(family: .systemSmall))
+func getData(completion: @escaping ([JSONModel]) -> ()) {
+    
+    let url = "https://project-pets.herokuapp.com/petpost/"
+    
+    let session = URLSession(configuration: .default)
+    
+    session.dataTask(with: URL(string: url)!) { (data, _, err) in
+        
+        if err != nil {
+            print(err!.localizedDescription)
+            return
+        }
+        
+        do {
+            
+            let jsonData = try JSONDecoder().decode([JSONModel].self, from: data!)
+            completion(jsonData)
+            
+        } catch {
+            print(error.localizedDescription)
+        }
+        
     }
 }

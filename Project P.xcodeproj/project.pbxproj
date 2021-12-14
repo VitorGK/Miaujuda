@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		A64CA54427690F7A0018057A /* Item.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0EAB6D6275FE553001E869B /* Item.swift */; };
 		A65835DB2769037200C6A64E /* WidgetKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A65835DA2769037200C6A64E /* WidgetKit.framework */; };
 		A65835DD2769037200C6A64E /* SwiftUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A65835DC2769037200C6A64E /* SwiftUI.framework */; };
 		A65835E02769037200C6A64E /* Widget.swift in Sources */ = {isa = PBXBuildFile; fileRef = A65835DF2769037200C6A64E /* Widget.swift */; };
@@ -445,6 +446,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A64CA54427690F7A0018057A /* Item.swift in Sources */,
 				A65835EC276903D900C6A64E /* User.swift in Sources */,
 				A65835F0276903FB00C6A64E /* PostCard.swift in Sources */,
 				A65835E02769037200C6A64E /* Widget.swift in Sources */,
