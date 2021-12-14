@@ -1,8 +1,9 @@
 import Foundation
 
 struct User: Codable, Hashable {
-//    let _id: String
-    let createdAt: Date
+    let __v: Int
+    let _id: String
+    let createdAt: String
     let appleID: String
     var avatar: Int
     var organizationName: String
@@ -22,7 +23,7 @@ struct User: Codable, Hashable {
     
     func print() {
         Swift.print("{")
-//        Swift.print("\t_id: \(_id)")
+        Swift.print("\t_id: \(_id)")
         Swift.print("\tcreatedAt: \(createdAt)")
         Swift.print("\tavatar: \(avatar)")
         Swift.print("\torganizationName: \(organizationName)")

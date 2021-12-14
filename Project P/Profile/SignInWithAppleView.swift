@@ -47,26 +47,21 @@ struct SignInWithAppleView: View {
                                             // USUÁRIO JÁ EXISTENTE
                                             print("User found.")
                                             guard let userID = data["_id"] as? String else { return }
-                                            guard let jwtToken = data["access_token"] as? String else { return }
                                             self.userID = userID
+                                            print(self.userID)
+                                            guard let jwtToken = data["access_token"] as? String else { return }
                                             self.jwtToken = jwtToken
+                                            print(self.jwtToken)
                                             ServerService.shared.getUser(by: userID) { result in
                                                 switch result {
                                                     case .success(let response):
-                                                        let avatar = response.avatar
-                                                        let organizationName = response.organizationName
-                                                        let organizationCategory = response.organizationCategory
-                                                        let organizationZipCode = response.organizationZipCode
-                                                        let email = response.email
-                                                        let phone = response.phone
-                                                        let website = response.website
-                                                        self.avatar = avatar
-                                                        self.organizationName = organizationName
-                                                        self.organizationCategory = organizationCategory
-                                                        self.organizationZipCode = organizationZipCode
-                                                        self.email = email
-                                                        self.phone = phone
-                                                        self.website = website
+                                                        self.avatar = response.avatar
+                                                        self.organizationName = response.organizationName
+                                                        self.organizationCategory = response.organizationCategory
+                                                        self.organizationZipCode = response.organizationZipCode
+                                                        self.email = response.email
+                                                        self.phone = response.phone
+                                                        self.website = response.website
                                                         print("User logged in.")
                                                         self.isUserLoggedIn = true
                                                     case .failure(let error):
