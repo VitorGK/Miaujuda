@@ -10,6 +10,7 @@
 		C0282814275ECAB500AB080F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C0282813275ECAB500AB080F /* Assets.xcassets */; };
 		C0282817275ECAB500AB080F /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C0282816275ECAB500AB080F /* Preview Assets.xcassets */; };
 		C07D34D02768F6A70040BF71 /* ItemCategory.swift in Sources */ = {isa = PBXBuildFile; fileRef = C07D34CF2768F6A70040BF71 /* ItemCategory.swift */; };
+		C07D34D427690F9B0040BF71 /* UrlRoute.swift in Sources */ = {isa = PBXBuildFile; fileRef = C07D34D327690F9B0040BF71 /* UrlRoute.swift */; };
 		C08456C82767F43000E9F1FA /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0282811275ECAB400AB080F /* MainView.swift */; };
 		C08456C92767F43300E9F1FA /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0146040275FDE7C003B8F36 /* User.swift */; };
 		C08456CA2767F43500E9F1FA /* PetPost.swift in Sources */ = {isa = PBXBuildFile; fileRef = C014603E275FDE36003B8F36 /* PetPost.swift */; };
@@ -79,6 +80,7 @@
 		C0282837275ECBD200AB080F /* ItemCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemCard.swift; sourceTree = "<group>"; };
 		C0282839275ECBDF00AB080F /* PostCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostCard.swift; sourceTree = "<group>"; };
 		C07D34CF2768F6A70040BF71 /* ItemCategory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemCategory.swift; sourceTree = "<group>"; };
+		C07D34D327690F9B0040BF71 /* UrlRoute.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UrlRoute.swift; sourceTree = "<group>"; };
 		C08456DC2767F5EE00E9F1FA /* PostViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostViewModel.swift; sourceTree = "<group>"; };
 		C0FD0A6027626ECD00E0E2F1 /* Project P.entitlements */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.entitlements; path = "Project P.entitlements"; sourceTree = "<group>"; };
 		C87D136E27612028008C1477 /* CategorySearch.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategorySearch.swift; sourceTree = "<group>"; };
@@ -133,7 +135,6 @@
 		C028280E275ECAB400AB080F /* Project P */ = {
 			isa = PBXGroup;
 			children = (
-				C07D34CE2768F6990040BF71 /* Enums */,
 				C0FD0A6027626ECD00E0E2F1 /* Project P.entitlements */,
 				C0EAB6D8275FE5D5001E869B /* Structs */,
 				C0282834275ECBBD00AB080F /* Components */,
@@ -141,7 +142,6 @@
 				C0282826275ECB5100AB080F /* Profile */,
 				C028281F275ECB1A00AB080F /* Utils */,
 				C028280F275ECAB400AB080F /* HelpetsApp.swift */,
-				C87D136E27612028008C1477 /* CategorySearch.swift */,
 				C0282813275ECAB500AB080F /* Assets.xcassets */,
 				C0282815275ECAB500AB080F /* Preview Content */,
 			);
@@ -159,9 +159,11 @@
 		C028281F275ECB1A00AB080F /* Utils */ = {
 			isa = PBXGroup;
 			children = (
+				C07D34D6276910000040BF71 /* API */,
+				C07D34D527690FBF0040BF71 /* Extensions */,
+				C07D34CE2768F6990040BF71 /* Enums */,
 				C0282820275ECB2C00AB080F /* CategoryView.swift */,
-				C0282822275ECB3900AB080F /* ColorExtension.swift */,
-				C0282824275ECB4600AB080F /* ServerService.swift */,
+				C87D136E27612028008C1477 /* CategorySearch.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -201,8 +203,25 @@
 			isa = PBXGroup;
 			children = (
 				C07D34CF2768F6A70040BF71 /* ItemCategory.swift */,
+				C07D34D327690F9B0040BF71 /* UrlRoute.swift */,
 			);
 			path = Enums;
+			sourceTree = "<group>";
+		};
+		C07D34D527690FBF0040BF71 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				C0282822275ECB3900AB080F /* ColorExtension.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		C07D34D6276910000040BF71 /* API */ = {
+			isa = PBXGroup;
+			children = (
+				C0282824275ECB4600AB080F /* ServerService.swift */,
+			);
+			path = API;
 			sourceTree = "<group>";
 		};
 		C08456DB2767F5DC00E9F1FA /* ViewModel */ = {
@@ -371,6 +390,7 @@
 				C08456D52767F44D00E9F1FA /* FormProfileRegView.swift in Sources */,
 				C08456CE2767F43E00E9F1FA /* PostCard.swift in Sources */,
 				C08456CF2767F43F00E9F1FA /* PostDetailsView.swift in Sources */,
+				C07D34D427690F9B0040BF71 /* UrlRoute.swift in Sources */,
 				C07D34D02768F6A70040BF71 /* ItemCategory.swift in Sources */,
 				C08456D62767F44F00E9F1FA /* CategoryView.swift in Sources */,
 			);
