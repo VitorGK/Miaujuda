@@ -35,3 +35,4 @@ struct PetPost: Codable, Hashable {
         Swift.print("\titemExpirationDate: \(itemExpirationDate ?? "")")
         Swift.print("}")
     }
+}
