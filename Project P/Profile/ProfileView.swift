@@ -1,7 +1,7 @@
 import SwiftUI
 
 struct ProfileView: View {
-    var user: User = User(createdAt: Date(), appleID: "", avatar: 1, organizationName: "organization name", organizationCategory: "categoria", organizationZipCode: "zip code", email: "email@gmail.com", website: "tito.com")
+//    var user: User = User(createdAt: Date(), appleID: "", avatar: 1, organizationName: "organization name", organizationCategory: "categoria", organizationZipCode: "zip code", email: "email@gmail.com", website: "tito.com")
     var body: some View {
         VStack {
             HStack{
@@ -21,25 +21,25 @@ struct ProfileView: View {
                 .padding(.top, 20)
     
             
-            Text("\(user.organizationName)")
+            Text("user.organizationName")
                 .font(.title.bold())
-            Text("\(user.organizationCategory)")
+            Text("user.organizationCategory")
                 .foregroundColor(.secondary)
                 .padding(.bottom, 10)
                 
             
             VStack (alignment: .leading){
-                if let email = user.email {
-                    Label("\(email)", systemImage: "envelope.fill")
-                }
+//                if let email = user.email {
+                    Label("(email)", systemImage: "envelope.fill")
+//                }
                 
-                if let phone = user.phone {
-                    Label("\(phone)", systemImage: "phone.fill")
-                }
+//                if let phone = user.phone {
+                    Label("(phone)", systemImage: "phone.fill")
+//                }
                 
-                if let website = user.website {
-                    Label("\(website)", systemImage: "link")
-                }
+//                if let website = user.website {
+                    Label("(website)", systemImage: "link")
+//                }
             }
             
  
