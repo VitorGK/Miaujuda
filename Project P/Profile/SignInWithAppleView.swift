@@ -50,16 +50,16 @@ struct SignInWithAppleView: View {
                                             guard let jwtToken = data["access_token"] as? String else { return }
                                             self.userID = userID
                                             self.jwtToken = jwtToken
-                                            ServerService.shared.getRequest(route: .user, id: userID) { result in
+                                            ServerService.shared.getUser(by: userID) { result in
                                                 switch result {
                                                     case .success(let response):
-                                                        guard let avatar = response["avatar"] as? Int else { return }
-                                                        guard let organizationName = response["organizationName"] as? String else { return }
-                                                        guard let organizationCategory = response["organizationCategory"] as? String else { return }
-                                                        guard let organizationZipCode = response["organizationZipCode"] as? String else { return }
-                                                        let email = response["email"] as? String
-                                                        let phone = response["phone"] as? String
-                                                        let website = response["website"] as? String
+                                                        let avatar = response.avatar
+                                                        let organizationName = response.organizationName
+                                                        let organizationCategory = response.organizationCategory
+                                                        let organizationZipCode = response.organizationZipCode
+                                                        let email = response.email
+                                                        let phone = response.phone
+                                                        let website = response.website
                                                         self.avatar = avatar
                                                         self.organizationName = organizationName
                                                         self.organizationCategory = organizationCategory

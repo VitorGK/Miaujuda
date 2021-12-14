@@ -68,10 +68,17 @@ struct MainView: View {
                         .frame(maxWidth: .infinity, alignment: .leading)
                     
                     ZStack {
-                        NavigationLink(destination: FormProfileRegView(), isActive: $isButtonPressed) {
-                            EmptyView()
+                        if isUserLoggedIn {
+                            NavigationLink(destination: FormPostView(), isActive: $isButtonPressed) {
+                                EmptyView()
+                            }
+                            .hidden()
+                        } else {
+                            NavigationLink(destination: FormProfileRegView(), isActive: $isButtonPressed) {
+                                EmptyView()
+                            }
+                            .hidden()
                         }
-                        .hidden()
                         
                         Button(action: {
                             self.isPresented = true
@@ -111,11 +118,36 @@ struct MainView: View {
             .navigationBarTitleDisplayMode(.large)
             .toolbar {
                 ToolbarItem(placement: .navigationBarTrailing) {
-                    NavigationLink(destination: FormProfileRegView()) {
-                        Image(isUserLoggedIn ? profileImages[avatar] : "signOut")
-                            .resizable()
-                            .scaledToFit()
-                            .frame(width: 41, height: 41)
+                    ZStack {
+                        if isUserLoggedIn {
+                            NavigationLink(destination: ProfileView(), isActive: $isButtonPressed) {
+                                EmptyView()
+                            }
+                            .hidden()
+                        } else {
+                            NavigationLink(destination: FormProfileRegView(), isActive: .constant(isUserLoggedIn)) {
+                                EmptyView()
+                            }
+                            .hidden()
+                        }
+                        
+                        Button(
+                            action: {
+                                self.isPresented = true
+                                print(isUserLoggedIn)
+                            },
+                            label: {
+                                Image(isUserLoggedIn ? profileImages[avatar] : "signOut")
+                                    .resizable()
+                                    .scaledToFit()
+                                    .frame(width: 41, height: 41)
+                            }
+                        )
+                            .sheet(isPresented: $isPresented, onDismiss: {
+                                self.isPresented = false
+                            }) {
+                                SignInWithAppleView(isButtonPressed: self.$isButtonPressed)
+                            }
                     }
                 }
             }
