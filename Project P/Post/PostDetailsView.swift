@@ -27,7 +27,7 @@ struct PostDetailsView: View {
                     .font(.title2.bold())
                     .padding(.top)
                 
-                ItemCard(itemName: post.itemName, quantity: post.itemQuantity, category: post.itemCategory, expDate: post.itemExpirationDate)
+                ItemCard(itemName: post.itemName, itemQuantity: post.itemQuantity, itemCategory: post.itemCategory, itemExpirationDate: post.itemExpirationDate)
                 
                 Text("Contatos")
                     .font(.title2.bold())
