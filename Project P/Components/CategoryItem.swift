@@ -7,19 +7,14 @@ struct CategoryItem: View {
     var body: some View {
         VStack {
             ZStack {
-//                RoundedRectangle(cornerRadius: 10)
-//                    .fill(.red)
-//
                 Image(imageName)
                     .resizable()
                     .scaledToFit()
                     .frame(width: 60, height: 60)
                     .cornerRadius(10)
-        
-                    
-                // Image(systemName: imageName)
-            }    .shadow(radius: 1)
-               
+            }
+            .shadow(radius: 1)
+            
             Text(text)
                 .font(.caption)
         }
