@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		A64CA54427690F7A0018057A /* Item.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0EAB6D6275FE553001E869B /* Item.swift */; };
 		A65835DB2769037200C6A64E /* WidgetKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A65835DA2769037200C6A64E /* WidgetKit.framework */; };
 		A65835DD2769037200C6A64E /* SwiftUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A65835DC2769037200C6A64E /* SwiftUI.framework */; };
 		A65835E22769037400C6A64E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A65835E12769037400C6A64E /* Assets.xcassets */; };
@@ -454,6 +455,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				E47B44A32767BE8D0044BDFA /* Preview Assets.xcassets in Resources */,
+				A6C6AA282767E1A100DBB9F5 /* Assets.xcassets in Resources */,
 				E47B44A02767BE8D0044BDFA /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -465,6 +467,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A64CA54427690F7A0018057A /* Item.swift in Sources */,
+				A65835EC276903D900C6A64E /* User.swift in Sources */,
+				A65835F0276903FB00C6A64E /* PostCard.swift in Sources */,
+				A65835E02769037200C6A64E /* Widget.swift in Sources */,
+				A65835FD2769044100C6A64E /* ColorExtension.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -776,6 +783,7 @@
 				MARKETING_VERSION = 0.1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.vitorgk.ProjectP.Clip;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "DEBUG APPCLIP";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -808,6 +816,7 @@
 				MARKETING_VERSION = 0.1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.vitorgk.ProjectP.Clip;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = APPCLIP;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";

@@ -1,5 +1,3 @@
-import Foundation
-
 struct PetPost: Codable, Hashable {
     let __v: Int
     let _id: String
@@ -37,4 +35,3 @@ struct PetPost: Codable, Hashable {
         Swift.print("\titemExpirationDate: \(itemExpirationDate ?? "")")
         Swift.print("}")
     }
-}

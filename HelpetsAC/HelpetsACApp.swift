@@ -1,6 +1,6 @@
 import SwiftUI
 
-@main
+//@main
 struct HelpetsACApp: App {
     var body: some Scene {
         WindowGroup {
