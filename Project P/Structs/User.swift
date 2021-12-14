@@ -22,15 +22,15 @@ struct User: Codable, Hashable {
     
     func print() {
         Swift.print("{")
-//        Swift.print("_id: \(_id)")
-        Swift.print("createdAt: \(createdAt)")
-        Swift.print("avatar: \(avatar)")
-        Swift.print("organizationName: \(organizationName)")
-        Swift.print("organizationCategory: \(organizationCategory)")
-        Swift.print("organizationZipCode: \(organizationZipCode)")
-        Swift.print("email: \(email ?? "null")")
-        Swift.print("phone: \(phone ?? "null")")
-        Swift.print("website: \(website ?? "null")")
+//        Swift.print("\t_id: \(_id)")
+        Swift.print("\tcreatedAt: \(createdAt)")
+        Swift.print("\tavatar: \(avatar)")
+        Swift.print("\torganizationName: \(organizationName)")
+        Swift.print("\torganizationCategory: \(organizationCategory)")
+        Swift.print("\torganizationZipCode: \(organizationZipCode)")
+        Swift.print("\temail: \(email ?? "null")")
+        Swift.print("\tphone: \(phone ?? "null")")
+        Swift.print("\twebsite: \(website ?? "null")")
         Swift.print("}")
     }
 }
