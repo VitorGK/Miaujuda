@@ -1,8 +1,8 @@
 import SwiftUI
 
 struct MainView: View {
-    @AppStorage("isUserLoggedIn") var isUserLoggedIn: Bool = false
     @AppStorage("avatar") var avatar: Int = 0
+    @AppStorage("userID") var userID: String = ""
     
     @ObservedObject var postViewModel: PostViewModel
     
@@ -66,17 +66,14 @@ struct MainView: View {
                         .font(.title3)
                         .bold()
                         .frame(maxWidth: .infinity, alignment: .leading)
-                    if userFetcher.user != nil {
+                    
+                    if userID != "" {
                         ZStack {
                             NavigationLink {
                                 FormPostView()
                             } label: {
-                                Button {
-                                    
-                                } label: {
-                                    Image(systemName: "plus")
-                                        .imageScale(.large)
-                                }
+                                Image(systemName: "plus")
+                                    .imageScale(.large)
                             }
                         }
                     } else {
@@ -92,11 +89,11 @@ struct MainView: View {
                                 Image(systemName: "plus")
                                     .imageScale(.large)
                             })
-                            .sheet(isPresented: $isPresented, onDismiss: {
-                                self.isPresented = false
-                            }) {
-                                SignInWithAppleView(isButtonPressed: self.$isButtonPressed)
-                            }
+                                .sheet(isPresented: $isPresented, onDismiss: {
+                                    self.isPresented = false
+                                }) {
+                                    SignInWithAppleView(isButtonPressed: self.$isButtonPressed)
+                                }
                         }
                     }
                 }
@@ -107,7 +104,7 @@ struct MainView: View {
                         Text("Necessidades").tag(1)
                         Text("Doações").tag(2)
                     })
-                    .pickerStyle(SegmentedPickerStyle())
+                        .pickerStyle(SegmentedPickerStyle())
                     
                     if pickerSelectedItem == 1 {
                         PostsGrid(posts: filterPosts(type: "Necessidade", posts: postViewModel.posts))
@@ -126,7 +123,7 @@ struct MainView: View {
             .toolbar {
                 ToolbarItem(placement: .navigationBarTrailing) {
                     ZStack {
-                        NavigationLink(destination: FormProfileRegView(), isActive: .constant(isUserLoggedIn)) {
+                        NavigationLink(destination: FormProfileRegView(), isActive: $isButtonPressed) {
                             EmptyView()
                         }
                         .hidden()
@@ -134,10 +131,9 @@ struct MainView: View {
                         Button(
                             action: {
                                 self.isPresented = true
-                                print(isUserLoggedIn)
                             },
                             label: {
-                                Image(isUserLoggedIn ? profileImages[avatar] : "signOut")
+                                Image("signOut")
                                     .resizable()
                                     .scaledToFit()
                                     .frame(width: 41, height: 41)
