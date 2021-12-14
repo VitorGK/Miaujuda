@@ -1,14 +1,6 @@
 import Foundation
 import AuthenticationServices
 
-enum UrlRoute: String {
-    case user = "/user/"
-    case petpost = "/petpost/"
-    case item = "/item/"
-    case auth = "/auth/login/"
-//    case validate = "/auth/profile"
-}
-
 class ServerService {
     public static var shared = ServerService()
     private let baseUrl: String = "https://project-pets.herokuapp.com"
