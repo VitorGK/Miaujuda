@@ -46,8 +46,8 @@ class ServerService {
         .resume()
     }
     
-    // MARK: --- GET LATEST POST
-    func getLatestPetPost(completion: @escaping (Result<PetPost, Error>) -> Void) {
+    // MARK: --- Get Latest PetPost and User data
+    func getLatestPetPost(completion: @escaping (Result<PetPostAndUser, Error>) -> Void) {
         let session = URLSession.shared
         guard let url = URL(string: baseUrl + UrlRoute.latestPetPost.rawValue) else { return }
         let request = URLRequest(url: url)
@@ -55,8 +55,8 @@ class ServerService {
         session.dataTask(with: request) { data, _, error in
             if let data = data {
                 do {
-                    let responseJson = try JSONDecoder().decode(PetPost.self, from: data)
-                    completion(.success(responseJson))
+                    let petPostAndUserData = try JSONDecoder().decode(PetPostAndUser.self, from: data)
+                    completion(.success(petPostAndUserData))
                 } catch let error {
                     completion(.failure(error))
                 }

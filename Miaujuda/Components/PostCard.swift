@@ -1,29 +1,23 @@
 import SwiftUI
 
-struct PostItem {
-    var name: String
-    var quantity: String
-}
-
-
 struct PostCard: View {
     var post: PetPost
     @State var user: User? = nil
     
-    
     var body: some View {
-        
         VStack (alignment: .leading) {
             HStack {
-                VStack {
+                VStack(alignment: .leading) {
                     Text(post.title)
                         .bold()
+                    
                     Text(user?.organizationName ?? "")
                         .font(.subheadline)
                         .foregroundColor(.secondary)
                 }
                 
                 Spacer()
+                
                 if post.status == "Active" { // status = ativo
                     Image(systemName: "clock.fill")
                 } else { // status = inativo
@@ -31,8 +25,10 @@ struct PostCard: View {
                 }
             }
             .padding()
-            .background(RoundedRectangle(cornerRadius: 0)
-                            .fill((post.status == "Active") ? Color.activePostYellow : Color.concludedPostGray))
+            .background(
+                RoundedRectangle(cornerRadius: 0)
+                    .fill((post.status == "Active") ? Color.activePostYellow : Color.concludedPostGray)
+            )
             
             VStack (alignment: .leading) {
                 Text("\(post.itemName) - \(post.itemQuantity)")
@@ -40,6 +36,7 @@ struct PostCard: View {
                 
                 HStack{
                     Spacer()
+                    
                     Text(user?.organizationZipCode ?? "")
                 }
                 .font(.subheadline)
@@ -48,6 +45,7 @@ struct PostCard: View {
                 
                 HStack{
                     Spacer()
+                    
                     Text(String(post.createdAt))
                 }
                 .font(.subheadline)
@@ -64,19 +62,14 @@ struct PostCard: View {
             ServerService.shared.getUser(by: post.userID) { result in
                 DispatchQueue.main.async {
                     switch result{
-                    case .success(let user):
-                        self.user = user
-                    case .failure(let error):
-                        return
-                        //fatalError()
-                        //TODO: TIRAR O FATAL ERROR
+                        case .success(let user):
+                            self.user = user
+                        case .failure(let error):
+                            print(error.localizedDescription)
                     }
                 }
-                
-                
             }
         }
-        
     }
 }
 
