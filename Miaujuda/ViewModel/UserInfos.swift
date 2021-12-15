@@ -4,8 +4,6 @@ class UserInfos: ObservableObject {
     @Published var errorMessage: String?
     @Published var isLoading: Bool = false
 
-    
-    
     //    init(post: PetPost) {
     //
     //        self.getUserFromPost(post: post)
@@ -27,9 +25,3 @@ class UserInfos: ObservableObject {
         
     }
 }
-
-
-
-
-
-

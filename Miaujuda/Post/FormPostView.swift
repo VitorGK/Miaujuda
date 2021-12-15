@@ -82,7 +82,7 @@ struct FormPostView: View {
                         "itemCategory": itemCategory,
                         "itemExpirationDate": itemExpirationDate.timeIntervalSince1970
                     ]
-                    ServerService.shared.postRequest(route: .petpost, body: petPostData) { result in
+                    ServerService.shared.postRequest(route: .petPost, body: petPostData) { result in
                         switch result {
                             case .success(let data):
                                 print("PetPost created!")
