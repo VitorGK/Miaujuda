@@ -58,6 +58,11 @@
 		A654BD56276A5A5900FF6764 /* ColorExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0282822275ECB3900AB080F /* ColorExtension.swift */; };
 		A654BD57276A5A5D00FF6764 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0146040275FDE7C003B8F36 /* User.swift */; };
 		A654BD58276A5CBC00FF6764 /* UrlRoute.swift in Sources */ = {isa = PBXBuildFile; fileRef = C07D34D327690F9B0040BF71 /* UrlRoute.swift */; };
+		C0A81641276A77EC007BF82C /* PetPostAndUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0A81640276A77EC007BF82C /* PetPostAndUser.swift */; };
+		C0A81642276A7847007BF82C /* PetPostAndUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0A81640276A77EC007BF82C /* PetPostAndUser.swift */; };
+		C0A81643276A7882007BF82C /* PetPostAndUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0A81640276A77EC007BF82C /* PetPostAndUser.swift */; };
+		C0A81645276A7C13007BF82C /* PostItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0A81644276A7C13007BF82C /* PostItem.swift */; };
+		C0A81646276A7C20007BF82C /* PostItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0A81644276A7C13007BF82C /* PostItem.swift */; };
 		C0EF2533276A269300AB4A93 /* PetPostStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0EF2532276A269300AB4A93 /* PetPostStatus.swift */; };
 		C8EECD392769311B009C60A0 /* UserInfos.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8EECD382769311B009C60A0 /* UserInfos.swift */; };
 /* End PBXBuildFile section */
@@ -141,6 +146,8 @@
 		C07D34CF2768F6A70040BF71 /* ItemCategory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemCategory.swift; sourceTree = "<group>"; };
 		C07D34D327690F9B0040BF71 /* UrlRoute.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UrlRoute.swift; sourceTree = "<group>"; };
 		C08456DC2767F5EE00E9F1FA /* PostViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostViewModel.swift; sourceTree = "<group>"; };
+		C0A81640276A77EC007BF82C /* PetPostAndUser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PetPostAndUser.swift; sourceTree = "<group>"; };
+		C0A81644276A7C13007BF82C /* PostItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostItem.swift; sourceTree = "<group>"; };
 		C0EF2532276A269300AB4A93 /* PetPostStatus.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PetPostStatus.swift; sourceTree = "<group>"; };
 		C87D136E27612028008C1477 /* CategorySearch.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategorySearch.swift; sourceTree = "<group>"; };
 		C87D137027627854008C1477 /* PostsGrid.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostsGrid.swift; sourceTree = "<group>"; };
@@ -346,6 +353,8 @@
 			children = (
 				C0146040275FDE7C003B8F36 /* User.swift */,
 				C014603E275FDE36003B8F36 /* PetPost.swift */,
+				C0A81640276A77EC007BF82C /* PetPostAndUser.swift */,
+				C0A81644276A7C13007BF82C /* PostItem.swift */,
 			);
 			path = Structs;
 			sourceTree = "<group>";
@@ -489,6 +498,7 @@
 				A63CAA8E276A3B7900E54D88 /* UserInfos.swift in Sources */,
 				A63CAA86276A3A3A00E54D88 /* PostsGrid.swift in Sources */,
 				A63CAA85276A383900E54D88 /* MainClip.swift in Sources */,
+				C0A81643276A7882007BF82C /* PetPostAndUser.swift in Sources */,
 				A63CAA87276A3A4300E54D88 /* PetPost.swift in Sources */,
 				A63CAA91276A3BE100E54D88 /* ItemCategory.swift in Sources */,
 				A63CAA73276A37BE00E54D88 /* MiaujudaClipApp.swift in Sources */,
@@ -496,6 +506,7 @@
 				A63CAA8C276A3B3F00E54D88 /* User.swift in Sources */,
 				A63CAA90276A3BB900E54D88 /* UrlRoute.swift in Sources */,
 				A63CAA8D276A3B5300E54D88 /* ColorExtension.swift in Sources */,
+				C0A81646276A7C20007BF82C /* PostItem.swift in Sources */,
 				A63CAA8B276A3B3300E54D88 /* ServerService.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -514,6 +525,7 @@
 				A64CA55C27692CC10018057A /* CategoryItem.swift in Sources */,
 				A64CA56427692CDA0018057A /* SignInWithAppleView.swift in Sources */,
 				A64CA55F27692CCB0018057A /* PostDetailsView.swift in Sources */,
+				C0A81645276A7C13007BF82C /* PostItem.swift in Sources */,
 				A64CA55A27692CBB0018057A /* User.swift in Sources */,
 				A64CA56627692CE00018057A /* ServerService.swift in Sources */,
 				A64CA56327692CD70018057A /* ProfileView.swift in Sources */,
@@ -525,6 +537,7 @@
 				A64CA55B27692CBF0018057A /* PetPost.swift in Sources */,
 				A64CA55E27692CC70018057A /* PostCard.swift in Sources */,
 				A64CA56927692CEA0018057A /* UrlRoute.swift in Sources */,
+				C0A81641276A77EC007BF82C /* PetPostAndUser.swift in Sources */,
 				A64CA56C27692D310018057A /* MiaujudaApp.swift in Sources */,
 				A64CA56827692CE70018057A /* ItemCategory.swift in Sources */,
 				A64CA56727692CE40018057A /* ColorExtension.swift in Sources */,
@@ -536,6 +549,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				A654BD49276A560100FF6764 /* MiaujudaWidget.swift in Sources */,
+				C0A81642276A7847007BF82C /* PetPostAndUser.swift in Sources */,
 				A654BD54276A576000FF6764 /* PetPost.swift in Sources */,
 				A654BD55276A58C400FF6764 /* ServerService.swift in Sources */,
 				A654BD58276A5CBC00FF6764 /* UrlRoute.swift in Sources */,

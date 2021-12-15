@@ -1,10 +1,3 @@
-//
-//  MiaujudaWidget.swift
-//  MiaujudaWidget
-//
-//  Created by Bianca Maciel Matos on 15/12/21.
-//
-
 import WidgetKit
 import SwiftUI
 
@@ -15,18 +8,10 @@ struct Provider: TimelineProvider {
     
     func getSnapshot(in context: Context, completion: @escaping (SimpleEntry) -> ()) {
         ServerService.shared.getLatestPetPost { result in
-            switch result{
-                case .success(let petPost):
-                    print(petPost)
-                    ServerService.shared.getUser(by: petPost.userID) { result in
-                        switch result {
-                            case .success(let user):
-                                let entry = SimpleEntry(date: Date(), petPost: petPost, user: user)
-                                completion(entry)
-                            case .failure(let error):
-                                print(error.localizedDescription)
-                        }
-                    }
+            switch result {
+                case .success(let data):
+                    let entry = SimpleEntry(date: Date(), petPost: data.petPost, user: data.user)
+                    completion(entry)
                 case .failure(let error):
                     print(error.localizedDescription)
             }
@@ -35,21 +20,14 @@ struct Provider: TimelineProvider {
     
     func getTimeline(in context: Context, completion: @escaping (Timeline<Entry>) -> ()) {
         ServerService.shared.getLatestPetPost { result in
-            switch result{
-                case .success(let data) :
-                    ServerService.shared.getUser(by: data.userID) { result in
-                        switch result {
-                            case .success(let user):
-                                let entry = SimpleEntry(date: Date(), petPost: data, user: user)
-                                let timeline = Timeline(entries: [entry], policy: .atEnd)
-                                completion(timeline)
-                                
-                            case .failure(let error):
-                                print(error.localizedDescription)
-                        }
-                    }
-                    
-                case .failure(let error) :
+            switch result {
+                case .success(let data):
+                    let entries = [
+                        SimpleEntry(date: Date(), petPost: data.petPost, user: data.user)
+                    ]
+                    let timeline = Timeline(entries: entries, policy: .atEnd)
+                    completion(timeline)
+                case .failure(let error):
                     print(error.localizedDescription)
             }
         }
@@ -66,26 +44,32 @@ struct MiaujudaWidgetEntryView : View {
     var entry: Provider.Entry
     
     var body: some View {
-        VStack (alignment: .leading) {
+        VStack(alignment: .leading) {
             HStack {
-                VStack {
+                VStack(alignment: .leading) {
                     Text(entry.petPost.title)
                         .bold()
+                    
                     Text(entry.user.organizationName)
                         .font(.subheadline)
                         .foregroundColor(.secondary)
                 }
                 
                 Spacer()
-                if entry.petPost.status == "Active" { // status = ativo
+                
+                if entry.petPost.status == "Active" {
                     Image(systemName: "clock.fill")
-                } else { // status = inativo
+                } else {
                     Image(systemName: "checkmark.circle.fill")
                 }
             }
             .padding()
-            .background(RoundedRectangle(cornerRadius: 0)
-                            .fill((entry.petPost.status == "Active") ? Color.activePostYellow : Color.concludedPostGray))
+            .background(
+                RoundedRectangle(cornerRadius: 0)
+                    .fill((entry.petPost.status == "Active") ? Color.activePostYellow : Color.concludedPostGray)
+            )
+            
+            Spacer()
             
             VStack (alignment: .leading) {
                 Text("\(entry.petPost.itemName) - \(entry.petPost.itemQuantity)")
@@ -93,6 +77,7 @@ struct MiaujudaWidgetEntryView : View {
                 
                 HStack{
                     Spacer()
+                    
                     Text(entry.user.organizationZipCode)
                 }
                 .font(.subheadline)
@@ -101,18 +86,16 @@ struct MiaujudaWidgetEntryView : View {
                 
                 HStack{
                     Spacer()
+                    
                     Text(String(entry.petPost.createdAt))
                 }
                 .font(.subheadline)
                 .foregroundColor(.secondary)
                 .padding(.trailing)
             }
-            
+            .padding(.bottom)
         }
-        .padding(.bottom)
         .background(Color.backgroundPost)
-        .cornerRadius(15)
-        .shadow(radius: 4)
     }
 }
 
