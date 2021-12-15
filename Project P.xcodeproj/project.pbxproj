@@ -48,6 +48,16 @@
 		A64CA56C27692D310018057A /* MiaujudaApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = C028280F275ECAB400AB080F /* MiaujudaApp.swift */; };
 		A64CA56D27692D370018057A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C0282813275ECAB500AB080F /* Assets.xcassets */; };
 		A64CA56E27692D3C0018057A /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C0282816275ECAB500AB080F /* Preview Assets.xcassets */; };
+		A654BD44276A560000FF6764 /* WidgetKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A654BD43276A560000FF6764 /* WidgetKit.framework */; };
+		A654BD46276A560100FF6764 /* SwiftUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A654BD45276A560000FF6764 /* SwiftUI.framework */; };
+		A654BD49276A560100FF6764 /* MiaujudaWidget.swift in Sources */ = {isa = PBXBuildFile; fileRef = A654BD48276A560100FF6764 /* MiaujudaWidget.swift */; };
+		A654BD4B276A560200FF6764 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A654BD4A276A560200FF6764 /* Assets.xcassets */; };
+		A654BD4F276A560200FF6764 /* MiaujudaWidgetExtension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = A654BD41276A560000FF6764 /* MiaujudaWidgetExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		A654BD54276A576000FF6764 /* PetPost.swift in Sources */ = {isa = PBXBuildFile; fileRef = C014603E275FDE36003B8F36 /* PetPost.swift */; };
+		A654BD55276A58C400FF6764 /* ServerService.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0282824275ECB4600AB080F /* ServerService.swift */; };
+		A654BD56276A5A5900FF6764 /* ColorExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0282822275ECB3900AB080F /* ColorExtension.swift */; };
+		A654BD57276A5A5D00FF6764 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0146040275FDE7C003B8F36 /* User.swift */; };
+		A654BD58276A5CBC00FF6764 /* UrlRoute.swift in Sources */ = {isa = PBXBuildFile; fileRef = C07D34D327690F9B0040BF71 /* UrlRoute.swift */; };
 		C0EF2533276A269300AB4A93 /* PetPostStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0EF2532276A269300AB4A93 /* PetPostStatus.swift */; };
 		C8EECD392769311B009C60A0 /* UserInfos.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8EECD382769311B009C60A0 /* UserInfos.swift */; };
 /* End PBXBuildFile section */
@@ -59,6 +69,13 @@
 			proxyType = 1;
 			remoteGlobalIDString = A63CAA6F276A37BE00E54D88;
 			remoteInfo = MiaujudaClip;
+		};
+		A654BD4D276A560200FF6764 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = C0282804275ECAB400AB080F /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = A654BD40276A560000FF6764;
+			remoteInfo = MiaujudaWidgetExtension;
 		};
 /* End PBXContainerItemProxy section */
 
@@ -74,6 +91,17 @@
 			name = "Embed App Clips";
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		A654BD50276A560200FF6764 /* Embed App Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+				A654BD4F276A560200FF6764 /* MiaujudaWidgetExtension.appex in Embed App Extensions */,
+			);
+			name = "Embed App Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
@@ -85,6 +113,12 @@
 		A63CAA7C276A37C000E54D88 /* MiaujudaClip.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = MiaujudaClip.entitlements; sourceTree = "<group>"; };
 		A63CAA84276A383900E54D88 /* MainClip.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainClip.swift; sourceTree = "<group>"; };
 		A64CA54927692C870018057A /* Miaujuda.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Miaujuda.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		A654BD41276A560000FF6764 /* MiaujudaWidgetExtension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = MiaujudaWidgetExtension.appex; sourceTree = BUILT_PRODUCTS_DIR; };
+		A654BD43276A560000FF6764 /* WidgetKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WidgetKit.framework; path = System/Library/Frameworks/WidgetKit.framework; sourceTree = SDKROOT; };
+		A654BD45276A560000FF6764 /* SwiftUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftUI.framework; path = System/Library/Frameworks/SwiftUI.framework; sourceTree = SDKROOT; };
+		A654BD48276A560100FF6764 /* MiaujudaWidget.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MiaujudaWidget.swift; sourceTree = "<group>"; };
+		A654BD4A276A560200FF6764 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		A654BD4C276A560200FF6764 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C014603E275FDE36003B8F36 /* PetPost.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PetPost.swift; sourceTree = "<group>"; };
 		C0146040275FDE7C003B8F36 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		C01F07632769350800AB0552 /* Miaujuda.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Miaujuda.entitlements; sourceTree = "<group>"; };
@@ -129,6 +163,15 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		A654BD3E276A560000FF6764 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A654BD46276A560100FF6764 /* SwiftUI.framework in Frameworks */,
+				A654BD44276A560000FF6764 /* WidgetKit.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
@@ -153,11 +196,32 @@
 			path = "Preview Content";
 			sourceTree = "<group>";
 		};
+		A654BD42276A560000FF6764 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				A654BD43276A560000FF6764 /* WidgetKit.framework */,
+				A654BD45276A560000FF6764 /* SwiftUI.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		A654BD47276A560100FF6764 /* MiaujudaWidget */ = {
+			isa = PBXGroup;
+			children = (
+				A654BD48276A560100FF6764 /* MiaujudaWidget.swift */,
+				A654BD4A276A560200FF6764 /* Assets.xcassets */,
+				A654BD4C276A560200FF6764 /* Info.plist */,
+			);
+			path = MiaujudaWidget;
+			sourceTree = "<group>";
+		};
 		C0282803275ECAB400AB080F = {
 			isa = PBXGroup;
 			children = (
 				C028280E275ECAB400AB080F /* Miaujuda */,
 				A63CAA71276A37BE00E54D88 /* MiaujudaClip */,
+				A654BD47276A560100FF6764 /* MiaujudaWidget */,
+				A654BD42276A560000FF6764 /* Frameworks */,
 				C028280D275ECAB400AB080F /* Products */,
 			);
 			sourceTree = "<group>";
@@ -167,6 +231,7 @@
 			children = (
 				A64CA54927692C870018057A /* Miaujuda.app */,
 				A63CAA70276A37BE00E54D88 /* MiaujudaClip.app */,
+				A654BD41276A560000FF6764 /* MiaujudaWidgetExtension.appex */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -313,16 +378,35 @@
 				A64CA54627692C870018057A /* Frameworks */,
 				A64CA54727692C870018057A /* Resources */,
 				A63CAA83276A37C000E54D88 /* Embed App Clips */,
+				A654BD50276A560200FF6764 /* Embed App Extensions */,
 			);
 			buildRules = (
 			);
 			dependencies = (
 				A63CAA7E276A37C000E54D88 /* PBXTargetDependency */,
+				A654BD4E276A560200FF6764 /* PBXTargetDependency */,
 			);
 			name = Miaujuda;
 			productName = Miaujuda;
 			productReference = A64CA54927692C870018057A /* Miaujuda.app */;
 			productType = "com.apple.product-type.application";
+		};
+		A654BD40276A560000FF6764 /* MiaujudaWidgetExtension */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = A654BD53276A560200FF6764 /* Build configuration list for PBXNativeTarget "MiaujudaWidgetExtension" */;
+			buildPhases = (
+				A654BD3D276A560000FF6764 /* Sources */,
+				A654BD3E276A560000FF6764 /* Frameworks */,
+				A654BD3F276A560000FF6764 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = MiaujudaWidgetExtension;
+			productName = MiaujudaWidgetExtension;
+			productReference = A654BD41276A560000FF6764 /* MiaujudaWidgetExtension.appex */;
+			productType = "com.apple.product-type.app-extension";
 		};
 /* End PBXNativeTarget section */
 
@@ -338,6 +422,9 @@
 						CreatedOnToolsVersion = 13.0;
 					};
 					A64CA54827692C870018057A = {
+						CreatedOnToolsVersion = 13.0;
+					};
+					A654BD40276A560000FF6764 = {
 						CreatedOnToolsVersion = 13.0;
 					};
 				};
@@ -357,6 +444,7 @@
 			targets = (
 				A64CA54827692C870018057A /* Miaujuda */,
 				A63CAA6F276A37BE00E54D88 /* MiaujudaClip */,
+				A654BD40276A560000FF6764 /* MiaujudaWidgetExtension */,
 			);
 		};
 /* End PBXProject section */
@@ -377,6 +465,14 @@
 			files = (
 				A64CA56E27692D3C0018057A /* Preview Assets.xcassets in Resources */,
 				A64CA56D27692D370018057A /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A654BD3F276A560000FF6764 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A654BD4B276A560200FF6764 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -435,6 +531,19 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		A654BD3D276A560000FF6764 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A654BD49276A560100FF6764 /* MiaujudaWidget.swift in Sources */,
+				A654BD54276A576000FF6764 /* PetPost.swift in Sources */,
+				A654BD55276A58C400FF6764 /* ServerService.swift in Sources */,
+				A654BD58276A5CBC00FF6764 /* UrlRoute.swift in Sources */,
+				A654BD57276A5A5D00FF6764 /* User.swift in Sources */,
+				A654BD56276A5A5900FF6764 /* ColorExtension.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
@@ -442,6 +551,11 @@
 			isa = PBXTargetDependency;
 			target = A63CAA6F276A37BE00E54D88 /* MiaujudaClip */;
 			targetProxy = A63CAA7D276A37C000E54D88 /* PBXContainerItemProxy */;
+		};
+		A654BD4E276A560200FF6764 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = A654BD40276A560000FF6764 /* MiaujudaWidgetExtension */;
+			targetProxy = A654BD4D276A560200FF6764 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -570,6 +684,60 @@
 				MARKETING_VERSION = 0.1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.biancamaciel.Miaujuda;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		A654BD51276A560200FF6764 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				ASSETCATALOG_COMPILER_WIDGET_BACKGROUND_COLOR_NAME = WidgetBackground;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = JJ7A9ZQ7BD;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = MiaujudaWidget/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = MiaujudaWidget;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				MARKETING_VERSION = 0.1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.biancamaciel.Miaujuda.MiaujudaWidget;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		A654BD52276A560200FF6764 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				ASSETCATALOG_COMPILER_WIDGET_BACKGROUND_COLOR_NAME = WidgetBackground;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = JJ7A9ZQ7BD;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = MiaujudaWidget/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = MiaujudaWidget;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				MARKETING_VERSION = 0.1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.biancamaciel.Miaujuda.MiaujudaWidget;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -709,6 +877,15 @@
 			buildConfigurations = (
 				A64CA55527692C880018057A /* Debug */,
 				A64CA55627692C880018057A /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		A654BD53276A560200FF6764 /* Build configuration list for PBXNativeTarget "MiaujudaWidgetExtension" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				A654BD51276A560200FF6764 /* Debug */,
+				A654BD52276A560200FF6764 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
