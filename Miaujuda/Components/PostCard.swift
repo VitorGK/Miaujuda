@@ -67,7 +67,8 @@ struct PostCard: View {
                     case .success(let user):
                         self.user = user
                     case .failure(let error):
-                        fatalError()
+                        return
+                        //fatalError()
                         //TODO: TIRAR O FATAL ERROR
                     }
                 }
