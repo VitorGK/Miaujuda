@@ -5,15 +5,11 @@ struct PostItem {
     var quantity: String
 }
 
+
 struct PostCard: View {
     var post: PetPost
-    //    var title: String
-    //    var organization: String
-    //    var item: PostItem
-    //    var status: String
-    //    var timeStamp: Date
-    //    var type: String
-    //    var localization: String
+    @State var user: User? = nil
+    
     
     var body: some View {
         
@@ -22,7 +18,7 @@ struct PostCard: View {
                 VStack {
                     Text(post.title)
                         .bold()
-                    Text("post.userID.organizationName")
+                    Text(user?.organizationName ?? "")
                         .font(.subheadline)
                         .foregroundColor(.secondary)
                 }
@@ -44,7 +40,7 @@ struct PostCard: View {
                 
                 HStack{
                     Spacer()
-                    Text("post.userID.organizationZipCode")
+                    Text(user?.organizationZipCode ?? "")
                 }
                 .font(.subheadline)
                 .foregroundColor(.secondary)
@@ -64,6 +60,21 @@ struct PostCard: View {
         .background(Color.backgroundPost)
         .cornerRadius(15)
         .shadow(radius: 4)
+        .onAppear {
+            ServerService.shared.getUser(by: post.userID) { result in
+                DispatchQueue.main.async {
+                    switch result{
+                    case .success(let user):
+                        self.user = user
+                    case .failure(let error):
+                        fatalError()
+                        //TODO: TIRAR O FATAL ERROR
+                    }
+                }
+                
+                
+            }
+        }
         
     }
 }

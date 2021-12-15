@@ -1,5 +1,5 @@
 struct PetPost: Codable, Hashable {
-    let __v: Int
+    let __v: Int?
     let _id: String
     let createdAt: String
     let userID: String
