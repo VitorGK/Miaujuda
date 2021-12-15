@@ -1,7 +1,19 @@
 import SwiftUI
 
 struct ProfileView: View {
-//    var user: User = User(createdAt: Date(), appleID: "", avatar: 1, organizationName: "organization name", organizationCategory: "categoria", organizationZipCode: "zip code", email: "email@gmail.com", website: "tito.com")
+    @AppStorage("avatar") var avatar: Int = 0
+    @AppStorage("userID") var userID: String = ""
+    
+    @State var user: User? = nil
+    
+    
+    let profileImages: [String] = [
+        "profileCat1",
+        "profilePug",
+        "profileDog",
+        "profileCat2"
+    ]
+    
     var body: some View {
         VStack {
             HStack{
@@ -14,32 +26,30 @@ struct ProfileView: View {
 //                
             }
         
-            Image("profileCat2")
+            Image(profileImages[avatar])
                 .resizable()
                 .scaledToFit()
                 .frame(width: 150, height: 150)
                 .padding(.top, 20)
     
             
-            Text("user.organizationName")
+            Text(user?.organizationName ?? "")
                 .font(.title.bold())
-            Text("user.organizationCategory")
+            Text(user?.organizationCategory ?? "")
                 .foregroundColor(.secondary)
                 .padding(.bottom, 10)
                 
             
             VStack (alignment: .leading){
-//                if let email = user.email {
-                    Label("(email)", systemImage: "envelope.fill")
-//                }
-                
-//                if let phone = user.phone {
-                    Label("(phone)", systemImage: "phone.fill")
-//                }
-                
-//                if let website = user.website {
-                    Label("(website)", systemImage: "link")
-//                }
+                if let email = user?.email, !email.isEmpty {
+                    Label("\(email)", systemImage: "envelope.fill")
+                }
+                if let phone = user?.phone, !phone.isEmpty {
+                    Label("\(phone)", systemImage: "phone.fill")
+                }
+                if let website = user?.website, !website.isEmpty {
+                    Label("\(website)", systemImage: "link")
+                }
             }
             
  
@@ -50,6 +60,22 @@ struct ProfileView: View {
             .shadow(radius: 4)
             .padding()
             .navigationTitle("Perfil")
+            .onAppear {
+                ServerService.shared.getUser(by: userID) { result in
+                    DispatchQueue.main.async {
+                        switch result{
+                        case .success(let user):
+                            self.user = user
+                        case .failure(let error):
+                            return
+                            //fatalError()
+                            //TODO: TIRAR O FATAL ERROR
+                        }
+                    }
+
+
+                }
+            }
         List {
             NavigationLink(destination: MyPostsView()){
                 Text ("Minhas Postagens")
@@ -61,7 +87,7 @@ struct ProfileView: View {
                 Text("Sair").foregroundColor(Color.red)
             }
         }
-    }
+    } 
 }
 
 struct ProfileView_Previews: PreviewProvider {
