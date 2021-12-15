@@ -15,7 +15,7 @@ class PostViewModel: ObservableObject {
     func getAllPosts() {
         self.isLoading = true
         self.errorMessage = nil
-        ServerService.shared.getAllPosts { result in
+        ServerService.shared.getAllPetPosts { result in
             DispatchQueue.main.async {
                 self.isLoading = false
                 switch result {
