@@ -44,7 +44,7 @@ struct MyPostsView: View {
     func filterPosts(userID: String, posts: [PetPost], status: String) -> [PetPost] {
         var filteredPosts: [PetPost] = []
         filteredPosts = posts.filter {
-            userID == "\(userID)" && $0.status == "\(status)"
+            $0.userID == "\(userID)" && $0.status == "\(status)"
         }
         return filteredPosts
     }
