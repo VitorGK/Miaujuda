@@ -122,28 +122,42 @@ struct MainView: View {
             .navigationBarTitleDisplayMode(.large)
             .toolbar {
                 ToolbarItem(placement: .navigationBarTrailing) {
-                    ZStack {
-                        NavigationLink(destination: FormProfileRegView(), isActive: $isButtonPressed) {
-                            EmptyView()
-                        }
-                        .hidden()
-                        
-                        Button(
-                            action: {
-                                self.isPresented = true
-                            },
-                            label: {
-                                Image("signOut")
+                    if userID != "" {
+                        ZStack {
+                            NavigationLink {
+                                ProfileView()
+                            } label: {
+                                Image(profileImages[avatar])
                                     .resizable()
                                     .scaledToFit()
                                     .frame(width: 41, height: 41)
                             }
-                        )
-                            .sheet(isPresented: $isPresented, onDismiss: {
-                                self.isPresented = false
-                            }) {
-                                SignInWithAppleView(isButtonPressed: self.$isButtonPressed)
+                        }
+                    }
+                    else {
+                        ZStack {
+                            NavigationLink(destination: FormProfileRegView(), isActive: $isButtonPressed) {
+                                EmptyView()
                             }
+                            .hidden()
+                            
+                            Button(
+                                action: {
+                                    self.isPresented = true
+                                },
+                                label: {
+                                    Image("signOut")
+                                        .resizable()
+                                        .scaledToFit()
+                                        .frame(width: 41, height: 41)
+                                }
+                            )
+                                .sheet(isPresented: $isPresented, onDismiss: {
+                                    self.isPresented = false
+                                }) {
+                                    SignInWithAppleView(isButtonPressed: self.$isButtonPressed)
+                                }
+                        }
                     }
                 }
             }
