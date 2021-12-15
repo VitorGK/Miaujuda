@@ -50,37 +50,36 @@ class ServerService {
         func getUser(by id: String, completion: @escaping (Result<User, Error>) -> Void) {
             let session = URLSession.shared
             guard let url = URL(string: baseUrl + UrlRoute.user.rawValue + id) else {
-                assertionFailure()
-                completion(.failure(NSError(domain: "Invalid URL", code: Int(errSecParam))))
+//                assertionFailure()
+//                completion(.failure(NSError(domain: "Invalid URL", code: Int(errSecParam))))
                 return
-
             }
             var request = URLRequest(url: url)
             guard let jwtToken = self.jwtToken else {
                 //assertionFailure()
-                completion(.failure(NSError(domain: "Invalid JWT", code: Int(errSecAuthFailed))))
+//                completion(.failure(NSError(domain: "Invalid JWT", code: Int(errSecAuthFailed))))
                 return
-
             }
+            
             request.setValue("Bearer \(jwtToken)", forHTTPHeaderField: "Authorization")
 
             session.dataTask(with: request) { data, _, error in
                 if let data = data {
                     do {
-                        let JSONString = String(data: data, encoding: .utf8)
-                        print(JSONString)
+//                        let JSONString = String(data: data, encoding: .utf8)
+//                        print(JSONString)
                         let responseJson = try JSONDecoder().decode(User.self, from: data)
                         completion(.success(responseJson))
                     } catch {
                         print(error)
                         completion(.failure(error))
                     }
-                } else if let error = error {
+                } /*else if let error = error {
                     completion(.failure(error))
                 } else {
                     assertionFailure()
                     completion(.failure(NSError(domain: "Unexpected code", code: Int(errSecInvalidScope))))
-                }
+                }*/
             }.resume()
         }
     
