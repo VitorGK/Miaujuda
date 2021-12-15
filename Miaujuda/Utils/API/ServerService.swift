@@ -28,15 +28,34 @@ class ServerService {
     }
     
     // MARK: --- GET ALL POSTS
-    func getAllPosts(completion: @escaping (Result<[PetPost], Error>) -> Void) {
+    func getAllPetPosts(completion: @escaping (Result<[PetPost], Error>) -> Void) {
         let session = URLSession.shared
-        guard let url = URL(string: baseUrl + UrlRoute.petpost.rawValue) else { return }
+        guard let url = URL(string: baseUrl + UrlRoute.petPost.rawValue) else { return }
         let request = URLRequest(url: url)
         
         session.dataTask(with: request) { data, _, error in
             if let data = data {
                 do {
                     let responseJson = try JSONDecoder().decode([PetPost].self, from: data)
+                    completion(.success(responseJson))
+                } catch let error {
+                    completion(.failure(error))
+                }
+            }
+        }
+        .resume()
+    }
+    
+    // MARK: --- GET LATEST POST
+    func getLatestPetPost(completion: @escaping (Result<PetPost, Error>) -> Void) {
+        let session = URLSession.shared
+        guard let url = URL(string: baseUrl + UrlRoute.latestPetPost.rawValue) else { return }
+        let request = URLRequest(url: url)
+        
+        session.dataTask(with: request) { data, _, error in
+            if let data = data {
+                do {
+                    let responseJson = try JSONDecoder().decode(PetPost.self, from: data)
                     completion(.success(responseJson))
                 } catch let error {
                     completion(.failure(error))
@@ -80,7 +99,8 @@ class ServerService {
                     assertionFailure()
                     completion(.failure(NSError(domain: "Unexpected code", code: Int(errSecInvalidScope))))
                 }*/
-            }.resume()
+            }
+            .resume()
         }
     
     // MARK: --- POST REQUEST
