@@ -98,9 +98,9 @@ struct FormProfileRegView: View {
                     ]
                     ServerService.shared.postRequest(route: .user, body: userData) { result in
                         switch result {
-                            case .success(let response):
+                            case .success(let data):
                                 print("User created!")
-                                print(response)
+                                print(data)
                             case .failure(let error):
                                 print("ERRORERRORERRORERRORERRORERROR")
                                 print(error.localizedDescription)

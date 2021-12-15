@@ -31,6 +31,7 @@
 		A64CA56C27692D310018057A /* MiaujudaApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = C028280F275ECAB400AB080F /* MiaujudaApp.swift */; };
 		A64CA56D27692D370018057A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C0282813275ECAB500AB080F /* Assets.xcassets */; };
 		A64CA56E27692D3C0018057A /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C0282816275ECAB500AB080F /* Preview Assets.xcassets */; };
+		C0EF2533276A269300AB4A93 /* PetPostStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0EF2532276A269300AB4A93 /* PetPostStatus.swift */; };
 		C8EECD392769311B009C60A0 /* UserInfos.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8EECD382769311B009C60A0 /* UserInfos.swift */; };
 /* End PBXBuildFile section */
 
@@ -58,6 +59,7 @@
 		C07D34CF2768F6A70040BF71 /* ItemCategory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemCategory.swift; sourceTree = "<group>"; };
 		C07D34D327690F9B0040BF71 /* UrlRoute.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UrlRoute.swift; sourceTree = "<group>"; };
 		C08456DC2767F5EE00E9F1FA /* PostViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostViewModel.swift; sourceTree = "<group>"; };
+		C0EF2532276A269300AB4A93 /* PetPostStatus.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PetPostStatus.swift; sourceTree = "<group>"; };
 		C87D136E27612028008C1477 /* CategorySearch.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategorySearch.swift; sourceTree = "<group>"; };
 		C87D137027627854008C1477 /* PostsGrid.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostsGrid.swift; sourceTree = "<group>"; };
 		C8EECD3627690CC6009C60A0 /* UserFetcher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserFetcher.swift; sourceTree = "<group>"; };
@@ -165,6 +167,7 @@
 			children = (
 				C07D34CF2768F6A70040BF71 /* ItemCategory.swift */,
 				C07D34D327690F9B0040BF71 /* UrlRoute.swift */,
+				C0EF2532276A269300AB4A93 /* PetPostStatus.swift */,
 			);
 			path = Enums;
 			sourceTree = "<group>";
@@ -275,6 +278,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				A64CA55827692CAE0018057A /* UserFetcher.swift in Sources */,
+				C0EF2533276A269300AB4A93 /* PetPostStatus.swift in Sources */,
 				A64CA56027692CCE0018057A /* PostsGrid.swift in Sources */,
 				A64CA55D27692CC40018057A /* ItemCard.swift in Sources */,
 				A64CA55727692CAB0018057A /* PostViewModel.swift in Sources */,
@@ -312,7 +316,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"Miaujuda/Preview Content\"";
-				DEVELOPMENT_TEAM = JJ7A9ZQ7BD;
+				DEVELOPMENT_TEAM = 337G99FP8D;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
@@ -326,7 +330,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 0.1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.biancamaciel.Miaujuda;
+				PRODUCT_BUNDLE_IDENTIFIER = com.vitorgk.Miaujuda;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
@@ -343,7 +347,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"Miaujuda/Preview Content\"";
-				DEVELOPMENT_TEAM = JJ7A9ZQ7BD;
+				DEVELOPMENT_TEAM = 337G99FP8D;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
@@ -357,7 +361,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 0.1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.biancamaciel.Miaujuda;
+				PRODUCT_BUNDLE_IDENTIFIER = com.vitorgk.Miaujuda;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
