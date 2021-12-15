@@ -583,7 +583,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"MiaujudaClip/Preview Content\"";
-				DEVELOPMENT_TEAM = 337G99FP8D;
+				DEVELOPMENT_TEAM = 87UTUM347S;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = MiaujudaClip/Info.plist;
@@ -599,7 +599,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 0.1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.vitorgk.Miaujuda.Clip;
+				PRODUCT_BUNDLE_IDENTIFIER = com.taus.Miaujuda.Clip;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
@@ -616,7 +616,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"MiaujudaClip/Preview Content\"";
-				DEVELOPMENT_TEAM = 337G99FP8D;
+				DEVELOPMENT_TEAM = 87UTUM347S;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = MiaujudaClip/Info.plist;
@@ -632,7 +632,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 0.1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.vitorgk.Miaujuda.Clip;
+				PRODUCT_BUNDLE_IDENTIFIER = com.taus.Miaujuda.Clip;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
@@ -650,7 +650,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"Miaujuda/Preview Content\"";
-				DEVELOPMENT_TEAM = 337G99FP8D;
+				DEVELOPMENT_TEAM = 87UTUM347S;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
@@ -664,7 +664,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 0.1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.vitorgk.Miaujuda;
+				PRODUCT_BUNDLE_IDENTIFIER = com.taus.Miaujuda;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
@@ -682,7 +682,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"Miaujuda/Preview Content\"";
-				DEVELOPMENT_TEAM = 337G99FP8D;
+				DEVELOPMENT_TEAM = 87UTUM347S;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
@@ -696,7 +696,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 0.1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.vitorgk.Miaujuda;
+				PRODUCT_BUNDLE_IDENTIFIER = com.taus.Miaujuda;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
@@ -711,7 +711,7 @@
 				ASSETCATALOG_COMPILER_WIDGET_BACKGROUND_COLOR_NAME = WidgetBackground;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = 337G99FP8D;
+				DEVELOPMENT_TEAM = 87UTUM347S;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = MiaujudaWidget/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = MiaujudaWidget;
@@ -722,7 +722,7 @@
 					"@executable_path/../../Frameworks",
 				);
 				MARKETING_VERSION = 0.1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.vitorgk.Miaujuda.MiaujudaWidget;
+				PRODUCT_BUNDLE_IDENTIFIER = com.taus.Miaujuda.MiaujudaWidget;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
 				SWIFT_EMIT_LOC_STRINGS = YES;
@@ -738,7 +738,7 @@
 				ASSETCATALOG_COMPILER_WIDGET_BACKGROUND_COLOR_NAME = WidgetBackground;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = 337G99FP8D;
+				DEVELOPMENT_TEAM = 87UTUM347S;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = MiaujudaWidget/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = MiaujudaWidget;
@@ -749,7 +749,7 @@
 					"@executable_path/../../Frameworks",
 				);
 				MARKETING_VERSION = 0.1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.vitorgk.Miaujuda.MiaujudaWidget;
+				PRODUCT_BUNDLE_IDENTIFIER = com.taus.Miaujuda.MiaujudaWidget;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
 				SWIFT_EMIT_LOC_STRINGS = YES;
