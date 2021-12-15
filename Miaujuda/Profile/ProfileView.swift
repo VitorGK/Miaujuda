@@ -3,6 +3,12 @@ import SwiftUI
 struct ProfileView: View {
     @AppStorage("avatar") var avatar: Int = 0
     @AppStorage("userID") var userID: String = ""
+    @AppStorage("organizationName") var organizationNameDefault: String = ""
+    @AppStorage("organizationCategory") var organizationCategoryDefault: String = ""
+    @AppStorage("organizationZipCode") var organizationZipCodeDefault: String = ""
+    @AppStorage("email") var emailDefault: String?
+    @AppStorage("phone") var phoneDefault: String?
+    @AppStorage("website") var websiteDefault: String?
     
     @State var user: User? = nil
     
@@ -33,21 +39,21 @@ struct ProfileView: View {
                 .padding(.top, 20)
     
             
-            Text(user?.organizationName ?? "")
+            Text(organizationNameDefault)
                 .font(.title.bold())
-            Text(user?.organizationCategory ?? "")
+            Text(organizationCategoryDefault)
                 .foregroundColor(.secondary)
                 .padding(.bottom, 10)
                 
             
             VStack (alignment: .leading){
-                if let email = user?.email, !email.isEmpty {
+                if let email = emailDefault, !email.isEmpty {
                     Label("\(email)", systemImage: "envelope.fill")
                 }
-                if let phone = user?.phone, !phone.isEmpty {
+                if let phone = phoneDefault, !phone.isEmpty {
                     Label("\(phone)", systemImage: "phone.fill")
                 }
-                if let website = user?.website, !website.isEmpty {
+                if let website = websiteDefault, !website.isEmpty {
                     Label("\(website)", systemImage: "link")
                 }
             }
@@ -60,22 +66,22 @@ struct ProfileView: View {
             .shadow(radius: 4)
             .padding()
             .navigationTitle("Perfil")
-            .onAppear {
-                ServerService.shared.getUser(by: userID) { result in
-                    DispatchQueue.main.async {
-                        switch result{
-                        case .success(let user):
-                            self.user = user
-                        case .failure(let error):
-                            return
-                            //fatalError()
-                            //TODO: TIRAR O FATAL ERROR
-                        }
-                    }
-
-
-                }
-            }
+//            .onAppear {
+//                ServerService.shared.getUser(by: userID) { result in
+//                    DispatchQueue.main.async {
+//                        switch result{
+//                        case .success(let user):
+//                            self.user = user
+//                        case .failure(let error):
+//                            return
+//                            //fatalError()
+//                            //TODO: TIRAR O FATAL ERROR
+//                        }
+//                    }
+//
+//
+//                }
+//            }
         List {
             NavigationLink(destination: MyPostsView()){
                 Text ("Minhas Postagens")

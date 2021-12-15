@@ -17,6 +17,16 @@ struct FormProfileRegView: View {
     @State var selected2 = false
     @State var selected3 = false
     
+    @AppStorage("userID") var userID: String = ""
+    
+    @AppStorage("avatar") var avatarDefault: Int = 0
+    @AppStorage("organizationName") var organizationNameDefault: String = ""
+    @AppStorage("organizationCategory") var organizationCategoryDefault: String = ""
+    @AppStorage("organizationZipCode") var organizationZipCodeDefault: String = ""
+    @AppStorage("email") var emailDefault: String?
+    @AppStorage("phone") var phoneDefault: String?
+    @AppStorage("website") var websiteDefault: String?
+    
     let avatarImages: [String] = [
         "profileCat1",
         "profilePug",
@@ -101,6 +111,13 @@ struct FormProfileRegView: View {
                             case .success(let data):
                                 print("User created!")
                                 print(data)
+                            self.avatarDefault = avatar
+                            self.organizationNameDefault = organizationName
+                            self.organizationCategoryDefault = organizationCategory
+                            self.organizationZipCodeDefault = organizationZipCode
+                            self.emailDefault = email
+                            self.phoneDefault = phone
+                            self.websiteDefault = website
                             case .failure(let error):
                                 print("ERRORERRORERRORERRORERRORERROR")
                                 print(error.localizedDescription)
