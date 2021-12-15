@@ -57,7 +57,7 @@ class ServerService {
             }
             var request = URLRequest(url: url)
             guard let jwtToken = self.jwtToken else {
-                assertionFailure()
+                //assertionFailure()
                 completion(.failure(NSError(domain: "Invalid JWT", code: Int(errSecAuthFailed))))
                 return
 
