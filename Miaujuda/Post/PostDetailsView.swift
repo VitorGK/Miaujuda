@@ -6,13 +6,18 @@ struct PostDetailsView: View {
     
     init(post: PetPost) {
         self.post = post
-        userViewModel.getUserFromPost(post: post)
-        
     }
+    
+    let avatarImages: [String] = [
+        "profileCat1",
+        "profilePug",
+        "profileDog",
+        "profileCat2"
+    ]
     
     
     var body: some View {
-        if (userViewModel.errorMessage == nil){
+        
         ScrollView(.vertical) {
             VStack(alignment:.leading){
                 Text(String(post.createdAt))
@@ -43,40 +48,48 @@ struct PostDetailsView: View {
                     .padding(.top)
                 
                 HStack{
-                    RoundedRectangle(cornerRadius: 30)
-                        .fill(.black)
-                        .frame(width: 60, height: 60)
+                    if let img = userViewModel.user?.avatar {
+                        Image(avatarImages[img])
+                            .resizable()
+                            .frame(width: 60, height: 60)
+                    }
+                    else {
+                        RoundedRectangle(cornerRadius: 30)
+                            .fill(.black)
+                            .frame(width: 60, height: 60)
+                    }
+                    
+                    
                     
                     VStack(alignment: .leading){
-                        Text(userViewModel.user?.organizationName ?? "hghfg")
+                        Text(userViewModel.user?.organizationName ?? "")
                         Text(userViewModel.user?.organizationCategory ?? "")
                         Text(userViewModel.user?.organizationZipCode ?? "")
                     }
                 }
                 .padding(.bottom)
-
-//                VStack (alignment: .leading){
-//                    if let email = post.userID.email {
-//                        Label("\(email)", systemImage: "envelope.fill")
-//                    }
-//                    if let phone = post.userID.phone {
-//                        Label("\(phone)", systemImage: "phone.fill")
-//                    }
-//                    if let website = post.userID.website {
-//                        Label("\(website)", systemImage: "link")
-//                    }
-//                }
+                
+                                VStack (alignment: .leading){
+                                    if let email = userViewModel.user?.email, !email.isEmpty {
+                                        Label("\(email)", systemImage: "envelope.fill")
+                                    }
+                                    if let phone = userViewModel.user?.phone, !phone.isEmpty {
+                                        Label("\(phone)", systemImage: "phone.fill")
+                                    }
+                                    if let website = userViewModel.user?.website, !website.isEmpty {
+                                        Label("\(website)", systemImage: "link")
+                                    }
+                                }
             }
             .padding()
         }
         .navigationTitle(post.title)
         .navigationBarTitleDisplayMode(.large)
         .navigationBarItems(trailing: editMenu())
+        .onAppear {
+            userViewModel.getUserFromPost(post: post)
         }
-        else {
-            Text(userViewModel.errorMessage!)
-        }
-        }
+    }
 }
 
 struct editMenu: View {

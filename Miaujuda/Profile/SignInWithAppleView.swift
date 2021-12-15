@@ -12,7 +12,6 @@ struct SignInWithAppleView: View {
     @AppStorage("email") var email: String?
     @AppStorage("phone") var phone: String?
     @AppStorage("website") var website: String?
-    @AppStorage("isUserLoggedIn") var isUserLoggedIn: Bool = false
     
     @Environment(\.colorScheme) var colorScheme
     @Environment(\.dismiss) private var dismiss
@@ -63,7 +62,6 @@ struct SignInWithAppleView: View {
                                                         self.phone = response.phone
                                                         self.website = response.website
                                                         print("User logged in.")
-                                                        self.isUserLoggedIn = true
                                                     case .failure(let error):
                                                         print(error.localizedDescription)
                                                 }

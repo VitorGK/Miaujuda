@@ -38,6 +38,7 @@
 		A64CA54927692C870018057A /* Miaujuda.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Miaujuda.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C014603E275FDE36003B8F36 /* PetPost.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PetPost.swift; sourceTree = "<group>"; };
 		C0146040275FDE7C003B8F36 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		C01F07632769350800AB0552 /* Miaujuda.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Miaujuda.entitlements; sourceTree = "<group>"; };
 		C028280F275ECAB400AB080F /* MiaujudaApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MiaujudaApp.swift; sourceTree = "<group>"; };
 		C0282811275ECAB400AB080F /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
 		C0282813275ECAB500AB080F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -57,7 +58,6 @@
 		C07D34CF2768F6A70040BF71 /* ItemCategory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemCategory.swift; sourceTree = "<group>"; };
 		C07D34D327690F9B0040BF71 /* UrlRoute.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UrlRoute.swift; sourceTree = "<group>"; };
 		C08456DC2767F5EE00E9F1FA /* PostViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostViewModel.swift; sourceTree = "<group>"; };
-		C0FD0A6027626ECD00E0E2F1 /* Miaujuda.entitlements */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.entitlements; path = Miaujuda.entitlements; sourceTree = "<group>"; };
 		C87D136E27612028008C1477 /* CategorySearch.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategorySearch.swift; sourceTree = "<group>"; };
 		C87D137027627854008C1477 /* PostsGrid.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostsGrid.swift; sourceTree = "<group>"; };
 		C8EECD3627690CC6009C60A0 /* UserFetcher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserFetcher.swift; sourceTree = "<group>"; };
@@ -94,8 +94,8 @@
 		C028280E275ECAB400AB080F /* Miaujuda */ = {
 			isa = PBXGroup;
 			children = (
+				C01F07632769350800AB0552 /* Miaujuda.entitlements */,
 				C08456DB2767F5DC00E9F1FA /* ViewModel */,
-				C0FD0A6027626ECD00E0E2F1 /* Miaujuda.entitlements */,
 				C0EAB6D8275FE5D5001E869B /* Structs */,
 				C0282834275ECBBD00AB080F /* Components */,
 				C028282F275ECBA000AB080F /* Post */,
