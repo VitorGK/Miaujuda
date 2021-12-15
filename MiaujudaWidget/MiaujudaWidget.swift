@@ -12,46 +12,45 @@ struct Provider: TimelineProvider {
     func placeholder(in context: Context) -> SimpleEntry {
         SimpleEntry(date: Date(), petPost: PetPost(__v: 0, _id: "", createdAt: "", userID: "", status: "", type: "", title: "", description: "", itemName: "", itemQuantity: "", itemCategory: "", itemExpirationDate: ""), user: User(__v: 0, _id: "", createdAt: "", appleID: "", avatar: 0, organizationName: "", organizationCategory: "", organizationZipCode: "", email: "", phone: "", website: ""))
     }
-
+    
     func getSnapshot(in context: Context, completion: @escaping (SimpleEntry) -> ()) {
         ServerService.shared.getLatestPetPost { result in
             switch result{
-            case .success(let data) :
-                ServerService.shared.getUser(by: data.userID) { result in
-                    switch result {
-                    case .success(let user):
-                        let entry = SimpleEntry(date: Date(), petPost: data, user: user)
-                        completion(entry)
-                        
-                    case .failure(let error):
-                        print(error.localizedDescription)
+                case .success(let petPost):
+                    print(petPost)
+                    ServerService.shared.getUser(by: petPost.userID) { result in
+                        switch result {
+                            case .success(let user):
+                                let entry = SimpleEntry(date: Date(), petPost: petPost, user: user)
+                                completion(entry)
+                            case .failure(let error):
+                                print(error.localizedDescription)
+                        }
                     }
-                }
-                
-            case .failure(let error) :
-                print(error.localizedDescription)
+                case .failure(let error):
+                    print(error.localizedDescription)
             }
         }
     }
-
+    
     func getTimeline(in context: Context, completion: @escaping (Timeline<Entry>) -> ()) {
         ServerService.shared.getLatestPetPost { result in
             switch result{
-            case .success(let data) :
-                ServerService.shared.getUser(by: data.userID) { result in
-                    switch result {
-                    case .success(let user):
-                        let entry = SimpleEntry(date: Date(), petPost: data, user: user)
-                        let timeline = Timeline(entries: [entry], policy: .atEnd)
-                        completion(timeline)
-                        
-                    case .failure(let error):
-                        print(error.localizedDescription)
+                case .success(let data) :
+                    ServerService.shared.getUser(by: data.userID) { result in
+                        switch result {
+                            case .success(let user):
+                                let entry = SimpleEntry(date: Date(), petPost: data, user: user)
+                                let timeline = Timeline(entries: [entry], policy: .atEnd)
+                                completion(timeline)
+                                
+                            case .failure(let error):
+                                print(error.localizedDescription)
+                        }
                     }
-                }
-                
-            case .failure(let error) :
-                print(error.localizedDescription)
+                    
+                case .failure(let error) :
+                    print(error.localizedDescription)
             }
         }
     }
@@ -65,7 +64,7 @@ struct SimpleEntry: TimelineEntry {
 
 struct MiaujudaWidgetEntryView : View {
     var entry: Provider.Entry
-
+    
     var body: some View {
         VStack (alignment: .leading) {
             HStack {
@@ -120,7 +119,7 @@ struct MiaujudaWidgetEntryView : View {
 @main
 struct MiaujudaWidget: Widget {
     let kind: String = "MiaujudaWidget"
-
+    
     var body: some WidgetConfiguration {
         StaticConfiguration(kind: kind, provider: Provider()) { entry in
             MiaujudaWidgetEntryView(entry: entry)
