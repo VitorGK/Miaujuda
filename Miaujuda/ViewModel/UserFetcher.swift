@@ -7,16 +7,14 @@ class UserFetcher: ObservableObject {
     
     init() {
         self.isLoading = false
-        if UserDefaults.standard.string(forKey: "userID") != "" {
-            let userID = UserDefaults.standard.string(forKey: "userID")
-            self.getUserByID(user: userID ?? "")
+        if let userID = UserDefaults.standard.string(forKey: "userID") {
+            self.getUserByID(user: userID)
         }
     }
     
     func getUserByID(user id: String) {
-        isLoading = true
-        errorMessage = nil
-        
+        self.isLoading = true
+        self.errorMessage = nil
         ServerService.shared.getUser(by: id) { result in
             DispatchQueue.main.async {
                 self.isLoading = false
