@@ -94,7 +94,7 @@ struct FormProfileRegView: View {
             ToolbarItem(placement: .navigationBarTrailing) {
                 Button {
                     let userData: [String: Any] = [
-                        "createdAt": Date().timeIntervalSince1970,
+                        "createdAt": ISO8601DateFormatter().string(from: Date()),
                         "appleID": appleID,
                         "avatar": avatar,
                         "organizationName": organizationName,
