@@ -3,8 +3,8 @@ import AuthenticationServices
 
 struct SignInWithAppleView: View {
     @AppStorage("jwtToken") var jwtToken: String = ""
-    @AppStorage("userID") var userID: String = ""
     @AppStorage("appleID") var appleID: String = ""
+    @AppStorage("userID") var userID: String = ""
     @AppStorage("avatar") var avatar: Int = 0
     @AppStorage("organizationName") var organizationName: String = ""
     @AppStorage("organizationCategory") var organizationCategory: String = ""
@@ -40,10 +40,11 @@ struct SignInWithAppleView: View {
                                 case .success(let data):
                                     switch data["statusCode"] as? Int {
                                         case 401:
+                                            // MARK: --- Usuário não encontrado / novo usuário
                                             print("User not found.")
                                             self.isButtonPressed = true
                                         default:
-                                            // USUÁRIO JÁ EXISTENTE
+                                            // MARK: --- Usuário já existente
                                             print("User found.")
                                             guard let userID = data["_id"] as? String else { return }
                                             self.userID = userID
