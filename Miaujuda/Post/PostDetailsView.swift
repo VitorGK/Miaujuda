@@ -125,8 +125,8 @@ struct EditMenu: View {
         ServerService.shared.updatePetPostStatus(id: self.petPostID, status: .concluded) { result in
             switch result {
                 case .success(let petPost):
-                    print("PetPost with ID '\(petPostID)' is concluded!")
                     print(petPost)
+                    print("PetPost with ID '\(self.petPostID)' is concluded!")
                 case .failure(let error):
                     print(error.localizedDescription)
             }
@@ -134,7 +134,19 @@ struct EditMenu: View {
     }
     
     func deletar() {
-        print("deletado")
+        ServerService.shared.deletePetPost(self.petPostID) { result in
+            switch result {
+                case .success(let data):
+                    switch data["deletedCount"] as? Int {
+                        case 1:
+                            print("PetPost with ID '\(self.petPostID)' is deleted!")
+                        default:
+                            print("Error in deletion")
+                    }
+                case .failure(let error):
+                    print(error.localizedDescription)
+            }
+        }
     }
 }
 
