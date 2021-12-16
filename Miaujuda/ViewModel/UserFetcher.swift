@@ -8,14 +8,14 @@ class UserFetcher: ObservableObject {
     init() {
         self.isLoading = false
         if let userID = UserDefaults.standard.string(forKey: "userID") {
-            self.getUserByID(user: userID)
+            self.getUserByID(userID)
         }
     }
     
-    func getUserByID(user id: String) {
+    func getUserByID(_ userID: String) {
         self.isLoading = true
         self.errorMessage = nil
-        ServerService.shared.getUser(by: id) { result in
+        ServerService.shared.getUserByID(userID) { result in
             DispatchQueue.main.async {
                 self.isLoading = false
                 switch result {
