@@ -4,7 +4,7 @@ struct MainView: View {
     @AppStorage("avatar") var avatar: Int = 0
     @AppStorage("userID") var userID: String = ""
     
-    @StateObject var userFetcher = UserFetcher()
+    @ObservedObject var userFetcher = UserFetcher()
     
     @ObservedObject var postViewModel = PostViewModel()
     

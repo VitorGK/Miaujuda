@@ -3,12 +3,12 @@ import AuthenticationServices
 
 struct SignInWithAppleView: View {
     @AppStorage("jwtToken") var jwtToken: String = ""
-    @AppStorage("appleID") var appleID: String = ""
-    @AppStorage("userID") var userID: String = ""
-    @AppStorage("avatar") var avatar: Int = 0
-    @AppStorage("organizationName") var organizationName: String = ""
-    @AppStorage("organizationCategory") var organizationCategory: String = ""
-    @AppStorage("organizationZipCode") var organizationZipCode: String = ""
+    @AppStorage("appleID") var appleIDDefaults: String = ""
+    @AppStorage("userID") var userIDDefaults: String = ""
+    @AppStorage("avatar") var avatarDefaults: Int = 0
+    @AppStorage("organizationName") var organizationNameDefaults: String = ""
+    @AppStorage("organizationCategory") var organizationCategoryDefaults: String = ""
+    @AppStorage("organizationZipCode") var organizationZipCodeDefaults: String = ""
     @AppStorage("email") var email: String?
     @AppStorage("phone") var phone: String?
     @AppStorage("website") var website: String?
@@ -19,12 +19,12 @@ struct SignInWithAppleView: View {
     @Binding var isPresented: Bool
     @Binding var isButtonPressed: Bool
     
-    @State var isUserAuthenticated: Bool = false
+    @State var isNewUser: Bool = false
     
     var body: some View {
         NavigationView {
             VStack {
-                NavigationLink(isActive: self.$isUserAuthenticated) {
+                NavigationLink(isActive: self.$isNewUser) {
                     FormProfileRegView(isPresented: self.$isPresented, isButtonPressed: self.$isButtonPressed)
                 } label: {
                     EmptyView()
@@ -44,31 +44,31 @@ struct SignInWithAppleView: View {
                         case .success(let authResults):
                             print("Sign in with Apple successful.")
                             guard let credential = authResults.credential as? ASAuthorizationAppleIDCredential else { return }
-                            self.appleID = credential.user
-                            ServerService.shared.authenticate(appleID: appleID) { response in
+                            self.appleIDDefaults = credential.user
+                            ServerService.shared.authenticate(appleID: appleIDDefaults) { response in
                                 switch response {
                                     case .success(let data):
                                         switch data["statusCode"] as? Int {
                                             case 401:
                                                 // MARK: --- Usuário não encontrado / novo usuário
                                                 print("User not found.")
-                                                self.isUserAuthenticated = true
+                                                self.isNewUser = true
                                             default:
                                                 // MARK: --- Usuário já existente
                                                 print("User found.")
                                                 guard let userID = data["_id"] as? String else { return }
-                                                self.userID = userID
-                                                print(self.userID)
+                                                self.userIDDefaults = userID
+                                                print(self.userIDDefaults)
                                                 guard let jwtToken = data["access_token"] as? String else { return }
                                                 self.jwtToken = jwtToken
                                                 print(self.jwtToken)
                                                 ServerService.shared.getUserByID(userID) { result in
                                                     switch result {
                                                         case .success(let response):
-                                                            self.avatar = response.avatar
-                                                            self.organizationName = response.organizationName
-                                                            self.organizationCategory = response.organizationCategory
-                                                            self.organizationZipCode = response.organizationZipCode
+                                                            self.avatarDefaults = response.avatar
+                                                            self.organizationNameDefaults = response.organizationName
+                                                            self.organizationCategoryDefaults = response.organizationCategory
+                                                            self.organizationZipCodeDefaults = response.organizationZipCode
                                                             self.email = response.email
                                                             self.phone = response.phone
                                                             self.website = response.website
