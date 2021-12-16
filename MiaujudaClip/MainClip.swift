@@ -5,13 +5,8 @@ struct MainClip: View {
     @AppStorage("userID") var userID: String = ""
     
     @ObservedObject var postViewModel: PostViewModel
-    
 
     @State var pickerSelectedItem: Int = 1
-
-    let columns = [
-        GridItem(.adaptive(minimum: 180))
-    ]
     
     init() {
         postViewModel = PostViewModel()
