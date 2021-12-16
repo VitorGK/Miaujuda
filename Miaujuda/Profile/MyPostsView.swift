@@ -17,7 +17,7 @@ struct MyPostsView: View {
             VStack {
                 Picker(selection: $pickerSelectedItem, label: Text("Picker"), content: {
                     Text("Ativas").tag(1)
-                    Text("Inativas").tag(2)
+                    Text("Concluídas").tag(2)
                 })
                 .pickerStyle(SegmentedPickerStyle())
                 
@@ -25,7 +25,7 @@ struct MyPostsView: View {
                     PostsGrid(posts: filterPosts(userID: userID, posts: postViewModel.posts, status: "Active"))
                 }
                 else {
-                    PostsGrid(posts: filterPosts(userID: userID, posts: postViewModel.posts, status: "Inactive"))
+                    PostsGrid(posts: filterPosts(userID: userID, posts: postViewModel.posts, status: "Concluded"))
                 }
             }
             .padding()
