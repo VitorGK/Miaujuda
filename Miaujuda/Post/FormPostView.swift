@@ -71,7 +71,7 @@ struct FormPostView: View {
             ToolbarItem(placement: .navigationBarTrailing) {
                 Button {
                     let petPostData: [String: Any] = [
-                        "createdAt": Date().timeIntervalSince1970,
+                        "createdAt": ISO8601DateFormatter().string(from: Date()),
                         "userID": userID,
                         "status": PetPostStatus.active.rawValue,
                         "type": postType,
@@ -80,7 +80,7 @@ struct FormPostView: View {
                         "itemName": itemName,
                         "itemQuantity": itemQuantity,
                         "itemCategory": itemCategory,
-                        "itemExpirationDate": itemExpirationDate.timeIntervalSince1970
+                        "itemExpirationDate": ISO8601DateFormatter().string(from: itemExpirationDate)
                     ]
                     ServerService.shared.postRequest(route: .petPost, body: petPostData) { result in
                         switch result {

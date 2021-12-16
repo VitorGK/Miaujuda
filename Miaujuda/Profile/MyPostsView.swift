@@ -1,7 +1,8 @@
 import SwiftUI
 
 struct MyPostsView: View {
-    @ObservedObject var postViewModel: PostViewModel
+    @ObservedObject var postViewModel = PostViewModel()
+    
     @AppStorage("userID") var userID: String = ""
     
     @State var pickerSelectedItemMyPosts: Int = 0
@@ -11,21 +12,14 @@ struct MyPostsView: View {
         GridItem(.adaptive(minimum: 180))
     ]
     
-    
-    init() {
-        postViewModel = PostViewModel()
-    }
-    
     var body: some View {
         ScrollView(.vertical) {
             VStack {
-                
                 Picker(selection: $pickerSelectedItem, label: Text("Picker"), content: {
                     Text("Ativas").tag(1)
                     Text("Inativas").tag(2)
                 })
                 .pickerStyle(SegmentedPickerStyle())
-                //TODO: deve verificar qual é o user no back pra ocmparar com o user id dos posts
                 
                 if pickerSelectedItem == 1 {
                     PostsGrid(posts: filterPosts(userID: userID, posts: postViewModel.posts, status: "Active"))
@@ -33,9 +27,8 @@ struct MyPostsView: View {
                 else {
                     PostsGrid(posts: filterPosts(userID: userID, posts: postViewModel.posts, status: "Inactive"))
                 }
-                
-                
-            } .padding()
+            }
+            .padding()
         }
         .navigationTitle("Minhas Postagens")
         .navigationBarTitleDisplayMode(.inline)

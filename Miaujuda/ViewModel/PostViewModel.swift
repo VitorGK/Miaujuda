@@ -8,7 +8,6 @@ class PostViewModel: ObservableObject {
     init() {
         self.posts = []
         self.isLoading = false
-        
         self.getAllPosts()
     }
     

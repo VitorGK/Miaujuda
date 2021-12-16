@@ -17,7 +17,7 @@ struct ItemCard: View {
                     Text("\(itemQuantity)")
                     
                     if let itemExpirationDate = self.itemExpirationDate {
-                        Text(String(itemExpirationDate))
+                        Text(itemExpirationDate)
                             .font(.subheadline)
                             .foregroundColor(.secondary)
                     }

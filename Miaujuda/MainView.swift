@@ -4,18 +4,13 @@ struct MainView: View {
     @AppStorage("avatar") var avatar: Int = 0
     @AppStorage("userID") var userID: String = ""
     
-    @ObservedObject var postViewModel: PostViewModel
-    
     @StateObject var userFetcher = UserFetcher()
     
-    @State var pickerSelectedItem: Int = 1
+    @ObservedObject var postViewModel = PostViewModel()
     
+    @State var pickerSelectedItem: Int = 1
     @State private var isPresented: Bool = false
     @State private var isButtonPressed: Bool = false
-    
-    let columns = [
-        GridItem(.adaptive(minimum: 180))
-    ]
     
     let categoriesTitle: [String] = [
         "Alimentos",
@@ -23,17 +18,12 @@ struct MainView: View {
         "Higiene",
         "Outros"
     ]
-    
     let profileImages: [String] = [
         "profileCat1",
         "profilePug",
         "profileDog",
         "profileCat2"
     ]
-    
-    init() {
-        postViewModel = PostViewModel()
-    }
     
     @ViewBuilder
     var body: some View {
@@ -83,17 +73,17 @@ struct MainView: View {
                             }
                             .hidden()
                             
-                            Button(action: {
+                            Button {
                                 self.isPresented = true
-                            }, label: {
+                            } label: {
                                 Image(systemName: "plus")
                                     .imageScale(.large)
-                            })
-                                .sheet(isPresented: $isPresented, onDismiss: {
-                                    self.isPresented = false
-                                }) {
-                                    SignInWithAppleView(isButtonPressed: self.$isButtonPressed)
-                                }
+                            }
+                            .sheet(isPresented: $isPresented, onDismiss: {
+                                self.isPresented = false
+                            }) {
+                                SignInWithAppleView(isButtonPressed: self.$isButtonPressed)
+                            }
                         }
                     }
                 }
@@ -141,22 +131,19 @@ struct MainView: View {
                             }
                             .hidden()
                             
-                            Button(
-                                action: {
-                                    self.isPresented = true
-                                },
-                                label: {
-                                    Image("signOut")
-                                        .resizable()
-                                        .scaledToFit()
-                                        .frame(width: 41, height: 41)
-                                }
-                            )
-                                .sheet(isPresented: $isPresented, onDismiss: {
-                                    self.isPresented = false
-                                }) {
-                                    SignInWithAppleView(isButtonPressed: self.$isButtonPressed)
-                                }
+                            Button {
+                                self.isPresented = true
+                            } label: {
+                                Image("signOut")
+                                    .resizable()
+                                    .scaledToFit()
+                                    .frame(width: 41, height: 41)
+                            }
+                            .sheet(isPresented: $isPresented, onDismiss: {
+                                self.isPresented = false
+                            }) {
+                                SignInWithAppleView(isButtonPressed: self.$isButtonPressed)
+                            }
                         }
                     }
                 }
