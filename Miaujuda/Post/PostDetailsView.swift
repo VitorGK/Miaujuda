@@ -79,11 +79,11 @@ struct PostDetailsView: View {
         .navigationBarTitleDisplayMode(.large)
         .toolbar {
             ToolbarItem(placement: .navigationBarTrailing) {
-                EditMenu()
+                EditMenu(petPostID: self.petPost._id)
             }
         }
         .onAppear {
-            ServerService.shared.getUser(by: self.petPost.userID) { result in
+            ServerService.shared.getUserByID(self.petPost.userID) { result in
                 DispatchQueue.main.async {
                     switch result{
                         case .success(let user):
@@ -98,6 +98,8 @@ struct PostDetailsView: View {
 }
 
 struct EditMenu: View {
+    var petPostID: String
+    
     var body: some View {
         Menu {
             Button {
@@ -116,8 +118,15 @@ struct EditMenu: View {
     }
     
     func concluir() {
-        print("post concluido")
-        // TODO: Add PUT request
+        ServerService.shared.updatePetPostStatus(id: self.petPostID, status: .concluded) { result in
+            switch result {
+                case .success(let petPost):
+                    print("PetPost with ID '\(petPostID)' is concluded!")
+                    print(petPost)
+                case .failure(let error):
+                    print(error.localizedDescription)
+            }
+        }
     }
     
     func deletar() {
