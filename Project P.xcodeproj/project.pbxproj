@@ -63,6 +63,7 @@
 		C0A81645276A7C13007BF82C /* PostItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0A81644276A7C13007BF82C /* PostItem.swift */; };
 		C0A81646276A7C20007BF82C /* PostItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0A81644276A7C13007BF82C /* PostItem.swift */; };
 		C0D58C2E276AAC2B0097D7C1 /* PetPostStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0EF2532276A269300AB4A93 /* PetPostStatus.swift */; };
+		C0D58C32276B95870097D7C1 /* PetPostStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0EF2532276A269300AB4A93 /* PetPostStatus.swift */; };
 		C0EF2533276A269300AB4A93 /* PetPostStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0EF2532276A269300AB4A93 /* PetPostStatus.swift */; };
 /* End PBXBuildFile section */
 
@@ -545,6 +546,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				A654BD49276A560100FF6764 /* MiaujudaWidget.swift in Sources */,
+				C0D58C32276B95870097D7C1 /* PetPostStatus.swift in Sources */,
 				C0A81642276A7847007BF82C /* PetPostAndUser.swift in Sources */,
 				A654BD54276A576000FF6764 /* PetPost.swift in Sources */,
 				A654BD55276A58C400FF6764 /* ServerService.swift in Sources */,
