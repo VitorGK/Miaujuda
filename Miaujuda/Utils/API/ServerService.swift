@@ -66,7 +66,7 @@ class ServerService {
     }
     
     // MARK: --- Get User by ID
-        func getUser(by id: String, completion: @escaping (Result<User, Error>) -> Void) {
+        func getUserByID(_ id: String, completion: @escaping (Result<User, Error>) -> Void) {
             let session = URLSession.shared
             guard let url = URL(string: baseUrl + UrlRoute.user.rawValue + id) else { return }
             var request = URLRequest(url: url)
@@ -126,8 +126,33 @@ class ServerService {
         session.dataTask(with: request) { data, _, error in
             if let data = data {
                 do {
-                    guard let responseJson = try JSONSerialization.jsonObject(with: data) as? [String: Any] else { return }
-                    completion(.success(responseJson))
+                    guard let data = try JSONSerialization.jsonObject(with: data) as? [String: Any] else { return }
+                    completion(.success(data))
+                } catch let error {
+                    completion(.failure(error))
+                }
+            }
+        }
+        .resume()
+    }
+    
+    // MARK: --- Change PetPost status
+    func updatePetPostStatus(id: String, status: PetPostStatus, completion: @escaping (Result<PetPost, Error>) -> Void) {
+        let session = URLSession.shared
+        guard let url = URL(string: baseUrl + UrlRoute.petPost.rawValue + id) else { return }
+        var request = URLRequest(url: url)
+        request.httpMethod = "PUT"
+        let statusData = ["status": status.rawValue]
+        guard let httpBody = try? JSONEncoder().encode(statusData) else { return }
+        request.httpBody = httpBody
+        request.addValue("application/json", forHTTPHeaderField: "Content-Type")
+        request.addValue("application/json", forHTTPHeaderField: "Accept")
+        
+        session.dataTask(with: request) { data, _, error in
+            if let data = data {
+                do {
+                    let data = try JSONDecoder().decode(PetPost.self, from: data)
+                    completion(.success(data))
                 } catch let error {
                     completion(.failure(error))
                 }
