@@ -49,7 +49,7 @@ struct PostCard: View {
                 HStack {
                     Spacer()
                     
-                    Text(self.petPost.createdAt)
+                    Text("Postado em: \(DateFormat().formatDate(ISODate: self.petPost.createdAt))")
                 }
                 .font(.subheadline)
                 .foregroundColor(.secondary)

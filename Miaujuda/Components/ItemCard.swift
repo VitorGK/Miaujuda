@@ -14,12 +14,13 @@ struct ItemCard: View {
             
             HStack {
                 VStack (alignment: .leading) {
-                    Text("\(itemQuantity)")
-                    
+                    Text("Quantidade: \(itemQuantity)")
+                    Spacer()
                     if let itemExpirationDate = self.itemExpirationDate {
-                        Text(itemExpirationDate)
+                        Text("Validade: \(DateFormat().formatDate(ISODate: itemExpirationDate))")
                             .font(.subheadline)
                             .foregroundColor(.secondary)
+                            
                     }
                 }
                 
