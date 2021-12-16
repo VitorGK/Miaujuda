@@ -6,9 +6,9 @@ struct MainView: View {
     
     @ObservedObject var userFetcher = UserFetcher()
     
-    @ObservedObject var postViewModel = PostViewModel()
+    @ObservedObject var postViewModel = PostViewModel(postFilter: TypePostFilter())
     
-    @State var pickerSelectedItem: Int = 1
+    
     @State private var isPresented: Bool = false
     @State private var isButtonPressed: Bool = false
     
@@ -42,7 +42,7 @@ struct MainView: View {
                     LazyHGrid(rows: [GridItem(.fixed(0))], spacing: 20) {
                         ForEach(0...3, id: \.self) { item in
                             NavigationLink {
-                                CategorySearch(category: categoriesTitle[item])
+                                CategorySearch(postViewModel: PostViewModel(postFilter: TypeAndCategoryPostFilter(category: categoriesTitle[item])), category: categoriesTitle[item])
                             } label: {
                                 CategoryItem(imageName: categoriesTitle[item], text: categoriesTitle[item])
                             }
@@ -88,17 +88,14 @@ struct MainView: View {
                 .padding()
                 
                 VStack {
-                    Picker(selection: $pickerSelectedItem, label: Text("Picker"), content: {
+                    
+                    Picker(selection: $postViewModel.pickerSelectedItem, label: Text("Picker"), content: {
                         Text("Necessidades").tag(1)
                         Text("Doações").tag(2)
                     })
                         .pickerStyle(SegmentedPickerStyle())
                     
-                    if pickerSelectedItem == 1 {
-                        PostsGrid(posts: filterPosts(type: "Necessidade", posts: postViewModel.posts))
-                    } else {
-                        PostsGrid(posts: filterPosts(type: "Doação", posts: postViewModel.posts))
-                    }
+                    PostsGrid(posts: postViewModel.filteredPosts)
                 }
                 .padding(.leading)
                 .padding(.trailing)
