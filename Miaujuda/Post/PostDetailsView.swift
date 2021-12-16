@@ -4,6 +4,7 @@ struct PostDetailsView: View {
     var petPost: PetPost
     
     @State var user: User?
+    @AppStorage("userID") var userID: String = ""
     
     let avatarImages: [String] = [
         "profileCat1",
@@ -79,7 +80,10 @@ struct PostDetailsView: View {
         .navigationBarTitleDisplayMode(.large)
         .toolbar {
             ToolbarItem(placement: .navigationBarTrailing) {
-                EditMenu(petPostID: self.petPost._id)
+                if (self.petPost.userID == userID) {
+                    EditMenu(petPostID: self.petPost._id)
+                }
+                
             }
         }
         .onAppear {
