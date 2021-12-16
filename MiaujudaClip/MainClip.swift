@@ -4,13 +4,13 @@ struct MainClip: View {
     @AppStorage("avatar") var avatar: Int = 0
     @AppStorage("userID") var userID: String = ""
     
-    @ObservedObject var postViewModel: PostViewModel
+   // @ObservedObject var postViewModel: PostViewModel
 
     @State var pickerSelectedItem: Int = 1
     
-    init() {
-        postViewModel = PostViewModel()
-    }
+//    init() {
+//        postViewModel = PostViewModel(filterType: .byType(type: <#T##String#>))
+//    }
     
     @ViewBuilder
     var body: some View {
@@ -24,11 +24,11 @@ struct MainClip: View {
                     })
                         .pickerStyle(SegmentedPickerStyle())
                     
-                    if pickerSelectedItem == 1 {
-                        PostsGrid(posts: filterPosts(type: "Necessidade", posts: postViewModel.posts))
-                    } else {
-                        PostsGrid(posts: filterPosts(type: "Doação", posts: postViewModel.posts))
-                    }
+//                    if pickerSelectedItem == 1 {
+//                        PostsGrid(posts: filterPosts(type: "Necessidade", posts: postViewModel.posts))
+//                    } else {
+//                        PostsGrid(posts: filterPosts(type: "Doação", posts: postViewModel.posts))
+//                    }
                 }
                 .padding(.leading)
                 .padding(.trailing)
@@ -48,8 +48,8 @@ struct MainClip: View {
     }
 }
 
-struct MainClip_Previews: PreviewProvider {
-    static var previews: some View {
-        MainClip()
-    }
-}
+//struct MainClip_Previews: PreviewProvider {
+//    static var previews: some View {
+//        MainClip()
+//    }
+//}

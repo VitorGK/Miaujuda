@@ -1,9 +1,9 @@
 import SwiftUI
 
 struct MyPostsView: View {
-    @ObservedObject var postViewModel = PostViewModel()
+    @ObservedObject var postViewModel = PostViewModel(postFilter: UserAndStatusPostFilter())
     
-    @AppStorage("userID") var userID: String = ""
+    //@AppStorage("userID") var userID: String = ""
     
     @State var pickerSelectedItemMyPosts: Int = 0
     @State var pickerSelectedItem: Int = 1
@@ -15,18 +15,13 @@ struct MyPostsView: View {
     var body: some View {
         ScrollView(.vertical) {
             VStack {
-                Picker(selection: $pickerSelectedItem, label: Text("Picker"), content: {
+                Picker(selection: $postViewModel.pickerSelectedItem, label: Text("Picker"), content: {
                     Text("Ativas").tag(1)
                     Text("Concluídas").tag(2)
                 })
                 .pickerStyle(SegmentedPickerStyle())
                 
-                if pickerSelectedItem == 1 {
-                    PostsGrid(posts: filterPosts(userID: userID, posts: postViewModel.posts, status: "Active"))
-                }
-                else {
-                    PostsGrid(posts: filterPosts(userID: userID, posts: postViewModel.posts, status: "Concluded"))
-                }
+                PostsGrid(posts: postViewModel.filteredPosts)
             }
             .padding()
         }

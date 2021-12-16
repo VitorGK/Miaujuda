@@ -1,7 +1,7 @@
 import SwiftUI
 
 struct PostsGrid: View {
-    @State var posts: [PetPost]
+    var posts: [PetPost]
     
     let columns = [
         GridItem(.adaptive(minimum: 180))
