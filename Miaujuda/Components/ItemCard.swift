@@ -4,7 +4,7 @@ struct ItemCard: View {
     var itemName: String
     var itemQuantity: String
     var itemCategory: String
-    var itemExpirationDate: String?
+    var itemExpirationDate: String
     
     var body: some View {
         VStack (alignment: .leading){
@@ -16,11 +16,10 @@ struct ItemCard: View {
                 VStack (alignment: .leading) {
                     Text("Quantidade: \(itemQuantity)")
                     Spacer()
-                    if let itemExpirationDate = self.itemExpirationDate {
+                    if self.itemExpirationDate != "" {
                         Text("Validade: \(DateFormat().formatDate(ISODate: itemExpirationDate))")
                             .font(.subheadline)
                             .foregroundColor(.secondary)
-                            
                     }
                 }
                 
@@ -42,6 +41,6 @@ struct ItemCard: View {
 
 struct ItemCard_Previews: PreviewProvider {
     static var previews: some View {
-        ItemCard(itemName: "Ração de gato", itemQuantity: "2 Sacos", itemCategory: ItemCategory.food.rawValue)
+        ItemCard(itemName: "Ração de gato", itemQuantity: "2 Sacos", itemCategory: ItemCategory.food.rawValue, itemExpirationDate: "")
     }
 }

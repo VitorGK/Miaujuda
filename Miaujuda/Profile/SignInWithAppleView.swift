@@ -78,9 +78,7 @@ struct SignInWithAppleView: View {
                                                     }
                                                 }
                                                 self.isPresented = false
-//                                                DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
-                                                    self.isButtonPressed = true
-//                                                }
+                                                self.isButtonPressed = true
                                         }
                                     case .failure(let error):
                                         print(error.localizedDescription)

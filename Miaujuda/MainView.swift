@@ -30,6 +30,17 @@ struct MainView: View {
     var body: some View {
         NavigationView {
             ScrollView(.vertical) {
+                NavigationLink(isActive: $isButtonPressed) {
+                    if isProfileTapped {
+                        ProfileView()
+                    } else {
+                        FormPostView()
+                    }
+                } label: {
+                    EmptyView()
+                }
+                .hidden()
+                
                 Text("Categorias")
                     .font(.title3)
                     .bold()
@@ -120,17 +131,6 @@ struct MainView: View {
                     }
                     else {
                         ZStack {
-                            NavigationLink(isActive: $isButtonPressed) {
-                                if isProfileTapped {
-                                    ProfileView()
-                                } else {
-                                    FormPostView()
-                                }
-                            } label: {
-                                EmptyView()
-                            }
-                            .hidden()
-                            
                             Button {
                                 self.isPresented = true
                                 self.isProfileTapped = true
