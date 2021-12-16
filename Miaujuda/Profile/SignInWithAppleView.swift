@@ -52,7 +52,7 @@ struct SignInWithAppleView: View {
                                             guard let jwtToken = data["access_token"] as? String else { return }
                                             self.jwtToken = jwtToken
                                             print(self.jwtToken)
-                                            ServerService.shared.getUser(by: userID) { result in
+                                            ServerService.shared.getUserByID(userID) { result in
                                                 switch result {
                                                     case .success(let response):
                                                         self.avatar = response.avatar
