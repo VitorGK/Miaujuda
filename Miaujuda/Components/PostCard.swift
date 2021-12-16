@@ -62,7 +62,7 @@ struct PostCard: View {
         .cornerRadius(15)
         .shadow(radius: 4)
         .onAppear {
-            ServerService.shared.getUser(by: self.petPost.userID) { result in
+            ServerService.shared.getUserByID(self.petPost.userID) { result in
                 DispatchQueue.main.async {
                     switch result {
                         case .success(let user):
