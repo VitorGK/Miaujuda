@@ -8,9 +8,9 @@
 import SwiftUI
 
 struct CategorySearch: View {
-    @ObservedObject var postViewModel = PostViewModel()
+    @ObservedObject var postViewModel: PostViewModel
     
-    @State var pickerSelectedItem: Int = 1
+    
     
     var category: String
     
@@ -18,17 +18,18 @@ struct CategorySearch: View {
     var body: some View {
         ScrollView {
             VStack{
-                Picker(selection: $pickerSelectedItem, label: Text("Picker"), content: {
+                Picker(selection: $postViewModel.pickerSelectedItem, label: Text("Picker"), content: {
                     Text("Necessidades").tag(1)
                     Text("Doações").tag(2)
                 })
                 .pickerStyle(SegmentedPickerStyle())
+                PostsGrid(posts: postViewModel.filteredPosts)
                 
-                if pickerSelectedItem == 1 {
-                    PostsGrid(posts: filterPosts(category: "\(category)", posts: postViewModel.posts, type: "Necessidade"))
-                } else {
-                    PostsGrid(posts: filterPosts(category: "\(category)", posts: postViewModel.posts, type: "Doação"))
-                }
+//                if pickerSelectedItem == 1 {
+//                    PostsGrid(posts: filterPosts(category: "\(category)", posts: postViewModel.posts, type: "Necessidade"))
+//                } else {
+//                    PostsGrid(posts: filterPosts(category: "\(category)", posts: postViewModel.posts, type: "Doação"))
+//                }
             }
             .navigationTitle("\(category)")
             .padding()
@@ -42,8 +43,8 @@ struct CategorySearch: View {
     }
 }
 
-struct CategorySearch_Previews: PreviewProvider {
-    static var previews: some View {
-        CategorySearch(category: "Alimentos")
-    }
-}
+//struct CategorySearch_Previews: PreviewProvider {
+//    static var previews: some View {
+//        CategorySearch(category: "Alimentos")
+//    }
+//}
