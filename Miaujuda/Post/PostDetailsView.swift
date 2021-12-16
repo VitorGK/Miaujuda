@@ -6,6 +6,7 @@ struct PostDetailsView: View {
     @State var user: User?
     @AppStorage("userID") var userID: String = ""
     
+    
     let avatarImages: [String] = [
         "profileCat1",
         "profilePug",
@@ -16,7 +17,7 @@ struct PostDetailsView: View {
     var body: some View {
         ScrollView(.vertical) {
             VStack(alignment:.leading){
-                Text(self.petPost.createdAt)
+                Text("Postado em: \(DateFormat().formatDate(ISODate: self.petPost.createdAt))")
                     .font(.subheadline)
                     .foregroundColor(Color.secondary)
                     .padding(.bottom)
