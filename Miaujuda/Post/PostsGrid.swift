@@ -8,12 +8,13 @@ struct PostsGrid: View {
     ]
     
     @State var presentedPetPost: Bool = false
+    @State var postPos: Int = 0
     
     var body: some View {
         LazyVGrid(columns: columns, spacing: 10) {
             ForEach(0..<posts.count, id: \.self) { p in
                 NavigationLink(isActive: $presentedPetPost) {
-                    PostDetailsView(petPost: posts[p], presentedPetPost: $presentedPetPost)
+                    PostDetailsView(petPost: posts[postPos], presentedPetPost: $presentedPetPost)
                 } label: {
                     EmptyView()
                 }
@@ -21,6 +22,7 @@ struct PostsGrid: View {
                 
                 Button {
                     self.presentedPetPost = true
+                    self.postPos = p
                 } label: {
                     PostCard(petPost: posts[p])
                 }
