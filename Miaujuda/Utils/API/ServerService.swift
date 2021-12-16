@@ -110,6 +110,30 @@ class ServerService {
         }
         .resume()
     }
+    
+    // MARK: --- Create User
+    public func createUser(userData: [String: Any], completion: @escaping (Result<User, Error>) -> Void) {
+        let session = URLSession.shared
+        guard let url = URL(string: baseUrl + UrlRoute.user.rawValue) else { return }
+        var request = URLRequest(url: url)
+        request.httpMethod = "POST"
+        guard let httpBody = try? JSONSerialization.data(withJSONObject: userData) else { return }
+        request.httpBody = httpBody
+        request.addValue("application/json", forHTTPHeaderField: "Content-Type")
+        request.addValue("application/json", forHTTPHeaderField: "Accept")
+        
+        session.dataTask(with: request) { data, _, error in
+            if let data = data {
+                do {
+                    let data = try JSONDecoder().decode(User.self, from: data)
+                    completion(.success(data))
+                } catch let error {
+                    completion(.failure(error))
+                }
+            }
+        }
+        .resume()
+    }
 
     // MARK: --- Authenticate User and Get JWT token
     func authenticate(appleID: String, completion: @escaping (Result<[String: Any], Error>) -> Void) {

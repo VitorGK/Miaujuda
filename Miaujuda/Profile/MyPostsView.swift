@@ -8,10 +8,6 @@ struct MyPostsView: View {
     @State var pickerSelectedItemMyPosts: Int = 0
     @State var pickerSelectedItem: Int = 1
     
-    let columns = [
-        GridItem(.adaptive(minimum: 180))
-    ]
-    
     var body: some View {
         ScrollView(.vertical) {
             VStack {

@@ -4,13 +4,15 @@ struct MainView: View {
     @AppStorage("avatar") var avatar: Int = 0
     @AppStorage("userID") var userID: String = ""
     
-    @StateObject var userFetcher = UserFetcher()
+    @ObservedObject var userFetcher = UserFetcher()
     
     @ObservedObject var postViewModel = PostViewModel(postFilter: TypePostFilter())
     
     
     @State private var isPresented: Bool = false
     @State private var isButtonPressed: Bool = false
+    
+    @State var isProfileTapped: Bool = false
     
     let categoriesTitle: [String] = [
         "Alimentos",
@@ -68,22 +70,18 @@ struct MainView: View {
                         }
                     } else {
                         ZStack {
-                            NavigationLink(destination: FormProfileRegView(), isActive: $isButtonPressed) {
-                                EmptyView()
-                            }
-                            .hidden()
-                            
                             Button {
                                 self.isPresented = true
+                                self.isProfileTapped = false
                             } label: {
                                 Image(systemName: "plus")
                                     .imageScale(.large)
                             }
-                            .sheet(isPresented: $isPresented, onDismiss: {
-                                self.isPresented = false
-                            }) {
-                                SignInWithAppleView(isButtonPressed: self.$isButtonPressed)
-                            }
+                        }
+                        .sheet(isPresented: $isPresented, onDismiss: {
+                            self.isPresented = false
+                        }) {
+                            SignInWithAppleView(isPresented: self.$isPresented, isButtonPressed: self.$isButtonPressed)
                         }
                     }
                 }
@@ -123,24 +121,31 @@ struct MainView: View {
                     }
                     else {
                         ZStack {
-                            NavigationLink(destination: FormProfileRegView(), isActive: $isButtonPressed) {
+                            NavigationLink(isActive: $isButtonPressed) {
+                                if isProfileTapped {
+                                    ProfileView()
+                                } else {
+                                    FormPostView()
+                                }
+                            } label: {
                                 EmptyView()
                             }
                             .hidden()
                             
                             Button {
                                 self.isPresented = true
+                                self.isProfileTapped = true
                             } label: {
                                 Image("signOut")
                                     .resizable()
                                     .scaledToFit()
                                     .frame(width: 41, height: 41)
                             }
-                            .sheet(isPresented: $isPresented, onDismiss: {
-                                self.isPresented = false
-                            }) {
-                                SignInWithAppleView(isButtonPressed: self.$isButtonPressed)
-                            }
+                        }
+                        .sheet(isPresented: $isPresented, onDismiss: {
+                            self.isPresented = false
+                        }) {
+                            SignInWithAppleView(isPresented: self.$isPresented, isButtonPressed: self.$isButtonPressed)
                         }
                     }
                 }
