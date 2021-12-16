@@ -4,7 +4,7 @@ import SwiftUI
 struct MiaujudaClipApp: App {
     var body: some Scene {
         WindowGroup {
-        //    MainClip()
+            MainClip()
         }
     }
 }
