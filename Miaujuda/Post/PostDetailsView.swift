@@ -3,9 +3,11 @@ import SwiftUI
 struct PostDetailsView: View {
     var petPost: PetPost
     
-    @State var user: User?
     @AppStorage("userID") var userID: String = ""
     
+    @Binding var presentedPetPost: Bool
+    
+    @State var user: User?    
     
     let avatarImages: [String] = [
         "profileCat1",
@@ -82,9 +84,8 @@ struct PostDetailsView: View {
         .toolbar {
             ToolbarItem(placement: .navigationBarTrailing) {
                 if (self.petPost.userID == userID) {
-                    EditMenu(petPostID: self.petPost._id)
+                    EditMenu(petPostID: self.petPost._id, presentedPetPost: $presentedPetPost)
                 }
-                
             }
         }
         .onAppear {
@@ -104,6 +105,8 @@ struct PostDetailsView: View {
 
 struct EditMenu: View {
     var petPostID: String
+    
+    @Binding var presentedPetPost: Bool
     
     var body: some View {
         Menu {
@@ -132,6 +135,7 @@ struct EditMenu: View {
                     print(error.localizedDescription)
             }
         }
+        self.presentedPetPost = false
     }
     
     func deletar() {
@@ -148,6 +152,7 @@ struct EditMenu: View {
                     print(error.localizedDescription)
             }
         }
+        self.presentedPetPost = false
     }
 }
 

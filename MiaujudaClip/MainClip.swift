@@ -4,31 +4,33 @@ struct MainClip: View {
     @AppStorage("avatar") var avatar: Int = 0
     @AppStorage("userID") var userID: String = ""
     
-   // @ObservedObject var postViewModel: PostViewModel
-
-    @State var pickerSelectedItem: Int = 1
+    @ObservedObject var postViewModel = PostViewModel(postFilter: TypePostFilter())
     
-//    init() {
-//        postViewModel = PostViewModel(filterType: .byType(type: <#T##String#>))
-//    }
+    let categoriesTitle: [String] = [
+        "Alimentos",
+        "Remédios",
+        "Higiene",
+        "Outros"
+    ]
+    let profileImages: [String] = [
+        "profileCat1",
+        "profilePug",
+        "profileDog",
+        "profileCat2"
+    ]
     
     @ViewBuilder
     var body: some View {
         NavigationView {
             ScrollView(.vertical) {
-                
                 VStack {
-                    Picker(selection: $pickerSelectedItem, label: Text("Picker"), content: {
+                    Picker(selection: $postViewModel.pickerSelectedItem, label: Text("Picker"), content: {
                         Text("Necessidades").tag(1)
                         Text("Doações").tag(2)
                     })
                         .pickerStyle(SegmentedPickerStyle())
                     
-//                    if pickerSelectedItem == 1 {
-//                        PostsGrid(posts: filterPosts(type: "Necessidade", posts: postViewModel.posts))
-//                    } else {
-//                        PostsGrid(posts: filterPosts(type: "Doação", posts: postViewModel.posts))
-//                    }
+                    PostsGrid(posts: postViewModel.filteredPosts)
                 }
                 .padding(.leading)
                 .padding(.trailing)
@@ -36,7 +38,6 @@ struct MainClip: View {
                 Spacer()
             }
             .navigationTitle("Postagens")
-            // TODO: Add profile button
             .navigationBarTitleDisplayMode(.large)
         }
     }
@@ -48,8 +49,8 @@ struct MainClip: View {
     }
 }
 
-//struct MainClip_Previews: PreviewProvider {
-//    static var previews: some View {
-//        MainClip()
-//    }
-//}
+struct MainClip_Previews: PreviewProvider {
+    static var previews: some View {
+        MainClip()
+    }
+}
