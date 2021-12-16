@@ -1,3 +1,5 @@
+import Foundation
+
 enum UrlRoute: String {
     case user = "/user/"
     case petPost = "/petpost/"

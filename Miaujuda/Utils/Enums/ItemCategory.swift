@@ -1,3 +1,5 @@
+import Foundation
+
 enum ItemCategory: String {
     case food = "Alimentos"
     case medicine = "Remédios"
