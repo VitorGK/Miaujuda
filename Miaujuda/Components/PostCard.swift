@@ -28,7 +28,7 @@ struct PostCard: View {
             .padding()
             .background(
                 RoundedRectangle(cornerRadius: 0)
-                    .fill((self.petPost.status == "Active") ? Color.activePostYellow : Color.concludedPostGray)
+                    .fill((self.petPost.status == PetPostStatus.active.rawValue) ? Color.activePostYellow : Color.concludedPostGray)
             )
             
             Spacer()

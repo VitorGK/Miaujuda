@@ -12,7 +12,7 @@ struct PetPost: Codable, Hashable {
     var itemName: String
     var itemQuantity: String
     var itemCategory: String
-    var itemExpirationDate: String?
+    var itemExpirationDate: String
     
     func hash(into hasher: inout Hasher) {
         hasher.combine(_id)

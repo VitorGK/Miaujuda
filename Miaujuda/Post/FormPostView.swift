@@ -55,7 +55,7 @@ struct FormPostView: View {
                         }
                     }
                     
-                    if (itemCategory != "Outros" && itemCategory != "") {
+                    if (itemCategory != "Outros" && itemCategory != "" && postType == "Doação") {
                         DatePicker(
                             "Validade",
                             selection: $itemExpirationDate,
