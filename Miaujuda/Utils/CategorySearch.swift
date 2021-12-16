@@ -8,23 +8,11 @@
 import SwiftUI
 
 struct CategorySearch: View {
-    @ObservedObject var postViewModel: PostViewModel
+    @ObservedObject var postViewModel = PostViewModel()
     
-    var category: String
-    let columns = [
-        GridItem(.adaptive(minimum: 180))
-    ]
     @State var pickerSelectedItem: Int = 1
     
-    init(category: String) {
-        self.postViewModel = PostViewModel()
-        self.category = category
-    }
-    
-    //    var posts1: [PetPost] = [
-    //        PetPost(_id: "fdsf", createdAt: Date(), userID: User(createdAt: Date(), appleID: "", avatar: 1, organizationName: "orgname", organizationCategory: "orgCat", organizationZipCode: "orgLocal"), status: "active", type: "Necessidade", title: "titulo do post", description: "miaumiau", item: Item(name: "name item", quantity: "qtd item", category: "Remédios")),
-    //        PetPost(_id: "fdsf", createdAt: Date(), userID: User(createdAt: Date(), appleID: "", avatar: 1, organizationName: "orgname", organizationCategory: "orgCat", organizationZipCode: "orgLocal"), status: "inactive", type: "Doação", title: "titulo do post2", description: "miaumiau", item: Item(name: "outro item", quantity: "qtd item", category: "Alimentos"))
-    //    ]
+    var category: String
     
     //TODO: Exibir os posts filtrados para cada categoria
     var body: some View {
