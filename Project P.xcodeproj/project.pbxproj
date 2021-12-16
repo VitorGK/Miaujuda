@@ -20,7 +20,6 @@
 		A63CAA8B276A3B3300E54D88 /* ServerService.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0282824275ECB4600AB080F /* ServerService.swift */; };
 		A63CAA8C276A3B3F00E54D88 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0146040275FDE7C003B8F36 /* User.swift */; };
 		A63CAA8D276A3B5300E54D88 /* ColorExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0282822275ECB3900AB080F /* ColorExtension.swift */; };
-		A63CAA8E276A3B7900E54D88 /* UserInfos.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8EECD382769311B009C60A0 /* UserInfos.swift */; };
 		A63CAA8F276A3B8200E54D88 /* ItemCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0282837275ECBD200AB080F /* ItemCard.swift */; };
 		A63CAA90276A3BB900E54D88 /* UrlRoute.swift in Sources */ = {isa = PBXBuildFile; fileRef = C07D34D327690F9B0040BF71 /* UrlRoute.swift */; };
 		A63CAA91276A3BE100E54D88 /* ItemCategory.swift in Sources */ = {isa = PBXBuildFile; fileRef = C07D34CF2768F6A70040BF71 /* ItemCategory.swift */; };
@@ -63,8 +62,8 @@
 		C0A81643276A7882007BF82C /* PetPostAndUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0A81640276A77EC007BF82C /* PetPostAndUser.swift */; };
 		C0A81645276A7C13007BF82C /* PostItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0A81644276A7C13007BF82C /* PostItem.swift */; };
 		C0A81646276A7C20007BF82C /* PostItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0A81644276A7C13007BF82C /* PostItem.swift */; };
+		C0D58C2E276AAC2B0097D7C1 /* PetPostStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0EF2532276A269300AB4A93 /* PetPostStatus.swift */; };
 		C0EF2533276A269300AB4A93 /* PetPostStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0EF2532276A269300AB4A93 /* PetPostStatus.swift */; };
-		C8EECD392769311B009C60A0 /* UserInfos.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8EECD382769311B009C60A0 /* UserInfos.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -152,7 +151,6 @@
 		C87D136E27612028008C1477 /* CategorySearch.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategorySearch.swift; sourceTree = "<group>"; };
 		C87D137027627854008C1477 /* PostsGrid.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostsGrid.swift; sourceTree = "<group>"; };
 		C8EECD3627690CC6009C60A0 /* UserFetcher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserFetcher.swift; sourceTree = "<group>"; };
-		C8EECD382769311B009C60A0 /* UserInfos.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserInfos.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -343,7 +341,6 @@
 			children = (
 				C08456DC2767F5EE00E9F1FA /* PostViewModel.swift */,
 				C8EECD3627690CC6009C60A0 /* UserFetcher.swift */,
-				C8EECD382769311B009C60A0 /* UserInfos.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -495,7 +492,6 @@
 				A63CAA88276A3A8100E54D88 /* PostViewModel.swift in Sources */,
 				A63CAA8A276A3B0800E54D88 /* PostCard.swift in Sources */,
 				A63CAA89276A3AFF00E54D88 /* PostDetailsView.swift in Sources */,
-				A63CAA8E276A3B7900E54D88 /* UserInfos.swift in Sources */,
 				A63CAA86276A3A3A00E54D88 /* PostsGrid.swift in Sources */,
 				A63CAA85276A383900E54D88 /* MainClip.swift in Sources */,
 				C0A81643276A7882007BF82C /* PetPostAndUser.swift in Sources */,
@@ -504,6 +500,7 @@
 				A63CAA73276A37BE00E54D88 /* MiaujudaClipApp.swift in Sources */,
 				A63CAA8F276A3B8200E54D88 /* ItemCard.swift in Sources */,
 				A63CAA8C276A3B3F00E54D88 /* User.swift in Sources */,
+				C0D58C2E276AAC2B0097D7C1 /* PetPostStatus.swift in Sources */,
 				A63CAA90276A3BB900E54D88 /* UrlRoute.swift in Sources */,
 				A63CAA8D276A3B5300E54D88 /* ColorExtension.swift in Sources */,
 				C0A81646276A7C20007BF82C /* PostItem.swift in Sources */,
@@ -521,7 +518,6 @@
 				A64CA55D27692CC40018057A /* ItemCard.swift in Sources */,
 				A64CA55727692CAB0018057A /* PostViewModel.swift in Sources */,
 				A64CA56B27692CF10018057A /* CategorySearch.swift in Sources */,
-				C8EECD392769311B009C60A0 /* UserInfos.swift in Sources */,
 				A64CA55C27692CC10018057A /* CategoryItem.swift in Sources */,
 				A64CA56427692CDA0018057A /* SignInWithAppleView.swift in Sources */,
 				A64CA55F27692CCB0018057A /* PostDetailsView.swift in Sources */,
@@ -583,7 +579,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"MiaujudaClip/Preview Content\"";
-				DEVELOPMENT_TEAM = 87UTUM347S;
+				DEVELOPMENT_TEAM = 337G99FP8D;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = MiaujudaClip/Info.plist;
@@ -599,7 +595,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 0.1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.taus.Miaujuda.Clip;
+				PRODUCT_BUNDLE_IDENTIFIER = com.vitorgk.Miaujuda.Clip;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
@@ -616,7 +612,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"MiaujudaClip/Preview Content\"";
-				DEVELOPMENT_TEAM = 87UTUM347S;
+				DEVELOPMENT_TEAM = 337G99FP8D;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = MiaujudaClip/Info.plist;
@@ -632,7 +628,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 0.1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.taus.Miaujuda.Clip;
+				PRODUCT_BUNDLE_IDENTIFIER = com.vitorgk.Miaujuda.Clip;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
@@ -650,7 +646,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"Miaujuda/Preview Content\"";
-				DEVELOPMENT_TEAM = 87UTUM347S;
+				DEVELOPMENT_TEAM = 337G99FP8D;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
@@ -664,7 +660,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 0.1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.taus.Miaujuda;
+				PRODUCT_BUNDLE_IDENTIFIER = com.vitorgk.Miaujuda;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
@@ -682,7 +678,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"Miaujuda/Preview Content\"";
-				DEVELOPMENT_TEAM = 87UTUM347S;
+				DEVELOPMENT_TEAM = 337G99FP8D;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
@@ -696,7 +692,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 0.1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.taus.Miaujuda;
+				PRODUCT_BUNDLE_IDENTIFIER = com.vitorgk.Miaujuda;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
@@ -711,7 +707,7 @@
 				ASSETCATALOG_COMPILER_WIDGET_BACKGROUND_COLOR_NAME = WidgetBackground;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = 87UTUM347S;
+				DEVELOPMENT_TEAM = 337G99FP8D;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = MiaujudaWidget/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = MiaujudaWidget;
@@ -722,7 +718,7 @@
 					"@executable_path/../../Frameworks",
 				);
 				MARKETING_VERSION = 0.1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.taus.Miaujuda.MiaujudaWidget;
+				PRODUCT_BUNDLE_IDENTIFIER = com.vitorgk.Miaujuda.MiaujudaWidget;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
 				SWIFT_EMIT_LOC_STRINGS = YES;
@@ -738,7 +734,7 @@
 				ASSETCATALOG_COMPILER_WIDGET_BACKGROUND_COLOR_NAME = WidgetBackground;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = 87UTUM347S;
+				DEVELOPMENT_TEAM = 337G99FP8D;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = MiaujudaWidget/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = MiaujudaWidget;
@@ -749,7 +745,7 @@
 					"@executable_path/../../Frameworks",
 				);
 				MARKETING_VERSION = 0.1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.taus.Miaujuda.MiaujudaWidget;
+				PRODUCT_BUNDLE_IDENTIFIER = com.vitorgk.Miaujuda.MiaujudaWidget;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
 				SWIFT_EMIT_LOC_STRINGS = YES;
