@@ -8,7 +8,6 @@ struct MainView: View {
     
     @ObservedObject var postViewModel = PostViewModel(postFilter: TypePostFilter())
     
-    
     @State private var isPresented: Bool = false
     @State private var isButtonPressed: Bool = false
     
