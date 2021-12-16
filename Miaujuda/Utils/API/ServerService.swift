@@ -160,4 +160,24 @@ class ServerService {
         }
         .resume()
     }
+    
+    // MARK: --- Delete PetPost
+    func deletePetPost(_ id: String, completion: @escaping (Result<[String: Any], Error>) -> Void) {
+        let session = URLSession.shared
+        guard let url = URL(string: baseUrl + UrlRoute.petPost.rawValue + id) else { return }
+        var request = URLRequest(url: url)
+        request.httpMethod = "DELETE"
+        
+        session.dataTask(with: request) { data, _, error in
+            if let data = data {
+                do {
+                    guard let data = try JSONSerialization.jsonObject(with: data) as? [String: Any] else { return }
+                    completion(.success(data))
+                } catch let error {
+                    completion(.failure(error))
+                }
+            }
+        }
+        .resume()
+    }
 }
