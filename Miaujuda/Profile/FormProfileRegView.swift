@@ -13,6 +13,9 @@ struct FormProfileRegView: View {
     
     @Environment(\.dismiss) private var dismiss
     
+    @Binding var isPresented: Bool
+    @Binding var isButtonPressed: Bool
+    
     @State var avatar: Int = 0
     @State var organizationName: String = ""
     @State var organizationCategory: String = ""
@@ -117,11 +120,14 @@ struct FormProfileRegView: View {
                                 self.phoneDefault = phone
                                 self.websiteDefault = website
                             case .failure(let error):
-                                print("ERRORERRORERRORERRORERRORERROR")
+                                print("Error creating user.")
                                 print(error.localizedDescription)
                         }
                     }
-                    self.dismiss()
+                    self.isPresented = false
+                    DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
+                        self.isButtonPressed = true
+                    }
                 } label: {
                     Text("Concluir")
                 }
@@ -130,8 +136,8 @@ struct FormProfileRegView: View {
     }
 }
 
-struct FormProfileRegView_Previews: PreviewProvider {
-    static var previews: some View {
-        FormProfileRegView()
-    }
-}
+//struct FormProfileRegView_Previews: PreviewProvider {
+//    static var previews: some View {
+//        FormProfileRegView()
+//    }
+//}
