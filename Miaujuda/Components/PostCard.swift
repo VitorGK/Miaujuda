@@ -1,52 +1,55 @@
 import SwiftUI
 
 struct PostCard: View {
-    var post: PetPost
-    @State var user: User? = nil
+    var petPost: PetPost
+    
+    @State var user: User?
     
     var body: some View {
         VStack (alignment: .leading) {
             HStack {
                 VStack(alignment: .leading) {
-                    Text(post.title)
+                    Text(self.petPost.title)
                         .bold()
                     
-                    Text(user?.organizationName ?? "")
+                    Text(self.user?.organizationName ?? "")
                         .font(.subheadline)
                         .foregroundColor(.secondary)
                 }
                 
                 Spacer()
                 
-                if post.status == "Active" { // status = ativo
+                if self.petPost.status == PetPostStatus.active.rawValue {
                     Image(systemName: "clock.fill")
-                } else { // status = inativo
+                } else {
                     Image(systemName: "checkmark.circle.fill")
                 }
             }
             .padding()
             .background(
                 RoundedRectangle(cornerRadius: 0)
-                    .fill((post.status == "Active") ? Color.activePostYellow : Color.concludedPostGray)
+                    .fill((self.petPost.status == "Active") ? Color.activePostYellow : Color.concludedPostGray)
             )
             
-            VStack (alignment: .leading) {
-                Text("\(post.itemName) - \(post.itemQuantity)")
+            Spacer()
+            
+            VStack(alignment: .leading) {
+                Text("\(self.petPost.itemName) - \(self.petPost.itemQuantity)")
                     .padding(.leading)
                 
-                HStack{
+                HStack {
                     Spacer()
                     
-                    Text(user?.organizationZipCode ?? "")
+                    Text(self.user?.organizationZipCode ?? "")
                 }
                 .font(.subheadline)
                 .foregroundColor(.secondary)
                 .padding(.trailing)
                 
-                HStack{
+                HStack {
                     Spacer()
                     
-                    Text(String(post.createdAt))
+                    Text(self.petPost.createdAt)
                 }
                 .font(.subheadline)
                 .foregroundColor(.secondary)
@@ -59,9 +62,9 @@ struct PostCard: View {
         .cornerRadius(15)
         .shadow(radius: 4)
         .onAppear {
-            ServerService.shared.getUser(by: post.userID) { result in
+            ServerService.shared.getUser(by: self.petPost.userID) { result in
                 DispatchQueue.main.async {
-                    switch result{
+                    switch result {
                         case .success(let user):
                             self.user = user
                         case .failure(let error):
