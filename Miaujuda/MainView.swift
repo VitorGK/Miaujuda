@@ -117,7 +117,7 @@ struct MainView: View {
                             NavigationLink {
                                 ProfileView()
                             } label: {
-                                Image(profileImages[avatar])
+                                Image(avatar > -1 ? profileImages[avatar] : "signOut")
                                     .resizable()
                                     .scaledToFit()
                                     .frame(width: 41, height: 41)
